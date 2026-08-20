@@ -31,3 +31,15 @@ tags:
 - show code formating to code blocks — done: fenced preview code blocks now render as labeled, styled code panels; toolbar includes inline-code and code-block insert actions
 - change edit/preview to icon-only and show loaded vault/repo names on the picker buttons — done: the mode switch now uses code/preview icons, Open Vault/Open Repo become the active folder names after loading, and the duplicate workspace target strip before the graph action is removed
 - merge sidebar repo-index stats into the status bar — done: repo indexing/loading/extracted-file status now sits in the bottom status bar next to git state instead of taking a sidebar panel; git branch/status is shown only once
+
+- add recent files menu - a combination of vualt and repo
+- when toggling sort - slide back up to top — done: note tree sort controls now smooth-scroll the list back to the top after changing sort mode/direction
+- show only collapse/epand icon if there's a folder — done: the expand/collapse-all control is hidden until the tree has folders
+- move the graph button right side of the new folder etc group.. rightmost — done: Open Graph now sits at the far right of the note-tree toolbar
+- when making new folder, show the main editor a centered menu with 'New Folder #' and user can edit the folder name — done: New Folder opens a centered naming dialog seeded with the next available `New Folder #`
+- move the 'new note' button under the open and repo buttons — done: New Note now sits directly under the Open Vault/Open Repo controls
+- md files can embed images, the images will automatically saved to Images folder and linked in the md file
+- status bar fix alignment of the graph.json.. make it horizontally scrollable if screen width is tight but do not show scrollbars — done: graph artifact status aligns right on wide screens, and the status bar scrolls horizontally on tight widths with hidden scrollbars
+
+- make the 'new note' a plus icon before the add new folder icon.. same size but primary color — done: New Note is now a primary file-plus icon at the start of the note-tree toolbar, before New Folder
+- when right clicking a file or folder there should be a contect menu 'Rename','Delete','Duplicte','View in Finder', 'Copy Path' — done: notes and folders now have a right-click menu with Rename, Delete, Duplicate, View in Finder, and Copy Path

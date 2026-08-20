@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-08-20T08:50:03.328Z",
+  "generatedAt": "2026-08-20T12:09:23.414Z",
   "vaultPath": "/Users/paulbrettorozco/Documents/Projects/Diamante",
   "sourceRoot": "/Users/paulbrettorozco/Sites/diamante",
   "sourceGit": {
     "isRepo": true,
     "root": "/Users/paulbrettorozco/Sites/diamante",
     "branch": "main",
-    "head": "9ba7645e6835166d5d32d82147067bda2c657b53",
+    "head": "c80b10968cb24d1bce32930c6b45dfef611235ca",
     "dirty": false,
     "changedCount": 0,
     "untrackedCount": 0,
-    "signature": "9ba7645e6835166d5d32d82147067bda2c657b53|",
-    "summary": "main 9ba7645, clean"
+    "signature": "c80b10968cb24d1bce32930c6b45dfef611235ca|",
+    "summary": "main c80b109, clean"
   },
   "stats": {
-    "nodes": 267,
-    "edges": 342,
-    "extracted": 342,
+    "nodes": 265,
+    "edges": 340,
+    "extracted": 340,
     "inferred": 0,
     "manual": 0,
     "communities": 33
@@ -408,40 +408,6 @@
         "diamante_meta": {
           "origin": "repo",
           "root": "/Users/paulbrettorozco/Sites/diamante"
-        }
-      },
-      {
-        "id": "folder:.claude",
-        "label": ".claude",
-        "type": "folder",
-        "file_type": "folder",
-        "path": "/Users/paulbrettorozco/Sites/diamante/.claude",
-        "note_id": "",
-        "source_file": "/Users/paulbrettorozco/Sites/diamante/.claude",
-        "source_location": "",
-        "community": 4,
-        "community_name": "Repository Folders",
-        "diamante_meta": {
-          "origin": "repo",
-          "root": "/Users/paulbrettorozco/Sites/diamante"
-        }
-      },
-      {
-        "id": "file:.claude/scheduled_tasks.lock",
-        "label": "scheduled_tasks.lock",
-        "type": "file",
-        "file_type": "file",
-        "path": "/Users/paulbrettorozco/Sites/diamante/.claude/scheduled_tasks.lock",
-        "note_id": "",
-        "source_file": "/Users/paulbrettorozco/Sites/diamante/.claude/scheduled_tasks.lock",
-        "source_location": "",
-        "community": 1,
-        "community_name": ".lock",
-        "diamante_meta": {
-          "origin": "repo",
-          "extension": "lock",
-          "sizeBytes": 130,
-          "modifiedMs": 1787191566641
         }
       },
       {
@@ -1576,8 +1542,8 @@
         "diamante_meta": {
           "origin": "repo",
           "extension": "rs",
-          "sizeBytes": 22046,
-          "modifiedMs": 1787204884867
+          "sizeBytes": 26138,
+          "modifiedMs": 1787226841855
         }
       },
       {
@@ -1646,8 +1612,8 @@
         "diamante_meta": {
           "origin": "repo",
           "extension": "tsx",
-          "sizeBytes": 52904,
-          "modifiedMs": 1787215606208
+          "sizeBytes": 60709,
+          "modifiedMs": 1787226991988
         }
       },
       {
@@ -1790,8 +1756,8 @@
         "diamante_meta": {
           "origin": "repo",
           "extension": "tsx",
-          "sizeBytes": 7149,
-          "modifiedMs": 1787204305779
+          "sizeBytes": 11322,
+          "modifiedMs": 1787226966817
         }
       },
       {
@@ -1898,8 +1864,8 @@
         "diamante_meta": {
           "origin": "repo",
           "extension": "css",
-          "sizeBytes": 33521,
-          "modifiedMs": 1787215517359
+          "sizeBytes": 35350,
+          "modifiedMs": 1787226952489
         }
       },
       {
@@ -1952,8 +1918,8 @@
         "diamante_meta": {
           "origin": "repo",
           "extension": "ts",
-          "sizeBytes": 3604,
-          "modifiedMs": 1787203340750
+          "sizeBytes": 4513,
+          "modifiedMs": 1787226850197
         }
       },
       {
@@ -5538,28 +5504,6 @@
         "confidence": "EXTRACTED",
         "confidence_score": 1,
         "source_file": "Vault Model.md",
-        "source_location": "",
-        "heading": ""
-      },
-      {
-        "id": "edge:folder::contains:folder:.claude",
-        "source": "folder:",
-        "target": "folder:.claude",
-        "relation": "contains",
-        "confidence": "EXTRACTED",
-        "confidence_score": 1,
-        "source_file": "/Users/paulbrettorozco/Sites/diamante",
-        "source_location": "",
-        "heading": ""
-      },
-      {
-        "id": "edge:folder:.claude:contains:file:.claude/scheduled_tasks.lock",
-        "source": "folder:.claude",
-        "target": "file:.claude/scheduled_tasks.lock",
-        "relation": "contains",
-        "confidence": "EXTRACTED",
-        "confidence_score": 1,
-        "source_file": "/Users/paulbrettorozco/Sites/diamante",
         "source_location": "",
         "heading": ""
       },

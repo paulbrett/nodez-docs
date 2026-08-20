@@ -368,3 +368,38 @@ Prepared the current UI/UX pass for push:
 - app commit `9ba7645` covers Preview editing tools, styled code blocks, compact Edit/Preview icons, loaded vault/repo picker labels, and merged status-bar repo index stats
 - vault notes now reflect the completed TODO items and session history for the UI pass
 - `.diamante/graph.json` remains updated with the latest Graphify-compatible vault/repo graph artifact
+
+## 2026-08-20 Sidebar and Status Bar TODO Batch
+
+Handled the small UI cleanup batch from [[TODO]]:
+
+- moved New Note under the Open Vault/Open Repo picker buttons
+- moved Open Graph into the note-tree toolbar as the rightmost icon action
+- hid the expand/collapse-all folder control when the vault tree has no folders
+- made sort toggles smooth-scroll the note list back to the top
+- replaced the prompt-based New Folder flow with a centered naming dialog seeded as `New Folder #`
+- made the status bar horizontally scrollable on tight screens without visible scrollbars, while keeping `.diamante/graph.json` aligned to the right on wide screens
+
+Remaining open TODOs from this batch:
+
+- recent files menu combining vault notes and repo files
+- Markdown image embeds that save image assets into `Images/` and insert links
+
+## 2026-08-20 Note Tree Context Menu Batch
+
+Handled the newest [[TODO]] items:
+
+- moved New Note into the note-tree toolbar as a primary file-plus icon before New Folder
+- added a right-click context menu for notes and folders with Rename, Delete, Duplicate, View in Finder, and Copy Path
+- added Tauri vault item commands for folder rename/delete, generic note/folder duplicate, and native file-manager reveal
+- kept browser/localStorage fallback behavior for rename/delete/duplicate/copy where possible, with View in Finder gated to the Tauri vault
+
+Still open:
+
+- recent files menu combining vault notes and repo files
+- Markdown image embeds that save assets into `Images/`
+
+Push checkpoint:
+
+- app commit `c80b109` contains the note-tree toolbar move, context menu UI, and Tauri vault item commands
+- verified with `npm run check`, `npm run build`, and `cargo check`
