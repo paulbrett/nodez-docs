@@ -26,3 +26,6 @@ tags:
 - persist selected theme and add more themes — done: selected theme persists in localStorage and Tauri app state; added Graphite, Paper, and Contrast themes
 - add an "add folder" option for notes; refine the collapse/expand icons — done: note tree has New Folder plus one folder-style expand/collapse toggle; newly created nested folders reveal their parent path
 - in graph view, make the toggles icon-only; move the node-type icons and depth/edge/truth controls into a compact dropdown beside the search bar — done: graph mode/origin are icon-only, and node/depth/edge/truth controls live in the filter popover
+
+- user can still edit in preview,, add toggable toolbar for editing markdown file in there
+- show code formating to code blocks
