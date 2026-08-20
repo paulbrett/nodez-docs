@@ -1,3 +1,15 @@
+---
+id: diamante-agents-grok
+title: AGENTS GROK
+type: agent
+status: active
+created: 2026-08-20
+updated: 2026-08-20
+tags:
+  - agents
+  - grok
+---
+
 # App Builder Workspace
 
 **This file is the single source of truth** for the App Builder sandbox contract
@@ -534,7 +546,7 @@ preview — not a design doc, and not a hand-off that needs them to run anything
 - **2D game sprites / animation sheets** (characters, walk cycles, attacks,
   projectiles, FX, props): when gen tools are listed, run **`generate2dsprite`**
   (`.grok/skills/generate2dsprite/SKILL.md`) — solid **`#FF00FF`** magenta sheets
-  + local chroma postprocess scripts. That magenta key is **required** for the
+  and local chroma postprocess scripts. That magenta key is **required** for the
   processor (do not invent a different “keyable” color when using this path).
   Layer **`game-asset-core`** (+ **`game-animation-frames`** /
   **`game-character-consistency`** when relevant) for QC and defaults. When gen
@@ -738,7 +750,7 @@ play end-to-end, but inverted A/D must not ship.
 ### Quality bar
 
 - Cohesive UI — follow the **`design-ui`** skill (tokens, no-slop rules; Tailwind
-  + Radix + lucide where relevant).
+  with Radix and lucide where relevant).
 - Demo-ready on a laptop viewport **and** usable on mobile (390×844: no
   horizontal overflow, touch-friendly) — both audited by the **one combined
   smoke pass**.

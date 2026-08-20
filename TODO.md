@@ -27,5 +27,7 @@ tags:
 - add an "add folder" option for notes; refine the collapse/expand icons — done: note tree has New Folder plus one folder-style expand/collapse toggle; newly created nested folders reveal their parent path
 - in graph view, make the toggles icon-only; move the node-type icons and depth/edge/truth controls into a compact dropdown beside the search bar — done: graph mode/origin are icon-only, and node/depth/edge/truth controls live in the filter popover
 
-- user can still edit in preview,, add toggable toolbar for editing markdown file in there
-- show code formating to code blocks
+- user can still edit in preview,, add toggable toolbar for editing markdown file in there — done: topbar Markdown-tools toggle opens a formatting toolbar; in Preview it also opens a live source drawer under the rendered preview
+- show code formating to code blocks — done: fenced preview code blocks now render as labeled, styled code panels; toolbar includes inline-code and code-block insert actions
+- change edit/preview to icon-only and show loaded vault/repo names on the picker buttons — done: the mode switch now uses code/preview icons, Open Vault/Open Repo become the active folder names after loading, and the duplicate workspace target strip before the graph action is removed
+- merge sidebar repo-index stats into the status bar — done: repo indexing/loading/extracted-file status now sits in the bottom status bar next to git state instead of taking a sidebar panel; git branch/status is shown only once

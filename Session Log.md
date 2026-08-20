@@ -332,3 +332,39 @@ Next planned build sequence:
 2. Mirror graph/query/workspace actions into the MCP/agent surface.
 3. Add source-root watch/rebuild parity with the vault watcher.
 4. Add tree-sitter extraction for C++ and TypeScript/TSX.
+
+## 2026-08-20 Preview Editing Toolbar and Code Blocks
+
+Handled the latest [[TODO]] items:
+
+- added a topbar Markdown-tools toggle for the active note
+- added selection-aware formatting actions in `MarkdownEditor`: bold, italic, H1/H2, link, inline code, fenced code block, quote, bullet list, numbered list, and task list
+- kept Preview readable while allowing edits there: when Markdown tools are open in Preview, Diamante shows the rendered preview plus a live source drawer underneath
+- replaced plain preview code rendering with labeled, styled fenced code panels while keeping inline code styling
+- cleaned minor markdownlint issues in [[Research]] and `AGENTS-GROK.md` that were blocking the docs check
+
+Verified:
+
+- `npm run lint`
+- `npm run build` (passes; Vite still reports the existing large chunk warning)
+- `npm run check`
+- browser smoke check: Preview mode can show the Markdown toolbar, exposes 11 formatting controls, and opens the live source drawer while keeping Preview active
+
+## 2026-08-20 Workspace Picker and Mode Switch Cleanup
+
+Tightened the sidebar and editor controls after the latest UX pass:
+
+- changed the Edit/Preview segmented control to icon-only buttons (`Code2` and preview eye), keeping screen-reader labels and hover titles
+- changed the Open Vault/Open Repo buttons so their visible labels become the loaded vault or repo folder name after selection
+- removed the redundant workspace target strip that sat between the picker buttons and graph action
+- merged the repo index progress/stats notice into the bottom status bar beside git state, removing the remaining sidebar status panel before the note tree
+- removed duplicate git branch/status text from the repo index item so the status bar reads as graph size, git state, index counts, artifact path
+- updated [[TODO]] to mark the cleanup complete
+
+## 2026-08-20 Push Checkpoint
+
+Prepared the current UI/UX pass for push:
+
+- app commit `9ba7645` covers Preview editing tools, styled code blocks, compact Edit/Preview icons, loaded vault/repo picker labels, and merged status-bar repo index stats
+- vault notes now reflect the completed TODO items and session history for the UI pass
+- `.diamante/graph.json` remains updated with the latest Graphify-compatible vault/repo graph artifact

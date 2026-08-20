@@ -1,25 +1,25 @@
 {
-  "generatedAt": "2026-08-20T08:29:27.476Z",
+  "generatedAt": "2026-08-20T08:49:35.316Z",
   "vaultPath": "/Users/paulbrettorozco/Documents/Projects/Diamante",
   "sourceRoot": "/Users/paulbrettorozco/Sites/diamante",
   "sourceGit": {
     "isRepo": true,
     "root": "/Users/paulbrettorozco/Sites/diamante",
     "branch": "main",
-    "head": "6f42791034e32a1e0fd25d36c23c9125ab5d89cd",
+    "head": "9ba7645e6835166d5d32d82147067bda2c657b53",
     "dirty": false,
     "changedCount": 0,
     "untrackedCount": 0,
-    "signature": "6f42791034e32a1e0fd25d36c23c9125ab5d89cd|",
-    "summary": "main 6f42791, clean"
+    "signature": "9ba7645e6835166d5d32d82147067bda2c657b53|",
+    "summary": "main 9ba7645, clean"
   },
   "stats": {
-    "nodes": 261,
-    "edges": 335,
-    "extracted": 335,
+    "nodes": 267,
+    "edges": 342,
+    "extracted": 342,
     "inferred": 0,
     "manual": 0,
-    "communities": 34
+    "communities": 33
   },
   "graph": {
     "directed": false,
@@ -52,7 +52,7 @@
         "source_file": "AGENTS-GROK.md",
         "source_location": "",
         "community": 0,
-        "community_name": "Vault Notes",
+        "community_name": "agent",
         "diamante_meta": {
           "links": 0,
           "tags": 0
@@ -308,7 +308,7 @@
         "source_file": "Research.md",
         "source_location": "",
         "community": 0,
-        "community_name": "Vault Notes",
+        "community_name": "research",
         "diamante_meta": {
           "links": 0,
           "tags": 0
@@ -326,7 +326,7 @@
         "community": 0,
         "community_name": "session-log",
         "diamante_meta": {
-          "links": 13,
+          "links": 14,
           "tags": 0
         }
       },
@@ -545,7 +545,7 @@
           "origin": "repo",
           "extension": "",
           "sizeBytes": 2,
-          "modifiedMs": 1787213888217
+          "modifiedMs": 1787214489100
         }
       },
       {
@@ -600,6 +600,24 @@
           "extension": "diff",
           "sizeBytes": 2445,
           "modifiedMs": 1787212650258
+        }
+      },
+      {
+        "id": "file:.superpowers/sdd/2026-08-20-command-palette-agent-surface/review-32190cd..6f42791.diff",
+        "label": "review-32190cd..6f42791.diff",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/.superpowers/sdd/2026-08-20-command-palette-agent-surface/review-32190cd..6f42791.diff",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.superpowers/sdd/2026-08-20-command-palette-agent-surface/review-32190cd..6f42791.diff",
+        "source_location": "",
+        "community": 1,
+        "community_name": ".diff",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "diff",
+          "sizeBytes": 3069,
+          "modifiedMs": 1787214489139
         }
       },
       {
@@ -904,10 +922,10 @@
         "diamante_meta": {
           "origin": "repo",
           "extension": "md",
-          "sizeBytes": 4215,
-          "modifiedMs": 1787213849689,
+          "sizeBytes": 6213,
+          "modifiedMs": 1787214453821,
           "extractKind": "markdown",
-          "headings": 12
+          "headings": 17
         }
       },
       {
@@ -1628,8 +1646,8 @@
         "diamante_meta": {
           "origin": "repo",
           "extension": "tsx",
-          "sizeBytes": 48860,
-          "modifiedMs": 1787214363002
+          "sizeBytes": 52904,
+          "modifiedMs": 1787215606208
         }
       },
       {
@@ -1736,8 +1754,8 @@
         "diamante_meta": {
           "origin": "repo",
           "extension": "tsx",
-          "sizeBytes": 3199,
-          "modifiedMs": 1787151413150
+          "sizeBytes": 6432,
+          "modifiedMs": 1787214865523
         }
       },
       {
@@ -1880,8 +1898,8 @@
         "diamante_meta": {
           "origin": "repo",
           "extension": "css",
-          "sizeBytes": 32254,
-          "modifiedMs": 1787213473153
+          "sizeBytes": 33521,
+          "modifiedMs": 1787215517359
         }
       },
       {
@@ -3671,6 +3689,86 @@
         }
       },
       {
+        "id": "artifact:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#fix-report-critical-regression-fix",
+        "label": "FIX REPORT: Critical Regression Fix",
+        "type": "artifact",
+        "file_type": "artifact",
+        "path": ".superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#fix-report-critical-regression-fix",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
+        "source_location": "107",
+        "community": 2,
+        "community_name": "Repo Docs",
+        "diamante_meta": {
+          "origin": "repo",
+          "headingDepth": 2
+        }
+      },
+      {
+        "id": "artifact:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#problem-found",
+        "label": "Problem Found",
+        "type": "artifact",
+        "file_type": "artifact",
+        "path": ".superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#problem-found",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
+        "source_location": "109",
+        "community": 2,
+        "community_name": "Repo Docs",
+        "diamante_meta": {
+          "origin": "repo",
+          "headingDepth": 3
+        }
+      },
+      {
+        "id": "artifact:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#fix-applied",
+        "label": "Fix Applied",
+        "type": "artifact",
+        "file_type": "artifact",
+        "path": ".superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#fix-applied",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
+        "source_location": "114",
+        "community": 2,
+        "community_name": "Repo Docs",
+        "diamante_meta": {
+          "origin": "repo",
+          "headingDepth": 3
+        }
+      },
+      {
+        "id": "artifact:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#verification-after-fix",
+        "label": "Verification After Fix",
+        "type": "artifact",
+        "file_type": "artifact",
+        "path": ".superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#verification-after-fix",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
+        "source_location": "119",
+        "community": 2,
+        "community_name": "Repo Docs",
+        "diamante_meta": {
+          "origin": "repo",
+          "headingDepth": 3
+        }
+      },
+      {
+        "id": "artifact:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#result",
+        "label": "Result",
+        "type": "artifact",
+        "file_type": "artifact",
+        "path": ".superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#result",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
+        "source_location": "143",
+        "community": 2,
+        "community_name": "Repo Docs",
+        "diamante_meta": {
+          "origin": "repo",
+          "headingDepth": 3
+        }
+      },
+      {
         "id": "artifact:AGENTS.md#codex-instructions",
         "label": "Codex Instructions",
         "type": "artifact",
@@ -5334,6 +5432,17 @@
         "heading": ""
       },
       {
+        "id": "edge:Session Log.md:links_to:Research.md",
+        "source": "note:Session Log.md",
+        "target": "note:Research.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Session Log.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
         "id": "edge:Tauri Desktop Shell.md:links_to:Decision Log.md",
         "source": "note:Tauri Desktop Shell.md",
         "target": "note:Decision Log.md",
@@ -5546,6 +5655,17 @@
         "id": "edge:folder:.superpowers/sdd/2026-08-20-command-palette-agent-surface:contains:file:.superpowers/sdd/2026-08-20-command-palette-agent-surface/review-2e5b093..532c0e2.diff",
         "source": "folder:.superpowers/sdd/2026-08-20-command-palette-agent-surface",
         "target": "file:.superpowers/sdd/2026-08-20-command-palette-agent-surface/review-2e5b093..532c0e2.diff",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:.superpowers/sdd/2026-08-20-command-palette-agent-surface:contains:file:.superpowers/sdd/2026-08-20-command-palette-agent-surface/review-32190cd..6f42791.diff",
+        "source": "folder:.superpowers/sdd/2026-08-20-command-palette-agent-surface",
+        "target": "file:.superpowers/sdd/2026-08-20-command-palette-agent-surface/review-32190cd..6f42791.diff",
         "relation": "contains",
         "confidence": "EXTRACTED",
         "confidence_score": 1,
@@ -7576,6 +7696,61 @@
         "source_file": "/Users/paulbrettorozco/Sites/diamante/.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
         "source_location": "95",
         "heading": "Files Changed Summary"
+      },
+      {
+        "id": "edge:file:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md:documents:artifact:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#fix-report-critical-regression-fix",
+        "source": "file:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
+        "target": "artifact:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#fix-report-critical-regression-fix",
+        "relation": "documents",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
+        "source_location": "107",
+        "heading": "FIX REPORT: Critical Regression Fix"
+      },
+      {
+        "id": "edge:file:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md:documents:artifact:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#problem-found",
+        "source": "file:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
+        "target": "artifact:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#problem-found",
+        "relation": "documents",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
+        "source_location": "109",
+        "heading": "Problem Found"
+      },
+      {
+        "id": "edge:file:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md:documents:artifact:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#fix-applied",
+        "source": "file:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
+        "target": "artifact:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#fix-applied",
+        "relation": "documents",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
+        "source_location": "114",
+        "heading": "Fix Applied"
+      },
+      {
+        "id": "edge:file:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md:documents:artifact:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#verification-after-fix",
+        "source": "file:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
+        "target": "artifact:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#verification-after-fix",
+        "relation": "documents",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
+        "source_location": "119",
+        "heading": "Verification After Fix"
+      },
+      {
+        "id": "edge:file:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md:documents:artifact:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#result",
+        "source": "file:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
+        "target": "artifact:.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md#result",
+        "relation": "documents",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.superpowers/sdd/2026-08-20-command-palette-agent-surface/task-5-report.md",
+        "source_location": "143",
+        "heading": "Result"
       },
       {
         "id": "edge:file:AGENTS.md:documents:artifact:AGENTS.md#codex-instructions",
