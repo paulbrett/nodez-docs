@@ -1,0 +1,3820 @@
+{
+  "generatedAt": "2026-08-20T06:01:56.583Z",
+  "vaultPath": "/Users/paulbrettorozco/Documents/Projects/Diamante",
+  "sourceRoot": "/Users/paulbrettorozco/Sites/diamante",
+  "sourceGit": {
+    "isRepo": true,
+    "root": "/Users/paulbrettorozco/Sites/diamante",
+    "branch": "main",
+    "head": "34ae235fe07386e0f0161d9e01fc51b46ba2ffc0",
+    "dirty": true,
+    "changedCount": 12,
+    "untrackedCount": 1,
+    "signature": "34ae235fe07386e0f0161d9e01fc51b46ba2ffc0|M README.md\n M src-tauri/src/lib.rs\n M src/App.tsx\n M src/NoteTreeView.tsx\n M src/graph.ts\n M src/noteTree.ts\n M src/sourceGraph.ts\n M src/storage.ts\n M src/styles.css\n M src/types.ts\n M src/vault.ts\n?? _to_delete/",
+    "summary": "main 34ae235, 12 changed"
+  },
+  "stats": {
+    "nodes": 108,
+    "edges": 176,
+    "extracted": 176,
+    "inferred": 0,
+    "manual": 0,
+    "communities": 32
+  },
+  "graph": {
+    "directed": false,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+      {
+        "id": "note:AGENTS.md",
+        "label": "AGENTS",
+        "type": "note",
+        "file_type": "note",
+        "path": "AGENTS.md",
+        "note_id": "AGENTS.md",
+        "source_file": "AGENTS.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "agent",
+        "diamante_meta": {
+          "links": 0,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Architecture.md",
+        "label": "Architecture",
+        "type": "component",
+        "file_type": "component",
+        "path": "Architecture.md",
+        "note_id": "Architecture.md",
+        "source_file": "Architecture.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "architecture",
+        "diamante_meta": {
+          "links": 4,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Backlinks and Indexing.md",
+        "label": "Backlinks and Indexing",
+        "type": "component",
+        "file_type": "component",
+        "path": "Backlinks and Indexing.md",
+        "note_id": "Backlinks and Indexing.md",
+        "source_file": "Backlinks and Indexing.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "architecture",
+        "diamante_meta": {
+          "links": 3,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Backlog.md",
+        "label": "Backlog",
+        "type": "note",
+        "file_type": "note",
+        "path": "Backlog.md",
+        "note_id": "Backlog.md",
+        "source_file": "Backlog.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "backlog",
+        "diamante_meta": {
+          "links": 1,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Decision Log.md",
+        "label": "Decision Log",
+        "type": "note",
+        "file_type": "note",
+        "path": "Decision Log.md",
+        "note_id": "Decision Log.md",
+        "source_file": "Decision Log.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "decision-log",
+        "diamante_meta": {
+          "links": 2,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Frontend.md",
+        "label": "Frontend",
+        "type": "note",
+        "file_type": "note",
+        "path": "Frontend.md",
+        "note_id": "Frontend.md",
+        "source_file": "Frontend.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "agent",
+        "diamante_meta": {
+          "links": 0,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:GitHub Sync.md",
+        "label": "GitHub Sync",
+        "type": "note",
+        "file_type": "note",
+        "path": "GitHub Sync.md",
+        "note_id": "GitHub Sync.md",
+        "source_file": "GitHub Sync.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "sync",
+        "diamante_meta": {
+          "links": 2,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Graphify Tech Research.md",
+        "label": "Graphify Tech Research",
+        "type": "note",
+        "file_type": "note",
+        "path": "Graphify Tech Research.md",
+        "note_id": "Graphify Tech Research.md",
+        "source_file": "Graphify Tech Research.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "research",
+        "diamante_meta": {
+          "links": 8,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Home.md",
+        "label": "Home",
+        "type": "note",
+        "file_type": "note",
+        "path": "Home.md",
+        "note_id": "Home.md",
+        "source_file": "Home.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "docs-index",
+        "diamante_meta": {
+          "links": 13,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Next Steps.md",
+        "label": "Next Steps",
+        "type": "note",
+        "file_type": "note",
+        "path": "Next Steps.md",
+        "note_id": "Next Steps.md",
+        "source_file": "Next Steps.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "roadmap",
+        "diamante_meta": {
+          "links": 8,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Product Roadmap.md",
+        "label": "Product Roadmap",
+        "type": "note",
+        "file_type": "note",
+        "path": "Product Roadmap.md",
+        "note_id": "Product Roadmap.md",
+        "source_file": "Product Roadmap.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "roadmap",
+        "diamante_meta": {
+          "links": 3,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Project Overview.md",
+        "label": "Project Overview",
+        "type": "note",
+        "file_type": "note",
+        "path": "Project Overview.md",
+        "note_id": "Project Overview.md",
+        "source_file": "Project Overview.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "overview",
+        "diamante_meta": {
+          "links": 5,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:README.md",
+        "label": "README",
+        "type": "note",
+        "file_type": "note",
+        "path": "README.md",
+        "note_id": "README.md",
+        "source_file": "README.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "docs-index",
+        "diamante_meta": {
+          "links": 14,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Repo Indexing.md",
+        "label": "Repo Indexing",
+        "type": "component",
+        "file_type": "component",
+        "path": "Repo Indexing.md",
+        "note_id": "Repo Indexing.md",
+        "source_file": "Repo Indexing.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "architecture",
+        "diamante_meta": {
+          "links": 6,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Repo Indexing Phase 6a.md",
+        "label": "Repo Indexing Phase 6a",
+        "type": "component",
+        "file_type": "component",
+        "path": "Repo Indexing Phase 6a.md",
+        "note_id": "Repo Indexing Phase 6a.md",
+        "source_file": "Repo Indexing Phase 6a.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "architecture",
+        "diamante_meta": {
+          "links": 5,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Session Log.md",
+        "label": "Session Log",
+        "type": "note",
+        "file_type": "note",
+        "path": "Session Log.md",
+        "note_id": "Session Log.md",
+        "source_file": "Session Log.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "session-log",
+        "diamante_meta": {
+          "links": 13,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Tauri Desktop Shell.md",
+        "label": "Tauri Desktop Shell",
+        "type": "component",
+        "file_type": "component",
+        "path": "Tauri Desktop Shell.md",
+        "note_id": "Tauri Desktop Shell.md",
+        "source_file": "Tauri Desktop Shell.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "architecture",
+        "diamante_meta": {
+          "links": 1,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:TODO.md",
+        "label": "TODO",
+        "type": "note",
+        "file_type": "note",
+        "path": "TODO.md",
+        "note_id": "TODO.md",
+        "source_file": "TODO.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "backlog",
+        "diamante_meta": {
+          "links": 1,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Unified Knowledge System.md",
+        "label": "Unified Knowledge System",
+        "type": "note",
+        "file_type": "note",
+        "path": "Unified Knowledge System.md",
+        "note_id": "Unified Knowledge System.md",
+        "source_file": "Unified Knowledge System.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "workflow",
+        "diamante_meta": {
+          "links": 5,
+          "tags": 0
+        }
+      },
+      {
+        "id": "note:Vault Model.md",
+        "label": "Vault Model",
+        "type": "note",
+        "file_type": "note",
+        "path": "Vault Model.md",
+        "note_id": "Vault Model.md",
+        "source_file": "Vault Model.md",
+        "source_location": "",
+        "community": 0,
+        "community_name": "vault",
+        "diamante_meta": {
+          "links": 4,
+          "tags": 0
+        }
+      },
+      {
+        "id": "folder:",
+        "label": "diamante",
+        "type": "folder",
+        "file_type": "folder",
+        "path": "/Users/paulbrettorozco/Sites/diamante",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "community": 8,
+        "community_name": "Repository",
+        "diamante_meta": {
+          "origin": "repo",
+          "root": "/Users/paulbrettorozco/Sites/diamante"
+        }
+      },
+      {
+        "id": "folder:.claude",
+        "label": ".claude",
+        "type": "folder",
+        "file_type": "folder",
+        "path": "/Users/paulbrettorozco/Sites/diamante/.claude",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.claude",
+        "source_location": "",
+        "community": 4,
+        "community_name": "Repository Folders",
+        "diamante_meta": {
+          "origin": "repo",
+          "root": "/Users/paulbrettorozco/Sites/diamante"
+        }
+      },
+      {
+        "id": "file:.claude/scheduled_tasks.lock",
+        "label": "scheduled_tasks.lock",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/.claude/scheduled_tasks.lock",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.claude/scheduled_tasks.lock",
+        "source_location": "",
+        "community": 1,
+        "community_name": ".lock",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "lock",
+          "sizeBytes": 130,
+          "modifiedMs": 1787191566641
+        }
+      },
+      {
+        "id": "file:.gitignore",
+        "label": ".gitignore",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/.gitignore",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.gitignore",
+        "source_location": "",
+        "community": 9,
+        "community_name": "Files",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "",
+          "sizeBytes": 391,
+          "modifiedMs": 1787151142098
+        }
+      },
+      {
+        "id": "file:.markdownlint-cli2.yaml",
+        "label": ".markdownlint-cli2.yaml",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/.markdownlint-cli2.yaml",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.markdownlint-cli2.yaml",
+        "source_location": "",
+        "community": 3,
+        "community_name": ".yaml",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "yaml",
+          "sizeBytes": 225,
+          "modifiedMs": 1787152392261
+        }
+      },
+      {
+        "id": "file:.mcp.json",
+        "label": ".mcp.json",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/.mcp.json",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/.mcp.json",
+        "source_location": "",
+        "community": 2,
+        "community_name": ".json",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "json",
+          "sizeBytes": 225,
+          "modifiedMs": 1787158114291
+        }
+      },
+      {
+        "id": "folder:_to_delete",
+        "label": "_to_delete",
+        "type": "folder",
+        "file_type": "folder",
+        "path": "/Users/paulbrettorozco/Sites/diamante/_to_delete",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/_to_delete",
+        "source_location": "",
+        "community": 4,
+        "community_name": "Repository Folders",
+        "diamante_meta": {
+          "origin": "repo",
+          "root": "/Users/paulbrettorozco/Sites/diamante"
+        }
+      },
+      {
+        "id": "file:_to_delete/VaultGraph.tsx",
+        "label": "VaultGraph.tsx",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/_to_delete/VaultGraph.tsx",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/_to_delete/VaultGraph.tsx",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".tsx",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "tsx",
+          "sizeBytes": 14685,
+          "modifiedMs": 1787188672446
+        }
+      },
+      {
+        "id": "file:AGENTS.md",
+        "label": "AGENTS.md",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/AGENTS.md",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/AGENTS.md",
+        "source_location": "",
+        "community": 1,
+        "community_name": ".md",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "md",
+          "sizeBytes": 864,
+          "modifiedMs": 1787152843943,
+          "extractKind": "markdown",
+          "headings": 1
+        }
+      },
+      {
+        "id": "file:index.html",
+        "label": "index.html",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/index.html",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/index.html",
+        "source_location": "",
+        "community": 5,
+        "community_name": ".html",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "html",
+          "sizeBytes": 301,
+          "modifiedMs": 1787151142101
+        }
+      },
+      {
+        "id": "file:package-lock.json",
+        "label": "package-lock.json",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/package-lock.json",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package-lock.json",
+        "source_location": "",
+        "community": 2,
+        "community_name": ".json",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "json",
+          "sizeBytes": 129273,
+          "modifiedMs": 1787196043353
+        }
+      },
+      {
+        "id": "file:package.json",
+        "label": "package.json",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 2,
+        "community_name": ".json",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "json",
+          "sizeBytes": 1222,
+          "modifiedMs": 1787196043332
+        }
+      },
+      {
+        "id": "file:README.md",
+        "label": "README.md",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/README.md",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/README.md",
+        "source_location": "",
+        "community": 1,
+        "community_name": ".md",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "md",
+          "sizeBytes": 3350,
+          "modifiedMs": 1787205170863,
+          "extractKind": "markdown",
+          "headings": 6
+        }
+      },
+      {
+        "id": "folder:scripts",
+        "label": "scripts",
+        "type": "folder",
+        "file_type": "folder",
+        "path": "/Users/paulbrettorozco/Sites/diamante/scripts",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/scripts",
+        "source_location": "",
+        "community": 0,
+        "community_name": "Repository Folders",
+        "diamante_meta": {
+          "origin": "repo",
+          "root": "/Users/paulbrettorozco/Sites/diamante"
+        }
+      },
+      {
+        "id": "file:scripts/check-docs.mjs",
+        "label": "check-docs.mjs",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/scripts/check-docs.mjs",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/scripts/check-docs.mjs",
+        "source_location": "",
+        "community": 2,
+        "community_name": ".mjs",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "mjs",
+          "sizeBytes": 2257,
+          "modifiedMs": 1787156030759
+        }
+      },
+      {
+        "id": "file:scripts/diamante-mcp.mjs",
+        "label": "diamante-mcp.mjs",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/scripts/diamante-mcp.mjs",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/scripts/diamante-mcp.mjs",
+        "source_location": "",
+        "community": 2,
+        "community_name": ".mjs",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "mjs",
+          "sizeBytes": 16897,
+          "modifiedMs": 1787158114199
+        }
+      },
+      {
+        "id": "folder:src-tauri",
+        "label": "src-tauri",
+        "type": "folder",
+        "file_type": "folder",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri",
+        "source_location": "",
+        "community": 2,
+        "community_name": "Repository Folders",
+        "diamante_meta": {
+          "origin": "repo",
+          "root": "/Users/paulbrettorozco/Sites/diamante"
+        }
+      },
+      {
+        "id": "file:src-tauri/.gitignore",
+        "label": ".gitignore",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/.gitignore",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/.gitignore",
+        "source_location": "",
+        "community": 9,
+        "community_name": "Files",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "",
+          "sizeBytes": 21,
+          "modifiedMs": 1787190777713
+        }
+      },
+      {
+        "id": "file:src-tauri/build.rs",
+        "label": "build.rs",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/build.rs",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/build.rs",
+        "source_location": "",
+        "community": 5,
+        "community_name": ".rs",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "rs",
+          "sizeBytes": 39,
+          "modifiedMs": 1787190776724
+        }
+      },
+      {
+        "id": "folder:src-tauri/capabilities",
+        "label": "capabilities",
+        "type": "folder",
+        "file_type": "folder",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/capabilities",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/capabilities",
+        "source_location": "",
+        "community": 3,
+        "community_name": "Repository Folders",
+        "diamante_meta": {
+          "origin": "repo",
+          "root": "/Users/paulbrettorozco/Sites/diamante"
+        }
+      },
+      {
+        "id": "file:src-tauri/capabilities/default.json",
+        "label": "default.json",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/capabilities/default.json",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/capabilities/default.json",
+        "source_location": "",
+        "community": 2,
+        "community_name": ".json",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "json",
+          "sizeBytes": 266,
+          "modifiedMs": 1787190779320
+        }
+      },
+      {
+        "id": "file:src-tauri/Cargo.lock",
+        "label": "Cargo.lock",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/Cargo.lock",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/Cargo.lock",
+        "source_location": "",
+        "community": 1,
+        "community_name": ".lock",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "lock",
+          "sizeBytes": 117881,
+          "modifiedMs": 1787191692157
+        }
+      },
+      {
+        "id": "file:src-tauri/Cargo.toml",
+        "label": "Cargo.toml",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/Cargo.toml",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/Cargo.toml",
+        "source_location": "",
+        "community": 4,
+        "community_name": ".toml",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "toml",
+          "sizeBytes": 531,
+          "modifiedMs": 1787190776112
+        }
+      },
+      {
+        "id": "folder:src-tauri/gen",
+        "label": "gen",
+        "type": "folder",
+        "file_type": "folder",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/gen",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/gen",
+        "source_location": "",
+        "community": 3,
+        "community_name": "Repository Folders",
+        "diamante_meta": {
+          "origin": "repo",
+          "root": "/Users/paulbrettorozco/Sites/diamante"
+        }
+      },
+      {
+        "id": "folder:src-tauri/gen/schemas",
+        "label": "schemas",
+        "type": "folder",
+        "file_type": "folder",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/gen/schemas",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/gen/schemas",
+        "source_location": "",
+        "community": 6,
+        "community_name": "Repository Folders",
+        "diamante_meta": {
+          "origin": "repo",
+          "root": "/Users/paulbrettorozco/Sites/diamante"
+        }
+      },
+      {
+        "id": "file:src-tauri/gen/schemas/acl-manifests.json",
+        "label": "acl-manifests.json",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/gen/schemas/acl-manifests.json",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/gen/schemas/acl-manifests.json",
+        "source_location": "",
+        "community": 2,
+        "community_name": ".json",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "json",
+          "sizeBytes": 68210,
+          "modifiedMs": 1787191785843
+        }
+      },
+      {
+        "id": "file:src-tauri/gen/schemas/capabilities.json",
+        "label": "capabilities.json",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/gen/schemas/capabilities.json",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/gen/schemas/capabilities.json",
+        "source_location": "",
+        "community": 2,
+        "community_name": ".json",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "json",
+          "sizeBytes": 204,
+          "modifiedMs": 1787191785849
+        }
+      },
+      {
+        "id": "file:src-tauri/gen/schemas/desktop-schema.json",
+        "label": "desktop-schema.json",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/gen/schemas/desktop-schema.json",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/gen/schemas/desktop-schema.json",
+        "source_location": "",
+        "community": 2,
+        "community_name": ".json",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "json",
+          "sizeBytes": 120083,
+          "modifiedMs": 1787191785848
+        }
+      },
+      {
+        "id": "file:src-tauri/gen/schemas/macOS-schema.json",
+        "label": "macOS-schema.json",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/gen/schemas/macOS-schema.json",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/gen/schemas/macOS-schema.json",
+        "source_location": "",
+        "community": 2,
+        "community_name": ".json",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "json",
+          "sizeBytes": 120083,
+          "modifiedMs": 1787191785848
+        }
+      },
+      {
+        "id": "folder:src-tauri/icons",
+        "label": "icons",
+        "type": "folder",
+        "file_type": "folder",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/icons",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/icons",
+        "source_location": "",
+        "community": 5,
+        "community_name": "Repository Folders",
+        "diamante_meta": {
+          "origin": "repo",
+          "root": "/Users/paulbrettorozco/Sites/diamante"
+        }
+      },
+      {
+        "id": "file:src-tauri/icons/128x128.png",
+        "label": "128x128.png",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/icons/128x128.png",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/icons/128x128.png",
+        "source_location": "",
+        "community": 5,
+        "community_name": ".png",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "png",
+          "sizeBytes": 4768,
+          "modifiedMs": 1787190782451
+        }
+      },
+      {
+        "id": "file:src-tauri/icons/128x128@2x.png",
+        "label": "128x128@2x.png",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/icons/128x128@2x.png",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/icons/128x128@2x.png",
+        "source_location": "",
+        "community": 5,
+        "community_name": ".png",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "png",
+          "sizeBytes": 8706,
+          "modifiedMs": 1787190782962
+        }
+      },
+      {
+        "id": "file:src-tauri/icons/32x32.png",
+        "label": "32x32.png",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/icons/32x32.png",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/icons/32x32.png",
+        "source_location": "",
+        "community": 5,
+        "community_name": ".png",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "png",
+          "sizeBytes": 1373,
+          "modifiedMs": 1787190781833
+        }
+      },
+      {
+        "id": "file:src-tauri/icons/icon.icns",
+        "label": "icon.icns",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/icons/icon.icns",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/icons/icon.icns",
+        "source_location": "",
+        "community": 5,
+        "community_name": ".icns",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "icns",
+          "sizeBytes": 107125,
+          "modifiedMs": 1787190785197
+        }
+      },
+      {
+        "id": "file:src-tauri/icons/icon.ico",
+        "label": "icon.ico",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/icons/icon.ico",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/icons/icon.ico",
+        "source_location": "",
+        "community": 3,
+        "community_name": ".ico",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "ico",
+          "sizeBytes": 20233,
+          "modifiedMs": 1787190784277
+        }
+      },
+      {
+        "id": "file:src-tauri/icons/icon.png",
+        "label": "icon.png",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/icons/icon.png",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/icons/icon.png",
+        "source_location": "",
+        "community": 5,
+        "community_name": ".png",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "png",
+          "sizeBytes": 16133,
+          "modifiedMs": 1787190783554
+        }
+      },
+      {
+        "id": "folder:src-tauri/src",
+        "label": "src",
+        "type": "folder",
+        "file_type": "folder",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/src",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/src",
+        "source_location": "",
+        "community": 1,
+        "community_name": "Repository Folders",
+        "diamante_meta": {
+          "origin": "repo",
+          "root": "/Users/paulbrettorozco/Sites/diamante"
+        }
+      },
+      {
+        "id": "file:src-tauri/src/lib.rs",
+        "label": "lib.rs",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/src/lib.rs",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/src/lib.rs",
+        "source_location": "",
+        "community": 5,
+        "community_name": ".rs",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "rs",
+          "sizeBytes": 22046,
+          "modifiedMs": 1787204884867
+        }
+      },
+      {
+        "id": "file:src-tauri/src/main.rs",
+        "label": "main.rs",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/src/main.rs",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/src/main.rs",
+        "source_location": "",
+        "community": 5,
+        "community_name": ".rs",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "rs",
+          "sizeBytes": 165,
+          "modifiedMs": 1787190778752
+        }
+      },
+      {
+        "id": "file:src-tauri/tauri.conf.json",
+        "label": "tauri.conf.json",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src-tauri/tauri.conf.json",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src-tauri/tauri.conf.json",
+        "source_location": "",
+        "community": 2,
+        "community_name": ".json",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "json",
+          "sizeBytes": 745,
+          "modifiedMs": 1787190777201
+        }
+      },
+      {
+        "id": "folder:src",
+        "label": "src",
+        "type": "folder",
+        "file_type": "folder",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src",
+        "source_location": "",
+        "community": 0,
+        "community_name": "Repository Folders",
+        "diamante_meta": {
+          "origin": "repo",
+          "root": "/Users/paulbrettorozco/Sites/diamante"
+        }
+      },
+      {
+        "id": "file:src/App.tsx",
+        "label": "App.tsx",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/App.tsx",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/App.tsx",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".tsx",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "tsx",
+          "sizeBytes": 47809,
+          "modifiedMs": 1787204924434
+        }
+      },
+      {
+        "id": "file:src/graph.ts",
+        "label": "graph.ts",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/graph.ts",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/graph.ts",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".ts",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "ts",
+          "sizeBytes": 18049,
+          "modifiedMs": 1787204918305
+        }
+      },
+      {
+        "id": "file:src/GraphifyNetwork.tsx",
+        "label": "GraphifyNetwork.tsx",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/GraphifyNetwork.tsx",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/GraphifyNetwork.tsx",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".tsx",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "tsx",
+          "sizeBytes": 21261,
+          "modifiedMs": 1787189422957
+        }
+      },
+      {
+        "id": "file:src/main.tsx",
+        "label": "main.tsx",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/main.tsx",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/main.tsx",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".tsx",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "tsx",
+          "sizeBytes": 241,
+          "modifiedMs": 1787151142102
+        }
+      },
+      {
+        "id": "file:src/MarkdownEditor.tsx",
+        "label": "MarkdownEditor.tsx",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/MarkdownEditor.tsx",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/MarkdownEditor.tsx",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".tsx",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "tsx",
+          "sizeBytes": 3199,
+          "modifiedMs": 1787151413150
+        }
+      },
+      {
+        "id": "file:src/noteTree.ts",
+        "label": "noteTree.ts",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/noteTree.ts",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/noteTree.ts",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".ts",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "ts",
+          "sizeBytes": 3189,
+          "modifiedMs": 1787203862535
+        }
+      },
+      {
+        "id": "file:src/NoteTreeView.tsx",
+        "label": "NoteTreeView.tsx",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/NoteTreeView.tsx",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/NoteTreeView.tsx",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".tsx",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "tsx",
+          "sizeBytes": 7149,
+          "modifiedMs": 1787204305779
+        }
+      },
+      {
+        "id": "file:src/noteUtils.ts",
+        "label": "noteUtils.ts",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/noteUtils.ts",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/noteUtils.ts",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".ts",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "ts",
+          "sizeBytes": 1846,
+          "modifiedMs": 1787192481802
+        }
+      },
+      {
+        "id": "file:src/seed.ts",
+        "label": "seed.ts",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/seed.ts",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/seed.ts",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".ts",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "ts",
+          "sizeBytes": 3677,
+          "modifiedMs": 1787160122401
+        }
+      },
+      {
+        "id": "file:src/sourceGraph.ts",
+        "label": "sourceGraph.ts",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/sourceGraph.ts",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/sourceGraph.ts",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".ts",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "ts",
+          "sizeBytes": 11687,
+          "modifiedMs": 1787204848066
+        }
+      },
+      {
+        "id": "file:src/sourceRoot.ts",
+        "label": "sourceRoot.ts",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/sourceRoot.ts",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/sourceRoot.ts",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".ts",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "ts",
+          "sizeBytes": 1066,
+          "modifiedMs": 1787195682648
+        }
+      },
+      {
+        "id": "file:src/storage.ts",
+        "label": "storage.ts",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/storage.ts",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/storage.ts",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".ts",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "ts",
+          "sizeBytes": 1253,
+          "modifiedMs": 1787202252393
+        }
+      },
+      {
+        "id": "file:src/styles.css",
+        "label": "styles.css",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/styles.css",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/styles.css",
+        "source_location": "",
+        "community": 1,
+        "community_name": ".css",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "css",
+          "sizeBytes": 31409,
+          "modifiedMs": 1787204412360
+        }
+      },
+      {
+        "id": "file:src/types.ts",
+        "label": "types.ts",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/types.ts",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/types.ts",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".ts",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "ts",
+          "sizeBytes": 2063,
+          "modifiedMs": 1787204791903
+        }
+      },
+      {
+        "id": "file:src/useVault.ts",
+        "label": "useVault.ts",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/useVault.ts",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/useVault.ts",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".ts",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "ts",
+          "sizeBytes": 1000,
+          "modifiedMs": 1787190780372
+        }
+      },
+      {
+        "id": "file:src/vault.ts",
+        "label": "vault.ts",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/src/vault.ts",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/src/vault.ts",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".ts",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "ts",
+          "sizeBytes": 3604,
+          "modifiedMs": 1787203340750
+        }
+      },
+      {
+        "id": "file:tsconfig.json",
+        "label": "tsconfig.json",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/tsconfig.json",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/tsconfig.json",
+        "source_location": "",
+        "community": 2,
+        "community_name": ".json",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "json",
+          "sizeBytes": 524,
+          "modifiedMs": 1787151142102
+        }
+      },
+      {
+        "id": "file:vite.config.ts",
+        "label": "vite.config.ts",
+        "type": "file",
+        "file_type": "file",
+        "path": "/Users/paulbrettorozco/Sites/diamante/vite.config.ts",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/vite.config.ts",
+        "source_location": "",
+        "community": 7,
+        "community_name": ".ts",
+        "diamante_meta": {
+          "origin": "repo",
+          "extension": "ts",
+          "sizeBytes": 167,
+          "modifiedMs": 1787151142102
+        }
+      },
+      {
+        "id": "artifact:AGENTS.md#codex-instructions",
+        "label": "Codex Instructions",
+        "type": "artifact",
+        "file_type": "artifact",
+        "path": "AGENTS.md#codex-instructions",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/AGENTS.md",
+        "source_location": "1",
+        "community": 1,
+        "community_name": "Repo Docs",
+        "diamante_meta": {
+          "origin": "repo",
+          "headingDepth": 1
+        }
+      },
+      {
+        "id": "package:diamante-notes",
+        "label": "diamante-notes",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 10,
+        "community_name": "Packages",
+        "diamante_meta": {
+          "origin": "repo",
+          "version": "0.1.0",
+          "manifest": "package.json"
+        }
+      },
+      {
+        "id": "package:@codemirror/commands",
+        "label": "@codemirror/commands",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^6.7.1"
+        }
+      },
+      {
+        "id": "package:@codemirror/lang-markdown",
+        "label": "@codemirror/lang-markdown",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^6.3.2"
+        }
+      },
+      {
+        "id": "package:@codemirror/language",
+        "label": "@codemirror/language",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^6.10.8"
+        }
+      },
+      {
+        "id": "package:@codemirror/state",
+        "label": "@codemirror/state",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^6.5.2"
+        }
+      },
+      {
+        "id": "package:@codemirror/view",
+        "label": "@codemirror/view",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^6.38.1"
+        }
+      },
+      {
+        "id": "package:@lezer/highlight",
+        "label": "@lezer/highlight",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^1.2.1"
+        }
+      },
+      {
+        "id": "package:@tauri-apps/api",
+        "label": "@tauri-apps/api",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^2"
+        }
+      },
+      {
+        "id": "package:@tauri-apps/plugin-dialog",
+        "label": "@tauri-apps/plugin-dialog",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^2"
+        }
+      },
+      {
+        "id": "package:codemirror",
+        "label": "codemirror",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^6.0.1"
+        }
+      },
+      {
+        "id": "package:lucide-react",
+        "label": "lucide-react",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^0.468.0"
+        }
+      },
+      {
+        "id": "package:marked",
+        "label": "marked",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^13.0.3"
+        }
+      },
+      {
+        "id": "package:react",
+        "label": "react",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^18.3.1"
+        }
+      },
+      {
+        "id": "package:react-dom",
+        "label": "react-dom",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^18.3.1"
+        }
+      },
+      {
+        "id": "package:@tauri-apps/cli",
+        "label": "@tauri-apps/cli",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^2"
+        }
+      },
+      {
+        "id": "package:@types/react",
+        "label": "@types/react",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^18.3.18"
+        }
+      },
+      {
+        "id": "package:@types/react-dom",
+        "label": "@types/react-dom",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^18.3.5"
+        }
+      },
+      {
+        "id": "package:@vitejs/plugin-react",
+        "label": "@vitejs/plugin-react",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^4.3.4"
+        }
+      },
+      {
+        "id": "package:markdownlint-cli2",
+        "label": "markdownlint-cli2",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^0.23.2"
+        }
+      },
+      {
+        "id": "package:typescript",
+        "label": "typescript",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^5.7.3"
+        }
+      },
+      {
+        "id": "package:vite",
+        "label": "vite",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^6.0.7"
+        }
+      },
+      {
+        "id": "package:yaml",
+        "label": "yaml",
+        "type": "package",
+        "file_type": "package",
+        "path": "",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "community": 11,
+        "community_name": "Dependencies",
+        "diamante_meta": {
+          "origin": "repo",
+          "dependency": true,
+          "version": "^2.9.0"
+        }
+      },
+      {
+        "id": "artifact:README.md#diamante-notes",
+        "label": "Diamante Notes",
+        "type": "artifact",
+        "file_type": "artifact",
+        "path": "README.md#diamante-notes",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/README.md",
+        "source_location": "1",
+        "community": 5,
+        "community_name": "Repo Docs",
+        "diamante_meta": {
+          "origin": "repo",
+          "headingDepth": 1
+        }
+      },
+      {
+        "id": "artifact:README.md#folder-convention",
+        "label": "Folder Convention",
+        "type": "artifact",
+        "file_type": "artifact",
+        "path": "README.md#folder-convention",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/README.md",
+        "source_location": "5",
+        "community": 5,
+        "community_name": "Repo Docs",
+        "diamante_meta": {
+          "origin": "repo",
+          "headingDepth": 2
+        }
+      },
+      {
+        "id": "artifact:README.md#features",
+        "label": "Features",
+        "type": "artifact",
+        "file_type": "artifact",
+        "path": "README.md#features",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/README.md",
+        "source_location": "21",
+        "community": 5,
+        "community_name": "Repo Docs",
+        "diamante_meta": {
+          "origin": "repo",
+          "headingDepth": 2
+        }
+      },
+      {
+        "id": "artifact:README.md#getting-started",
+        "label": "Getting Started",
+        "type": "artifact",
+        "file_type": "artifact",
+        "path": "README.md#getting-started",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/README.md",
+        "source_location": "40",
+        "community": 5,
+        "community_name": "Repo Docs",
+        "diamante_meta": {
+          "origin": "repo",
+          "headingDepth": 2
+        }
+      },
+      {
+        "id": "artifact:README.md#project-structure",
+        "label": "Project Structure",
+        "type": "artifact",
+        "file_type": "artifact",
+        "path": "README.md#project-structure",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/README.md",
+        "source_location": "80",
+        "community": 5,
+        "community_name": "Repo Docs",
+        "diamante_meta": {
+          "origin": "repo",
+          "headingDepth": 2
+        }
+      },
+      {
+        "id": "artifact:README.md#notes",
+        "label": "Notes",
+        "type": "artifact",
+        "file_type": "artifact",
+        "path": "README.md#notes",
+        "note_id": "",
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/README.md",
+        "source_location": "102",
+        "community": 5,
+        "community_name": "Repo Docs",
+        "diamante_meta": {
+          "origin": "repo",
+          "headingDepth": 2
+        }
+      }
+    ],
+    "links": [
+      {
+        "id": "edge:Architecture.md:links_to:Tauri Desktop Shell.md",
+        "source": "note:Architecture.md",
+        "target": "note:Tauri Desktop Shell.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Architecture.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Architecture.md:links_to:Vault Model.md",
+        "source": "note:Architecture.md",
+        "target": "note:Vault Model.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Architecture.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Architecture.md:links_to:GitHub Sync.md",
+        "source": "note:Architecture.md",
+        "target": "note:GitHub Sync.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Architecture.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Architecture.md:links_to:Unified Knowledge System.md",
+        "source": "note:Architecture.md",
+        "target": "note:Unified Knowledge System.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Architecture.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Backlinks and Indexing.md:links_to:Vault Model.md",
+        "source": "note:Backlinks and Indexing.md",
+        "target": "note:Vault Model.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Backlinks and Indexing.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Backlinks and Indexing.md:links_to:Architecture.md",
+        "source": "note:Backlinks and Indexing.md",
+        "target": "note:Architecture.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Backlinks and Indexing.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Backlog.md:links_to:Repo Indexing.md",
+        "source": "note:Backlog.md",
+        "target": "note:Repo Indexing.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Backlog.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Decision Log.md:links_to:Unified Knowledge System.md",
+        "source": "note:Decision Log.md",
+        "target": "note:Unified Knowledge System.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Decision Log.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Decision Log.md:links_to:Repo Indexing.md",
+        "source": "note:Decision Log.md",
+        "target": "note:Repo Indexing.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Decision Log.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:GitHub Sync.md:links_to:Tauri Desktop Shell.md",
+        "source": "note:GitHub Sync.md",
+        "target": "note:Tauri Desktop Shell.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "GitHub Sync.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:GitHub Sync.md:links_to:Product Roadmap.md",
+        "source": "note:GitHub Sync.md",
+        "target": "note:Product Roadmap.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "GitHub Sync.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Graphify Tech Research.md:links_to:Tauri Desktop Shell.md",
+        "source": "note:Graphify Tech Research.md",
+        "target": "note:Tauri Desktop Shell.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Graphify Tech Research.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Graphify Tech Research.md:links_to:Unified Knowledge System.md",
+        "source": "note:Graphify Tech Research.md",
+        "target": "note:Unified Knowledge System.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Graphify Tech Research.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Graphify Tech Research.md:links_to:Decision Log.md",
+        "source": "note:Graphify Tech Research.md",
+        "target": "note:Decision Log.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Graphify Tech Research.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Graphify Tech Research.md:links_to:Architecture.md",
+        "source": "note:Graphify Tech Research.md",
+        "target": "note:Architecture.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Graphify Tech Research.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Graphify Tech Research.md:links_to:Backlinks and Indexing.md",
+        "source": "note:Graphify Tech Research.md",
+        "target": "note:Backlinks and Indexing.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Graphify Tech Research.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Graphify Tech Research.md:links_to:Session Log.md",
+        "source": "note:Graphify Tech Research.md",
+        "target": "note:Session Log.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Graphify Tech Research.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Graphify Tech Research.md:links_to:GitHub Sync.md",
+        "source": "note:Graphify Tech Research.md",
+        "target": "note:GitHub Sync.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Graphify Tech Research.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Graphify Tech Research.md:links_to:Product Roadmap.md",
+        "source": "note:Graphify Tech Research.md",
+        "target": "note:Product Roadmap.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Graphify Tech Research.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Home.md:links_to:Project Overview.md",
+        "source": "note:Home.md",
+        "target": "note:Project Overview.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Home.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Home.md:links_to:Architecture.md",
+        "source": "note:Home.md",
+        "target": "note:Architecture.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Home.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Home.md:links_to:Unified Knowledge System.md",
+        "source": "note:Home.md",
+        "target": "note:Unified Knowledge System.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Home.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Home.md:links_to:Graphify Tech Research.md",
+        "source": "note:Home.md",
+        "target": "note:Graphify Tech Research.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Home.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Home.md:links_to:Repo Indexing.md",
+        "source": "note:Home.md",
+        "target": "note:Repo Indexing.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Home.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Home.md:links_to:GitHub Sync.md",
+        "source": "note:Home.md",
+        "target": "note:GitHub Sync.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Home.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Home.md:links_to:Product Roadmap.md",
+        "source": "note:Home.md",
+        "target": "note:Product Roadmap.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Home.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Home.md:links_to:Backlog.md",
+        "source": "note:Home.md",
+        "target": "note:Backlog.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Home.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Home.md:links_to:Decision Log.md",
+        "source": "note:Home.md",
+        "target": "note:Decision Log.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Home.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Home.md:links_to:Session Log.md",
+        "source": "note:Home.md",
+        "target": "note:Session Log.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Home.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Home.md:links_to:Next Steps.md",
+        "source": "note:Home.md",
+        "target": "note:Next Steps.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Home.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Home.md:links_to:Tauri Desktop Shell.md",
+        "source": "note:Home.md",
+        "target": "note:Tauri Desktop Shell.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Home.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Next Steps.md:links_to:Repo Indexing.md",
+        "source": "note:Next Steps.md",
+        "target": "note:Repo Indexing.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Next Steps.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Next Steps.md:links_to:Product Roadmap.md",
+        "source": "note:Next Steps.md",
+        "target": "note:Product Roadmap.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Next Steps.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Next Steps.md:links_to:Architecture.md",
+        "source": "note:Next Steps.md",
+        "target": "note:Architecture.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Next Steps.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Next Steps.md:links_to:GitHub Sync.md",
+        "source": "note:Next Steps.md",
+        "target": "note:GitHub Sync.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Next Steps.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Next Steps.md:links_to:Tauri Desktop Shell.md",
+        "source": "note:Next Steps.md",
+        "target": "note:Tauri Desktop Shell.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Next Steps.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Next Steps.md:links_to:Unified Knowledge System.md",
+        "source": "note:Next Steps.md",
+        "target": "note:Unified Knowledge System.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Next Steps.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Next Steps.md:links_to:Graphify Tech Research.md",
+        "source": "note:Next Steps.md",
+        "target": "note:Graphify Tech Research.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Next Steps.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Product Roadmap.md:links_to:Unified Knowledge System.md",
+        "source": "note:Product Roadmap.md",
+        "target": "note:Unified Knowledge System.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Product Roadmap.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Product Roadmap.md:links_to:Repo Indexing.md",
+        "source": "note:Product Roadmap.md",
+        "target": "note:Repo Indexing.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Product Roadmap.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Project Overview.md:links_to:Architecture.md",
+        "source": "note:Project Overview.md",
+        "target": "note:Architecture.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Project Overview.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Project Overview.md:links_to:Unified Knowledge System.md",
+        "source": "note:Project Overview.md",
+        "target": "note:Unified Knowledge System.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Project Overview.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Project Overview.md:links_to:Product Roadmap.md",
+        "source": "note:Project Overview.md",
+        "target": "note:Product Roadmap.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Project Overview.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Project Overview.md:links_to:GitHub Sync.md",
+        "source": "note:Project Overview.md",
+        "target": "note:GitHub Sync.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Project Overview.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:README.md:links_to:Home.md",
+        "source": "note:README.md",
+        "target": "note:Home.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "README.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:README.md:links_to:Project Overview.md",
+        "source": "note:README.md",
+        "target": "note:Project Overview.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "README.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:README.md:links_to:Architecture.md",
+        "source": "note:README.md",
+        "target": "note:Architecture.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "README.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:README.md:links_to:Unified Knowledge System.md",
+        "source": "note:README.md",
+        "target": "note:Unified Knowledge System.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "README.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:README.md:links_to:Graphify Tech Research.md",
+        "source": "note:README.md",
+        "target": "note:Graphify Tech Research.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "README.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:README.md:links_to:Repo Indexing.md",
+        "source": "note:README.md",
+        "target": "note:Repo Indexing.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "README.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:README.md:links_to:Vault Model.md",
+        "source": "note:README.md",
+        "target": "note:Vault Model.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "README.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:README.md:links_to:Backlinks and Indexing.md",
+        "source": "note:README.md",
+        "target": "note:Backlinks and Indexing.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "README.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:README.md:links_to:GitHub Sync.md",
+        "source": "note:README.md",
+        "target": "note:GitHub Sync.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "README.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:README.md:links_to:Tauri Desktop Shell.md",
+        "source": "note:README.md",
+        "target": "note:Tauri Desktop Shell.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "README.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:README.md:links_to:Product Roadmap.md",
+        "source": "note:README.md",
+        "target": "note:Product Roadmap.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "README.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:README.md:links_to:Backlog.md",
+        "source": "note:README.md",
+        "target": "note:Backlog.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "README.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:README.md:links_to:Decision Log.md",
+        "source": "note:README.md",
+        "target": "note:Decision Log.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "README.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:README.md:links_to:Session Log.md",
+        "source": "note:README.md",
+        "target": "note:Session Log.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "README.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Repo Indexing.md:links_to:Unified Knowledge System.md",
+        "source": "note:Repo Indexing.md",
+        "target": "note:Unified Knowledge System.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Repo Indexing.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Repo Indexing.md:links_to:Graphify Tech Research.md",
+        "source": "note:Repo Indexing.md",
+        "target": "note:Graphify Tech Research.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Repo Indexing.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Repo Indexing.md:links_to:Next Steps.md",
+        "source": "note:Repo Indexing.md",
+        "target": "note:Next Steps.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Repo Indexing.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Repo Indexing.md:links_to:Architecture.md",
+        "source": "note:Repo Indexing.md",
+        "target": "note:Architecture.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Repo Indexing.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Repo Indexing.md:links_to:Product Roadmap.md",
+        "source": "note:Repo Indexing.md",
+        "target": "note:Product Roadmap.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Repo Indexing.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Repo Indexing.md:links_to:Decision Log.md",
+        "source": "note:Repo Indexing.md",
+        "target": "note:Decision Log.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Repo Indexing.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Repo Indexing Phase 6a.md:links_to:Repo Indexing.md",
+        "source": "note:Repo Indexing Phase 6a.md",
+        "target": "note:Repo Indexing.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Repo Indexing Phase 6a.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Repo Indexing Phase 6a.md:links_to:Unified Knowledge System.md",
+        "source": "note:Repo Indexing Phase 6a.md",
+        "target": "note:Unified Knowledge System.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Repo Indexing Phase 6a.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Repo Indexing Phase 6a.md:links_to:Graphify Tech Research.md",
+        "source": "note:Repo Indexing Phase 6a.md",
+        "target": "note:Graphify Tech Research.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Repo Indexing Phase 6a.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Repo Indexing Phase 6a.md:links_to:Architecture.md",
+        "source": "note:Repo Indexing Phase 6a.md",
+        "target": "note:Architecture.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Repo Indexing Phase 6a.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Repo Indexing Phase 6a.md:links_to:Decision Log.md",
+        "source": "note:Repo Indexing Phase 6a.md",
+        "target": "note:Decision Log.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Repo Indexing Phase 6a.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Session Log.md:links_to:Unified Knowledge System.md",
+        "source": "note:Session Log.md",
+        "target": "note:Unified Knowledge System.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Session Log.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Session Log.md:links_to:Graphify Tech Research.md",
+        "source": "note:Session Log.md",
+        "target": "note:Graphify Tech Research.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Session Log.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Session Log.md:links_to:Home.md",
+        "source": "note:Session Log.md",
+        "target": "note:Home.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Session Log.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Session Log.md:links_to:README.md",
+        "source": "note:Session Log.md",
+        "target": "note:README.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Session Log.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Session Log.md:links_to:Repo Indexing.md",
+        "source": "note:Session Log.md",
+        "target": "note:Repo Indexing.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Session Log.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Session Log.md:links_to:Product Roadmap.md",
+        "source": "note:Session Log.md",
+        "target": "note:Product Roadmap.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Session Log.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Session Log.md:links_to:Next Steps.md",
+        "source": "note:Session Log.md",
+        "target": "note:Next Steps.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Session Log.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Session Log.md:links_to:Backlog.md",
+        "source": "note:Session Log.md",
+        "target": "note:Backlog.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Session Log.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Session Log.md:links_to:Decision Log.md",
+        "source": "note:Session Log.md",
+        "target": "note:Decision Log.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Session Log.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Session Log.md:links_to:Frontend.md",
+        "source": "note:Session Log.md",
+        "target": "note:Frontend.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Session Log.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Session Log.md:links_to:TODO.md",
+        "source": "note:Session Log.md",
+        "target": "note:TODO.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Session Log.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Tauri Desktop Shell.md:links_to:Decision Log.md",
+        "source": "note:Tauri Desktop Shell.md",
+        "target": "note:Decision Log.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Tauri Desktop Shell.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:TODO.md:links_to:Repo Indexing Phase 6a.md",
+        "source": "note:TODO.md",
+        "target": "note:Repo Indexing Phase 6a.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "TODO.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Unified Knowledge System.md:links_to:Architecture.md",
+        "source": "note:Unified Knowledge System.md",
+        "target": "note:Architecture.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Unified Knowledge System.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Unified Knowledge System.md:links_to:Backlinks and Indexing.md",
+        "source": "note:Unified Knowledge System.md",
+        "target": "note:Backlinks and Indexing.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Unified Knowledge System.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Unified Knowledge System.md:links_to:GitHub Sync.md",
+        "source": "note:Unified Knowledge System.md",
+        "target": "note:GitHub Sync.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Unified Knowledge System.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Unified Knowledge System.md:links_to:Product Roadmap.md",
+        "source": "note:Unified Knowledge System.md",
+        "target": "note:Product Roadmap.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Unified Knowledge System.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Unified Knowledge System.md:links_to:Decision Log.md",
+        "source": "note:Unified Knowledge System.md",
+        "target": "note:Decision Log.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Unified Knowledge System.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Vault Model.md:links_to:Architecture.md",
+        "source": "note:Vault Model.md",
+        "target": "note:Architecture.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Vault Model.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:Vault Model.md:links_to:Backlinks and Indexing.md",
+        "source": "note:Vault Model.md",
+        "target": "note:Backlinks and Indexing.md",
+        "relation": "links_to",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "Vault Model.md",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder::contains:folder:.claude",
+        "source": "folder:",
+        "target": "folder:.claude",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:.claude:contains:file:.claude/scheduled_tasks.lock",
+        "source": "folder:.claude",
+        "target": "file:.claude/scheduled_tasks.lock",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder::contains:file:.gitignore",
+        "source": "folder:",
+        "target": "file:.gitignore",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder::contains:file:.markdownlint-cli2.yaml",
+        "source": "folder:",
+        "target": "file:.markdownlint-cli2.yaml",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder::contains:file:.mcp.json",
+        "source": "folder:",
+        "target": "file:.mcp.json",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder::contains:folder:_to_delete",
+        "source": "folder:",
+        "target": "folder:_to_delete",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:_to_delete:contains:file:_to_delete/VaultGraph.tsx",
+        "source": "folder:_to_delete",
+        "target": "file:_to_delete/VaultGraph.tsx",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder::contains:file:AGENTS.md",
+        "source": "folder:",
+        "target": "file:AGENTS.md",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder::contains:file:index.html",
+        "source": "folder:",
+        "target": "file:index.html",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder::contains:file:package-lock.json",
+        "source": "folder:",
+        "target": "file:package-lock.json",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder::contains:file:package.json",
+        "source": "folder:",
+        "target": "file:package.json",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder::contains:file:README.md",
+        "source": "folder:",
+        "target": "file:README.md",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder::contains:folder:scripts",
+        "source": "folder:",
+        "target": "folder:scripts",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:scripts:contains:file:scripts/check-docs.mjs",
+        "source": "folder:scripts",
+        "target": "file:scripts/check-docs.mjs",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:scripts:contains:file:scripts/diamante-mcp.mjs",
+        "source": "folder:scripts",
+        "target": "file:scripts/diamante-mcp.mjs",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder::contains:folder:src-tauri",
+        "source": "folder:",
+        "target": "folder:src-tauri",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri:contains:file:src-tauri/.gitignore",
+        "source": "folder:src-tauri",
+        "target": "file:src-tauri/.gitignore",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri:contains:file:src-tauri/build.rs",
+        "source": "folder:src-tauri",
+        "target": "file:src-tauri/build.rs",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri:contains:folder:src-tauri/capabilities",
+        "source": "folder:src-tauri",
+        "target": "folder:src-tauri/capabilities",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri/capabilities:contains:file:src-tauri/capabilities/default.json",
+        "source": "folder:src-tauri/capabilities",
+        "target": "file:src-tauri/capabilities/default.json",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri:contains:file:src-tauri/Cargo.lock",
+        "source": "folder:src-tauri",
+        "target": "file:src-tauri/Cargo.lock",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri:contains:file:src-tauri/Cargo.toml",
+        "source": "folder:src-tauri",
+        "target": "file:src-tauri/Cargo.toml",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri:contains:folder:src-tauri/gen",
+        "source": "folder:src-tauri",
+        "target": "folder:src-tauri/gen",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri/gen:contains:folder:src-tauri/gen/schemas",
+        "source": "folder:src-tauri/gen",
+        "target": "folder:src-tauri/gen/schemas",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri/gen/schemas:contains:file:src-tauri/gen/schemas/acl-manifests.json",
+        "source": "folder:src-tauri/gen/schemas",
+        "target": "file:src-tauri/gen/schemas/acl-manifests.json",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri/gen/schemas:contains:file:src-tauri/gen/schemas/capabilities.json",
+        "source": "folder:src-tauri/gen/schemas",
+        "target": "file:src-tauri/gen/schemas/capabilities.json",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri/gen/schemas:contains:file:src-tauri/gen/schemas/desktop-schema.json",
+        "source": "folder:src-tauri/gen/schemas",
+        "target": "file:src-tauri/gen/schemas/desktop-schema.json",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri/gen/schemas:contains:file:src-tauri/gen/schemas/macOS-schema.json",
+        "source": "folder:src-tauri/gen/schemas",
+        "target": "file:src-tauri/gen/schemas/macOS-schema.json",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri:contains:folder:src-tauri/icons",
+        "source": "folder:src-tauri",
+        "target": "folder:src-tauri/icons",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri/icons:contains:file:src-tauri/icons/128x128.png",
+        "source": "folder:src-tauri/icons",
+        "target": "file:src-tauri/icons/128x128.png",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri/icons:contains:file:src-tauri/icons/128x128@2x.png",
+        "source": "folder:src-tauri/icons",
+        "target": "file:src-tauri/icons/128x128@2x.png",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri/icons:contains:file:src-tauri/icons/32x32.png",
+        "source": "folder:src-tauri/icons",
+        "target": "file:src-tauri/icons/32x32.png",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri/icons:contains:file:src-tauri/icons/icon.icns",
+        "source": "folder:src-tauri/icons",
+        "target": "file:src-tauri/icons/icon.icns",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri/icons:contains:file:src-tauri/icons/icon.ico",
+        "source": "folder:src-tauri/icons",
+        "target": "file:src-tauri/icons/icon.ico",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri/icons:contains:file:src-tauri/icons/icon.png",
+        "source": "folder:src-tauri/icons",
+        "target": "file:src-tauri/icons/icon.png",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri:contains:folder:src-tauri/src",
+        "source": "folder:src-tauri",
+        "target": "folder:src-tauri/src",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri/src:contains:file:src-tauri/src/lib.rs",
+        "source": "folder:src-tauri/src",
+        "target": "file:src-tauri/src/lib.rs",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri/src:contains:file:src-tauri/src/main.rs",
+        "source": "folder:src-tauri/src",
+        "target": "file:src-tauri/src/main.rs",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src-tauri:contains:file:src-tauri/tauri.conf.json",
+        "source": "folder:src-tauri",
+        "target": "file:src-tauri/tauri.conf.json",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder::contains:folder:src",
+        "source": "folder:",
+        "target": "folder:src",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/App.tsx",
+        "source": "folder:src",
+        "target": "file:src/App.tsx",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/graph.ts",
+        "source": "folder:src",
+        "target": "file:src/graph.ts",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/GraphifyNetwork.tsx",
+        "source": "folder:src",
+        "target": "file:src/GraphifyNetwork.tsx",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/main.tsx",
+        "source": "folder:src",
+        "target": "file:src/main.tsx",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/MarkdownEditor.tsx",
+        "source": "folder:src",
+        "target": "file:src/MarkdownEditor.tsx",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/noteTree.ts",
+        "source": "folder:src",
+        "target": "file:src/noteTree.ts",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/NoteTreeView.tsx",
+        "source": "folder:src",
+        "target": "file:src/NoteTreeView.tsx",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/noteUtils.ts",
+        "source": "folder:src",
+        "target": "file:src/noteUtils.ts",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/seed.ts",
+        "source": "folder:src",
+        "target": "file:src/seed.ts",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/sourceGraph.ts",
+        "source": "folder:src",
+        "target": "file:src/sourceGraph.ts",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/sourceRoot.ts",
+        "source": "folder:src",
+        "target": "file:src/sourceRoot.ts",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/storage.ts",
+        "source": "folder:src",
+        "target": "file:src/storage.ts",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/styles.css",
+        "source": "folder:src",
+        "target": "file:src/styles.css",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/types.ts",
+        "source": "folder:src",
+        "target": "file:src/types.ts",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/useVault.ts",
+        "source": "folder:src",
+        "target": "file:src/useVault.ts",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder:src:contains:file:src/vault.ts",
+        "source": "folder:src",
+        "target": "file:src/vault.ts",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder::contains:file:tsconfig.json",
+        "source": "folder:",
+        "target": "file:tsconfig.json",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:folder::contains:file:vite.config.ts",
+        "source": "folder:",
+        "target": "file:vite.config.ts",
+        "relation": "contains",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:file:AGENTS.md:documents:artifact:AGENTS.md#codex-instructions",
+        "source": "file:AGENTS.md",
+        "target": "artifact:AGENTS.md#codex-instructions",
+        "relation": "documents",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/AGENTS.md",
+        "source_location": "1",
+        "heading": "Codex Instructions"
+      },
+      {
+        "id": "edge:file:package.json:documents:package:diamante-notes",
+        "source": "file:package.json",
+        "target": "package:diamante-notes",
+        "relation": "documents",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:@codemirror/commands",
+        "source": "package:diamante-notes",
+        "target": "package:@codemirror/commands",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "dependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:@codemirror/lang-markdown",
+        "source": "package:diamante-notes",
+        "target": "package:@codemirror/lang-markdown",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "dependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:@codemirror/language",
+        "source": "package:diamante-notes",
+        "target": "package:@codemirror/language",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "dependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:@codemirror/state",
+        "source": "package:diamante-notes",
+        "target": "package:@codemirror/state",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "dependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:@codemirror/view",
+        "source": "package:diamante-notes",
+        "target": "package:@codemirror/view",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "dependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:@lezer/highlight",
+        "source": "package:diamante-notes",
+        "target": "package:@lezer/highlight",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "dependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:@tauri-apps/api",
+        "source": "package:diamante-notes",
+        "target": "package:@tauri-apps/api",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "dependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:@tauri-apps/plugin-dialog",
+        "source": "package:diamante-notes",
+        "target": "package:@tauri-apps/plugin-dialog",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "dependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:codemirror",
+        "source": "package:diamante-notes",
+        "target": "package:codemirror",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "dependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:lucide-react",
+        "source": "package:diamante-notes",
+        "target": "package:lucide-react",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "dependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:marked",
+        "source": "package:diamante-notes",
+        "target": "package:marked",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "dependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:react",
+        "source": "package:diamante-notes",
+        "target": "package:react",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "dependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:react-dom",
+        "source": "package:diamante-notes",
+        "target": "package:react-dom",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "dependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:@tauri-apps/cli",
+        "source": "package:diamante-notes",
+        "target": "package:@tauri-apps/cli",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "devDependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:@types/react",
+        "source": "package:diamante-notes",
+        "target": "package:@types/react",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "devDependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:@types/react-dom",
+        "source": "package:diamante-notes",
+        "target": "package:@types/react-dom",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "devDependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:@vitejs/plugin-react",
+        "source": "package:diamante-notes",
+        "target": "package:@vitejs/plugin-react",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "devDependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:markdownlint-cli2",
+        "source": "package:diamante-notes",
+        "target": "package:markdownlint-cli2",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "devDependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:typescript",
+        "source": "package:diamante-notes",
+        "target": "package:typescript",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "devDependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:vite",
+        "source": "package:diamante-notes",
+        "target": "package:vite",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "devDependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:package:diamante-notes:depends_on:package:yaml",
+        "source": "package:diamante-notes",
+        "target": "package:yaml",
+        "relation": "depends_on",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/package.json",
+        "source_location": "devDependencies",
+        "heading": ""
+      },
+      {
+        "id": "edge:file:README.md:documents:artifact:README.md#diamante-notes",
+        "source": "file:README.md",
+        "target": "artifact:README.md#diamante-notes",
+        "relation": "documents",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/README.md",
+        "source_location": "1",
+        "heading": "Diamante Notes"
+      },
+      {
+        "id": "edge:file:README.md:documents:artifact:README.md#folder-convention",
+        "source": "file:README.md",
+        "target": "artifact:README.md#folder-convention",
+        "relation": "documents",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/README.md",
+        "source_location": "5",
+        "heading": "Folder Convention"
+      },
+      {
+        "id": "edge:file:README.md:documents:artifact:README.md#features",
+        "source": "file:README.md",
+        "target": "artifact:README.md#features",
+        "relation": "documents",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/README.md",
+        "source_location": "21",
+        "heading": "Features"
+      },
+      {
+        "id": "edge:file:README.md:documents:artifact:README.md#getting-started",
+        "source": "file:README.md",
+        "target": "artifact:README.md#getting-started",
+        "relation": "documents",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/README.md",
+        "source_location": "40",
+        "heading": "Getting Started"
+      },
+      {
+        "id": "edge:file:README.md:documents:artifact:README.md#project-structure",
+        "source": "file:README.md",
+        "target": "artifact:README.md#project-structure",
+        "relation": "documents",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/README.md",
+        "source_location": "80",
+        "heading": "Project Structure"
+      },
+      {
+        "id": "edge:file:README.md:documents:artifact:README.md#notes",
+        "source": "file:README.md",
+        "target": "artifact:README.md#notes",
+        "relation": "documents",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1,
+        "source_file": "/Users/paulbrettorozco/Sites/diamante/README.md",
+        "source_location": "102",
+        "heading": "Notes"
+      }
+    ],
+    "hyperedges": []
+  }
+}
