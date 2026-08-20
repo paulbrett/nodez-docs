@@ -66,16 +66,24 @@ Implemented order:
 3. Added Rust coverage proving Markdown, `AGENTS.md`, and package manifest content is captured while ordinary source files remain metadata-only.
 4. Verified TypeScript, build, docs, and Rust tests.
 
-### Phase 6c - Tree-sitter code extraction
+### Phase 6c - Code symbol extraction (first pass done)
 
-- Bring in tree-sitter for the two languages that actually appear here: **C++** (firmware) and **TypeScript/TSX** (backend + mobile). Skip a general "every language" abstraction until a second repo with different languages is actually being indexed.
-- Emit `defines` (functions/classes), `imports` (TS `import`/`require`, C++ `#include`), and best-effort `calls` edges — provenance `extracted` for defines/imports, `inferred` for calls (cross-file call resolution without a real type-checker is approximate).
-- Native tree-sitter under Tauri (Rust crate), matching the "needs the Tauri shell" note already in [[Graphify Tech Research]].
+- The source walk now captures bounded content for extractable first-party code files up to 200 KB (`ts`, `tsx`, `js`, `jsx`, `py`, `rs`, `cpp`, `c`, `h`, `hpp`, `ino`, `md`, `json`, `html`), while binaries and oversized files remain metadata-only nodes.
+- `src/extractSymbols.ts` emits file-scoped symbol IDs (`symbol:<file>#<name>`) with `sourceLine`, using the existing graph schema instead of a parallel representation.
+- `sourceGraph.ts` adds `defines` edges from files to symbols/components, `imports` edges for local imports and package imports, and same-file `calls` edges marked `inferred`.
+- The frontend paints the vault graph immediately, then stages repo indexing as map-first followed by extraction batches of about 40 files. Aborted/restarted runs keep the last good graph instead of emptying the repo graph.
+- Function indexing is enabled by default, but it starts lazily in the background only after the graph view is opened. Settings can turn it off for metadata-only repo maps.
+- `node_modules` is excluded entirely. Repo indexing stays focused on first-party source and root/workspace manifests; dependency graph detail comes from first-party `package.json` files, not vendor folders.
+- By default, source walking follows `.gitignore` through the Rust `ignore` walker. Settings now expose an `Ignore .gitignore` toggle for cases where hidden/generated files should still be indexed.
+- Large graph artifacts are chunked: `.diamante/graph.json` is a small manifest, while Graphify-shaped node and edge chunks live under `.diamante/graph/`. MCP reconstructs the graph from those chunks for agent queries.
+- Large graph rendering follows [[Graph Scale]]: keep the full index queryable, derive a capped draw graph for the canvas, hide noisy `contains` edges, and expand from the full graph on click.
 
-### Phase 6d - Unified graph + MCP
+Future hardening can still replace the regex extractor with tree-sitter for richer syntax coverage, but the current pass already produces a complete first-party file graph plus practical symbols, imports, calls, and package dependency nodes from first-party manifests without forcing one huge JSON file.
+
+### Phase 6d - Unified graph + MCP (partially done)
 
 - Merge the source-root graph into the same in-memory graph the vault already builds (`buildKnowledgeGraph` in `src/graph.ts`), so local/global graph modes, filters, path finder, and the Explain panel all work across vault notes and repo files together.
-- Extend the MCP server's tool surface (already covering the vault) to also serve `search_nodes`/`get_neighbors`/`find_path`/`impact_of` over the repo side, so an agent working in the Dakila repo can query relationships before reading files, per the [[Unified Knowledge System]] agent model.
+- Extend the MCP server's tool surface (already covering the vault) to also serve `search_nodes`/`get_neighbors`/`find_path`/`impact_of` over the repo side, so an agent working in the Dakila repo can query relationships before reading files, per the [[Unified Knowledge System]] agent model. Current shipped MCP addition: `search_symbols` over the saved `.diamante/graph.json` artifact.
 - Rebuild-on-change: reuse the same filesystem watcher pattern already shipped for the vault (see [[Next Steps]]) for the source root too.
 
 ## Non-goals for v1

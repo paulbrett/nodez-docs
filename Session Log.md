@@ -403,3 +403,144 @@ Push checkpoint:
 
 - app commit `c80b109` contains the note-tree toolbar move, context menu UI, and Tauri vault item commands
 - verified with `npm run check`, `npm run build`, and `cargo check`
+
+## 2026-08-20 Static Inspector Graph Preview
+
+Restored the mini graph preview above the Backlinks panel, but with a stricter interaction model:
+
+- renders a capped static SVG snapshot from the positioned graph data
+- individual mini nodes and edges have no hover/selection behavior and ignore pointer events
+- tapping/clicking the preview panel opens the full graph modal
+- updated [[TODO]] to record the revised graph-preview contract
+
+Follow-up:
+
+- removed the mini graph preview again and replaced it with a compact Open Graph button above Backlinks
+
+## 2026-08-20 Graph Filter Control Alignment
+
+Refined the graph modal controls from the screenshot review:
+
+- collapsed the node-type icon chip row into a single Node dropdown
+- aligned Node, Depth, Edge, and Truth as one vertical dropdown set in the filter popover
+- normalized graph modal icon buttons, search, and selects around a shared 38px control height
+- updated [[TODO]] with the completed graph filter alignment pass
+
+## 2026-08-20 Multi-Window Sessions
+
+Added multi-session desktop support:
+
+- added Tauri support for additional `session-*` webview windows
+- expanded the default Tauri capability to allow `main` and `session-*` windows
+- added a native File -> New Window menu item for opening another Diamante session
+- removed the frontend New Window header button and command palette action so the behavior lives in the main window menu
+- updated [[TODO]] with the completed multi-window item
+
+## 2026-08-20 Graph Depth Range
+
+- increased the full graph modal local-depth selector from 1-3 to 1-10 so deeper note/repo neighborhoods can be inspected without code changes
+
+## 2026-08-20 Background Repo Symbol Indexer
+
+Implemented the Graphify-style repo indexer pass from [[Repo Indexing]]:
+
+- Tauri source indexing now maps all first-party files, reads bounded extractable content up to 200 KB in a second pass, and always excludes `node_modules`
+- the frontend keeps the vault graph visible immediately, then stages repo indexing as mapped files followed by extraction batches of about 40 files
+- added `src/extractSymbols.ts` for file-scoped functions, React components, classes/types, imports, and same-file inferred calls
+- kept the existing graph schema: files/folders/packages/symbols/components plus `contains`, `defines`, `imports`, `calls`, `depends_on`, `documents`, and `references`
+- the repo status chip can be clicked to re-index; the canceled `node_modules` package toggle was removed from Settings and app state
+- command palette routes `functions`, `function Name`, and `fn Name` into repo graph symbol search
+- MCP now exposes `search_symbols` over the saved Graphify-shaped graph artifact
+
+Plan adjustment:
+
+- loading a repo now starts with metadata only so file/folder nodes paint first
+- once metadata is visible, Diamante starts a separate extraction pass and streams content-backed symbols into the same graph
+- the note tree now shows Markdown filenames instead of note titles
+
+## 2026-08-20 Vault-Scoped Repo Attachment
+
+Adjusted workspace ownership:
+
+- window title now follows the opened vault folder name
+- the repo picker is disabled until a vault is open
+- attached source repo is stored in the vault-local `.diamante/workspace.json`, not global app state
+- opening a vault automatically restores and indexes that vault's attached repo when present
+
+## 2026-08-20 Optional Function Indexing
+
+Changed the repo indexer after the automatic symbol pass caused the app to hang/crash on load:
+
+- opening or restoring a repo now loads metadata only: files, folders, manifests available from the previous stable graph surface
+- function/symbol indexing is opt-in from the graph view via a code icon button
+- local graph depth is capped at 3 again
+- Tauri `index_source_root` now runs through `spawn_blocking` so file walking/content reads happen off the command/UI thread
+- symbol graph construction runs in `src/sourceIndexWorker.ts`, keeping React usable while indexing is active
+- if function indexing fails, the metadata repo graph remains available instead of emptying the graph
+- the graph code button now pauses an active function index, terminates the worker, and invalidates stale completions; app unmount/close uses the same cleanup pattern
+
+## 2026-08-20 Chunked Graph Artifact
+
+Optimized the saved graph artifact for large repos:
+
+- `.diamante/graph.json` is now a lightweight manifest with stats and chunk references
+- graph payloads are saved under `.diamante/graph/` as Graphify-shaped node and edge chunks
+- chunks are streamed to Tauri one file at a time instead of sent as one large IPC payload
+- node chunks are grouped by vault, structure, packages, symbols, repo, etc.
+- edge chunks are grouped by relation type such as `contains`, `defines`, `imports`, and `calls`
+- MCP can read both the legacy single-file graph and the new manifest/chunk layout
+- the legacy single-file writer remains as a fallback if chunk writing fails
+
+## 2026-08-20 Graph Scale Draw Layer
+
+Implemented the first [[Graph Scale]] pass after confirming the freeze is caused by drawing and physics, not indexing:
+
+- kept the full merged vault plus repo graph intact for persistence, MCP, and query work
+- added a capped draw graph for the graph modal so the canvas receives about 1,500 nodes max
+- hid `contains` edges from the draw graph because folder containment overwhelms large repo views
+- made graph-node clicks toggle a 1-hop expansion from the full filtered graph, capped around 80 neighbors with `+N more` in the details panel
+- changed the status bar graph chip to report `view N / index M`
+
+Next scale steps:
+
+- cache frozen layout positions in `.diamante/layout.json`
+- move full adjacency/path/impact work into a graph worker
+- convert Stars to instanced points before drawing large repos there
+
+## 2026-08-20 Independent Window Sessions
+
+Fixed multi-window vault sessions:
+
+- only the `main` Tauri window restores and saves the default vault path in app state
+- `session-*` windows can open their own vault without changing the main window's saved vault path
+- theme remains global across windows
+- vault file-change watcher events are emitted only to the window that opened that vault, so another window does not refresh from unrelated vault changes
+
+## 2026-08-20 Gitignore-Aware Repo Indexing
+
+Added a repo indexing toggle for `.gitignore` handling:
+
+- source walking now follows `.gitignore` by default instead of indexing ignored/generated files automatically
+- Settings exposes an `Ignore .gitignore` checkbox for the attached repo
+- the checkbox persists in vault-local workspace metadata and triggers a fresh re-index when changed
+- optional function indexing uses the same flag, so metadata-only and symbol extraction stay aligned
+- Rust tests now cover both default `.gitignore` filtering and the opt-out path
+
+## 2026-08-20 Graph-Triggered Default Function Indexing
+
+Adjusted the function-index workflow again:
+
+- function indexing is now enabled by default for attached repos
+- repo open still maps metadata only, keeping the app responsive while the workspace loads
+- the first graph open starts background symbol extraction automatically when function indexing is enabled
+- the function-index toggle moved out of the graph modal and into Settings beside the `.gitignore` toggle
+- turning function indexing off stops future symbol extraction and reverts the repo graph back to metadata-only on re-index
+
+## 2026-08-20 Graph Filter Popover Fix
+
+Fixed the graph filter dropdown after it drifted into the graph details panel and could remain open:
+
+- removed the stale graph-control grid column left behind after moving function indexing into Settings
+- constrained the filter menu to the icon button width
+- right-aligned the popover so it opens inward and stays inside the graph modal
+- changed dismissal to capture-phase pointer handling plus Escape so clicks outside the menu close it reliably

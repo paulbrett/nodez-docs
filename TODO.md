@@ -43,3 +43,18 @@ tags:
 
 - make the 'new note' a plus icon before the add new folder icon.. same size but primary color — done: New Note is now a primary file-plus icon at the start of the note-tree toolbar, before New Folder
 - when right clicking a file or folder there should be a contect menu 'Rename','Delete','Duplicte','View in Finder', 'Copy Path' — done: notes and folders now have a right-click menu with Rename, Delete, Duplicate, View in Finder, and Copy Path
+- bring back graph preview on top of Backlinks panel as static only — done: inspector shows a non-interactive mini graph snapshot above Backlinks; tapping it opens the graph modal
+- remove graph preview and replace with a button — done: inspector now shows a compact Open Graph button above Backlinks instead of the mini graph canvas
+- graph page filter controls should be one dropdown set and aligned — done: node type is now a dropdown beside Depth, Edge, and Truth; graph buttons/selects use a shared 38px control height
+- make app multi session / allow new window — done: Tauri can open additional `session-*` windows from the native File -> New Window menu
+- each window should keep an independent vault session — done: only the main window owns the restored default vault path, session windows no longer overwrite global vault state, and vault watcher events are scoped to the window that opened the vault
+- implement Graphify-style background repo indexer with symbols — done: the Tauri source walk maps first-party files metadata-only first, the frontend starts extraction afterward and streams batches, `src/extractSymbols.ts` adds defines/imports/same-file calls, `node_modules` stays excluded, the status chip re-indexes, and MCP exposes `search_symbols`
+- file tree should show Markdown filenames, not note titles — done
+- window title should show the opened vault name — done
+- repo picker should require an opened vault and store the attached repo under vault metadata — done: repo attachment now lives in `.diamante/workspace.json` inside the vault
+- make function indexing optional because automatic symbol extraction can hang/crash large repos — done: repo open now maps metadata only, function indexing is enabled by default but starts only when the graph opens, the toggle lives in Settings, native walking uses a blocking worker thread, and graph construction runs in a Web Worker
+- allow pausing function indexing and cancel it on app close — done: turning off function indexing in Settings stops background symbol work, metadata re-index stays available, and app unmount/close still terminates the worker
+- chunk large graph artifacts — done: `.diamante/graph.json` is now a lightweight manifest and graph payloads are written under `.diamante/graph/` by node/edge groups
+- optimize large graph rendering without capping the index — first pass done: see [[Graph Scale]]; repos over 1,000 indexed files render a capped draw graph, hide `contains` edges, expand 1 hop on node click, and the status bar reports `view N / index M`; smaller repos keep the previous full graph behavior
+- add option to ignore `.gitignore` while keeping it respected by default — done: repo indexing now follows `.gitignore` by default via the Rust walker, and Settings exposes an `Ignore .gitignore` toggle that persists with the attached repo metadata and re-indexes immediately
+- fix graph filter dropdown placement and dismissal — done: the filter popover now anchors inside the graph modal under the filter icon and closes on outside pointer clicks or Escape
