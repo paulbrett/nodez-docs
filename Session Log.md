@@ -4,7 +4,7 @@ title: Session Log
 type: session-log
 status: active
 created: 2026-08-19
-updated: 2026-08-20
+updated: 2026-08-21
 tags:
   - session-log
   - repo-indexing
@@ -544,3 +544,22 @@ Fixed the graph filter dropdown after it drifted into the graph details panel an
 - constrained the filter menu to the icon button width
 - right-aligned the popover so it opens inward and stays inside the graph modal
 - changed dismissal to capture-phase pointer handling plus Escape so clicks outside the menu close it reliably
+
+## 2026-08-21 Commit-Only Repo Re-Index + UI Prefs
+
+Optimized graph indexing and workspace chrome on Windows (`C:\Sites\diamante`):
+
+- `GitRepoState.signature` is now `branch|HEAD` only (Rust `git_state`); dirty/untracked files no longer restart indexing
+- git poll interval ~15s; status bar still shows dirty counts without thrashing the indexer
+- function/symbol extraction remains once-after-map when the graph opens; commit-driven `indexRepo` can reset it
+- stopped `indexRepo` from forcing graph origin/mode back to all/global
+- persist Edit/Preview + graph mode/origin/depth/filters in `localStorage` (`diamante.uiPrefs`) and vault meta
+- graph modal title uses repo folder name (else vault name)
+- Explain panel wraps long filenames; no horizontal scrollbar; sitewide thin vertical scrollbars
+- updated app README and vault notes ([[Repo Indexing]], [[Decision Log]])
+- Windows release build via `npm run tauri build` (MSI + NSIS)
+
+Verified:
+
+- `npm run lint`
+- Tauri dev shell launches after indexer change

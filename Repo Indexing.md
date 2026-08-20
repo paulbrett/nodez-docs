@@ -4,7 +4,7 @@ title: Repo Indexing
 type: architecture
 status: active
 created: 2026-08-20
-updated: 2026-08-20
+updated: 2026-08-21
 tags:
   - graph
   - graphify
@@ -48,7 +48,7 @@ Concretely, Diamante needs a second, read-only **source root** (a plain project 
 - `index_source_root` walks an arbitrary folder in one native call and returns file metadata (path, extension, size, modified time) plus git state — no note semantics, no frontmatter parsing, no wikilinks, no source content reads.
 - The app remembers a source root alongside the vault path in Tauri app state, so both the vault and `/Sites/overland/OverlandLightingControllerV1` can be open at once.
 - Graph nodes: `file` and `folder` for everything under the source root, with `contains` edges. This lets the graph UI show "the Dakila repo exists" and lets an agent enumerate it without reading every file.
-- A background indexing notice appears while the folder is loading. For git repos, Diamante polls git status and re-indexes when HEAD or porcelain status changes.
+- A background indexing notice appears while the folder is loading. For git repos, Diamante polls git about every 15 seconds and **re-indexes only when the commit identity changes** (`branch|HEAD`). Uncommitted and untracked files update the dirty summary in the status bar but do **not** restart the indexer.
 - The merged vault+repo graph is written to `.diamante/graph.json` inside the opened vault, using Graphify-compatible JSON plus Diamante metadata.
 
 ### Phase 6b - Cheap extraction (Markdown + manifests) (done)
@@ -72,7 +72,7 @@ Implemented order:
 - `src/extractSymbols.ts` emits file-scoped symbol IDs (`symbol:<file>#<name>`) with `sourceLine`, using the existing graph schema instead of a parallel representation.
 - `sourceGraph.ts` adds `defines` edges from files to symbols/components, `imports` edges for local imports and package imports, and same-file `calls` edges marked `inferred`.
 - The frontend paints the vault graph immediately, then stages repo indexing as map-first followed by extraction batches of about 40 files. Aborted/restarted runs keep the last good graph instead of emptying the repo graph.
-- Function indexing is enabled by default, but it starts lazily in the background only after the graph view is opened. Settings can turn it off for metadata-only repo maps.
+- Function indexing is enabled by default, but it starts lazily in the background only after the graph view is opened (once after the file map reaches idle). Settings can turn it off for metadata-only repo maps. A later commit-driven `indexRepo` resets function state so symbols can run again after commits — not after every dirty save.
 - `node_modules` is excluded entirely. Repo indexing stays focused on first-party source and root/workspace manifests; dependency graph detail comes from first-party `package.json` files, not vendor folders.
 - By default, source walking follows `.gitignore` through the Rust `ignore` walker. Settings now expose an `Ignore .gitignore` toggle for cases where hidden/generated files should still be indexed.
 - Large graph artifacts are chunked: `.diamante/graph.json` is a small manifest, while Graphify-shaped node and edge chunks live under `.diamante/graph/`. MCP reconstructs the graph from those chunks for agent queries.

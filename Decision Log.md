@@ -4,7 +4,7 @@ title: Decision Log
 type: decision-log
 status: active
 created: 2026-08-19
-updated: 2026-08-20
+updated: 2026-08-21
 tags:
   - decisions
 ---
@@ -114,3 +114,34 @@ Reason: the product is a daily thinking and editing surface, not a reporting
 dashboard. Graphify-style density belongs inside the graph modal where users
 are actively inspecting relationships; the everyday workspace should stay
 focused on the vault, the active note, and nearby backlinks/context.
+
+## 2026-08-21 - Re-index attached repos only on commits, not dirty worktrees
+
+`GitRepoState.signature` is `branch|HEAD` only. Porcelain dirty/untracked status
+may still populate the status-bar summary, but it must not change the signature
+or restart repo indexing. Poll interval is about 15 seconds.
+
+Reason: indexing on every uncommitted save made the graph feel permanently
+"loading" and burned CPU on large repos. Implementation truth for the graph is
+committed code; local scratch should not thrash the indexer. Manual re-index
+from the status bar remains available.
+
+Supersedes the earlier interpretation of the 2026-08-20 git poll decision that
+bundled porcelain into the re-index signature.
+
+## 2026-08-21 - Persist editor mode and graph toggles per vault
+
+Edit/Preview plus graph mode, origin, depth, node/edge type, and provenance
+filters persist in vault meta (`.diamante`) and browser `localStorage`
+(`diamante.uiPrefs`). `indexRepo` must not reset graph origin/mode to defaults.
+
+Reason: users switch edit/preview and graph filters constantly; losing them on
+reload or re-index breaks the calm workspace promise.
+
+## 2026-08-21 - Graph modal title is the repo name
+
+The main graph modal title shows the attached source-root folder name (else the
+vault folder name, else "Connections").
+
+Reason: when a project repo is open, the graph is about that codebase — the
+title should say so instead of a generic "Knowledge connections" label.
