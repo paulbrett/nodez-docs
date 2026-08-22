@@ -4,13 +4,43 @@ title: Session Log
 type: session-log
 status: active
 created: 2026-08-19
-updated: 2026-08-21
+updated: 2026-08-22
 tags:
   - session-log
   - repo-indexing
 ---
 
 # Session Log
+
+## 2026-08-22 (P7 landing + OTA skeleton)
+
+Shipped distribution surface in app repo (`paulbrett/diamante` `26ddb9d`):
+
+- **Landing** — single-page plain HTML/CSS under `landing/` (in main repo, not separate site)
+- **OTA** — manifest `landing/updates/latest.json`, bundles dir, Tauri updater + process plugins, Settings → Check for updates
+- Pages + Windows release workflows; public key in `tauri.conf.json`; private key CI secret only
+- Docs: [[Landing Page]], [[Distribution Versioning and Updates]], [[Next Steps]], [[Product Roadmap]], [[Agent and Human Setup]]
+
+App already on main. Next human steps: enable Pages, set `TAURI_SIGNING_PRIVATE_KEY`, tag `v0.3.0`.
+
+## 2026-08-22 (vault agent contract)
+
+Shipped opt-in vault **AGENTS.md** for end-user projects: managed markers, foreign-root → `.diamante/AGENTS.md`, merge action, Setup **Agents** step, Settings + palette. Pure logic `src/agentContract.ts` + tests. Docs: [[Agent Skills and Surfaces]].
+
+## 2026-08-22 (agent surfaces)
+
+Added canonical map [[Agent Skills and Surfaces]]: Layer 1 MCP + app `AGENTS.md`, Layer 2 host skills (Hermes), Layer 3 vault knowledge; placement tree; linked from [[Home]], [[Next Steps]], [[Agent and Human Setup]], [[Command Palette and Agent Surface]].
+
+## 2026-08-22
+
+Workspace chrome + Phase 3 inspector polish (app `C:\Sites\diamante`):
+
+- **GitHub sync v1** already on main; moved control to notes-tree footer beside note count (status-bar height/type).
+- Notes list sits flush on the count bar; counter padding tightened to shell.
+- **Inspector** is a full-height workspace grid column flush top/right/bottom (not nested in main grid gutters).
+- **Outline** lists all headings (no internal scroll); click jumps edit / scrolls preview.
+- **Backlinks** and **Outgoing** share pill chrome (titles only; unresolved outgoing `· ?`).
+- Docs: [[Next Steps]], [[Product Roadmap]], [[GitHub Sync]], [[Frontend]] chrome note.
 
 ## 2026-08-19
 

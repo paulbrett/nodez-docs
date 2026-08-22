@@ -4,7 +4,7 @@ title: TODO
 type: backlog
 status: active
 created: 2026-08-20
-updated: 2026-08-21
+updated: 2026-08-22
 tags:
   - backlog
   - repo-indexing
@@ -64,16 +64,12 @@ tags:
 
 Canonical plan: [[Agent and Human Setup]]. Summary checklist:
 
-- P0: MCP `list_notes` / `search_notes` / `read_note` + note resources
-- P1: graph artifact freshness after agent writes (`rebuild_graph` and/or stale signal)
-- P2: first-run wizard + one-click MCP config export (absolute vault path filled in)
-- P3: restructure app-repo `AGENTS.md` (hard rules + tool table + workflow)
-- P4: `explain_edge` / `impact_of` / `list_communities` + richer resources
-- P5: deeper code extraction (Dakila proving ground)
-- P6: real GitHub sync + rebuild-after-pull
-- P7: no-Node MCP / installer polish / **versioning + OTA** ([[Distribution Versioning and Updates]]) / **landing page** ([[Landing Page]])
+- P0–P4: done (MCP reads, freshness, wizard/export, AGENTS.md, impact/explain/communities)
+- P5: deeper code extraction — regex pass landed; tree-sitter optional
+- P6: real GitHub sync — v1 landed
+- P7: **landing + OTA skeleton landed** ([[Landing Page]], [[Distribution Versioning and Updates]]); remaining: Pages enable, signed tag feed, Authenticode, no-Node MCP, icons
 
 ## Editor UX (2026-08-21)
 
-- Plain-text / paste auto-format with ask-first prompt + Auto-format button — [[Next Steps]]
-- Lightweight code editor plan — [[Code Editor Implementation]] (app: `src/MarkdownEditor.tsx` today)
+- Plain-text / paste auto-format with ask-first prompt + Auto-format button — **first cut landed** — [[Next Steps]]
+- Lightweight code editor plan — **MVP landed** — [[Code Editor Implementation]]

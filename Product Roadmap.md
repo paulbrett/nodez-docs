@@ -4,23 +4,23 @@ title: Product Roadmap
 type: roadmap
 status: active
 created: 2026-08-19
-updated: 2026-08-21
+updated: 2026-08-22
 tags:
   - roadmap
 ---
 
 # Product Roadmap
 
-## Status (2026-08-21)
+## Status (2026-08-22)
 
 - Phase 0 (Prototype): done.
 - Phase 1 (Real vaults): done — Tauri v2 shell; open-folder; read/write/create; explorer; rename/delete with wikilink rewrite; external-edit watcher.
-- Phase 3 (Knowledge features): partial — richer graph, frontmatter, themes, settings, note tree, command palette; outline, backlink snippets, attachments pending; **plain-text auto-format** and **lightweight code editor** planned — [[Next Steps]], [[Code Editor Implementation]].
-- Phase 4 (Unified graph system): largely done — schema, provenance, local/global, filters, path finder, query/explain UI, MCP server + write/read tools + freshness (`rebuild_graph` / `stale`) + dual Hermes wiring; rebuild-after-sync pending (waits on Phase 2) — see [[Agent and Human Setup]].
-- Phase 2 (GitHub sync): not started (preview UI only).
-- Phase 5 (Polish): partial — themes, Windows MSI/NSIS; icons/signing, no-Node MCP, broader shortcuts pending.
-- Phase 6 (External repo/project indexing): 6a/6b done — source root, commit-driven re-index, merge artifact, extraction for docs/manifests/symbols, gitignore toggle, graph engines 2D/3D. Next extraction: deeper code edges; first target Dakila — [[Repo Indexing]].
-- **Active track:** Agent usefulness + human setup — **P0–P4 done**; next **P5** Dakila extraction (or P6/P7 by choice) — [[Agent and Human Setup]], [[Next Steps]].
+- Phase 3 (Knowledge features): partial — outline + matching backlink/outgoing pills landed; flush full-height inspector; attachments / search ranking pending — [[Next Steps]]. Plain-text auto-format + code editor MVP done — [[Code Editor Implementation]].
+- Phase 4 (Unified graph system): largely done — schema, provenance, local/global, filters, path finder, query/explain UI, MCP + freshness + dual Hermes; notes reload after pull (graph artifact debounce) — [[Agent and Human Setup]].
+- Phase 2 (GitHub sync): **v1 landed** — vault status/pull/commit/push/sync + conflict list + sync panel; control lives in notes footer — [[GitHub Sync]].
+- Phase 5 (Polish): partial — themes, Windows MSI/NSIS; **landing + OTA skeleton landed** (in-repo `landing/`, updater plugins, Pages/release workflows); icons/Authenticode, no-Node MCP, broader shortcuts pending.
+- Phase 6 (External repo/project indexing): 6a/6b + P5 deeper extraction (cross-file calls) landed — [[Repo Indexing]].
+- **Active track:** finish P7 (Pages enable, signed `v0.3.0` feed) or remaining Phase 3 (attachments, search) — [[Next Steps]].
 
 ## Phase 0 - Prototype
 
@@ -45,26 +45,25 @@ tags:
 
 ## Phase 2 - GitHub sync
 
-- detect git repo
-- connect remote
-- pull
-- commit
-- push
-- conflict UI
-- sync history
-- graph rebuild after pull (agent artifact freshness)
+- detect git repo — done (v1)
+- pull / commit / push / sync — done (v1); host git auth
+- conflict list (stop, no silent overwrite) — done (v1)
+- sync panel + notes-footer control — done
+- connect/clone wizard, OAuth, guided conflict editor — later
+- graph artifact refresh after pull — via note reload + debounced save
 
 ## Phase 3 - Knowledge features
 
 - command palette — done
 - better graph view — largely done (2D/3D engines, filters, path, explain)
-- backlinks with context snippets
-- outline
+- backlinks (title pills, same chrome as outgoing) — done
+- outline (full list, jump/scroll) — done
+- unresolved outgoing markers — done
 - properties/frontmatter — partial
-- attachments
+- attachments — pending
 - first-run wizard / MCP export — done (P2)
-- plain-text / paste auto-format (ask first + Auto-format button) — [[Next Steps]]
-- lightweight code editor mode — [[Code Editor Implementation]]
+- plain-text / paste auto-format — done first cut — [[Next Steps]]
+- lightweight code editor mode — done MVP — [[Code Editor Implementation]]
 
 ## Phase 4 - Unified graph system
 
@@ -85,11 +84,11 @@ tags:
 - keyboard shortcuts
 - export
 - mobile-responsive shell
-- package installers
-- no-Node / bundled MCP for non-dev setup — P7
-- app versioning (single source of truth, About UI, semver tags) — [[Distribution Versioning and Updates]]
-- OTA updates via Tauri updater + signed feed — [[Distribution Versioning and Updates]]
-- public landing page (download + positioning) — [[Landing Page]]
+- package installers — MSI/NSIS
+- app versioning (single source of truth, About UI, semver tags) — done baseline — [[Distribution Versioning and Updates]]
+- OTA updates via Tauri updater + signed feed — **skeleton 2026-08-22** (plugins, Settings check, Pages endpoint); first signed platform payload pending — [[Distribution Versioning and Updates]]
+- public landing page (download + positioning) — **shipped in-repo plain HTML/CSS** `landing/` — [[Landing Page]]
+- no-Node / bundled MCP for non-dev setup — still P7 remaining
 
 ## Phase 6 - External repo/project indexing
 
@@ -112,6 +111,6 @@ Not a replacement for Phases 2–6; a cross-cutting delivery order documented in
 | P2 | First-run wizard + one-click MCP config export — **done 2026-08-21** |
 | P3 | App `AGENTS.md` agent contract — **done 2026-08-21** |
 | P4 | Impact / explain / communities tools — **done 2026-08-21** |
-| P5 | Deeper code extraction (Dakila) |
-| P6 | Real git sync + rebuild-after-pull |
-| P7 | Distribution: versioning, OTA, landing page, no-Node MCP, icons, signed builds |
+| P5 | Deeper code extraction (Dakila) — **regex pass landed**; tree-sitter optional |
+| P6 | Real git sync + rebuild-after-pull — **v1 landed** (panel + footer control) |
+| P7 | Distribution — **landing + OTA skeleton landed**; remaining: signed tag feed, Authenticode, no-Node MCP, icons |

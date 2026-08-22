@@ -4,12 +4,31 @@ title: Decision Log
 type: decision-log
 status: active
 created: 2026-08-19
-updated: 2026-08-21
+updated: 2026-08-22
 tags:
   - decisions
 ---
 
 # Decision Log
+
+## 2026-08-22 — Landing lives in main repo as plain HTML/CSS
+
+**Decision:** Public download site is `landing/` inside `C:\Sites\diamante`, plain HTML + CSS (tiny JS only to soft-fill version from the updater manifest). OTA manifest and update bundles co-locate under `landing/updates/`. Host on GitHub Pages at `paulbrett.github.io/diamante`.
+
+**Why:** User choice (single-page, in-repo, manifest + bundles together). Avoids a second repo and keeps release CI one place.
+
+**Implications:** Pages workflow deploys `landing/`; release workflow copies signed updater artifacts into `updates/bundles/` and rewrites `latest.json`. App updater endpoint points at that static JSON.
+
+## 2026-08-22 — Vault AGENTS.md collision policy
+
+**Decision:** Opt-in create/refresh of vault agent contract; never full-overwrite existing root `AGENTS.md`. Managed HTML comment markers; foreign root → `.diamante/AGENTS.md`; optional merge-append.
+**Why:** Root `AGENTS.md` is a common host-agent convention; clobbering user/team contracts is unacceptable.
+**See:** [[Agent Skills and Surfaces]]
+
+## 2026-08-22 — Agent skills vs MCP surfaces
+
+**Decision:** Diamante does not ship an in-app skill loader. Agents use **MCP + app `AGENTS.md`**. Host skills (Hermes) and vault notes are separate layers. Documented in [[Agent Skills and Surfaces]].
+**Why:** Matches product layering (external agent + MCP); avoids a second skill tree competing with the tool contract.
 
 ## 2026-08-19 - Use plain Markdown files
 

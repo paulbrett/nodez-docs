@@ -47,8 +47,6 @@ Diamante should avoid silently overwriting notes. If a merge conflict happens, t
 - show status
 - show conflicts
 
-
-
 ## Implementation status (v1 — 2026-08-22)
 
 Desktop shell (Tauri) now wraps vault git via CLI:
@@ -68,3 +66,7 @@ After a successful pull/sync, notes reload from disk.
 Still later: guided side-by-side conflict editor, clone/connect wizard, OAuth.
 
 Related: [[Tauri Desktop Shell]], [[Product Roadmap]]
+
+## UI entry (2026-08-22)
+
+Primary control: **GitHub sync** icon in the **notes list footer** (beside the note count), not the bottom status bar. Command palette **GitHub sync** still opens the same panel.

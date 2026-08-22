@@ -4,7 +4,7 @@ title: Diamante Notes
 type: docs-index
 status: active
 created: 2026-08-19
-updated: 2026-08-21
+updated: 2026-08-22
 tags:
   - project
   - local-first
@@ -23,6 +23,7 @@ The project goal is to combine the best part of Obsidian - plain files in a vaul
 - [[Architecture]]
 - [[Unified Knowledge System]]
 - [[Agent and Human Setup]]
+- [[Agent Skills and Surfaces]]
 - [[Distribution Versioning and Updates]]
 - [[Landing Page]]
 - [[Graphify Tech Research]]
@@ -44,10 +45,12 @@ Desktop (Tauri) app with:
 - Wikilinks, backlinks, tags, note tree
 - Merged vault + repo graph (2D/3D engines)
 - Commit-driven repo re-index and `.diamante/graph.json` artifact
-- Command palette and MCP server for AI agents (graph query + vault writes)
+- Command palette and MCP server for AI agents (graph query + vault reads/writes)
+- Vault GitHub sync v1 and opt-in vault `AGENTS.md` agent contract
+- Public landing + OTA updater skeleton (`landing/`, Settings check for updates)
 
 ## Next milestone
 
-Make Diamante **simple for humans to set up** and **complete for agents to use**: note read tools, graph freshness after agent writes, first-run wizard with one-click MCP export, and a proper app `AGENTS.md` contract — **P0–P3 done**. See [[Agent and Human Setup]] and [[Next Steps]]. Next optional depth: P4 impact/explain tools, P5 Dakila extraction, P6 git sync, P7 distribution.
+Agent/human setup **P0–P6 largely done** (MCP loop, vault agent contract, git sync v1, extraction regex). **P7 skeleton landed**: in-repo [[Landing Page]] + [[Distribution Versioning and Updates]] (OTA feed + updater UI). See [[Agent and Human Setup]] and [[Next Steps]].
 
-Then: deeper code extraction (Dakila), real GitHub sync with rebuild-after-pull, **app versioning + OTA**, a **public landing page**, and distribution polish (no-Node MCP).
+**Next:** enable GitHub Pages + signing secret, tag `v0.3.0` for a live signed feed; no-Node MCP; Phase 3 attachments/search; icons/Authenticode.

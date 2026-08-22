@@ -4,7 +4,7 @@ title: Diamante Project Docs
 type: docs-index
 status: active
 created: 2026-08-19
-updated: 2026-08-21
+updated: 2026-08-22
 tags:
   - project
   - docs
@@ -41,7 +41,7 @@ C:\Sites\diamante
 - [[Project Overview]]
 - [[Architecture]]
 - [[Unified Knowledge System]]
-- [[Agent and Human Setup]]
+- [[Agent and Human Setup]], [[Agent Skills and Surfaces]]
 - [[Distribution Versioning and Updates]]
 - [[Landing Page]]
 - [[Command Palette and Agent Surface]]

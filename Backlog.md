@@ -4,7 +4,7 @@ title: Backlog
 type: backlog
 status: active
 created: 2026-08-19
-updated: 2026-08-21
+updated: 2026-08-22
 tags:
   - backlog
 ---
@@ -20,7 +20,7 @@ Priority track for agents + onboarding: [[Agent and Human Setup]]. Sequencing: [
 - **Plain-text / paste auto-format** — detect unformatted paste or body; ask format-or-not; show Auto-format button when unformatted — [[Next Steps]]
 - **Lightweight code editor** (CodeMirror 6 + Prettier format + light lint; not Monaco for MVP) — [[Code Editor Implementation]], [[Next Steps]]; builds on `src/MarkdownEditor.tsx`
 - Add image and file embeds
-- Add heading outline
+- Add heading outline — done (inspector outline)
 - Add keyboard shortcuts (beyond command palette)
 
 ## Vault
@@ -35,12 +35,12 @@ Priority track for agents + onboarding: [[Agent and Human Setup]]. Sequencing: [
 
 ## Sync
 
-- Show git status
-- Pull from remote
-- Commit local changes
-- Push to GitHub
-- Conflict resolution screen
-- Rebuild `.diamante/graph.json` after successful pull
+- Show git status — done (vault git v1)
+- Pull from remote — done
+- Commit local changes — done
+- Push to GitHub — done (v1)
+- Conflict resolution screen — stop + list done; guided editor later
+- Rebuild `.diamante/graph.json` after successful pull — notes reload; durable auto-rebuild later
 
 ## Index / Graph
 
@@ -57,8 +57,8 @@ Priority track for agents + onboarding: [[Agent and Human Setup]]. Sequencing: [
 - Source references from graph edges back to notes/files/lines — partial
 - Lazy-load heavy graph engines — done for WebGL 3D
 - Add graph performance measurements using the 1,000-node dummy vault fixture
-- Layout cache (`.diamante/layout.json`) and path/impact worker — [[Graph Scale]]
-- Optional community hulls; minimap / zoom-to-fit
+- Layout cache (`.diamante/layout.json`) and path/impact worker — **done** — [[Graph Scale]]
+- Optional community hulls; minimap / zoom-to-fit — zoom-to-fit landed; hulls/minimap optional
 
 ## Agent / MCP (see [[Agent and Human Setup]])
 
@@ -76,13 +76,15 @@ Priority track for agents + onboarding: [[Agent and Human Setup]]. Sequencing: [
 
 ## Distribution (see [[Distribution Versioning and Updates]], [[Landing Page]])
 
-- Single version source of truth across npm + Tauri + About UI
-- Semver tags and release checklist
-- GitHub Releases with MSI/NSIS (+ later other OS)
-- Tauri OTA updater (signed feed, user consent, air-gap opt-out)
-- Windows code signing; macOS notarization later
-- Public landing page: hero, download CTAs, requirements, honest roadmap
-- Landing deploy (Pages/Cloudflare) wired to latest release assets
+- Single version source of truth across npm + Tauri + About UI — done baseline (0.3.0)
+- Semver tags and release checklist — tags + CHANGELOG; CI release workflow
+- Windows MSI/NSIS — done
+- Public landing page (plain HTML/CSS in-repo `landing/`) — **skeleton shipped**
+- OTA: Tauri updater + `landing/updates/latest.json` + Settings check — **skeleton shipped**
+- First signed Pages feed (`platforms.windows-x86_64`) — pending secret + tag
+- Authenticode / SmartScreen — pending
+- No-Node / bundled MCP binary — **P7 remaining**
+- Full icon set / macOS notarization — pending
 
 ## Dakila Workflow
 

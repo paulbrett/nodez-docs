@@ -4,7 +4,7 @@ title: Frontend
 type: agent
 status: active
 created: 2026-08-20
-updated: 2026-08-20
+updated: 2026-08-22
 tags:
   - frontend
   - ui
@@ -200,3 +200,18 @@ Motion rules:
 - Are cards actually necessary?
 - Does motion improve hierarchy or atmosphere?
 - Would the design still feel premium if all decorative shadows were removed?
+
+## Diamante app chrome (2026-08-22)
+
+Shell layout conventions for the notes app (`src/App.tsx`, `src/styles.css`):
+
+| Region | Behavior |
+| --- | --- |
+| Left sidebar | Vault/repo pickers, note tree; footer **note count + GitHub sync** matches status-bar metrics (32px, 11px/500) |
+| Workspace | CSS grid: topbar + editor column + status bar; **inspector** spans all rows on the right |
+| Inspector | Flush to viewport **top / right / bottom**; panels as flat sections with dividers (not floating cards in a gutter) |
+| Status bar | Graph view/index, repo git, index status, graph artifact — no sync button (moved to notes footer) |
+
+Graph canvas chrome is separate; leave node/edge draw alone unless explicitly requested.
+
+Related: [[Next Steps]], [[GitHub Sync]], [[Tauri Desktop Shell]].

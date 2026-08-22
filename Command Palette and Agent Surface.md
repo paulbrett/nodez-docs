@@ -4,7 +4,7 @@ title: Command Palette and Agent Surface
 type: architecture
 status: active
 created: 2026-08-20
-updated: 2026-08-21
+updated: 2026-08-22
 tags:
   - mcp
   - agents
@@ -81,7 +81,7 @@ Replace the current flat instruction list with a structure mined from `AGENTS-GR
 3. **MCP tool reference** — a table of all 10 tools (6 existing query tools + 4 new write tools), one line each: name, what it does, read or write.
 4. **Agent workflow** — restates the existing `AGENTS.md`/[[Unified Knowledge System]] loop (query graph → read vault notes → read source → act), now explicit that "act" can mean calling a write tool, not just editing files directly.
 
-This stays one file (not a `skills/` directory of many small files) — the tool surface is small enough (10 tools) that one reference table is clearer than a folder of one-tool-each playbooks; revisit if the tool count grows a lot.
+This stays one file (not a `skills/` directory of many small files) — the tool surface is small enough that one reference table is clearer than a folder of one-tool-each playbooks; revisit if the tool count grows a lot. Full layering (MCP vs host skills vs vault knowledge): [[Agent Skills and Surfaces]].
 
 ## Data flow
 

@@ -19,6 +19,7 @@ Plan for making Diamante **useful for AI agents** and **simple to set up for hum
 ## Related
 
 - [[Command Palette and Agent Surface]]
+- [[Agent Skills and Surfaces]]
 - [[Unified Knowledge System]]
 - [[Next Steps]]
 - [[Product Roadmap]]
@@ -48,6 +49,21 @@ Plan for making Diamante **useful for AI agents** and **simple to set up for hum
 3. ~~Human MCP wiring still needs hand-edited absolute paths and Node on PATH~~ — **done (P2):** setup wizard + one-click MCP JSON export with absolute vault/script paths; Windows export now strips `//?/` / `\\?\` extended prefixes and can use `DIAMANTE_NODE_COMMAND` when `node` is not on the client PATH
 4. ~~App-repo `AGENTS.md` is not yet a full agent contract (tool table + hard rules + workflow)~~ — **done (P3):** app-repo `AGENTS.md` is the agent contract
 5. ~~Higher-order graph tools (`explain_edge`, `impact_of`, communities) and deep code edges still thin~~ — **P4 tools done** (`explain_edge` / `impact_of` / `list_communities`); deep code edges still P5
+
+## Skills vs surfaces
+
+Agents do **not** load a Diamante in-app skill pack. Runtime capability is **MCP tools** + app-repo `AGENTS.md`. Host playbooks (Hermes `diamante-notes`, etc.) and vault notes are separate layers. Canonical map: [[Agent Skills and Surfaces]].
+
+### Vault agent contract (end-user projects) — shipped 2026-08-22
+
+Opt-in **AGENTS.md** for the opened vault so external agents get project MCP rules:
+
+- Setup wizard step **Agents** (between Index and MCP)
+- Settings → Agent setup: **Agent contract** / **Merge into AGENTS.md**
+- Palette: **Add or refresh agent contract**, **Merge Diamante section into existing AGENTS.md**
+- Collision: never overwrite foreign root `AGENTS.md`; fallback `.diamante/AGENTS.md`; managed marker refresh
+
+See [[Agent Skills and Surfaces]].
 
 ## Definition of done
 
@@ -121,30 +137,35 @@ Align MCP with research/roadmap names:
 
 Deeper extraction remains [[#P5 — Deeper extraction (Dakila proving ground)]].
 
-### P5 — Deeper extraction (Dakila proving ground)
+### P5 — Deeper extraction (Dakila proving ground) — **regex pass landed 2026-08-22**
 
-- Stronger `imports` / `calls` / `defines` (tree-sitter or equivalent) for TS/TSX/C++ as used by Dakila
-- First concrete target remains OverlandLightingControllerV1 — see [[Repo Indexing]]
+- Cross-file calls, multi-line imports, methods — regex extractor; Dakila smoke OK — [[Repo Indexing]]
+- Optional later: tree-sitter WASM for full syntax fidelity
 - Keep commit-only re-index signature (`branch|HEAD`); do not thrash on dirty trees
 
-### P6 — Real GitHub sync + rebuild-after-pull
+### P6 — Real GitHub sync + rebuild-after-pull — **v1 landed 2026-08-22**
 
-Turn sync preview into Rust git operations:
+Rust vault git + sync panel (notes footer control):
 
-- status, pull, stage, commit, push
-- conflict UI (never silent overwrite)
-- pull → re-extract → refresh `.diamante/graph.json` → MCP consumers see new artifact
+- status, pull (`--ff-only` then merge), stage, commit, push, sync
+- stops on conflicts (no silent overwrite); notes reload after pull/sync
+- Still later: guided conflict editor, clone/connect wizard, OAuth, auto graph rebuild on pull
 
-Ties human multi-device workflow to agent graph freshness.
+### P7 — Distribution polish — **landing + OTA skeleton 2026-08-22**
 
-### P7 — Distribution polish
+**Landed in app repo `C:\Sites\diamante` (commit `26ddb9d` and follow-ons):**
 
-- Installer-first story (MSI/NSIS already; icons, signed builds later)
-- **App versioning + OTA updates** — single version truth, GitHub Releases, Tauri updater — [[Distribution Versioning and Updates]]
-- **Public landing page** — download CTAs, requirements, honest feature list — [[Landing Page]]
-- **No-Node MCP path**: bundle portable MCP or expose from Tauri binary so end users need not install Node
-- Keyboard shortcuts beyond palette; fast note search; attachments
-- Layout cache / graph worker per [[Graph Scale]] so large repos stay usable
+- Installers: MSI/NSIS via Tauri; version `0.3.0` in package/tauri/Cargo
+- **Landing** — plain HTML/CSS in `landing/` (not a separate site repo) — [[Landing Page]]
+- **OTA** — `landing/updates/latest.json` + `bundles/`; Tauri updater + process plugins; Settings → About → Check for updates; endpoint `https://paulbrett.github.io/diamante/updates/latest.json` — [[Distribution Versioning and Updates]]
+- CI: `.github/workflows/pages.yml`, `release.yml`; `scripts/publish-update-feed.mjs`
+
+**Still remaining:**
+
+- Enable GitHub Pages (Actions) + secret `TAURI_SIGNING_PRIVATE_KEY`; first signed tag so `platforms.windows-x86_64` is real
+- Authenticode / icons polish / macOS notarization when those platforms ship
+- **No-Node MCP path**: bundle portable MCP or expose from Tauri binary
+- Keyboard shortcuts beyond palette; fast note search; attachments (Phase 3)
 
 #### Related distribution notes
 

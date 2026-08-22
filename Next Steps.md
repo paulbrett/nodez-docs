@@ -12,7 +12,7 @@ tags:
 
 # Next Steps
 
-Prioritized plan after the graph system, Tauri vault, repo indexing, command palette, and MCP write tools. Canonical agent/human onboarding plan: [[Agent and Human Setup]].
+Prioritized plan after the graph system, Tauri vault, repo indexing, command palette, and MCP write tools. Canonical agent/human onboarding plan: [[Agent and Human Setup]]. Where skills vs MCP vs vault knowledge go: [[Agent Skills and Surfaces]].
 
 Ordered by dependency and leverage.
 
@@ -45,6 +45,7 @@ Full checklist: [[Agent and Human Setup]].
 3. **P2** — Setup wizard + one-click MCP export
 4. **P3** — App-repo `AGENTS.md` agent contract
 5. **P4** — `explain_edge`, `impact_of`, `list_communities`
+6. **Vault agent contract** — opt-in `AGENTS.md` / `.diamante/AGENTS.md` with collision-safe markers — [[Agent Skills and Surfaces]]
 
 ### Release 0.2.0 — done 2026-08-21
 
@@ -106,9 +107,18 @@ Still open / next:
 - Optional community hulls, minimap
 - Compact/mobile viewport review after workspace chrome changes
 
-## Phase 3 knowledge features (remaining)
+## Phase 3 knowledge features
 
-- Document outline, backlink context snippets, attachments, unresolved links
+**Partial 2026-08-22** — inspector + workspace chrome:
+
+- Document **outline** (full list, no internal scroll; click → jump in edit / scroll in preview)
+- **Backlinks** and **Outgoing** as matching title pills; unresolved outgoing marked `· ?`
+- GitHub sync control moved to notes-tree footer beside note count (status-bar-matched chrome)
+- Right **inspector** full-height column flush to viewport top/right/bottom (workspace CSS grid)
+
+Still remaining:
+
+- Attachments
 - Fast search ranking; keyboard shortcuts beyond the palette
 
 ## Cleanup and tech debt
@@ -118,12 +128,19 @@ Still open / next:
 - Focused tests for note-tree collapse and new-folder reveal
 - Harden CodeMirror paste path when adding auto-format (undo-friendly, selection-aware)
 
-## Phase 5 polish and distribution (P7 remaining)
+## Phase 5 polish and distribution (P7)
 
-- Full icon set (`npm run tauri icon`); signed/notarized macOS; Windows/Linux installers polish
-- **OTA** — Tauri updater, signed feed — [[Distribution Versioning and Updates]] (versioning + GitHub Releases baseline landed with 0.2.0)
-- **Landing page** — public download/marketing site — [[Landing Page]]
-- **No-Node MCP** path (bundled binary or Tauri-side server) for non-dev humans
+**Landed 2026-08-22 (skeleton):**
+
+- **Landing** — plain HTML/CSS in repo `landing/` — [[Landing Page]]
+- **OTA feed** — `landing/updates/latest.json` + `bundles/`; Tauri updater plugins; Settings → Check for updates — [[Distribution Versioning and Updates]]
+- Pages + release workflows (`.github/workflows/pages.yml`, `release.yml`)
+
+**Still remaining:**
+
+- Enable GitHub Pages + set `TAURI_SIGNING_PRIVATE_KEY`; first signed tag (`v0.3.0`) with real `platforms.windows-x86_64`
+- Full icon set (`npm run tauri icon`); Authenticode / macOS notarization
+- **No-Node MCP** path for non-dev humans
 - Export and mobile-responsive shell
 
 ## Explicit deprioritize
@@ -132,4 +149,4 @@ Still open / next:
 - Chat gateways inside Diamante
 - MCP writes to indexed source roots
 
-Related: [[Agent and Human Setup]], [[Code Editor Implementation]], [[Distribution Versioning and Updates]], [[Landing Page]], [[Product Roadmap]], [[Architecture]], [[GitHub Sync]], [[Tauri Desktop Shell]], [[Unified Knowledge System]], [[Graphify Tech Research]], [[Repo Indexing]], [[Command Palette and Agent Surface]], [[Frontend]]
+Related: [[Agent and Human Setup]], [[Agent Skills and Surfaces]], [[Code Editor Implementation]], [[Distribution Versioning and Updates]], [[Landing Page]], [[Product Roadmap]], [[Architecture]], [[GitHub Sync]], [[Tauri Desktop Shell]], [[Unified Knowledge System]], [[Graphify Tech Research]], [[Repo Indexing]], [[Command Palette and Agent Surface]], [[Frontend]]
