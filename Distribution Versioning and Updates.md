@@ -134,4 +134,3 @@ npm run tauri -- build
 ```
 
 Never commit `*.key`. Public key lives only in `tauri.conf.json` `plugins.updater.pubkey`.
-
