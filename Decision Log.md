@@ -19,7 +19,6 @@ tags:
 
 **Implications:** App updater endpoint → `https://paulbrett.github.io/diamante-landing/updates/latest.json`. Release CI needs `LANDING_DEPLOY_TOKEN` to push feed/bundles. Local `DIAMANTE_LANDING_DIR` defaults to sibling `../diamante-landing`.
 
-
 ## 2026-08-22 — Landing lives in main repo as plain HTML/CSS
 
 **Decision:** Public download site is `landing/` inside `C:\Sites\diamante`, plain HTML + CSS (tiny JS only to soft-fill version from the updater manifest). OTA manifest and update bundles co-locate under `landing/updates/`. Host on GitHub Pages at `paulbrett.github.io/diamante`.
