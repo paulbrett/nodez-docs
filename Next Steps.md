@@ -4,7 +4,7 @@ title: Next Steps
 type: roadmap
 status: active
 created: 2026-08-20
-updated: 2026-08-22
+updated: 2026-08-23
 tags:
   - roadmap
   - planning
@@ -139,19 +139,20 @@ Still remaining:
 - Local signed build works via **`TAURI_SIGNING_PRIVATE_KEY` contents** (not `*_PATH` for `tauri build`); `npm run update:feed` + force-add bundles for Pages
 - CI `release.yml` force-adds gitignored bundles when pushing to landing
 
-**Still remaining:**
+**Still remaining / recent:**
 
-- [x] Tag GitHub Release **v0.3.0** (assets + signed feed)
+- [x] Tag GitHub Release **v0.3.0** / **v0.4.0** rebrand + **v0.4.1** agent UX (when published)
 - Verify N−1 → N OTA install once on a second machine / clean install
 - [x] Full icon set from `app-icon.png` (`npm run icons` / `tauri icon`)
 - Authenticode / macOS notarization (later)
-- **No-Node MCP** path for non-dev humans
+- [x] **No-Node MCP** kit + launcher (optional if system Node present; bundled runtime on installer builds) — app 0.4.1
+- [x] External agent **handoff** (copy prompt / MCP JSON) + thin **Ask** panel (not full second agent)
 - Export and mobile-responsive shell
 - Phase 3: attachments, search ranking (optional parallel track)
 
 ## Explicit deprioritize
 
-- In-app second full agent chat (prefer Hermes/CLI + Nodez MCP)
+- In-app second **full** agent chat (prefer Hermes/CLI + Nodez MCP); thin Ask panel + handoff OK
 - Chat gateways inside Nodez
 - MCP writes to indexed source roots
 

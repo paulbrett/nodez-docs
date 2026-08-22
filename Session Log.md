@@ -12,6 +12,15 @@ tags:
 
 # Session Log
 
+## 2026-08-23 — 0.4.1 agents: handoff, Ask, no-Node MCP
+
+- Shape 3: copy agent prompt / handoff (vault + note + selection + MCP JSON)
+- Shape 2: Ask panel (Ollama / OpenAI-compatible); not a second full agent
+- No-Node MCP kit under installer resources (`nodez-mcp.cmd` / `.sh` + optional bundled Node); system Node still fine
+- UI: nested tree folder subtitle removed; graph hubs/panels ellipsis + tooltips
+- Release: bump **0.4.1**, signed Windows build + feed on getnodez.app
+
+
 ## 2026-08-22 — Docs vault moved to Documents/Nodez
 
 - Canonical planning/Obsidian vault is now `C:\Users\webwi\Documents\Nodez` (not `Documents\Diamante`).
