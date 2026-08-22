@@ -18,7 +18,7 @@ tags:
 - Phase 3 (Knowledge features): partial — outline + matching backlink/outgoing pills landed; flush full-height inspector; attachments / search ranking pending — [[Next Steps]]. Plain-text auto-format + code editor MVP done — [[Code Editor Implementation]].
 - Phase 4 (Unified graph system): largely done — schema, provenance, local/global, filters, path finder, query/explain UI, MCP + freshness + dual Hermes; notes reload after pull (graph artifact debounce) — [[Agent and Human Setup]].
 - Phase 2 (GitHub sync): **v1 landed** — vault status/pull/commit/push/sync + conflict list + sync panel; control lives in notes footer — [[GitHub Sync]].
-- Phase 5 (Polish): partial — themes, Windows MSI/NSIS; **public landing + signed OTA feed live** (`diamante-landing` Pages); icons/Authenticode, no-Node MCP, broader shortcuts pending.
+- Phase 5 (Polish): partial — themes, Windows MSI/NSIS; **public landing + signed OTA feed live** (`diamante-landing` Pages); Authenticode still pending; **icons shipped**; no-Node MCP, broader shortcuts pending.
 - Phase 6 (External repo/project indexing): 6a/6b + P5 deeper extraction (cross-file calls) landed — [[Repo Indexing]].
 - **Active track:** finish P7 (tag Release CI verify, OTA smoke, icons/Authenticode, no-Node MCP) **or** Phase 3 (attachments, search) — [[Next Steps]].
 
@@ -113,4 +113,4 @@ Not a replacement for Phases 2–6; a cross-cutting delivery order documented in
 | P4 | Impact / explain / communities tools — **done 2026-08-21** |
 | P5 | Deeper code extraction (Dakila) — **regex pass landed**; tree-sitter optional |
 | P6 | Real git sync + rebuild-after-pull — **v1 landed** (panel + footer control) |
-| P7 | Distribution — **signed feed live on Pages**; remaining: tag CI verify, OTA smoke, Authenticode, no-Node MCP, icons |
+| P7 | Distribution — **signed feed + icons live**; remaining: tag CI verify, OTA smoke, Authenticode, no-Node MCP |

@@ -143,7 +143,8 @@ Still remaining:
 
 - Tag GitHub Release `v0.3.0` (or next) so Actions publishes Release assets + proves CI end-to-end
 - Verify N−1 → N OTA install once on a second machine / clean install
-- Full icon set (`npm run tauri icon`); Authenticode / macOS notarization
+- [x] Full icon set from `app-icon.png` (`npm run icons` / `tauri icon`)
+- Authenticode / macOS notarization (later)
 - **No-Node MCP** path for non-dev humans
 - Export and mobile-responsive shell
 - Phase 3: attachments, search ranking (optional parallel track)

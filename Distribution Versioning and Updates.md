@@ -33,7 +33,8 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 | Endpoint | `https://paulbrett.github.io/diamante-landing/updates/latest.json` |
 | Public key | in `src-tauri/tauri.conf.json` `plugins.updater.pubkey` |
 | Private key | **CI secret** `TAURI_SIGNING_PRIVATE_KEY`; local `src-tauri/diamante.key` (gitignored). Also `LANDING_DEPLOY_TOKEN` for CI push to landing |
-| Code signing (Authenticode) | not set up |
+| App icons | 1024 source `app-icon.png` → `npm run icons` → `src-tauri/icons/*` |
+| Code signing (Authenticode) | not set up (later) |
 | GitHub Releases | `v0.2.0` published; signed **0.3.0** installers live on landing Pages; tag Release when ready |
 
 ## Goals

@@ -164,7 +164,8 @@ Rust vault git + sync panel (notes footer control):
 **Still remaining:**
 
 - Tag GitHub Release + verify CI end-to-end; N−1 → N OTA smoke test
-- Authenticode / icons polish / macOS notarization when those platforms ship
+- [x] App icons regenerated from 1024 brand PNG
+- Authenticode / macOS notarization when those platforms ship
 - **No-Node MCP path**: bundle portable MCP or expose from Tauri binary
 - Keyboard shortcuts beyond palette; fast note search; attachments (Phase 3)
 
