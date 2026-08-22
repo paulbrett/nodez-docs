@@ -1,7 +1,7 @@
 {
   "version": 2,
   "format": "diamante.graph.manifest",
-  "generatedAt": "2026-08-22T04:31:56.292Z",
+  "generatedAt": "2026-08-22T04:38:40.848Z",
   "vaultPath": "C:\\Users\\webwi\\Documents\\Diamante",
   "sourceRoot": "C:\\Sites\\diamante",
   "sourceGit": {
@@ -9,16 +9,16 @@
     "root": "C:/Sites/diamante",
     "branch": "main",
     "head": "26ddb9da29709f58eb40a3dbbcc3bfbfea7eea34",
-    "dirty": false,
-    "changedCount": 0,
+    "dirty": true,
+    "changedCount": 14,
     "untrackedCount": 0,
     "signature": "main|26ddb9da29709f58eb40a3dbbcc3bfbfea7eea34",
-    "summary": "main 26ddb9d, clean"
+    "summary": "main 26ddb9d, 14 changed"
   },
   "stats": {
-    "nodes": 139,
-    "edges": 298,
-    "extracted": 298,
+    "nodes": 131,
+    "edges": 289,
+    "extracted": 289,
     "inferred": 0,
     "manual": 0,
     "communities": 24
@@ -43,19 +43,19 @@
         "path": "graph/nodes-structure-1.json",
         "kind": "nodes",
         "group": "structure",
-        "count": 108
+        "count": 100
       },
       {
         "path": "graph/edges-links_to-1.json",
         "kind": "edges",
         "group": "links_to",
-        "count": 191
+        "count": 190
       },
       {
         "path": "graph/edges-contains-1.json",
         "kind": "edges",
         "group": "contains",
-        "count": 107
+        "count": 99
       }
     ]
   }

@@ -26,11 +26,11 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 | `package.json` / tauri / Cargo version | `0.3.0` |
 | Windows installers | MSI + NSIS via `npm run tauri -- build` |
 | In-app About | Settings → About + **Check for updates** |
-| Landing | `landing/` plain HTML/CSS → GitHub Pages |
-| OTA manifest | `landing/updates/latest.json` |
-| Update bundles | `landing/updates/bundles/` (CI; gitignored binaries) |
+| Landing | `paulbrett/diamante-landing` (public) → GitHub Pages |
+| OTA manifest | landing repo `updates/latest.json` |
+| Update bundles | landing repo `updates/bundles/` (CI) |
 | Updater plugins | `tauri-plugin-updater` + `tauri-plugin-process` wired |
-| Endpoint | `https://paulbrett.github.io/diamante/updates/latest.json` |
+| Endpoint | `https://paulbrett.github.io/diamante-landing/updates/latest.json` |
 | Public key | in `src-tauri/tauri.conf.json` `plugins.updater.pubkey` |
 | Private key | **CI secret** `TAURI_SIGNING_PRIVATE_KEY` (local: `~/.tauri/diamante.key`) |
 | Code signing (Authenticode) | not set up |
@@ -95,8 +95,8 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 
 | Piece | Location |
 | --- | --- |
-| Landing | `landing/` |
-| Manifest | `landing/updates/latest.json` |
+| Landing | `https://github.com/paulbrett/diamante-landing` |
+| Manifest | landing `updates/latest.json` |
 | Feed script | `scripts/publish-update-feed.mjs` |
 | Frontend | `src/appUpdate.ts`, Settings About in `App.tsx` |
 | Config | `src-tauri/tauri.conf.json` `bundle.createUpdaterArtifacts`, `plugins.updater` |

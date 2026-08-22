@@ -132,9 +132,9 @@ Still remaining:
 
 **Landed 2026-08-22 (skeleton):**
 
-- **Landing** — plain HTML/CSS in repo `landing/` — [[Landing Page]]
-- **OTA feed** — `landing/updates/latest.json` + `bundles/`; Tauri updater plugins; Settings → Check for updates — [[Distribution Versioning and Updates]]
-- Pages + release workflows (`.github/workflows/pages.yml`, `release.yml`)
+- **Landing** — public repo `paulbrett/diamante-landing` — [[Landing Page]]
+- **OTA feed** — landing `updates/latest.json` + `bundles/`; Tauri updater plugins; Settings → Check for updates — [[Distribution Versioning and Updates]]
+- Pages on landing repo; app `release.yml` can push feed (token)
 
 **Still remaining:**
 

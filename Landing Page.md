@@ -22,19 +22,19 @@ Related: [[Distribution Versioning and Updates]], [[Product Roadmap]], [[Project
 
 | Choice | Detail |
 | --- | --- |
-| Location | `C:\Sites\diamante\landing\` in main app repo |
+| Location | Separate public repo `paulbrett/diamante-landing` → `C:\Sites\diamante-landing` |
 | Stack | Single-page **plain HTML + CSS** (tiny JS only to soft-fill version from manifest) |
-| Host | GitHub Pages — `https://paulbrett.github.io/diamante/` |
-| OTA | Manifest + bundles under `landing/updates/` |
+| Host | GitHub Pages — `https://paulbrett.github.io/diamante-landing/` |
+| OTA | Manifest + bundles under landing repo `updates/` |
 
 ```text
-landing/
+diamante-landing/          # github.com/paulbrett/diamante-landing (public)
   index.html
   styles.css
   updates/
-    latest.json     # Tauri updater feed + installers map
-    bundles/        # MSI/NSIS + signed updater artifacts (CI; not committed)
-    README.md
+    latest.json
+    bundles/
+  .github/workflows/pages.yml
 ```
 
 ## v1 content checklist
@@ -72,12 +72,12 @@ landing/
 
 ## Engineering
 
-- [x] Scaffold `landing/`
-- [x] Pages workflow (`.github/workflows/pages.yml`)
-- [x] Release workflow copies feed + bundles (`.github/workflows/release.yml`)
+- [x] Scaffold `diamante-landing` repo (split from app)
+- [x] Pages workflow on landing repo
+- [x] App release workflow can push feed + bundles into landing repo
 - [x] `scripts/publish-update-feed.mjs` + `npm run update:feed`
 - [x] App Settings → About links site + Check for updates
-- [x] Updater endpoint → Pages `updates/latest.json`
+- [x] Updater endpoint → `https://paulbrett.github.io/diamante-landing/updates/latest.json`
 
 ## Acceptance
 

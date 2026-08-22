@@ -12,6 +12,15 @@ tags:
 
 # Session Log
 
+## 2026-08-22 (landing repo split)
+
+Split public site out of private app repo:
+
+- New **public** repo `paulbrett/diamante-landing` at `C:\Sites\diamante-landing`
+- Pages live: `https://paulbrett.github.io/diamante-landing/`
+- Removed in-app `landing/` + app Pages workflow; app release pushes feed via `LANDING_DEPLOY_TOKEN`
+- Updater endpoint + Settings About link updated
+
 ## 2026-08-22 (P7 landing + OTA skeleton)
 
 Shipped distribution surface in app repo (`paulbrett/diamante` `26ddb9d`):
