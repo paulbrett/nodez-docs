@@ -12,7 +12,6 @@ tags:
 
 # Session Log
 
-
 ## 2026-08-22 — Docs vault moved to Documents/Nodez
 
 - Canonical planning/Obsidian vault is now `C:\Users\webwi\Documents\Nodez` (not `Documents\Diamante`).

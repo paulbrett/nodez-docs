@@ -15,7 +15,7 @@ tags:
 
 - User-facing product name is **Nodez** (not Nodez).
 - Public domain **getnodez.app** is the canonical site + OTA base.
-- Vault meta directory is **`.nodez/`** (legacy **`.diamante/`** still readable). MCP env `NODEZ_*` retained for agent configs; agent-contract markers accept both nodez and legacy diamante forms.
+- Vault meta directory is **`.nodez/`** (legacy **`.diamante/`** still readable). MCP env prefers `NODEZ_*` (legacy `DIAMANTE_*` accepted). Agent-contract markers accept both nodez and legacy diamante forms.
 - App identifier `app.getnodez.nodez`. GitHub repository renames deferred.
 
 ## 2026-08-22 — Signing env for tauri build

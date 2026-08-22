@@ -1,27 +1,27 @@
 {
   "version": 2,
-  "format": "nodez.graph.manifest",
-  "generatedAt": "2026-08-22T06:16:58.429Z",
+  "format": "diamante.graph.manifest",
+  "generatedAt": "2026-08-22T06:33:58.685Z",
   "vaultPath": "C:\\Users\\webwi\\Documents\\Nodez",
   "sourceRoot": "C:\\Sites\\nodez-app",
   "sourceGit": {
     "isRepo": true,
-    "root": "C:/Sites/nodez-app",
+    "root": "C:/Sites/diamante",
     "branch": "main",
     "head": "f5e09b4e95fdb72089349b3a3cd4627ab2482262",
-    "dirty": false,
-    "changedCount": 0,
-    "untrackedCount": 0,
+    "dirty": true,
+    "changedCount": 15,
+    "untrackedCount": 1,
     "signature": "main|f5e09b4e95fdb72089349b3a3cd4627ab2482262",
-    "summary": "main f5e09b4, clean"
+    "summary": "main f5e09b4, 15 changed"
   },
   "stats": {
-    "nodes": 190,
-    "edges": 346,
-    "extracted": 346,
-    "inferred": 0,
+    "nodes": 782,
+    "edges": 1583,
+    "extracted": 1083,
+    "inferred": 500,
     "manual": 0,
-    "communities": 28
+    "communities": 37
   },
   "graph": {
     "directed": false,
@@ -31,31 +31,79 @@
         "path": "graph/nodes-vault-1.json",
         "kind": "nodes",
         "group": "vault",
-        "count": 25
+        "count": 21
       },
       {
         "path": "graph/nodes-symbols-1.json",
         "kind": "nodes",
         "group": "symbols",
-        "count": 6
+        "count": 505
       },
       {
         "path": "graph/nodes-structure-1.json",
         "kind": "nodes",
         "group": "structure",
-        "count": 159
+        "count": 160
+      },
+      {
+        "path": "graph/nodes-repo-1.json",
+        "kind": "nodes",
+        "group": "repo",
+        "count": 58
+      },
+      {
+        "path": "graph/nodes-packages-1.json",
+        "kind": "nodes",
+        "group": "packages",
+        "count": 38
       },
       {
         "path": "graph/edges-links_to-1.json",
         "kind": "edges",
         "group": "links_to",
-        "count": 188
+        "count": 198
       },
       {
         "path": "graph/edges-contains-1.json",
         "kind": "edges",
         "group": "contains",
-        "count": 158
+        "count": 159
+      },
+      {
+        "path": "graph/edges-documents-1.json",
+        "kind": "edges",
+        "group": "documents",
+        "count": 59
+      },
+      {
+        "path": "graph/edges-references-1.json",
+        "kind": "edges",
+        "group": "references",
+        "count": 3
+      },
+      {
+        "path": "graph/edges-depends_on-1.json",
+        "kind": "edges",
+        "group": "depends_on",
+        "count": 37
+      },
+      {
+        "path": "graph/edges-defines-1.json",
+        "kind": "edges",
+        "group": "defines",
+        "count": 495
+      },
+      {
+        "path": "graph/edges-calls-1.json",
+        "kind": "edges",
+        "group": "calls",
+        "count": 499
+      },
+      {
+        "path": "graph/edges-imports-1.json",
+        "kind": "edges",
+        "group": "imports",
+        "count": 133
       }
     ]
   }
