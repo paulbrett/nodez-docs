@@ -141,7 +141,7 @@ Still remaining:
 
 **Still remaining:**
 
-- Tag GitHub Release `v0.3.0` (or next) so Actions publishes Release assets + proves CI end-to-end
+- [x] Tag GitHub Release **v0.3.0** (assets + signed feed)
 - Verify N−1 → N OTA install once on a second machine / clean install
 - [x] Full icon set from `app-icon.png` (`npm run icons` / `tauri icon`)
 - Authenticode / macOS notarization (later)

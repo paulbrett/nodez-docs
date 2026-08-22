@@ -35,7 +35,7 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 | Private key | **CI secret** `TAURI_SIGNING_PRIVATE_KEY`; local `src-tauri/diamante.key` (gitignored). Also `LANDING_DEPLOY_TOKEN` for CI push to landing |
 | App icons | 1024 source `app-icon.png` → `npm run icons` → `src-tauri/icons/*` |
 | Code signing (Authenticode) | not set up (later) |
-| GitHub Releases | `v0.2.0` published; signed **0.3.0** installers live on landing Pages; tag Release when ready |
+| GitHub Releases | **v0.3.0** published (signed MSI/NSIS + sigs); landing Pages feed updated |
 
 ## Goals
 
@@ -66,7 +66,7 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 - [x] `scripts/publish-update-feed.mjs` / `npm run update:feed`
 - [x] Manifest + bundles on landing repo (`updates/`; CI force-adds gitignored binaries)
 - [x] Signed `platforms.windows-x86_64` published to Pages (local signed build 2026-08-22)
-- [ ] Tag CI Release path verified end-to-end (`v0.3.0` or next)
+- [x] Tag CI Release path (build + Release assets) verified **v0.3.0**; landing push fixed after first-run URL bug
 - [ ] Authenticode for SmartScreen
 
 ### V3 — OTA (Tauri updater) — **landed skeleton 2026-08-22**
@@ -89,7 +89,7 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 
 - [x] Landing + manifest path in repo
 - [x] Live Pages feed has installers + signature (`latest.json` platforms filled)
-- [ ] Tagged app Release CI path verified end-to-end
+- [x] Tagged app Release **v0.3.0** (assets on GitHub + feed on Pages)
 - [ ] N-1 → N update path verified on a machine
 - [x] Manual check only (no forced auto)
 - [x] Vault survives update design

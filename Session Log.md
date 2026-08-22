@@ -12,6 +12,13 @@ tags:
 
 # Session Log
 
+## 2026-08-22 (v0.3.0 release)
+
+- Tagged **v0.3.0**; CI built signed MSI/NSIS + `.sig`; GitHub Release published
+- Landing push step failed once (corrupt remote URL in workflow); fixed on main; feed + CI-signed bundles pushed manually to `diamante-landing`
+- Landing footer: removed “© Asbir”
+- Live: https://github.com/paulbrett/diamante/releases/tag/v0.3.0 · https://paulbrett.github.io/diamante-landing/
+
 ## 2026-08-22 (signed OTA live)
 
 - Generated minisign keypair; public key in `tauri.conf.json`; private in Actions secret + local `src-tauri/diamante.key`

@@ -55,6 +55,6 @@ Agent/human setup **P0–P6 largely done**. **P7 OTA path live**: public [[Landi
 
 **Next (pick one track):**
 
-1. **Ship polish** — tag GitHub Release, OTA smoke test; Authenticode later  
+1. **Ship polish** — **v0.3.0 released**; OTA smoke test; Authenticode later  
 2. **Agent install** — no-Node / bundled MCP  
 3. **Knowledge** — Phase 3 attachments + search ranking  
