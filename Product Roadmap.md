@@ -18,9 +18,9 @@ tags:
 - Phase 3 (Knowledge features): partial — outline + matching backlink/outgoing pills landed; flush full-height inspector; attachments / search ranking pending — [[Next Steps]]. Plain-text auto-format + code editor MVP done — [[Code Editor Implementation]].
 - Phase 4 (Unified graph system): largely done — schema, provenance, local/global, filters, path finder, query/explain UI, MCP + freshness + dual Hermes; notes reload after pull (graph artifact debounce) — [[Agent and Human Setup]].
 - Phase 2 (GitHub sync): **v1 landed** — vault status/pull/commit/push/sync + conflict list + sync panel; control lives in notes footer — [[GitHub Sync]].
-- Phase 5 (Polish): partial — themes, Windows MSI/NSIS; **landing + OTA skeleton landed** (in-repo `landing/`, updater plugins, Pages/release workflows); icons/Authenticode, no-Node MCP, broader shortcuts pending.
+- Phase 5 (Polish): partial — themes, Windows MSI/NSIS; **public landing + signed OTA feed live** (`diamante-landing` Pages); icons/Authenticode, no-Node MCP, broader shortcuts pending.
 - Phase 6 (External repo/project indexing): 6a/6b + P5 deeper extraction (cross-file calls) landed — [[Repo Indexing]].
-- **Active track:** finish P7 (Pages enable, signed `v0.3.0` feed) or remaining Phase 3 (attachments, search) — [[Next Steps]].
+- **Active track:** finish P7 (tag Release CI verify, OTA smoke, icons/Authenticode, no-Node MCP) **or** Phase 3 (attachments, search) — [[Next Steps]].
 
 ## Phase 0 - Prototype
 
@@ -87,7 +87,7 @@ tags:
 - package installers — MSI/NSIS
 - app versioning (single source of truth, About UI, semver tags) — done baseline — [[Distribution Versioning and Updates]]
 - OTA updates via Tauri updater + signed feed — **skeleton 2026-08-22** (plugins, Settings check, Pages endpoint); first signed platform payload pending — [[Distribution Versioning and Updates]]
-- public landing page (download + positioning) — **shipped in-repo plain HTML/CSS** `landing/` — [[Landing Page]]
+- public landing page (download + positioning) — **live** on `diamante-landing` Pages — [[Landing Page]]
 - no-Node / bundled MCP for non-dev setup — still P7 remaining
 
 ## Phase 6 - External repo/project indexing
@@ -113,4 +113,4 @@ Not a replacement for Phases 2–6; a cross-cutting delivery order documented in
 | P4 | Impact / explain / communities tools — **done 2026-08-21** |
 | P5 | Deeper code extraction (Dakila) — **regex pass landed**; tree-sitter optional |
 | P6 | Real git sync + rebuild-after-pull — **v1 landed** (panel + footer control) |
-| P7 | Distribution — **landing + OTA skeleton landed**; remaining: signed tag feed, Authenticode, no-Node MCP, icons |
+| P7 | Distribution — **signed feed live on Pages**; remaining: tag CI verify, OTA smoke, Authenticode, no-Node MCP, icons |

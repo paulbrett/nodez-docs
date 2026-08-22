@@ -32,9 +32,9 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 | Updater plugins | `tauri-plugin-updater` + `tauri-plugin-process` wired |
 | Endpoint | `https://paulbrett.github.io/diamante-landing/updates/latest.json` |
 | Public key | in `src-tauri/tauri.conf.json` `plugins.updater.pubkey` |
-| Private key | **CI secret** `TAURI_SIGNING_PRIVATE_KEY` (local: `~/.tauri/diamante.key`) |
+| Private key | **CI secret** `TAURI_SIGNING_PRIVATE_KEY`; local `src-tauri/diamante.key` (gitignored). Also `LANDING_DEPLOY_TOKEN` for CI push to landing |
 | Code signing (Authenticode) | not set up |
-| GitHub Releases | `v0.2.0` published; `v0.3.0` when tagged |
+| GitHub Releases | `v0.2.0` published; signed **0.3.0** installers live on landing Pages; tag Release when ready |
 
 ## Goals
 
@@ -61,10 +61,11 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 
 ### V2 — Release pipeline
 
-- [x] Workflows: `.github/workflows/pages.yml`, `release.yml`
+- [x] Landing Pages workflow (on `diamante-landing`); app `release.yml`
 - [x] `scripts/publish-update-feed.mjs` / `npm run update:feed`
-- [x] Manifest + bundles co-located under `landing/updates/`
-- [ ] First signed tag release with non-empty `platforms.windows-x86_64`
+- [x] Manifest + bundles on landing repo (`updates/`; CI force-adds gitignored binaries)
+- [x] Signed `platforms.windows-x86_64` published to Pages (local signed build 2026-08-22)
+- [ ] Tag CI Release path verified end-to-end (`v0.3.0` or next)
 - [ ] Authenticode for SmartScreen
 
 ### V3 — OTA (Tauri updater) — **landed skeleton 2026-08-22**
@@ -86,7 +87,8 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 ## Acceptance
 
 - [x] Landing + manifest path in repo
-- [ ] Tagged release publishes installers + signed updater payload + updated `latest.json`
+- [x] Live Pages feed has installers + signature (`latest.json` platforms filled)
+- [ ] Tagged app Release CI path verified end-to-end
 - [ ] N-1 → N update path verified on a machine
 - [x] Manual check only (no forced auto)
 - [x] Vault survives update design
@@ -100,4 +102,36 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 | Feed script | `scripts/publish-update-feed.mjs` |
 | Frontend | `src/appUpdate.ts`, Settings About in `App.tsx` |
 | Config | `src-tauri/tauri.conf.json` `bundle.createUpdaterArtifacts`, `plugins.updater` |
-| CI | `.github/workflows/pages.yml`, `release.yml` |
+| CI | landing `pages.yml`; app `release.yml` (needs `TAURI_SIGNING_PRIVATE_KEY` + `LANDING_DEPLOY_TOKEN`) |
+| Local key | `src-tauri/diamante.key` — set `TAURI_SIGNING_PRIVATE_KEY` to **file contents** for `tauri build` |
+
+## Secrets and local signing (2026-08-22)
+
+| Secret (app repo `paulbrett/diamante`) | Purpose |
+| --- | --- |
+| `TAURI_SIGNING_PRIVATE_KEY` | Minisign private key **file contents** — signs updater artifacts in CI |
+| `TAURI_SIGNING_PRIVATE_KEY_PASSWORD` | Only if the key has a password (current key: empty) |
+| `LANDING_DEPLOY_TOKEN` | Fine-grained PAT, **Contents: write** on `diamante-landing` only — CI push of feed/bundles |
+
+### Local PowerShell
+
+```powershell
+cd C:\Sites\diamante
+$env:TAURI_SIGNING_PRIVATE_KEY = Get-Content -Raw .\src-tauri\diamante.key
+$env:TAURI_SIGNING_PRIVATE_KEY_PASSWORD = ""
+npm run tauri -- build
+npm run update:feed
+```
+
+Note: `TAURI_SIGNING_PRIVATE_KEY_PATH` works for `tauri signer sign` but **`tauri build` requires `TAURI_SIGNING_PRIVATE_KEY` contents** on this toolchain.
+
+### Git Bash
+
+```bash
+export TAURI_SIGNING_PRIVATE_KEY="$(cat src-tauri/diamante.key)"
+export TAURI_SIGNING_PRIVATE_KEY_PASSWORD=""
+npm run tauri -- build
+```
+
+Never commit `*.key`. Public key lives only in `tauri.conf.json` `plugins.updater.pubkey`.
+

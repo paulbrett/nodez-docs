@@ -81,14 +81,13 @@ diamante-landing/          # github.com/paulbrett/diamante-landing (public)
 
 ## Acceptance
 
-- [ ] Public URL live after first Pages enable + push
-- [x] ≤2 clicks to installer once bundles published
-- [ ] Version on page matches published signed release
+- [x] Public URL live: <https://paulbrett.github.io/diamante-landing/>
+- [x] ≤2 clicks to installer (signed 0.3.0 NSIS/MSI on Pages)
+- [x] Feed version 0.3.0 + `platforms.windows-x86_64` signed
 - [x] Claims match shipped features (sync v1, MCP Node)
 
 ## Open / next
 
-1. Enable GitHub Pages (source: GitHub Actions) on `paulbrett/diamante`
-2. Add `TAURI_SIGNING_PRIVATE_KEY` repo secret; run tag release so `platforms.windows-x86_64` is signed
-3. Authenticode later; checksums on page
-4. Custom domain optional
+1. Tag app Release via CI to dual-publish GitHub Release assets (Pages already has feed)
+2. Authenticode later; checksums on page
+3. Custom domain optional

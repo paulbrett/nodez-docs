@@ -11,6 +11,12 @@ tags:
 
 # Decision Log
 
+## 2026-08-22 — Signing env for tauri build
+
+**Decision:** Document and use `TAURI_SIGNING_PRIVATE_KEY` = **private key file contents** for `npm run tauri -- build`. Do not rely on `TAURI_SIGNING_PRIVATE_KEY_PATH` for bundling (works for `tauri signer sign` only on this toolchain).
+
+**Also:** Landing `updates/bundles/*` stays gitignored for local junk; release CI and intentional publishes use `git add -f` so Pages can host installers.
+
 ## 2026-08-22 — Landing split to public repo
 
 **Decision:** Move the public download site + OTA feed out of the private app repo into **`paulbrett/diamante-landing`** (public), so GitHub Pages works on the free plan.

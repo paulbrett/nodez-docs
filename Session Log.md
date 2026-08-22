@@ -12,6 +12,14 @@ tags:
 
 # Session Log
 
+## 2026-08-22 (signed OTA live)
+
+- Generated minisign keypair; public key in `tauri.conf.json`; private in Actions secret + local `src-tauri/diamante.key`
+- Set `LANDING_DEPLOY_TOKEN` (PAT write to `diamante-landing`)
+- Local signed `tauri build` requires **`TAURI_SIGNING_PRIVATE_KEY` file contents** (PowerShell: `Get-Content -Raw`); `*_PATH` insufficient for build
+- Published signed 0.3.0 NSIS/MSI + `.sig` + `platforms.windows-x86_64` to landing Pages
+- CI fix: force-add gitignored `updates/bundles` on release push
+
 ## 2026-08-22 (landing repo split)
 
 Split public site out of private app repo:

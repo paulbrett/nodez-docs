@@ -67,7 +67,7 @@ Canonical plan: [[Agent and Human Setup]]. Summary checklist:
 - P0–P4: done (MCP reads, freshness, wizard/export, AGENTS.md, impact/explain/communities)
 - P5: deeper code extraction — regex pass landed; tree-sitter optional
 - P6: real GitHub sync — v1 landed
-- P7: **landing + OTA skeleton landed** ([[Landing Page]], [[Distribution Versioning and Updates]]); remaining: Pages enable, signed tag feed, Authenticode, no-Node MCP, icons
+- P7: **signed landing/OTA live** ([[Landing Page]], [[Distribution Versioning and Updates]]); remaining: tag CI verify, OTA smoke, Authenticode, no-Node MCP, icons
 
 ## Editor UX (2026-08-21)
 

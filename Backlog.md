@@ -79,8 +79,8 @@ Priority track for agents + onboarding: [[Agent and Human Setup]]. Sequencing: [
 - Single version source of truth across npm + Tauri + About UI — done baseline (0.3.0)
 - Semver tags and release checklist — tags + CHANGELOG; CI release workflow
 - Windows MSI/NSIS — done
-- Public landing page (plain HTML/CSS in-repo `landing/`) — **skeleton shipped**
-- OTA: Tauri updater + `landing/updates/latest.json` + Settings check — **skeleton shipped**
+- Public landing page (`paulbrett/diamante-landing` Pages) — **live**
+- OTA: signed `updates/latest.json` + Settings check — **live feed; tag CI verify remaining**
 - First signed Pages feed (`platforms.windows-x86_64`) — pending secret + tag
 - Authenticode / SmartScreen — pending
 - No-Node / bundled MCP binary — **P7 remaining**

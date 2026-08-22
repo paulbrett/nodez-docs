@@ -151,18 +151,19 @@ Rust vault git + sync panel (notes footer control):
 - stops on conflicts (no silent overwrite); notes reload after pull/sync
 - Still later: guided conflict editor, clone/connect wizard, OAuth, auto graph rebuild on pull
 
-### P7 — Distribution polish — **landing + OTA skeleton 2026-08-22**
+### P7 — Distribution polish — **live OTA path 2026-08-22**
 
-**Landed in app repo `C:\Sites\diamante` (commit `26ddb9d` and follow-ons):**
+**Landed:**
 
 - Installers: MSI/NSIS via Tauri; version `0.3.0` in package/tauri/Cargo
-- **Landing** — plain HTML/CSS in `landing/` (not a separate site repo) — [[Landing Page]]
-- **OTA** — `landing/updates/latest.json` + `bundles/`; Tauri updater + process plugins; Settings → About → Check for updates; endpoint `https://paulbrett.github.io/diamante/updates/latest.json` — [[Distribution Versioning and Updates]]
-- CI: `.github/workflows/pages.yml`, `release.yml`; `scripts/publish-update-feed.mjs`
+- **Landing** — separate **public** repo `paulbrett/diamante-landing` (`C:\Sites\diamante-landing`); Pages live — [[Landing Page]]
+- **OTA** — signed feed at `https://paulbrett.github.io/diamante-landing/updates/latest.json` with `platforms.windows-x86_64` + bundles; Settings → About → Check for updates — [[Distribution Versioning and Updates]]
+- Secrets: `TAURI_SIGNING_PRIVATE_KEY`, `LANDING_DEPLOY_TOKEN` on private app repo; local key `src-tauri/diamante.key`
+- CI: landing Pages workflow; app `release.yml` force-pushes feed/bundles; `scripts/publish-update-feed.mjs`
 
 **Still remaining:**
 
-- Enable GitHub Pages (Actions) + secret `TAURI_SIGNING_PRIVATE_KEY`; first signed tag so `platforms.windows-x86_64` is real
+- Tag GitHub Release + verify CI end-to-end; N−1 → N OTA smoke test
 - Authenticode / icons polish / macOS notarization when those platforms ship
 - **No-Node MCP path**: bundle portable MCP or expose from Tauri binary
 - Keyboard shortcuts beyond palette; fast note search; attachments (Phase 3)

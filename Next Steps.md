@@ -130,18 +130,23 @@ Still remaining:
 
 ## Phase 5 polish and distribution (P7)
 
-**Landed 2026-08-22 (skeleton):**
+**Landed 2026-08-22 (live feed path):**
 
-- **Landing** — public repo `paulbrett/diamante-landing` — [[Landing Page]]
-- **OTA feed** — landing `updates/latest.json` + `bundles/`; Tauri updater plugins; Settings → Check for updates — [[Distribution Versioning and Updates]]
-- Pages on landing repo; app `release.yml` can push feed (token)
+- **Landing** — public repo [`paulbrett/diamante-landing`](https://github.com/paulbrett/diamante-landing) → Pages <https://paulbrett.github.io/diamante-landing/> — [[Landing Page]]
+- **OTA** — signed `updates/latest.json` with `platforms.windows-x86_64` + NSIS/MSI + `.sig` under `updates/bundles/` — [[Distribution Versioning and Updates]]
+- App endpoint: `https://paulbrett.github.io/diamante-landing/updates/latest.json`
+- Secrets on private app repo: `TAURI_SIGNING_PRIVATE_KEY`, `LANDING_DEPLOY_TOKEN` (local key: `src-tauri/diamante.key`, gitignored)
+- Local signed build works via **`TAURI_SIGNING_PRIVATE_KEY` contents** (not `*_PATH` for `tauri build`); `npm run update:feed` + force-add bundles for Pages
+- CI `release.yml` force-adds gitignored bundles when pushing to landing
 
 **Still remaining:**
 
-- Enable GitHub Pages + set `TAURI_SIGNING_PRIVATE_KEY`; first signed tag (`v0.3.0`) with real `platforms.windows-x86_64`
+- Tag GitHub Release `v0.3.0` (or next) so Actions publishes Release assets + proves CI end-to-end
+- Verify N−1 → N OTA install once on a second machine / clean install
 - Full icon set (`npm run tauri icon`); Authenticode / macOS notarization
 - **No-Node MCP** path for non-dev humans
 - Export and mobile-responsive shell
+- Phase 3: attachments, search ranking (optional parallel track)
 
 ## Explicit deprioritize
 
