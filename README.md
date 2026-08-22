@@ -4,7 +4,7 @@ title: Diamante Project Docs
 type: docs-index
 status: active
 created: 2026-08-19
-updated: 2026-08-20
+updated: 2026-08-21
 tags:
   - project
   - docs
@@ -15,17 +15,25 @@ tags:
 
 This folder is the official documentation and Obsidian vault for the Diamante project.
 
-Open this folder in Obsidian:
+Open this folder in Obsidian (this machine):
+
+```text
+C:\Users\webwi\Documents\Diamante
+```
+
+Historical / other-machine path:
 
 ```text
 /Users/paulbrettorozco/Documents/Projects/Diamante
 ```
 
-The runnable app/code lives separately in:
+The runnable app/code lives separately:
 
 ```text
-/Users/paulbrettorozco/Sites/Diamante
+C:\Sites\diamante
 ```
+
+(or `~/Sites/Diamante` / `/Users/paulbrettorozco/Sites/Diamante` on other machines)
 
 ## Vault Contents
 
@@ -33,6 +41,10 @@ The runnable app/code lives separately in:
 - [[Project Overview]]
 - [[Architecture]]
 - [[Unified Knowledge System]]
+- [[Agent and Human Setup]]
+- [[Distribution Versioning and Updates]]
+- [[Landing Page]]
+- [[Command Palette and Agent Surface]]
 - [[Graphify Tech Research]]
 - [[Repo Indexing]]
 - [[Vault Model]]
@@ -40,15 +52,17 @@ The runnable app/code lives separately in:
 - [[GitHub Sync]]
 - [[Tauri Desktop Shell]]
 - [[Product Roadmap]]
+- [[Next Steps]]
 - [[Backlog]]
+- [[TODO]]
 - [[Decision Log]]
 - [[Session Log]]
 
 ## Folder Convention
 
-- `~/Documents/Projects/Diamante` is for planning, architecture, roadmap, decisions, and Obsidian notes.
-- `~/Sites/Diamante` is for the React/Vite app source code and runnable development server.
-- Keep product decisions in this vault before or alongside implementation changes.
+- Docs/Obsidian vault: planning, architecture, roadmap, decisions
+- App/code folder: React/Vite/Tauri source and runnable development server
+- Keep product decisions in this vault before or alongside implementation changes
 
 ## Metadata Convention
 
@@ -70,6 +84,6 @@ tags:
 Run docs checks from the app folder:
 
 ```sh
-cd /Users/paulbrettorozco/Sites/Diamante
+cd C:/Sites/diamante
 npm run check
 ```

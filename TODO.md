@@ -4,11 +4,12 @@ title: TODO
 type: backlog
 status: active
 created: 2026-08-20
-updated: 2026-08-20
+updated: 2026-08-21
 tags:
   - backlog
   - repo-indexing
   - ui
+  - agents
 ---
 
 # TODO
@@ -21,7 +22,7 @@ tags:
 - simplify secondary actions into icon buttons — done for vault/repo/graph workspace actions, note rename/delete, sync preview, settings, graph node filters, and modal close controls
 - enable drag and drop notes inside folders of notes.. and it autmatically resolve the links — done: notes can be dragged onto folders or the root; title-based wikilinks stay valid because the note title does not change
 - add shortcut button icons for notes sorting and folders expand collapse — done: note tree now has icon controls for title/updated sorting, each sort button toggles ascending/descending, first vault load collapses folders, and there is one expand/collapse-all toggle
-- must also have command pallete.. these commands must also be added to exposed skills for AI agents.. similar to ibsidian skills,, and MCP to provide the graph and notes to AI agents — next: add command palette, then mirror commands and graph queries into the MCP/agent surface
+- must also have command pallete.. these commands must also be added to exposed skills for AI agents.. similar to ibsidian skills,, and MCP to provide the graph and notes to AI agents — partial: command palette + MCP graph query + vault writes + **note reads** (`list_notes`/`search_notes`/`read_note`) done; remaining [[Agent and Human Setup]] (P1 freshness, P2 one-click MCP export, P3 AGENTS.md contract)
 - add tooltip or name of the button label if it has no label — done for current icon-only controls via `title` plus `aria-label`
 - persist selected theme and add more themes — done: selected theme persists in localStorage and Tauri app state; added Graphite, Paper, and Contrast themes
 - add an "add folder" option for notes; refine the collapse/expand icons — done: note tree has New Folder plus one folder-style expand/collapse toggle; newly created nested folders reveal their parent path
@@ -58,3 +59,21 @@ tags:
 - optimize large graph rendering without capping the index — first pass done: see [[Graph Scale]]; repos over 1,000 indexed files render a capped draw graph, hide `contains` edges, expand 1 hop on node click, and the status bar reports `view N / index M`; smaller repos keep the previous full graph behavior
 - add option to ignore `.gitignore` while keeping it respected by default — done: repo indexing now follows `.gitignore` by default via the Rust walker, and Settings exposes an `Ignore .gitignore` toggle that persists with the attached repo metadata and re-indexes immediately
 - fix graph filter dropdown placement and dismissal — done: the filter popover now anchors inside the graph modal under the filter icon and closes on outside pointer clicks or Escape
+
+## Agent + human setup (2026-08-21)
+
+Canonical plan: [[Agent and Human Setup]]. Summary checklist:
+
+- P0: MCP `list_notes` / `search_notes` / `read_note` + note resources
+- P1: graph artifact freshness after agent writes (`rebuild_graph` and/or stale signal)
+- P2: first-run wizard + one-click MCP config export (absolute vault path filled in)
+- P3: restructure app-repo `AGENTS.md` (hard rules + tool table + workflow)
+- P4: `explain_edge` / `impact_of` / `list_communities` + richer resources
+- P5: deeper code extraction (Dakila proving ground)
+- P6: real GitHub sync + rebuild-after-pull
+- P7: no-Node MCP / installer polish / **versioning + OTA** ([[Distribution Versioning and Updates]]) / **landing page** ([[Landing Page]])
+
+## Editor UX (2026-08-21)
+
+- Plain-text / paste auto-format with ask-first prompt + Auto-format button — [[Next Steps]]
+- Lightweight code editor plan — [[Code Editor Implementation]] (app: `src/MarkdownEditor.tsx` today)

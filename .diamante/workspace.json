@@ -1,3 +1,13 @@
 {
-  "sourceRoot": "/Users/paulbrettorozco/Sites/diamante"
+  "sourceRoot": "C:\\Sites\\diamante",
+  "ignoreGitignore": false,
+  "indexFunctions": true,
+  "editorMode": "preview",
+  "graphMode": "global",
+  "graphEngine": "force3d",
+  "graphOrigin": "all",
+  "graphDepth": 1,
+  "graphNodeType": "all",
+  "graphEdgeType": "all",
+  "graphProvenance": "all"
 }

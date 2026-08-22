@@ -4,7 +4,7 @@ title: Repo Indexing
 type: architecture
 status: active
 created: 2026-08-20
-updated: 2026-08-21
+updated: 2026-08-22
 tags:
   - graph
   - graphify
@@ -79,6 +79,17 @@ Implemented order:
 - Large graph rendering follows [[Graph Scale]]: keep the full index queryable, derive a capped draw graph for the canvas, hide noisy `contains` edges, and expand from the full graph on click.
 
 Future hardening can still replace the regex extractor with tree-sitter for richer syntax coverage, but the current pass already produces a complete first-party file graph plus practical symbols, imports, calls, and package dependency nodes from first-party manifests without forcing one huge JSON file.
+
+### Phase 6c′ / P5 — Deeper extraction (2026-08-22)
+
+Strengthened the regex extractor without pulling in tree-sitter yet:
+
+- Multi-line ESM imports, `export … from`, dynamic `import()`, and named binding capture
+- Richer symbol starts: default exports, `memo`/`forwardRef` components, class methods, C++ `Class::method`
+- Cross-file `calls` edges when a callee is an imported binding (confidence ~0.82); unique global name fallback (~0.55)
+- Better local path resolution (strip `.js`/`.mjs` suffixes, `index.mjs`, C++ header suffix search)
+
+Smoke on OverlandLightingControllerV1 (~283 extractable files): ~1k import edges, ~1.6k call edges, ~500 high-confidence cross-file calls.
 
 ### Phase 6d - Unified graph + MCP (partially done)
 

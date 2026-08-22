@@ -131,7 +131,7 @@ bundled porcelain into the re-index signature.
 
 ## 2026-08-21 - Persist editor mode and graph toggles per vault
 
-Edit/Preview plus graph mode, origin, depth, node/edge type, and provenance
+Edit/Preview plus graph mode, engine, origin, depth, node/edge type, and provenance
 filters persist in vault meta (`.diamante`) and browser `localStorage`
 (`diamante.uiPrefs`). `indexRepo` must not reset graph origin/mode to defaults.
 
@@ -145,3 +145,56 @@ vault folder name, else "Connections").
 
 Reason: when a project repo is open, the graph is about that codebase — the
 title should say so instead of a generic "Knowledge connections" label.
+
+## 2026-08-21 - Dual graph engines: Canvas 2D default + optional 3D force
+
+The graph modal exposes a user-selectable **graph engine** toggle:
+
+- `canvas2d` — in-house `GraphifyNetwork.tsx` (default; no extra runtime cost)
+- `force3d` — `react-force-graph-3d` / Three.js via `ForceGraph3DNetwork.tsx`
+
+Both engines share the same props contract (selection, path highlight, filters
+unchanged). Preference persists as `graphEngine` in vault meta and
+`diamante.uiPrefs`. The 3D package is **lazy-loaded** so Canvas 2D users do not
+pay the WebGL bundle until they switch.
+
+Reason: 3D force layouts help explore dense relationship graphs, but the
+default path should stay lightweight and offline-friendly. This extends (does
+not replace) the 2026-08-20 in-house canvas decision.
+
+## 2026-08-21 - Graph toolbar uses flex layout
+
+`.graphControls` is flex with wrapping, not a fixed column grid, so additional
+icon groups (mode / engine / origin) do not break search and filters.
+
+Reason: the previous 4-column grid broke when the engine toggle was added.
+
+## 2026-08-21 - Prioritize agent completeness + human setup before more UI chrome
+
+After palette + MCP writes + dual Hermes servers, the next product track is
+[[Agent and Human Setup]] (P0–P3 before P4–P7):
+
+1. MCP note read tools and resources
+2. Graph artifact freshness after agent writes
+3. First-run wizard and one-click MCP config export
+4. App-repo `AGENTS.md` as a real agent contract
+
+Then impact/communities tools, deeper Dakila extraction, real git sync, and
+no-Node MCP distribution.
+
+Reason: agents cannot close the loop without reading notes and trusting the
+graph; humans will not adopt MCP if every machine needs hand-edited paths.
+In-app second agent chat and chat gateways stay out of scope — external agent +
+Diamante MCP is the layering decision.
+
+## 2026-08-21 - Ship versioning, OTA, and a landing page as distribution work
+
+Public distribution is not only "run tauri build". Diamante should have:
+
+1. Single app version source of truth and visible About version
+2. Signed OTA updates via Tauri updater (user consent; air-gap opt-out)
+3. A simple public landing page for download and positioning
+
+Documented in [[Distribution Versioning and Updates]] and [[Landing Page]]. Sequencing stays under Phase 5 / P7 and must not block agent P0–P3; landing and release feed should land together when first public downloads are offered.
+
+Reason: without versioning and updates, every human reinstall is friction; without a landing page, installers and OTA feeds have no front door.

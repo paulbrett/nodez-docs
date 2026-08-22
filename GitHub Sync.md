@@ -4,7 +4,7 @@ title: GitHub Sync
 type: sync
 status: active
 created: 2026-08-19
-updated: 2026-08-19
+updated: 2026-08-22
 tags:
   - github
   - sync
@@ -46,5 +46,25 @@ Diamante should avoid silently overwriting notes. If a merge conflict happens, t
 - pull, commit, push
 - show status
 - show conflicts
+
+
+
+## Implementation status (v1 — 2026-08-22)
+
+Desktop shell (Tauri) now wraps vault git via CLI:
+
+| Command | Role |
+| --- | --- |
+| `vault_git_status` | branch, upstream, ahead/behind, dirty files, conflicts |
+| `vault_git_pull` | `pull --ff-only`, then merge pull (never force) |
+| `vault_git_commit` | `git add -A` + commit (optional message) |
+| `vault_git_push` | push to upstream |
+| `vault_git_sync` | pull → commit → push; **stops on conflicts** |
+
+UI: status-bar GitHub sync button + command palette **GitHub sync** opens a panel with Refresh / Pull / Commit / Push / Sync. Auth is host git (SSH, gh, credential helper) — no embedded PAT store yet.
+
+After a successful pull/sync, notes reload from disk.
+
+Still later: guided side-by-side conflict editor, clone/connect wizard, OAuth.
 
 Related: [[Tauri Desktop Shell]], [[Product Roadmap]]

@@ -4,7 +4,7 @@ title: Command Palette and Agent Surface
 type: architecture
 status: active
 created: 2026-08-20
-updated: 2026-08-20
+updated: 2026-08-21
 tags:
   - mcp
   - agents
@@ -15,6 +15,8 @@ tags:
 # Command Palette and Agent Surface
 
 Implementation-ready design for the feature after [[Repo Indexing Phase 6a]]: a command palette in the app, a matching read+write surface for AI agents over MCP, and an `AGENTS.md` contract documenting both — so the merged vault+repo graph is something an agent can query *and* act on, not just read.
+
+**Status (2026-08-21):** Palette + graph reads + vault write/read tools + graph freshness + setup wizard / MCP export + **app-repo `AGENTS.md` agent contract** shipped. Dual Hermes MCP servers wired. Follow-on: higher-order graph tools (P4) — [[Agent and Human Setup]].
 
 ## Goal
 
@@ -97,4 +99,4 @@ MCP: agent calls a tool → script resolves the configured vault (`DIAMANTE_VAUL
 - No test framework in this project (established); verify via `npm run lint`, `npm run build`, and a manual MCP smoke pass — call each new tool once against a scratch vault (not the real docs vault) and confirm the file-level result on disk, the same way `graph_stats`/`shortest_path` were smoke-tested when the MCP server first shipped.
 - Palette: hands-on check in the browser/app (open with `Cmd+K`, search, select a few commands, confirm they do what their existing button does) — same category of verification as this session's other UI work.
 
-Related: [[Repo Indexing Phase 6a]], [[Repo Indexing]], [[Unified Knowledge System]], [[Graphify Tech Research]], [[Architecture]]
+Related: [[Repo Indexing Phase 6a]], [[Repo Indexing]], [[Unified Knowledge System]], [[Graphify Tech Research]], [[Architecture]], [[Agent and Human Setup]], [[Next Steps]]

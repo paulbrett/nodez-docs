@@ -4,7 +4,7 @@ title: Unified Knowledge System
 type: workflow
 status: active
 created: 2026-08-19
-updated: 2026-08-19
+updated: 2026-08-21
 tags:
   - obsidian
   - graphify
@@ -149,4 +149,6 @@ Agents should use Diamante in this order:
 4. Read source files for implementation truth.
 5. Update code, docs, and graph outputs when a meaningful change lands.
 
-Related: [[Architecture]], [[Backlinks and Indexing]], [[GitHub Sync]], [[Product Roadmap]], [[Decision Log]]
+Setup and MCP completeness track: [[Agent and Human Setup]].
+
+Related: [[Architecture]], [[Backlinks and Indexing]], [[GitHub Sync]], [[Product Roadmap]], [[Decision Log]], [[Agent and Human Setup]], [[Next Steps]]

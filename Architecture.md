@@ -4,7 +4,7 @@ title: Architecture
 type: architecture
 status: active
 created: 2026-08-19
-updated: 2026-08-19
+updated: 2026-08-21
 tags:
   - architecture
 ---
@@ -32,7 +32,9 @@ Vite + React + TypeScript
   note index helpers
   localStorage persistence (browser) / vault files (Tauri)
   knowledge-graph engine (graph.ts): schema, provenance, filters, path, query
-  canvas force-graph renderer (GraphifyNetwork.tsx, Barnes-Hut)
+  graph engines (user-selectable):
+    canvas2d GraphifyNetwork.tsx (default, Barnes-Hut)
+    force3d ForceGraph3DNetwork.tsx (react-force-graph-3d, lazy-loaded)
   stdio MCP server (scripts/diamante-mcp.mjs)
   sync workflow panel
 ```

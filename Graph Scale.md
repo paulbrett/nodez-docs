@@ -4,7 +4,7 @@ title: Graph Scale
 type: architecture
 status: active
 created: 2026-08-20
-updated: 2026-08-20
+updated: 2026-08-22
 tags:
   - graph
   - graphify
@@ -25,6 +25,7 @@ Core rule: the full graph stays indexed and agent-queryable. When the attached r
 - For large repos, `contains` edges are hidden from the canvas draw graph, because folder containment dominates large repo views and adds little to overview navigation.
 - For large repos, clicking a drawn node toggles a 1-hop expansion from the full filtered graph, capped around 80 neighbors for that node.
 - The status bar reads `view N / index M`, where `view` is the rendered draw graph and `index` is the full merged vault plus repo graph.
+- Draw graph is shared by both engines (`canvas2d` and `force3d`). Scaling rules apply before the renderer; do not feed the full 80k index to either WebGL or canvas.
 
 ## What works at scale
 
@@ -83,8 +84,8 @@ If Stars still stutters after instancing, evaluate `cosmos.gl` or `sigma.js` plu
 1. Draw graph is separate from the full graph when the repo index is larger than 1,000 files. Done.
 2. Expand-on-click from the full index. Done.
 3. Hide `contains` edges in the canvas. Done.
-4. Freeze and cache layout in `.diamante/layout.json`.
-5. Move full adjacency/query work into a graph worker.
+4. Freeze and cache layout in `.diamante/layout.json`. **Done 2026-08-22** (seed on open; save after 2D cool-down / 3D engine stop).
+5. Move full adjacency/query work into a graph worker. **Done 2026-08-22** (`src/graphQueryWorker.ts` + `graphWorkerClient`; threshold 800 nodes, main-thread fallback).
 6. Make Stars use instanced points instead of one mesh per node.
 
 Short paste prompt for future agents: keep the 80k index queryable, but never feed it directly to the renderer. Build a capped draw graph, hide `contains`, expand 1 hop on click, cache layout, and move large adjacency work off the UI thread.

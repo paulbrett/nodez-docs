@@ -4,20 +4,24 @@ title: Backlog
 type: backlog
 status: active
 created: 2026-08-19
-updated: 2026-08-20
+updated: 2026-08-21
 tags:
   - backlog
 ---
 
 # Backlog
 
+Priority track for agents + onboarding: [[Agent and Human Setup]]. Sequencing: [[Next Steps]].
+
 ## Editor
 
 - Add slash command menu
-- Add formatting toolbar
+- Add formatting toolbar — done (Markdown tools toggle)
+- **Plain-text / paste auto-format** — detect unformatted paste or body; ask format-or-not; show Auto-format button when unformatted — [[Next Steps]]
+- **Lightweight code editor** (CodeMirror 6 + Prettier format + light lint; not Monaco for MVP) — [[Code Editor Implementation]], [[Next Steps]]; builds on `src/MarkdownEditor.tsx`
 - Add image and file embeds
 - Add heading outline
-- Add keyboard shortcuts
+- Add keyboard shortcuts (beyond command palette)
 
 ## Vault
 
@@ -36,49 +40,79 @@ tags:
 - Commit local changes
 - Push to GitHub
 - Conflict resolution screen
+- Rebuild `.diamante/graph.json` after successful pull
 
-## Index
+## Index / Graph
 
 - Better tag parsing
 - Unresolved links
 - Backlink snippets
 - Fast search ranking
-- Graph filters and zoom controls
-- Graph search and connection highlighting
-- Expand node and edge schema beyond notes/tags
-- Add inferred and manual edge provenance
-- Local graph depth control
-- Query, path, and explain graph tools
-- Source references from graph edges back to notes/files/lines
-- Lazy-load the full graph renderer so the main app bundle stays small
+- Graph filters and zoom controls — largely done
+- Graph search and connection highlighting — done
+- Expand node and edge schema beyond notes/tags — done
+- Add inferred and manual edge provenance — done
+- Local graph depth control — done
+- Query, path, and explain graph tools — done in UI
+- Source references from graph edges back to notes/files/lines — partial
+- Lazy-load heavy graph engines — done for WebGL 3D
 - Add graph performance measurements using the 1,000-node dummy vault fixture
+- Layout cache (`.diamante/layout.json`) and path/impact worker — [[Graph Scale]]
+- Optional community hulls; minimap / zoom-to-fit
+
+## Agent / MCP (see [[Agent and Human Setup]])
+
+- Graph query MCP tools — done
+- Vault write tools (create/write/rename/soft-delete) — done
+- Dual Hermes vault servers — done
+- `list_notes` / `search_notes` / `read_note` — **P0**
+- Note MCP resources (`diamante://note/...`) — **P0**
+- Graph freshness after writes / `rebuild_graph` + stale signal — **P1**
+- First-run wizard + one-click MCP JSON export — **P2**
+- Restructure app-repo `AGENTS.md` agent contract — **P3**
+- `explain_edge`, `impact_of`, `list_communities` — **P4**
+- Workspace binding resource (attached repo, HEAD, last indexed) — **P4**
+- No-Node / bundled MCP binary — **P7**
+
+## Distribution (see [[Distribution Versioning and Updates]], [[Landing Page]])
+
+- Single version source of truth across npm + Tauri + About UI
+- Semver tags and release checklist
+- GitHub Releases with MSI/NSIS (+ later other OS)
+- Tauri OTA updater (signed feed, user consent, air-gap opt-out)
+- Windows code signing; macOS notarization later
+- Public landing page: hero, download CTAs, requirements, honest roadmap
+- Landing deploy (Pages/Cloudflare) wired to latest release assets
 
 ## Dakila Workflow
 
-- Open docs vault and source repo as one workspace
-- Graph query before broad file search
+- Open docs vault and source repo as one workspace — done (vault + attached source root)
+- Graph query before broad file search — available via MCP; agent contract still P3
 - Source-of-truth conflict banner
 - Post-change reminder to update docs and graph
 - GitHub sync flow for code/docs/graph outputs
 
 ## Repo Indexing (see [[Repo Indexing]])
 
-- Read-only source-root command (list files/folders of an arbitrary project folder, no note semantics) — done
-- Register a source root (e.g. the Dakila repo) alongside the vault path — done
-- `file`/`folder` graph nodes for the source root, containment edges only — done
-- Save merged vault+repo graph artifact inside the vault at `.diamante/graph.json` — done
-- Restore visible Open Vault/Open Repo controls in the simplified UI — done
-- Parse the source root's Markdown docs and `package.json` manifests into `documents`/`references`/`depends_on` edges — done
-- Preserve extracted repo metadata in the Graphify-compatible `.diamante/graph.json` artifact — done
-- Tree-sitter extraction for C++ and TypeScript/TSX (the languages the Dakila repo actually uses)
-- Merge the source-root graph into the same unified graph as the vault
-- Extend the MCP server's tool surface to cover the source root
-- Filesystem watcher + rebuild for the source root, matching the vault's watcher
+- Read-only source-root command — done
+- Register a source root alongside the vault path — done
+- `file`/`folder` graph nodes + containment — done
+- Save merged graph artifact at `.diamante/graph.json` — done
+- Visible Open Vault/Open Repo controls — done
+- Markdown docs + `package.json` into documents/references/depends_on — done
+- Preserve extracted repo metadata in artifact — done
+- Commit-only re-index signature — done
+- Tree-sitter (or equivalent) extraction for C++ and TypeScript/TSX — **P5**
+- MCP read surface covers vault + source graph (writes vault-only) — extend with P0 reads
+- Filesystem watcher + rebuild for non-git source roots (optional later)
 
-## Design
+## Design / Shell
 
-- Expand and refine color themes — done for Graphite, Paper, and Contrast; more can still be added later
-- Empty states — partial: empty editor/vault state is in place; compact/mobile still needs hands-on review
+- Expand and refine color themes — done baseline set
+- Empty states — partial
 - Settings screen — done
-- Command palette
-- Light and dark themes
+- Command palette — done
+- Light and dark themes — done
+- First-run / empty-vault onboarding wizard — **P2**
+- About / version display in Settings — [[Distribution Versioning and Updates]]
+- Check for updates UI — [[Distribution Versioning and Updates]]

@@ -1,27 +1,27 @@
 {
   "version": 2,
   "format": "diamante.graph.manifest",
-  "generatedAt": "2026-08-20T15:26:51.543Z",
-  "vaultPath": "/Users/paulbrettorozco/Documents/Projects/Diamante",
-  "sourceRoot": "/Users/paulbrettorozco/Sites/diamante",
+  "generatedAt": "2026-08-22T03:11:35.237Z",
+  "vaultPath": "C:\\Users\\webwi\\Documents\\Diamante",
+  "sourceRoot": "C:\\Sites\\diamante",
   "sourceGit": {
     "isRepo": true,
-    "root": "/Users/paulbrettorozco/Sites/diamante",
+    "root": "C:/Sites/diamante",
     "branch": "main",
-    "head": "9a0d7f0ae21ed39895c4f796803be185b2d51200",
+    "head": "5e131df2636e5358451b337efddd7bd750702c10",
     "dirty": false,
     "changedCount": 0,
     "untrackedCount": 0,
-    "signature": "9a0d7f0ae21ed39895c4f796803be185b2d51200|",
-    "summary": "main 9a0d7f0, clean"
+    "signature": "main|5e131df2636e5358451b337efddd7bd750702c10",
+    "summary": "main 5e131df, clean"
   },
   "stats": {
-    "nodes": 458,
-    "edges": 813,
-    "extracted": 590,
-    "inferred": 223,
+    "nodes": 651,
+    "edges": 1362,
+    "extracted": 921,
+    "inferred": 441,
     "manual": 0,
-    "communities": 34
+    "communities": 31
   },
   "graph": {
     "directed": false,
@@ -31,49 +31,49 @@
         "path": "graph/nodes-vault-1.json",
         "kind": "nodes",
         "group": "vault",
-        "count": 17
+        "count": 25
       },
       {
         "path": "graph/nodes-symbols-1.json",
         "kind": "nodes",
         "group": "symbols",
-        "count": 336
+        "count": 455
       },
       {
         "path": "graph/nodes-structure-1.json",
         "kind": "nodes",
         "group": "structure",
-        "count": 60
+        "count": 87
       },
       {
         "path": "graph/nodes-repo-1.json",
         "kind": "nodes",
         "group": "repo",
-        "count": 22
+        "count": 48
       },
       {
         "path": "graph/nodes-packages-1.json",
         "kind": "nodes",
         "group": "packages",
-        "count": 23
+        "count": 36
       },
       {
         "path": "graph/edges-links_to-1.json",
         "kind": "edges",
         "group": "links_to",
-        "count": 105
+        "count": 175
       },
       {
         "path": "graph/edges-contains-1.json",
         "kind": "edges",
         "group": "contains",
-        "count": 59
+        "count": 86
       },
       {
         "path": "graph/edges-documents-1.json",
         "kind": "edges",
         "group": "documents",
-        "count": 23
+        "count": 49
       },
       {
         "path": "graph/edges-references-1.json",
@@ -85,25 +85,25 @@
         "path": "graph/edges-depends_on-1.json",
         "kind": "edges",
         "group": "depends_on",
-        "count": 21
+        "count": 35
       },
       {
         "path": "graph/edges-defines-1.json",
         "kind": "edges",
         "group": "defines",
-        "count": 328
+        "count": 450
       },
       {
         "path": "graph/edges-calls-1.json",
         "kind": "edges",
         "group": "calls",
-        "count": 223
+        "count": 441
       },
       {
         "path": "graph/edges-imports-1.json",
         "kind": "edges",
         "group": "imports",
-        "count": 52
+        "count": 124
       }
     ]
   }

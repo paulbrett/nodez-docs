@@ -4,7 +4,7 @@ title: Graphify Tech Research
 type: research
 status: active
 created: 2026-08-19
-updated: 2026-08-20
+updated: 2026-08-21
 tags:
   - graphify
   - graph
@@ -101,13 +101,15 @@ Each result should carry provenance + source path so the agent can fall through 
 
 Pick by scale, because that dictates the rendering technology:
 
-- **`vis-network` (implemented Graphify-compatible default).** Graphify's open-source HTML exporter uses `vis-network@9.1.6` with ForceAtlas2-style physics, dot nodes, degree-based sizing, community colors, search, click-to-inspect, arrowed edges, and confidence-styled dashed edges. Diamante now uses the same renderer family through `src/GraphifyNetwork.tsx` so the full graph modal behaves like Graphify while retaining Diamante-specific filters and Explain panels.
-- **`react-force-graph` (superseded in Diamante).** React wrapper over `d3-force`; useful for custom canvas rendering, but it is no longer the Diamante default because the current goal is close Graphify visual compatibility.
+- **Canvas 2D default (`GraphifyNetwork.tsx`).** Dependency-free Barnes-Hut force simulation on canvas. Default engine for Diamante; Graphify-like interaction (degree sizing, community colors, path dimming, click inspect) without shipping `vis-network`.
+- **WebGL 3D option (`ForceGraph3DNetwork.tsx` + `react-force-graph-3d`).** Optional second engine with d3-force-3d physics and orbit camera. Lazy-loaded so the main bundle stays smaller until the user picks 3D. Shared props with the canvas renderer.
+- **`vis-network` (historical Graphify exporter default; superseded in Diamante).** Graphify's open-source HTML exporter uses `vis-network@9.1.6`. Diamante no longer depends on it.
+- **`react-force-graph` 2D (not the Diamante default).** React wrapper over `d3-force` for custom canvas work; Diamante uses the in-house canvas path instead.
 - **`Cytoscape.js`.** Mature graph library with strong layout algorithms (including hierarchical/`dagre`), rich styling, and built-in graph analysis (centrality, shortest path). Excellent if you want layout + analysis in one package; slightly heavier API. Good "serious graph UI" option for the full modal.
 - **`Sigma.js` + `graphology` (for scale).** WebGL renderer built for large graphs (tens of thousands of nodes). `graphology` gives you the data model plus algorithms — Louvain **community detection**, centrality/**most-connected**, shortest path — which map directly onto the vault's "communities" and "hub nodes" features. This is the endgame if vaults get big; possibly overkill early.
 - **`d3-force` raw.** Maximum control, most code. Only if the wrappers get in the way.
 
-Recommendation: **use `vis-network` for the Graphify-compatible graph surface now, and pull in `graphology` later only as the analysis engine** (communities, centrality, pathfinding) feeding whichever renderer Diamante keeps. That splits "how it looks" from "what it computes" cleanly.
+Recommendation: **keep Canvas 2D as default**, offer **3D force as an opt-in engine**, and pull in `graphology` later only as the analysis engine (communities, centrality, pathfinding) feeding whichever renderer is active. That splits "how it looks" from "what it computes" cleanly.
 
 ### Rendering technology by scale
 

@@ -563,3 +563,132 @@ Verified:
 
 - `npm run lint`
 - Tauri dev shell launches after indexer change
+
+## 2026-08-21 Graph Engine Toggle (2D / 3D)
+
+Added a second graph renderer option on branch `new-graph-option` (`C:\Sites\diamante`):
+
+- `graphEngine` preference: `canvas2d` (default, `GraphifyNetwork`) or `force3d` (`ForceGraph3DNetwork` + `react-force-graph-3d`)
+- toolbar toggle (square = 2D, box = 3D) beside local/global and notes/repo origin
+- same selection / path-highlight / Explain contract for both engines
+- 3D chunk lazy-loaded; Three.js not in the initial app bundle
+- persist `graphEngine` in `diamante.uiPrefs` and vault meta (Rust `VaultMeta.graph_engine`)
+- fixed graph toolbar layout (flex instead of 4-column grid that broke after the extra icon group)
+- app README + vault notes updated ([[Architecture]], [[Decision Log]], [[Graphify Tech Research]], [[Backlog]])
+
+Verified:
+
+- `npm run lint`
+- `npm run build` (main ~900 kB gzip ~300 kB; 3D chunk separate)
+- Tauri dev + live toolbar AX check
+
+## 2026-08-21 Merged graph engine toggle to main
+
+- Fast-forward merged `new-graph-option` into `main` (`1a3e731`)
+- Follow-up on main: Windows `CREATE_NO_WINDOW` for git status polls (no console flash)
+- Release build on main after merge
+
+## 2026-08-21 Hermes MCP: diamante-dakila + diamante-docs
+
+Wired two Hermes MCP stdio servers to `scripts/diamante-mcp.mjs`:
+
+| Server | Vault |
+| --- | --- |
+| `diamante-dakila` | `C:/Users/webwi/Documents/Dakila` |
+| `diamante-docs` | `C:/Users/webwi/Documents/Diamante` |
+
+Both expose 11 tools (graph query + vault note writes). Hermes config updated; app `.mcp.json` mirrors the dual-server layout. New Hermes session required to load tools.
+
+## 2026-08-21 Agent + human setup plans in docs vault
+
+Captured the post-MCP-write product track in the Diamante docs vault:
+
+- New canonical note: [[Agent and Human Setup]] (P0–P7: read tools, graph freshness, first-run MCP export, AGENTS.md contract, impact tools, Dakila extraction, git sync, no-Node MCP)
+- Updated [[Next Steps]], [[Product Roadmap]], [[Backlog]], [[TODO]], [[Home]], [[README]], [[Command Palette and Agent Surface]], [[Decision Log]]
+- Active milestone: finish agent loop + simple human setup before more chrome or in-app agent chat
+
+## 2026-08-21 Distribution: versioning, OTA, landing page plans
+
+Extended the docs track after agent/human setup:
+
+- New [[Distribution Versioning and Updates]] — single version truth, release pipeline, Tauri OTA updater, signing
+- New [[Landing Page]] — public marketing/download site TODO (hero, CTAs, requirements, honest claims)
+- Linked from [[Agent and Human Setup]] P7, [[Next Steps]], [[Product Roadmap]], [[Backlog]], [[TODO]], [[Home]], [[README]]
+
+## 2026-08-21 P0 — MCP note read surface
+
+Shipped agent vault reads in app repo `scripts/diamante-mcp.mjs`:
+
+- Tools: `list_notes`, `search_notes`, `read_note`
+- Resources: `diamante://note/<path>` (plus existing graph stats/hubs)
+- Path escape guarded via existing `safeJoin`
+- Tests: `scripts/diamante-mcp-write.test.mjs` (write suite + new read/resource/escape cases) — pass
+
+Docs: [[Agent and Human Setup]] P0 acceptance checked; [[Next Steps]] / [[Product Roadmap]] / [[Command Palette and Agent Surface]] updated. **Next:** P1 graph freshness after agent writes.
+
+## 2026-08-21 P1 — Graph freshness after agent writes
+
+Shipped in `scripts/diamante-mcp.mjs`:
+
+- After vault writes: `vaultDirty` + cache reset; queries merge live vault note layer over artifact so new notes are visible immediately
+- `graph_stats` adds `stale`, `reasons`, `artifactAgeMs`, `vaultNoteMtimeMs`, `sourceHead`, rebuild hint
+- `rebuild_graph` persists merged Graphify-shaped `.diamante/graph.json` and clears stale
+- Tests extended (write → stale → query sees note → rebuild → artifact + stats fresh)
+
+**Next:** P2 first-run wizard + one-click MCP export.
+
+## 2026-08-21 P2 — First-run wizard + MCP export
+
+Shipped human setup surface in the app:
+
+- `SetupWizard` multi-step: vault → optional repo → index tips → copy MCP JSON → done
+- Auto-opens once when no vault and setup not completed (`localStorage`)
+- Settings → Agent setup + command palette **Open setup wizard** / **Copy MCP config for agents**
+- `src/mcpExport.ts` builds Hermes/Claude/Cursor-shaped `mcpServers` JSON with absolute vault path
+- Rust `resolve_mcp_paths` locates `scripts/diamante-mcp.mjs` (dev path / exe-adjacent / `DIAMANTE_MCP_SCRIPT`)
+- Smoke line reports graph/notes readiness + `node <script>`
+
+**Next:** P3 app-repo `AGENTS.md` agent contract.
+
+## 2026-08-21 P3 — App AGENTS.md agent contract
+
+Rewrote app-repo `C:\Sites\diamante\AGENTS.md` as the agent contract:
+
+- What Diamante is (app vs docs vault vs MCP)
+- Windows-real paths for this machine
+- Hard rules table (vault-only MCP writes, commit-driven re-index, freshness, etc.)
+- Recommended agent workflow
+- Full MCP tool + resource reference
+- Codebase map + validation commands
+- Pointers into the docs vault
+
+P0–P3 agent/human setup track is complete for “done enough” core loop. **Next:** P4 higher-order graph tools, or user-chosen P5–P7.
+
+## 2026-08-21 P4 — Higher-order graph MCP tools
+
+Shipped in `scripts/diamante-mcp.mjs`:
+
+- `explain_edge` — provenance-aware edge explanation between nodes (or by edge id)
+- `impact_of` — multi-hop fan-out impact set
+- `list_communities` — community sizes + samples
+- Resource `diamante://graph/communities`
+- Tests in `scripts/diamante-mcp-write.test.mjs`; app `AGENTS.md` tool table updated
+
+**Next:** P5 deeper code extraction (Dakila), or P6/P7.
+
+## 2026-08-21 Release 0.2.0
+
+Cut app release **v0.2.0** after P0–P4:
+
+- Version bumped in `package.json`, `tauri.conf.json`, `Cargo.toml`
+- Settings → About shows version
+- `CHANGELOG.md` added
+- Windows MSI + NSIS via `npm run tauri -- build`
+- GitHub Release `v0.2.0` with installers
+
+## 2026-08-21 Next Steps: editor auto-format + code editor plan
+
+Captured in docs vault [[Next Steps]] (and [[Backlog]] / [[TODO]]):
+
+1. **Plain-text auto-format** — on paste/open of unformatted text, ask whether to format; show an Auto-format button when content looks unformatted; build on `src/MarkdownEditor.tsx`
+2. **Lightweight code editor** — track [[Code Editor Implementation]] (CodeMirror 6 + Prettier + lint; Monaco deferred); target `src/components/code-editor/`
