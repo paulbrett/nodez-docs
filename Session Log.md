@@ -17,7 +17,7 @@ tags:
 - Tagged **v0.3.0**; CI built signed MSI/NSIS + `.sig`; GitHub Release published
 - Landing push step failed once (corrupt remote URL in workflow); fixed on main; feed + CI-signed bundles pushed manually to `diamante-landing`
 - Landing footer: removed “© Asbir”
-- Live: https://github.com/paulbrett/diamante/releases/tag/v0.3.0 · https://paulbrett.github.io/diamante-landing/
+- Live: <https://github.com/paulbrett/diamante/releases/tag/v0.3.0> · <https://paulbrett.github.io/diamante-landing/>
 
 ## 2026-08-22 (signed OTA live)
 
@@ -32,7 +32,7 @@ tags:
 Split public site out of private app repo:
 
 - New **public** repo `paulbrett/diamante-landing` at `C:\Sites\diamante-landing`
-- Pages live: `https://paulbrett.github.io/diamante-landing/`
+- Pages live: `<https://paulbrett.github.io/diamante-landing/>`
 - Removed in-app `landing/` + app Pages workflow; app release pushes feed via `LANDING_DEPLOY_TOKEN`
 - Updater endpoint + Settings About link updated
 
