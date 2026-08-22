@@ -1,6 +1,6 @@
 ---
 id: diamante-home
-title: Diamante Notes
+title: Nodez
 type: docs-index
 status: active
 created: 2026-08-19
@@ -11,9 +11,9 @@ tags:
   - markdown
 ---
 
-# Diamante Notes
+# Nodez
 
-Diamante Notes is a local-first Markdown workspace inspired by Obsidian and Graphify.
+Nodez is a local-first Markdown workspace inspired by Obsidian and Graphify.
 
 The project goal is to combine the best part of Obsidian - plain files in a vault - with Graphify-style project relationship graphs, while replacing proprietary sync with a GitHub-backed workflow.
 
@@ -47,7 +47,7 @@ Desktop (Tauri) app with:
 - Commit-driven repo re-index and `.diamante/graph.json` artifact
 - Command palette and MCP server for AI agents (graph query + vault reads/writes)
 - Vault GitHub sync v1 and opt-in vault `AGENTS.md` agent contract
-- Public landing + signed OTA (`diamante-landing` Pages, Settings check for updates)
+- Public landing + signed OTA (`nodez` Pages, Settings check for updates)
 
 ## Next milestone
 

@@ -26,11 +26,11 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 | `package.json` / tauri / Cargo version | `0.3.0` |
 | Windows installers | MSI + NSIS via `npm run tauri -- build` |
 | In-app About | Settings → About + **Check for updates** |
-| Landing | `paulbrett/diamante-landing` (public) → GitHub Pages |
+| Landing | `paulbrett/nodez` (public) → GitHub Pages |
 | OTA manifest | landing repo `updates/latest.json` |
 | Update bundles | landing repo `updates/bundles/` (CI) |
 | Updater plugins | `tauri-plugin-updater` + `tauri-plugin-process` wired |
-| Endpoint | `https://paulbrett.github.io/diamante-landing/updates/latest.json` |
+| Endpoint | `https://getnodez.app/updates/latest.json` |
 | Public key | in `src-tauri/tauri.conf.json` `plugins.updater.pubkey` |
 | Private key | **CI secret** `TAURI_SIGNING_PRIVATE_KEY`; local `src-tauri/diamante.key` (gitignored). Also `LANDING_DEPLOY_TOKEN` for CI push to landing |
 | App icons | 1024 source `app-icon.png` → `npm run icons` → `src-tauri/icons/*` |
@@ -62,7 +62,7 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 
 ### V2 — Release pipeline
 
-- [x] Landing Pages workflow (on `diamante-landing`); app `release.yml`
+- [x] Landing Pages workflow (on `nodez`); app `release.yml`
 - [x] `scripts/publish-update-feed.mjs` / `npm run update:feed`
 - [x] Manifest + bundles on landing repo (`updates/`; CI force-adds gitignored binaries)
 - [x] Signed `platforms.windows-x86_64` published to Pages (local signed build 2026-08-22)
@@ -98,7 +98,7 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 
 | Piece | Location |
 | --- | --- |
-| Landing | `https://github.com/paulbrett/diamante-landing` |
+| Landing | `https://github.com/paulbrett/nodez` |
 | Manifest | landing `updates/latest.json` |
 | Feed script | `scripts/publish-update-feed.mjs` |
 | Frontend | `src/appUpdate.ts`, Settings About in `App.tsx` |
@@ -112,12 +112,12 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 | --- | --- |
 | `TAURI_SIGNING_PRIVATE_KEY` | Minisign private key **file contents** — signs updater artifacts in CI |
 | `TAURI_SIGNING_PRIVATE_KEY_PASSWORD` | Only if the key has a password (current key: empty) |
-| `LANDING_DEPLOY_TOKEN` | Fine-grained PAT, **Contents: write** on `diamante-landing` only — CI push of feed/bundles |
+| `LANDING_DEPLOY_TOKEN` | Fine-grained PAT, **Contents: write** on `nodez` only — CI push of feed/bundles |
 
 ### Local PowerShell
 
 ```powershell
-cd C:\Sites\diamante
+cd C:\Sites\nodez-app
 $env:TAURI_SIGNING_PRIVATE_KEY = Get-Content -Raw .\src-tauri\diamante.key
 $env:TAURI_SIGNING_PRIVATE_KEY_PASSWORD = ""
 npm run tauri -- build

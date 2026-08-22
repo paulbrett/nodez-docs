@@ -12,17 +12,32 @@ tags:
 
 # Session Log
 
+## 2026-08-22 (Nodez folders + .nodez meta)
+
+- Vault meta dir **`.nodez/`** (was `.diamante` / brief `.nodes`)
+- App repo remote → `paulbrett/nodez-app` · local folder `C:\Sites\nodez-app`
+- Landing remote → `paulbrett/nodez` · local folder `C:\Sites\nodez` · domain getnodez.app
+- Product display name **Nodez**
+
+## 2026-08-22 (Nodez rebrand)
+
+- Product rebrand **Diamante → Nodez**; domain **getnodez.app**
+- App version **0.4.0**; new icon from `new-icoon.png` → full Tauri set
+- OTA endpoint `https://getnodez.app/updates/latest.json`; landing CNAME
+- Vault meta **`.nodez/`** (legacy `.diamante/` readable), MCP script `diamante-mcp.mjs`, `DIAMANTE_*` env kept
+- GitHub repo names still `paulbrett/diamante` (+ landing) until rename
+
 ## 2026-08-22 (v0.3.0 release)
 
 - Tagged **v0.3.0**; CI built signed MSI/NSIS + `.sig`; GitHub Release published
-- Landing push step failed once (corrupt remote URL in workflow); fixed on main; feed + CI-signed bundles pushed manually to `diamante-landing`
+- Landing push step failed once (corrupt remote URL in workflow); fixed on main; feed + CI-signed bundles pushed manually to `nodez`
 - Landing footer: removed “© Asbir”
-- Live: <https://github.com/paulbrett/diamante/releases/tag/v0.3.0> · <https://paulbrett.github.io/diamante-landing/>
+- Live: <https://github.com/paulbrett/nodez-app/releases/tag/v0.3.0> · <https://paulbrett.github.io/nodez/>
 
 ## 2026-08-22 (signed OTA live)
 
 - Generated minisign keypair; public key in `tauri.conf.json`; private in Actions secret + local `src-tauri/diamante.key`
-- Set `LANDING_DEPLOY_TOKEN` (PAT write to `diamante-landing`)
+- Set `LANDING_DEPLOY_TOKEN` (PAT write to `nodez`)
 - Local signed `tauri build` requires **`TAURI_SIGNING_PRIVATE_KEY` file contents** (PowerShell: `Get-Content -Raw`); `*_PATH` insufficient for build
 - Published signed 0.3.0 NSIS/MSI + `.sig` + `platforms.windows-x86_64` to landing Pages
 - CI fix: force-add gitignored `updates/bundles` on release push
@@ -31,8 +46,8 @@ tags:
 
 Split public site out of private app repo:
 
-- New **public** repo `paulbrett/diamante-landing` at `C:\Sites\diamante-landing`
-- Pages live: `<https://paulbrett.github.io/diamante-landing/>`
+- New **public** repo `paulbrett/nodez` at `C:\Sites\nodez`
+- Pages live: `<https://paulbrett.github.io/nodez/>`
 - Removed in-app `landing/` + app Pages workflow; app release pushes feed via `LANDING_DEPLOY_TOKEN`
 - Updater endpoint + Settings About link updated
 
@@ -57,7 +72,7 @@ Added canonical map [[Agent Skills and Surfaces]]: Layer 1 MCP + app `AGENTS.md`
 
 ## 2026-08-22
 
-Workspace chrome + Phase 3 inspector polish (app `C:\Sites\diamante`):
+Workspace chrome + Phase 3 inspector polish (app `C:\Sites\nodez-app`):
 
 - **GitHub sync v1** already on main; moved control to notes-tree footer beside note count (status-bar height/type).
 - Notes list sits flush on the count bar; counter padding tightened to shell.
@@ -68,7 +83,7 @@ Workspace chrome + Phase 3 inspector polish (app `C:\Sites\diamante`):
 
 ## 2026-08-19
 
-Created the first Diamante Notes prototype.
+Created the first Nodez prototype.
 
 Implemented:
 
@@ -135,7 +150,7 @@ Researched and documented the product direction:
 
 ## 2026-08-20 Claude Graph Research Artifact
 
-Recovered the Claude-created [[Graphify Tech Research]] artifact from the Diamante docs vault.
+Recovered the Claude-created [[Graphify Tech Research]] artifact from the Nodez docs vault.
 
 Integrated it into the vault index and docs checks:
 
@@ -601,7 +616,7 @@ Fixed the graph filter dropdown after it drifted into the graph details panel an
 
 ## 2026-08-21 Commit-Only Repo Re-Index + UI Prefs
 
-Optimized graph indexing and workspace chrome on Windows (`C:\Sites\diamante`):
+Optimized graph indexing and workspace chrome on Windows (`C:\Sites\nodez-app`):
 
 - `GitRepoState.signature` is now `branch|HEAD` only (Rust `git_state`); dirty/untracked files no longer restart indexing
 - git poll interval ~15s; status bar still shows dirty counts without thrashing the indexer
@@ -620,7 +635,7 @@ Verified:
 
 ## 2026-08-21 Graph Engine Toggle (2D / 3D)
 
-Added a second graph renderer option on branch `new-graph-option` (`C:\Sites\diamante`):
+Added a second graph renderer option on branch `new-graph-option` (`C:\Sites\nodez-app`):
 
 - `graphEngine` preference: `canvas2d` (default, `GraphifyNetwork`) or `force3d` (`ForceGraph3DNetwork` + `react-force-graph-3d`)
 - toolbar toggle (square = 2D, box = 3D) beside local/global and notes/repo origin
@@ -655,7 +670,7 @@ Both expose 11 tools (graph query + vault note writes). Hermes config updated; a
 
 ## 2026-08-21 Agent + human setup plans in docs vault
 
-Captured the post-MCP-write product track in the Diamante docs vault:
+Captured the post-MCP-write product track in the Nodez docs vault:
 
 - New canonical note: [[Agent and Human Setup]] (P0–P7: read tools, graph freshness, first-run MCP export, AGENTS.md contract, impact tools, Dakila extraction, git sync, no-Node MCP)
 - Updated [[Next Steps]], [[Product Roadmap]], [[Backlog]], [[TODO]], [[Home]], [[README]], [[Command Palette and Agent Surface]], [[Decision Log]]
@@ -706,7 +721,7 @@ Shipped human setup surface in the app:
 
 ## 2026-08-21 P3 — App AGENTS.md agent contract
 
-Rewrote app-repo `C:\Sites\diamante\AGENTS.md` as the agent contract:
+Rewrote app-repo `C:\Sites\nodez-app\AGENTS.md` as the agent contract:
 
 - What Diamante is (app vs docs vault vs MCP)
 - Windows-real paths for this machine

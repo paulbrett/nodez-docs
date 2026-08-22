@@ -11,6 +11,13 @@ tags:
 
 # Decision Log
 
+## 2026-08-22 — Brand Nodez + getnodez.app
+
+- User-facing product name is **Nodez** (not Diamante).
+- Public domain **getnodez.app** is the canonical site + OTA base.
+- Vault meta directory is **`.nodez/`** (legacy **`.diamante/`** still readable). MCP env `DIAMANTE_*` retained for agent configs; agent-contract markers accept both nodez and legacy diamante forms.
+- App identifier `app.getnodez.nodez`. GitHub repository renames deferred.
+
 ## 2026-08-22 — Signing env for tauri build
 
 **Decision:** Document and use `TAURI_SIGNING_PRIVATE_KEY` = **private key file contents** for `npm run tauri -- build`. Do not rely on `TAURI_SIGNING_PRIVATE_KEY_PATH` for bundling (works for `tauri signer sign` only on this toolchain).
@@ -19,15 +26,15 @@ tags:
 
 ## 2026-08-22 — Landing split to public repo
 
-**Decision:** Move the public download site + OTA feed out of the private app repo into **`paulbrett/diamante-landing`** (public), so GitHub Pages works on the free plan.
+**Decision:** Move the public download site + OTA feed out of the private app repo into **`paulbrett/nodez`** (public), so GitHub Pages works on the free plan.
 
 **Why:** Private `diamante` cannot use Pages without Pro. User asked for a separate landing repo.
 
-**Implications:** App updater endpoint → `https://paulbrett.github.io/diamante-landing/updates/latest.json`. Release CI needs `LANDING_DEPLOY_TOKEN` to push feed/bundles. Local `DIAMANTE_LANDING_DIR` defaults to sibling `../diamante-landing`.
+**Implications:** App updater endpoint → `https://paulbrett.github.io/nodez/updates/latest.json`. Release CI needs `LANDING_DEPLOY_TOKEN` to push feed/bundles. Local `DIAMANTE_LANDING_DIR` defaults to sibling `../nodez`.
 
 ## 2026-08-22 — Landing lives in main repo as plain HTML/CSS
 
-**Decision:** Public download site is `landing/` inside `C:\Sites\diamante`, plain HTML + CSS (tiny JS only to soft-fill version from the updater manifest). OTA manifest and update bundles co-locate under `landing/updates/`. Host on GitHub Pages at `paulbrett.github.io/diamante`.
+**Decision:** Public download site is `landing/` inside `C:\Sites\nodez-app`, plain HTML + CSS (tiny JS only to soft-fill version from the updater manifest). OTA manifest and update bundles co-locate under `landing/updates/`. Host on GitHub Pages at `paulbrett.github.io/diamante`.
 
 **Why:** User choice (single-page, in-repo, manifest + bundles together). Avoids a second repo and keeps release CI one place.
 
@@ -218,7 +225,7 @@ no-Node MCP distribution.
 Reason: agents cannot close the loop without reading notes and trusting the
 graph; humans will not adopt MCP if every machine needs hand-edited paths.
 In-app second agent chat and chat gateways stay out of scope — external agent +
-Diamante MCP is the layering decision.
+Nodez MCP is the layering decision.
 
 ## 2026-08-21 - Ship versioning, OTA, and a landing page as distribution work
 

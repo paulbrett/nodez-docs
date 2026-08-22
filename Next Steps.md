@@ -132,9 +132,9 @@ Still remaining:
 
 **Landed 2026-08-22 (live feed path):**
 
-- **Landing** — public repo [`paulbrett/diamante-landing`](https://github.com/paulbrett/diamante-landing) → Pages <https://paulbrett.github.io/diamante-landing/> — [[Landing Page]]
+- **Landing** — public repo [`paulbrett/nodez`](https://github.com/paulbrett/nodez) → Pages <https://paulbrett.github.io/nodez/> — [[Landing Page]]
 - **OTA** — signed `updates/latest.json` with `platforms.windows-x86_64` + NSIS/MSI + `.sig` under `updates/bundles/` — [[Distribution Versioning and Updates]]
-- App endpoint: `https://paulbrett.github.io/diamante-landing/updates/latest.json`
+- App endpoint: `https://paulbrett.github.io/nodez/updates/latest.json`
 - Secrets on private app repo: `TAURI_SIGNING_PRIVATE_KEY`, `LANDING_DEPLOY_TOKEN` (local key: `src-tauri/diamante.key`, gitignored)
 - Local signed build works via **`TAURI_SIGNING_PRIVATE_KEY` contents** (not `*_PATH` for `tauri build`); `npm run update:feed` + force-add bundles for Pages
 - CI `release.yml` force-adds gitignored bundles when pushing to landing
@@ -151,7 +151,7 @@ Still remaining:
 
 ## Explicit deprioritize
 
-- In-app second full agent chat (prefer Hermes/CLI + Diamante MCP)
+- In-app second full agent chat (prefer Hermes/CLI + Nodez MCP)
 - Chat gateways inside Diamante
 - MCP writes to indexed source roots
 

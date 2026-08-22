@@ -157,7 +157,7 @@ Rust vault git + sync panel (notes footer control):
 
 - Installers: MSI/NSIS via Tauri; version `0.3.0` in package/tauri/Cargo
 - **Landing** — separate **public** repo `paulbrett/diamante-landing` (`C:\Sites\diamante-landing`); Pages live — [[Landing Page]]
-- **OTA** — signed feed at `https://paulbrett.github.io/diamante-landing/updates/latest.json` with `platforms.windows-x86_64` + bundles; Settings → About → Check for updates — [[Distribution Versioning and Updates]]
+- **OTA** — signed feed at `https://getnodez.app/updates/latest.json` with `platforms.windows-x86_64` + bundles; Settings → About → Check for updates — [[Distribution Versioning and Updates]]
 - Secrets: `TAURI_SIGNING_PRIVATE_KEY`, `LANDING_DEPLOY_TOKEN` on private app repo; local key `src-tauri/diamante.key`
 - CI: landing Pages workflow; app `release.yml` force-pushes feed/bundles; `scripts/publish-update-feed.mjs`
 

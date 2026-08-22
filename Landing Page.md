@@ -1,5 +1,5 @@
 ---
-id: diamante-landing-page
+id: nodez-page
 title: Landing Page
 type: roadmap
 status: active
@@ -22,13 +22,13 @@ Related: [[Distribution Versioning and Updates]], [[Product Roadmap]], [[Project
 
 | Choice | Detail |
 | --- | --- |
-| Location | Separate public repo `paulbrett/diamante-landing` → `C:\Sites\diamante-landing` |
+| Location | Separate public repo `paulbrett/nodez` → `C:\Sites\nodez` |
 | Stack | Single-page **plain HTML + CSS** (tiny JS only to soft-fill version from manifest) |
-| Host | GitHub Pages — `https://paulbrett.github.io/diamante-landing/` |
+| Host | GitHub Pages — `https://getnodez.app/` |
 | OTA | Manifest + bundles under landing repo `updates/` |
 
 ```text
-diamante-landing/          # github.com/paulbrett/diamante-landing (public)
+nodez/          # github.com/paulbrett/nodez (public)
   index.html
   styles.css
   updates/
@@ -72,16 +72,16 @@ diamante-landing/          # github.com/paulbrett/diamante-landing (public)
 
 ## Engineering
 
-- [x] Scaffold `diamante-landing` repo (split from app)
+- [x] Scaffold `nodez` repo (split from app)
 - [x] Pages workflow on landing repo
 - [x] App release workflow can push feed + bundles into landing repo
 - [x] `scripts/publish-update-feed.mjs` + `npm run update:feed`
 - [x] App Settings → About links site + Check for updates
-- [x] Updater endpoint → `https://paulbrett.github.io/diamante-landing/updates/latest.json`
+- [x] Updater endpoint → `https://getnodez.app/updates/latest.json`
 
 ## Acceptance
 
-- [x] Public URL live: <https://paulbrett.github.io/diamante-landing/>
+- [x] Public URL live: <https://getnodez.app/>
 - [x] ≤2 clicks to installer (signed 0.3.0 NSIS/MSI on Pages)
 - [x] Feed version 0.3.0 + `platforms.windows-x86_64` signed
 - [x] Claims match shipped features (sync v1, MCP Node)
