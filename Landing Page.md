@@ -14,7 +14,7 @@ tags:
 
 # Landing Page
 
-Public Diamante marketing / download site. **v1 shipped in-app repo** as plain HTML/CSS.
+Public Nodez marketing / download site. **v1 shipped in-app repo** as plain HTML/CSS.
 
 Related: [[Distribution Versioning and Updates]], [[Product Roadmap]], [[Project Overview]], [[Agent and Human Setup]], [[Next Steps]]
 

@@ -1,6 +1,6 @@
 ---
-id: diamante-lightweight-code-editor-guide
-title: Diamante Lightweight Code Editor Implementation Guide
+id: nodez-lightweight-code-editor-guide
+title: Nodez Lightweight Code Editor Implementation Guide
 type: research
 status: draft
 created: 2026-08-21
@@ -13,9 +13,9 @@ tags:
 
 # New Note 30
 
-Diamante Lightweight Code Editor Implementation Guide
+Nodez Lightweight Code Editor Implementation Guide
 Goal
-Implement a lightweight, VS Code-like code editor in the Diamante app with:
+Implement a lightweight, VS Code-like code editor in the Nodez app with:
 
 - syntax highlighting
 - line numbers
@@ -35,7 +35,7 @@ Prettier standalone
 @codemirror/lint
 Optional: ESLint browser integration later
 Do not use Monaco for MVP
-Monaco gives the closest VS Code feel, but it adds more bundle weight and worker setup complexity. It should only be considered later if Diamante needs full IDE-like behavior such as deep TypeScript IntelliSense, multi-file project awareness, or advanced language services.
+Monaco gives the closest VS Code feel, but it adds more bundle weight and worker setup complexity. It should only be considered later if Nodez needs full IDE-like behavior such as deep TypeScript IntelliSense, multi-file project awareness, or advanced language services.
 2. Install Dependencies
 For a React or Next.js app:
 npm install codemirror \
@@ -415,7 +415,7 @@ export function CodeEditor({
   }
 
   return (
-    <div className="diamante-code-editor">
+    <div className="nodez-code-editor">
       <div className="mb-2 flex items-center justify-between">
         <span className="text-sm opacity-70">{language}</span>
         <button
@@ -468,7 +468,7 @@ The agent should follow these rules:
 
 1. Do not load Monaco.
 2. Do not load all CodeMirror language packages.
-3. Only include languages Diamante actually supports.
+3. Only include languages Nodez actually supports.
 4. Lazy-load the editor component.
 5. Run Prettier only when the user clicks Format or saves.
 6. Debounce linting if custom linting becomes expensive.

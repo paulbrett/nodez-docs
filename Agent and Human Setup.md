@@ -1,5 +1,5 @@
 ---
-id: diamante-agent-human-setup
+id: nodez-agent-human-setup
 title: Agent and Human Setup
 type: roadmap
 status: active
@@ -14,7 +14,7 @@ tags:
 
 # Agent and Human Setup
 
-Plan for making Diamante **useful for AI agents** and **simple to set up for humans**. Canonical follow-on after command palette + MCP write tools and dual Hermes servers (`diamante-dakila`, `diamante-docs`).
+Plan for making Nodez **useful for AI agents** and **simple to set up for humans**. Canonical follow-on after command palette + MCP write tools and dual Hermes servers (`nodez-dakila`, `nodez-docs`).
 
 ## Related
 
@@ -33,26 +33,26 @@ Plan for making Diamante **useful for AI agents** and **simple to set up for hum
 ### Humans
 
 - Real vault on disk (Tauri), note tree, editor/preview, graph (Canvas 2D default + optional 3D)
-- Attach read-only source root; commit-driven re-index; `.diamante/graph.json` (+ chunks)
+- Attach read-only source root; commit-driven re-index; `.nodez/graph.json` (+ chunks)
 - Command palette (`Cmd+K`); MSI/NSIS installers exist for Windows
 
 ### Agents
 
-- Stdio MCP (`scripts/diamante-mcp.mjs`): graph query tools + vault note create/write/rename/delete (soft trash)
+- Stdio MCP (`scripts/nodez-mcp.mjs`): graph query tools + vault note create/write/rename/delete (soft trash)
 - Prefers saved graph artifact over Markdown-only rebuild
-- Hermes can run one server instance per vault (env: `DIAMANTE_VAULT_DIR`, optional `DIAMANTE_PROJECT_DIR`)
+- Hermes can run one server instance per vault (env: `NODEZ_VAULT_DIR`, optional `NODEZ_PROJECT_DIR`)
 
 ### Gaps that block “done enough”
 
-1. ~~MCP can write notes but cannot **list / search / read** them as first-class tools~~ — **done (P0):** `list_notes` / `search_notes` / `read_note` + `diamante://note/...` resources
-2. ~~Agent writes do not keep `.diamante/graph.json` as fresh as the app indexer~~ — **done (P1):** `graph_stats.stale` + `rebuild_graph`; in-memory note-layer merge after writes so queries see new notes before rebuild
-3. ~~Human MCP wiring still needs hand-edited absolute paths and Node on PATH~~ — **done (P2):** setup wizard + one-click MCP JSON export with absolute vault/script paths; Windows export now strips `//?/` / `\\?\` extended prefixes and can use `DIAMANTE_NODE_COMMAND` when `node` is not on the client PATH
+1. ~~MCP can write notes but cannot **list / search / read** them as first-class tools~~ — **done (P0):** `list_notes` / `search_notes` / `read_note` + `nodez://note/...` resources
+2. ~~Agent writes do not keep `.nodez/graph.json` as fresh as the app indexer~~ — **done (P1):** `graph_stats.stale` + `rebuild_graph`; in-memory note-layer merge after writes so queries see new notes before rebuild
+3. ~~Human MCP wiring still needs hand-edited absolute paths and Node on PATH~~ — **done (P2):** setup wizard + one-click MCP JSON export with absolute vault/script paths; Windows export now strips `//?/` / `\\?\` extended prefixes and can use `NODEZ_NODE_COMMAND` when `node` is not on the client PATH
 4. ~~App-repo `AGENTS.md` is not yet a full agent contract (tool table + hard rules + workflow)~~ — **done (P3):** app-repo `AGENTS.md` is the agent contract
 5. ~~Higher-order graph tools (`explain_edge`, `impact_of`, communities) and deep code edges still thin~~ — **P4 tools done** (`explain_edge` / `impact_of` / `list_communities`); deep code edges still P5
 
 ## Skills vs surfaces
 
-Agents do **not** load a Diamante in-app skill pack. Runtime capability is **MCP tools** + app-repo `AGENTS.md`. Host playbooks (Hermes `diamante-notes`, etc.) and vault notes are separate layers. Canonical map: [[Agent Skills and Surfaces]].
+Agents do **not** load a Nodez in-app skill pack. Runtime capability is **MCP tools** + app-repo `AGENTS.md`. Host playbooks (Hermes `nodez-notes`, etc.) and vault notes are separate layers. Canonical map: [[Agent Skills and Surfaces]].
 
 ### Vault agent contract (end-user projects) — shipped 2026-08-22
 
@@ -60,8 +60,8 @@ Opt-in **AGENTS.md** for the opened vault so external agents get project MCP rul
 
 - Setup wizard step **Agents** (between Index and MCP)
 - Settings → Agent setup: **Agent contract** / **Merge into AGENTS.md**
-- Palette: **Add or refresh agent contract**, **Merge Diamante section into existing AGENTS.md**
-- Collision: never overwrite foreign root `AGENTS.md`; fallback `.diamante/AGENTS.md`; managed marker refresh
+- Palette: **Add or refresh agent contract**, **Merge Nodez section into existing AGENTS.md**
+- Collision: never overwrite foreign root `AGENTS.md`; fallback `.nodez/AGENTS.md`; managed marker refresh
 
 See [[Agent Skills and Surfaces]].
 
@@ -77,14 +77,14 @@ Ordered by leverage. Do not reorder casually; later items assume earlier ones.
 
 ### P0 — Agent read surface — **shipped 2026-08-21**
 
-MCP note reads land in `scripts/diamante-mcp.mjs` (+ `scripts/diamante-mcp-write.test.mjs`).
+MCP note reads land in `scripts/nodez-mcp.mjs` (+ `scripts/nodez-mcp-write.test.mjs`).
 
 | Tool / resource | Behavior |
 | --- | --- |
 | `list_notes` | Vault-relative paths + titles + mtime + note URI |
 | `search_notes` | Title/path/content snippet search, bounded results (default 20, max 100) |
 | `read_note(path)` | Full Markdown body; path-containment via `safeJoin` |
-| Resources | `diamante://note/<encoded-path>` listed/readable alongside graph stats/hubs |
+| Resources | `nodez://note/<encoded-path>` listed/readable alongside graph stats/hubs |
 
 Hard rules unchanged: vault notes only; never write the indexed source root through this surface.
 
@@ -93,7 +93,7 @@ Hard rules unchanged: vault notes only; never write the indexed source root thro
 Writes reset the MCP in-process cache **and** set `vaultDirty`. Queries merge a live vault note layer over the durable artifact so new notes appear immediately. Durable freshness:
 
 1. **`graph_stats`** includes `stale`, `reasons`, `artifactAgeMs`, `artifactMtimeMs`, `vaultNoteMtimeMs`, `sourceHead`, and a `rebuild` hint
-2. **`rebuild_graph`** refreshes the vault note layer into `.diamante/graph.json` (Graphify-shaped export) and clears `stale`
+2. **`rebuild_graph`** refreshes the vault note layer into `.nodez/graph.json` (Graphify-shaped export) and clears `stale`
 
 Document the model in app-repo `AGENTS.md` under P3 and [[Command Palette and Agent Surface]].
 
@@ -107,13 +107,13 @@ In-app guided flow (`SetupWizard` + Settings → Agent setup):
 4. **Export MCP config** for Hermes / Claude Desktop / Cursor (copy JSON; pre-filled absolute vault + script path when resolvable)
 5. Smoke line: “Graph ready · N nodes · MCP command = …”
 
-Rust `resolve_mcp_paths` finds `scripts/diamante-mcp.mjs` (dev manifest path, exe-adjacent, or `DIAMANTE_MCP_SCRIPT`). Command palette: **Open setup wizard**, **Copy MCP config for agents**.
+Rust `resolve_mcp_paths` finds `scripts/nodez-mcp.mjs` (dev manifest path, exe-adjacent, or `NODEZ_MCP_SCRIPT`). Command palette: **Open setup wizard**, **Copy MCP config for agents**.
 
 Codex Desktop lesson applied 2026-08-21:
 
 - Codex MCP config lives in `%USERPROFILE%\.codex\config.toml` as `[mcp_servers.<name>]`, not JSON `mcpServers`
-- Plain Windows paths (`C:/Sites/diamante/scripts/diamante-mcp.mjs`) work; extended paths (`//?/C:/...` or `\\?\C:\...`) failed under Node
-- Desktop clients may not inherit a shell PATH, so `node` can fail even when a bundled/runtime Node exists; use `DIAMANTE_NODE_COMMAND` or an absolute `node.exe`
+- Plain Windows paths (`C:/Sites/nodez-app/scripts/nodez-mcp.mjs`) work; extended paths (`//?/C:/...` or `\\?\C:\...`) failed under Node
+- Desktop clients may not inherit a shell PATH, so `node` can fail even when a bundled/runtime Node exists; use `NODEZ_NODE_COMMAND` or an absolute `node.exe`
 - Restart Codex Desktop or start a new task after changing MCP config
 
 Optional later: “Open Hermes Capabilities” deep link if the host supports it.
@@ -124,7 +124,7 @@ Optional later: “Open Hermes Capabilities” deep link if the host supports it
 | --- | --- |
 | App repo `AGENTS.md` | **Done** — what this is; hard rules table; full MCP tool reference; workflow (graph → notes → source → act); paths; validation |
 | This vault | Keep product intent here; link from [[Home]] / [[Next Steps]] |
-| Paths | Prefer Windows-real paths on this machine (`C:\Sites\diamante`, `Documents\Diamante`) and note macOS dual-path history only where needed |
+| Paths | Prefer Windows-real paths on this machine (`C:\Sites\nodez`, `Documents\Nodez`) and note macOS dual-path history only where needed |
 
 ### P4 — Higher-order graph tools + resources — **shipped 2026-08-21**
 
@@ -156,9 +156,9 @@ Rust vault git + sync panel (notes footer control):
 **Landed:**
 
 - Installers: MSI/NSIS via Tauri; version `0.3.0` in package/tauri/Cargo
-- **Landing** — separate **public** repo `paulbrett/diamante-landing` (`C:\Sites\diamante-landing`); Pages live — [[Landing Page]]
+- **Landing** — separate **public** repo `paulbrett/nodez` (`C:\Sites\nodez-landing`); Pages live — [[Landing Page]]
 - **OTA** — signed feed at `https://getnodez.app/updates/latest.json` with `platforms.windows-x86_64` + bundles; Settings → About → Check for updates — [[Distribution Versioning and Updates]]
-- Secrets: `TAURI_SIGNING_PRIVATE_KEY`, `LANDING_DEPLOY_TOKEN` on private app repo; local key `src-tauri/diamante.key`
+- Secrets: `TAURI_SIGNING_PRIVATE_KEY`, `LANDING_DEPLOY_TOKEN` on private app repo; local key `src-tauri/nodez.key`
 - CI: landing Pages workflow; app `release.yml` force-pushes feed/bundles; `scripts/publish-update-feed.mjs`
 
 **Still remaining:**
@@ -176,10 +176,10 @@ Rust vault git + sync panel (notes footer control):
 
 ## Explicit non-goals (for this track)
 
-- In-app second full agent chat by default — prefer external agent + Diamante MCP ([[Command Palette and Agent Surface]] product layering)
-- Slack/Telegram as Diamante features — Hermes gateway territory
+- In-app second full agent chat by default — prefer external agent + Nodez MCP ([[Command Palette and Agent Surface]] product layering)
+- Slack/Telegram as Nodez features — Hermes gateway territory
 - MCP write access to indexed source roots
-- Cross-vault MCP in one process (one `DIAMANTE_VAULT_DIR` per instance)
+- Cross-vault MCP in one process (one `NODEZ_VAULT_DIR` per instance)
 - Perfect Graphify parity before P0–P3
 
 ## Acceptance checks
@@ -198,7 +198,7 @@ Rust vault git + sync panel (notes footer control):
 ### P2
 
 - [x] New user (or clean profile) can copy a working MCP JSON from the app without hand-editing paths
-- [x] Snippet includes the opened vault path and resolved Node command + `diamante-mcp.mjs` (or a clear script-path placeholder)
+- [x] Snippet includes the opened vault path and resolved Node command + `nodez-mcp.mjs` (or a clear script-path placeholder)
 - [x] Windows export does not emit Node-breaking `//?/` or `\\?\` script paths
 
 ### P3
@@ -215,11 +215,11 @@ Rust vault git + sync panel (notes footer control):
 
 | Piece | Location |
 | --- | --- |
-| MCP server | `scripts/diamante-mcp.mjs` |
-| MCP write tests | `scripts/diamante-mcp-write.test.mjs` |
+| MCP server | `scripts/nodez-mcp.mjs` |
+| MCP write tests | `scripts/nodez-mcp-write.test.mjs` |
 | Project MCP hint | `.mcp.json` |
 | Command palette | `src/CommandPalette.tsx`, `src/commands.ts` |
-| Graph artifact | vault `.diamante/graph.json` + `.diamante/graph/` |
-| Workspace bind | vault `.diamante/workspace.json` |
+| Graph artifact | vault `.nodez/graph.json` + `.nodez/graph/` |
+| Workspace bind | vault `.nodez/workspace.json` |
 
-App/code home on this machine: `C:\Sites\diamante`. Docs vault: `C:\Users\webwi\Documents\Diamante`.
+App/code home on this machine: `C:\Sites\nodez`. Docs vault: `C:\Users\webwi\Documents\Nodez`.

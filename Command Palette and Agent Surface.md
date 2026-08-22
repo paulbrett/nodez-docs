@@ -1,5 +1,5 @@
 ---
-id: diamante-command-palette-agent-surface
+id: nodez-command-palette-agent-surface
 title: Command Palette and Agent Surface
 type: architecture
 status: active
@@ -26,8 +26,8 @@ One searchable command palette (`Cmd+K`) covering every existing app action. A p
 
 "Vault" means two things in this codebase and the design below always says which:
 
-- **The docs vault** — Diamante's own project docs at `~/Documents/Projects/Diamante`. This is `diamante-mcp.mjs`'s current default `vaultDir`, used by AI agents (like Claude) working *on* Diamante itself, per the existing `AGENTS.md`.
-- **A configured vault** — whatever folder `DIAMANTE_VAULT_DIR` points at. The MCP server has always been generic over this (the docs vault is just its default); an end user's own notes vault, opened in the Diamante app, is exactly the same kind of thing. When that vault has had a repo indexed alongside it in the app, it also contains `.diamante/graph.json` (from [[Repo Indexing Phase 6a]]).
+- **The docs vault** — Nodez's own project docs at `~/Documents/Nodez`. This is `nodez-mcp.mjs`'s current default `vaultDir`, used by AI agents (like Claude) working *on* Nodez itself, per the existing `AGENTS.md`.
+- **A configured vault** — whatever folder `NODEZ_VAULT_DIR` points at. The MCP server has always been generic over this (the docs vault is just its default); an end user's own notes vault, opened in the Nodez app, is exactly the same kind of thing. When that vault has had a repo indexed alongside it in the app, it also contains `.nodez/graph.json` (from [[Repo Indexing Phase 6a]]).
 
 Everything below operates on "the configured vault," whichever one that is.
 
@@ -57,18 +57,18 @@ type Command = {
 
 A new `src/CommandPalette.tsx`, opened by `Cmd+K` (and closable by `Escape`), following the exact `.modalLayer` overlay pattern the Settings and Graph modals already use: a search input, a filtered/keyboard-navigable list (arrow keys + Enter), fuzzy-matched on `label` client-side (simple substring/subsequence match — no new dependency). Selecting a command closes the palette and calls its `run(ctx)`.
 
-## MCP server updates (`scripts/diamante-mcp.mjs`)
+## MCP server updates (`scripts/nodez-mcp.mjs`)
 
 ### Graph source
 
-`buildGraph()` gets a check before its existing vault-walk logic: if `<vaultDir>/.diamante/graph.json` exists, parse and return it directly (it's already the same node/edge shape). Otherwise, fall back to today's behavior (rebuild from the vault's Markdown alone). This is what makes an indexed repo visible to MCP queries — no change to the 6 existing read tools' behavior or signatures, just a richer graph underneath them when a repo has been indexed into the configured vault.
+`buildGraph()` gets a check before its existing vault-walk logic: if `<vaultDir>/.nodez/graph.json` exists, parse and return it directly (it's already the same node/edge shape). Otherwise, fall back to today's behavior (rebuild from the vault's Markdown alone). This is what makes an indexed repo visible to MCP queries — no change to the 6 existing read tools' behavior or signatures, just a richer graph underneath them when a repo has been indexed into the configured vault.
 
 ### New write tools (vault notes only)
 
 - `create_note(title: string): RawNote` — mirrors `create_note` in `lib.rs`: `Untitled` if blank, `{title}.md` at vault root, `# {title}\n\n` starter content, errors if the file already exists.
 - `write_note(path: string, content: string): { modifiedMs: number }` — mirrors `write_note`: overwrite content at an existing vault-relative path.
 - `rename_note(path: string, newTitle: string): RawNote` — mirrors `rename_note` (rename the file, keep its folder) **and** rewrites `[[wikilinks]]` in every other note in the vault that referenced the old title, using the same regex `extractWikilinks`/rename logic already in `src/noteUtils.ts` (`renameWikilinks`), ported to plain JS in the MCP script — the app's Rust side doesn't do this rewrite itself either; it's `App.tsx` that does it in JS today, so this is genuinely new logic for the MCP script, not a straight port from Rust.
-- `delete_note(path: string): { trashedTo: string }` — moves the file to `<vault>/.diamante/trash/<original-relative-path>` (creating parent directories as needed; if a file already exists at that trash destination, suffix with a timestamp rather than overwrite or error). Never a hard delete on this path.
+- `delete_note(path: string): { trashedTo: string }` — moves the file to `<vault>/.nodez/trash/<original-relative-path>` (creating parent directories as needed; if a file already exists at that trash destination, suffix with a timestamp rather than overwrite or error). Never a hard delete on this path.
 
 All four use the same `safe_join`-style path-containment check the Rust side already has (guard against `path` escaping the vault root) — the MCP script gets its own small equivalent, since it's a separate Node process with no access to the Rust helper.
 
@@ -76,7 +76,7 @@ All four use the same `safe_join`-style path-containment check the Rust side alr
 
 Replace the current flat instruction list with a structure mined from `AGENTS-GROK.md`'s pattern (not its content):
 
-1. **What this is** — one paragraph: Diamante, the source-of-truth split (repo = implementation truth, vault = intent, graph = relationships), same as [[Unified Knowledge System]] already establishes.
+1. **What this is** — one paragraph: Nodez, the source-of-truth split (repo = implementation truth, vault = intent, graph = relationships), same as [[Unified Knowledge System]] already establishes.
 2. **Hard rules** (the "never do X" table that pattern uses) — e.g. never write to an indexed source root; `delete_note` via MCP is always soft; one configured vault per server instance.
 3. **MCP tool reference** — a table of all 10 tools (6 existing query tools + 4 new write tools), one line each: name, what it does, read or write.
 4. **Agent workflow** — restates the existing `AGENTS.md`/[[Unified Knowledge System]] loop (query graph → read vault notes → read source → act), now explicit that "act" can mean calling a write tool, not just editing files directly.
@@ -87,7 +87,7 @@ This stays one file (not a `skills/` directory of many small files) — the tool
 
 Palette: `Cmd+K` → filter commands by typed text → arrow/Enter selects → `run(ctx)` calls the existing handler exactly as its sidebar/topbar button would. No new state model beyond "is the palette open" and the search text.
 
-MCP: agent calls a tool → script resolves the configured vault (`DIAMANTE_VAULT_DIR` or default) → for reads, serves `.diamante/graph.json` if present else rebuilds from Markdown → for writes, performs the filesystem operation directly (no confirmation prompt — the soft-delete trash is the safety net, not a prompt, since MCP tool calls aren't interactive) → returns the same shape the app's own Rust commands return where applicable (`RawNote`), so a caller already familiar with one surface recognizes the other.
+MCP: agent calls a tool → script resolves the configured vault (`NODEZ_VAULT_DIR` or default) → for reads, serves `.nodez/graph.json` if present else rebuilds from Markdown → for writes, performs the filesystem operation directly (no confirmation prompt — the soft-delete trash is the safety net, not a prompt, since MCP tool calls aren't interactive) → returns the same shape the app's own Rust commands return where applicable (`RawNote`), so a caller already familiar with one surface recognizes the other.
 
 ## Error handling
 

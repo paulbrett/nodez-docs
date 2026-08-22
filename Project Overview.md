@@ -1,5 +1,5 @@
 ---
-id: diamante-project-overview
+id: nodez-project-overview
 title: Project Overview
 type: overview
 status: active
@@ -12,19 +12,19 @@ tags:
 
 # Project Overview
 
-Diamante Notes is an Obsidian-like app for personal knowledge bases and Graphify-like project relationship graphs.
+Nodez Notes is an Obsidian-like app for personal knowledge bases and Graphify-like project relationship graphs.
 
 It should feel fast, calm, and local-first. Notes should remain useful even if the app disappears, because the vault is just folders and Markdown files.
 
 ## Product thesis
 
-Most note apps make sync and storage feel magical. Diamante should make them understandable.
+Most note apps make sync and storage feel magical. Nodez should make them understandable.
 
 The user owns a vault folder and source folders. GitHub can sync them. The app provides a polished editor, index, graph, and navigation layer on top.
 
 ## Unified Direction
 
-Diamante should combine:
+Nodez should combine:
 
 - Obsidian's durable local Markdown vault, backlinks, YAML properties, and graph exploration
 - Graphify's code/docs relationship graph, edge provenance, communities, path tracing, and query/explain workflow

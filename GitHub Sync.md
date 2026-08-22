@@ -1,5 +1,5 @@
 ---
-id: diamante-github-sync
+id: nodez-github-sync
 title: GitHub Sync
 type: sync
 status: active
@@ -13,7 +13,7 @@ tags:
 
 # GitHub Sync
 
-Diamante sync should be GitHub-backed rather than proprietary.
+Nodez sync should be GitHub-backed rather than proprietary.
 
 The vault itself is a git repository. Sync is a careful wrapper around git commands.
 
@@ -37,7 +37,7 @@ The vault itself is a git repository. Sync is a careful wrapper around git comma
 
 Conflicts should be explicit and visible.
 
-Diamante should avoid silently overwriting notes. If a merge conflict happens, the app should show both versions and offer a guided resolution screen.
+Nodez should avoid silently overwriting notes. If a merge conflict happens, the app should show both versions and offer a guided resolution screen.
 
 ## Version 1 scope
 

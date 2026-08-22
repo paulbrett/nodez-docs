@@ -1,5 +1,5 @@
 ---
-id: diamante-session-log
+id: nodez-session-log
 title: Session Log
 type: session-log
 status: active
@@ -12,20 +12,28 @@ tags:
 
 # Session Log
 
+
+## 2026-08-22 — Docs vault moved to Documents/Nodez
+
+- Canonical planning/Obsidian vault is now `C:\Users\webwi\Documents\Nodez` (not `Documents\Diamante`).
+- Vault notes rebranded Diamante to Nodez; meta dir `.diamante` renamed to `.nodez`.
+- App checks / MCP defaults prefer Documents/Nodez; Hermes diamante-docs MCP points here.
+- MCP env prefers `NODEZ_*` (legacy `DIAMANTE_*` still accepted); script alias `scripts/nodez-mcp.mjs`.
+
 ## 2026-08-22 (Nodez folders + .nodez meta)
 
-- Vault meta dir **`.nodez/`** (was `.diamante` / brief `.nodes`)
+- Vault meta dir **`.nodez/`** (was `.nodez` / brief `.nodes`)
 - App repo remote → `paulbrett/nodez-app` · local folder `C:\Sites\nodez-app`
 - Landing remote → `paulbrett/nodez` · local folder `C:\Sites\nodez` · domain getnodez.app
 - Product display name **Nodez**
 
 ## 2026-08-22 (Nodez rebrand)
 
-- Product rebrand **Diamante → Nodez**; domain **getnodez.app**
+- Product rebrand **Nodez → Nodez**; domain **getnodez.app**
 - App version **0.4.0**; new icon from `new-icoon.png` → full Tauri set
 - OTA endpoint `https://getnodez.app/updates/latest.json`; landing CNAME
-- Vault meta **`.nodez/`** (legacy `.diamante/` readable), MCP script `diamante-mcp.mjs`, `DIAMANTE_*` env kept
-- GitHub repo names still `paulbrett/diamante` (+ landing) until rename
+- Vault meta **`.nodez/`** (legacy `.diamante/` readable), MCP script `nodez-mcp.mjs`, `NODEZ_*` env kept
+- GitHub repo names still `paulbrett/nodez-app` (+ landing) until rename
 
 ## 2026-08-22 (v0.3.0 release)
 
@@ -36,7 +44,7 @@ tags:
 
 ## 2026-08-22 (signed OTA live)
 
-- Generated minisign keypair; public key in `tauri.conf.json`; private in Actions secret + local `src-tauri/diamante.key`
+- Generated minisign keypair; public key in `tauri.conf.json`; private in Actions secret + local `src-tauri/nodez.key`
 - Set `LANDING_DEPLOY_TOKEN` (PAT write to `nodez`)
 - Local signed `tauri build` requires **`TAURI_SIGNING_PRIVATE_KEY` file contents** (PowerShell: `Get-Content -Raw`); `*_PATH` insufficient for build
 - Published signed 0.3.0 NSIS/MSI + `.sig` + `platforms.windows-x86_64` to landing Pages
@@ -53,7 +61,7 @@ Split public site out of private app repo:
 
 ## 2026-08-22 (P7 landing + OTA skeleton)
 
-Shipped distribution surface in app repo (`paulbrett/diamante` `26ddb9d`):
+Shipped distribution surface in app repo (`paulbrett/nodez-app` `26ddb9d`):
 
 - **Landing** — single-page plain HTML/CSS under `landing/` (in main repo, not separate site)
 - **OTA** — manifest `landing/updates/latest.json`, bundles dir, Tauri updater + process plugins, Settings → Check for updates
@@ -64,7 +72,7 @@ App already on main. Next human steps: enable Pages, set `TAURI_SIGNING_PRIVATE_
 
 ## 2026-08-22 (vault agent contract)
 
-Shipped opt-in vault **AGENTS.md** for end-user projects: managed markers, foreign-root → `.diamante/AGENTS.md`, merge action, Setup **Agents** step, Settings + palette. Pure logic `src/agentContract.ts` + tests. Docs: [[Agent Skills and Surfaces]].
+Shipped opt-in vault **AGENTS.md** for end-user projects: managed markers, foreign-root → `.nodez/AGENTS.md`, merge action, Setup **Agents** step, Settings + palette. Pure logic `src/agentContract.ts` + tests. Docs: [[Agent Skills and Surfaces]].
 
 ## 2026-08-22 (agent surfaces)
 
@@ -171,13 +179,13 @@ Integrated the graph research experiment into the app prototype:
 
 ## 2026-08-20 Graphify MCP and Canvas Graph
 
-Implemented the verified Graphify direction in the real app at `/Users/paulbrettorozco/Sites/Diamante`:
+Implemented the verified Graphify direction in the real app at `C:\\Sites\\nodez-app`:
 
 - expanded the graph schema to the full note/file/symbol/package/decision/feature/component/tag/artifact model
 - added Graphify JSON import/export helpers and relationship query/path/hub utilities
 - replaced the full graph modal with a `react-force-graph-2d` canvas renderer
 - added provenance, relationship type, local depth, hub, and shortest-path controls
-- added a stdio MCP server that reads the app source folder and the Obsidian vault at `/Users/paulbrettorozco/Documents/Projects/Diamante`
+- added a stdio MCP server that reads the app source folder and the Obsidian vault at `C:\\Users\\webwi\\Documents\\Nodez`
 - verified `npm run lint`, `npm run build`, and MCP `graph_stats` / `shortest_path` smoke calls
 
 ## 2026-08-20 Graphify Renderer Alignment
@@ -190,7 +198,7 @@ open-source HTML exporter:
 - matched Graphify's ForceAtlas2-style physics constants, stabilization, arrows,
   dot nodes, degree-based sizing, hover tooltips, and confidence-styled edges
 - added a Graphify-style community legend with show/hide filtering
-- preserved Diamante's local/global modes, node/edge/provenance filters,
+- preserved Nodez's local/global modes, node/edge/provenance filters,
   shortest-path highlighting, hub list, and source-backed Explain panel
 - visually verified the graph modal in the browser at `http://127.0.0.1:5173/`
 - verified `npm run build`
@@ -284,9 +292,9 @@ Implemented:
 Implemented the first working repo-source-root path:
 
 - added a Tauri `pick_source_root` command and a single `index_source_root` command that recursively walks a selected repo/project folder, metadata only, with heavy generated/vendor folders ignored
-- added `git_source_status` and git signature polling so Diamante re-indexes when HEAD or porcelain status changes
+- added `git_source_status` and git signature polling so Nodez re-indexes when HEAD or porcelain status changes
 - added app-state persistence for both the opened vault and selected source root
-- added `.diamante/graph.json` saving inside the opened vault, containing Graphify-compatible JSON plus Diamante metadata (`generatedAt`, vault path, source root, git state, stats)
+- added `.nodez/graph.json` saving inside the opened vault, containing Graphify-compatible JSON plus Nodez metadata (`generatedAt`, vault path, source root, git state, stats)
 - added `src/sourceRoot.ts` and `src/sourceGraph.ts` to convert source files into `folder`/`file` nodes and `contains` edges
 - merged the repo graph with the vault note graph in `App.tsx`
 - added a repo indexing button, visible loading/index status notice, repo status, and graph artifact path display
@@ -367,14 +375,14 @@ Verified:
 Updated the working docs after the UI repair pass:
 
 - refreshed [[Backlog]], [[Next Steps]], [[Product Roadmap]], [[Repo Indexing]], and [[TODO]] to reflect visible Open Vault/Open Repo controls, empty-vault shell behavior, first-load folder collapse, New Folder reveal behavior, and sort-direction toggles
-- updated the app README so it no longer describes Diamante as browser-only; it now documents the Tauri vault, repo source-root indexing, git-status polling, and `.diamante/graph.json`
+- updated the app README so it no longer describes Nodez as browser-only; it now documents the Tauri vault, repo source-root indexing, git-status polling, and `.nodez/graph.json`
 - set the next implementation track as Phase 6b: repo Markdown/manifest extraction, then command palette and MCP/agent-facing graph commands
 
 Next planned build sequence:
 
 1. Add pure source extraction helpers for repo Markdown docs and `package.json` manifests.
 2. Extend `buildSourceGraph` with `documents`, `references`, and `depends_on` edges while keeping file/folder containment as the base layer.
-3. Save the richer Graphify-compatible artifact to `.diamante/graph.json`.
+3. Save the richer Graphify-compatible artifact to `.nodez/graph.json`.
 4. Add command palette actions for the main workspace commands and mirror them into the agent/MCP surface.
 
 ## 2026-08-20 Repo Indexing Phase 6b Implemented
@@ -385,7 +393,7 @@ Implemented the cheap repo extraction layer:
 - kept ordinary source files metadata-only so the recursive walk stays lightweight
 - extended `buildSourceGraph` with Markdown heading artifacts, `documents` edges, Markdown link `references` edges, wikilink references to matching vault notes, and package `depends_on` edges
 - updated graph origin detection so repo-side artifact nodes remain visible under the Repo graph filter
-- preserved Diamante node metadata in the Graphify-compatible `.diamante/graph.json` export
+- preserved Nodez node metadata in the Graphify-compatible `.nodez/graph.json` export
 - upgraded the repo indexing notice to show how many docs/manifests were extracted
 - refreshed [[Backlog]], [[Next Steps]], [[Product Roadmap]], [[Repo Indexing]], and [[TODO]] so Phase 6b is marked done
 
@@ -408,7 +416,7 @@ Handled the latest [[TODO]] items:
 
 - added a topbar Markdown-tools toggle for the active note
 - added selection-aware formatting actions in `MarkdownEditor`: bold, italic, H1/H2, link, inline code, fenced code block, quote, bullet list, numbered list, and task list
-- kept Preview readable while allowing edits there: when Markdown tools are open in Preview, Diamante shows the rendered preview plus a live source drawer underneath
+- kept Preview readable while allowing edits there: when Markdown tools are open in Preview, Nodez shows the rendered preview plus a live source drawer underneath
 - replaced plain preview code rendering with labeled, styled fenced code panels while keeping inline code styling
 - cleaned minor markdownlint issues in [[Research]] and `AGENTS-GROK.md` that were blocking the docs check
 
@@ -436,7 +444,7 @@ Prepared the current UI/UX pass for push:
 
 - app commit `9ba7645` covers Preview editing tools, styled code blocks, compact Edit/Preview icons, loaded vault/repo picker labels, and merged status-bar repo index stats
 - vault notes now reflect the completed TODO items and session history for the UI pass
-- `.diamante/graph.json` remains updated with the latest Graphify-compatible vault/repo graph artifact
+- `.nodez/graph.json` remains updated with the latest Graphify-compatible vault/repo graph artifact
 
 ## 2026-08-20 Sidebar and Status Bar TODO Batch
 
@@ -447,7 +455,7 @@ Handled the small UI cleanup batch from [[TODO]]:
 - hid the expand/collapse-all folder control when the vault tree has no folders
 - made sort toggles smooth-scroll the note list back to the top
 - replaced the prompt-based New Folder flow with a centered naming dialog seeded as `New Folder #`
-- made the status bar horizontally scrollable on tight screens without visible scrollbars, while keeping `.diamante/graph.json` aligned to the right on wide screens
+- made the status bar horizontally scrollable on tight screens without visible scrollbars, while keeping `.nodez/graph.json` aligned to the right on wide screens
 
 Remaining open TODOs from this batch:
 
@@ -501,7 +509,7 @@ Added multi-session desktop support:
 
 - added Tauri support for additional `session-*` webview windows
 - expanded the default Tauri capability to allow `main` and `session-*` windows
-- added a native File -> New Window menu item for opening another Diamante session
+- added a native File -> New Window menu item for opening another Nodez session
 - removed the frontend New Window header button and command palette action so the behavior lives in the main window menu
 - updated [[TODO]] with the completed multi-window item
 
@@ -524,7 +532,7 @@ Implemented the Graphify-style repo indexer pass from [[Repo Indexing]]:
 Plan adjustment:
 
 - loading a repo now starts with metadata only so file/folder nodes paint first
-- once metadata is visible, Diamante starts a separate extraction pass and streams content-backed symbols into the same graph
+- once metadata is visible, Nodez starts a separate extraction pass and streams content-backed symbols into the same graph
 - the note tree now shows Markdown filenames instead of note titles
 
 ## 2026-08-20 Vault-Scoped Repo Attachment
@@ -533,7 +541,7 @@ Adjusted workspace ownership:
 
 - window title now follows the opened vault folder name
 - the repo picker is disabled until a vault is open
-- attached source repo is stored in the vault-local `.diamante/workspace.json`, not global app state
+- attached source repo is stored in the vault-local `.nodez/workspace.json`, not global app state
 - opening a vault automatically restores and indexes that vault's attached repo when present
 
 ## 2026-08-20 Optional Function Indexing
@@ -552,8 +560,8 @@ Changed the repo indexer after the automatic symbol pass caused the app to hang/
 
 Optimized the saved graph artifact for large repos:
 
-- `.diamante/graph.json` is now a lightweight manifest with stats and chunk references
-- graph payloads are saved under `.diamante/graph/` as Graphify-shaped node and edge chunks
+- `.nodez/graph.json` is now a lightweight manifest with stats and chunk references
+- graph payloads are saved under `.nodez/graph/` as Graphify-shaped node and edge chunks
 - chunks are streamed to Tauri one file at a time instead of sent as one large IPC payload
 - node chunks are grouped by vault, structure, packages, symbols, repo, etc.
 - edge chunks are grouped by relation type such as `contains`, `defines`, `imports`, and `calls`
@@ -572,7 +580,7 @@ Implemented the first [[Graph Scale]] pass after confirming the freeze is caused
 
 Next scale steps:
 
-- cache frozen layout positions in `.diamante/layout.json`
+- cache frozen layout positions in `.nodez/layout.json`
 - move full adjacency/path/impact work into a graph worker
 - convert Stars to instanced points before drawing large repos there
 
@@ -622,7 +630,7 @@ Optimized graph indexing and workspace chrome on Windows (`C:\Sites\nodez-app`):
 - git poll interval ~15s; status bar still shows dirty counts without thrashing the indexer
 - function/symbol extraction remains once-after-map when the graph opens; commit-driven `indexRepo` can reset it
 - stopped `indexRepo` from forcing graph origin/mode back to all/global
-- persist Edit/Preview + graph mode/origin/depth/filters in `localStorage` (`diamante.uiPrefs`) and vault meta
+- persist Edit/Preview + graph mode/origin/depth/filters in `localStorage` (`nodez.uiPrefs`) and vault meta
 - graph modal title uses repo folder name (else vault name)
 - Explain panel wraps long filenames; no horizontal scrollbar; sitewide thin vertical scrollbars
 - updated app README and vault notes ([[Repo Indexing]], [[Decision Log]])
@@ -641,7 +649,7 @@ Added a second graph renderer option on branch `new-graph-option` (`C:\Sites\nod
 - toolbar toggle (square = 2D, box = 3D) beside local/global and notes/repo origin
 - same selection / path-highlight / Explain contract for both engines
 - 3D chunk lazy-loaded; Three.js not in the initial app bundle
-- persist `graphEngine` in `diamante.uiPrefs` and vault meta (Rust `VaultMeta.graph_engine`)
+- persist `graphEngine` in `nodez.uiPrefs` and vault meta (Rust `VaultMeta.graph_engine`)
 - fixed graph toolbar layout (flex instead of 4-column grid that broke after the extra icon group)
 - app README + vault notes updated ([[Architecture]], [[Decision Log]], [[Graphify Tech Research]], [[Backlog]])
 
@@ -657,14 +665,14 @@ Verified:
 - Follow-up on main: Windows `CREATE_NO_WINDOW` for git status polls (no console flash)
 - Release build on main after merge
 
-## 2026-08-21 Hermes MCP: diamante-dakila + diamante-docs
+## 2026-08-21 Hermes MCP: nodez-dakila + nodez-docs
 
-Wired two Hermes MCP stdio servers to `scripts/diamante-mcp.mjs`:
+Wired two Hermes MCP stdio servers to `scripts/nodez-mcp.mjs`:
 
 | Server | Vault |
 | --- | --- |
-| `diamante-dakila` | `C:/Users/webwi/Documents/Dakila` |
-| `diamante-docs` | `C:/Users/webwi/Documents/Diamante` |
+| `nodez-dakila` | `C:/Users/webwi/Documents/Dakila` |
+| `nodez-docs` | `C:/Users/webwi/Documents/Nodez` |
 
 Both expose 11 tools (graph query + vault note writes). Hermes config updated; app `.mcp.json` mirrors the dual-server layout. New Hermes session required to load tools.
 
@@ -686,22 +694,22 @@ Extended the docs track after agent/human setup:
 
 ## 2026-08-21 P0 — MCP note read surface
 
-Shipped agent vault reads in app repo `scripts/diamante-mcp.mjs`:
+Shipped agent vault reads in app repo `scripts/nodez-mcp.mjs`:
 
 - Tools: `list_notes`, `search_notes`, `read_note`
-- Resources: `diamante://note/<path>` (plus existing graph stats/hubs)
+- Resources: `nodez://note/<path>` (plus existing graph stats/hubs)
 - Path escape guarded via existing `safeJoin`
-- Tests: `scripts/diamante-mcp-write.test.mjs` (write suite + new read/resource/escape cases) — pass
+- Tests: `scripts/nodez-mcp-write.test.mjs` (write suite + new read/resource/escape cases) — pass
 
 Docs: [[Agent and Human Setup]] P0 acceptance checked; [[Next Steps]] / [[Product Roadmap]] / [[Command Palette and Agent Surface]] updated. **Next:** P1 graph freshness after agent writes.
 
 ## 2026-08-21 P1 — Graph freshness after agent writes
 
-Shipped in `scripts/diamante-mcp.mjs`:
+Shipped in `scripts/nodez-mcp.mjs`:
 
 - After vault writes: `vaultDirty` + cache reset; queries merge live vault note layer over artifact so new notes are visible immediately
 - `graph_stats` adds `stale`, `reasons`, `artifactAgeMs`, `vaultNoteMtimeMs`, `sourceHead`, rebuild hint
-- `rebuild_graph` persists merged Graphify-shaped `.diamante/graph.json` and clears stale
+- `rebuild_graph` persists merged Graphify-shaped `.nodez/graph.json` and clears stale
 - Tests extended (write → stale → query sees note → rebuild → artifact + stats fresh)
 
 **Next:** P2 first-run wizard + one-click MCP export.
@@ -714,7 +722,7 @@ Shipped human setup surface in the app:
 - Auto-opens once when no vault and setup not completed (`localStorage`)
 - Settings → Agent setup + command palette **Open setup wizard** / **Copy MCP config for agents**
 - `src/mcpExport.ts` builds Hermes/Claude/Cursor-shaped `mcpServers` JSON with absolute vault path
-- Rust `resolve_mcp_paths` locates `scripts/diamante-mcp.mjs` (dev path / exe-adjacent / `DIAMANTE_MCP_SCRIPT`)
+- Rust `resolve_mcp_paths` locates `scripts/nodez-mcp.mjs` (dev path / exe-adjacent / `NODEZ_MCP_SCRIPT`)
 - Smoke line reports graph/notes readiness + `node <script>`
 
 **Next:** P3 app-repo `AGENTS.md` agent contract.
@@ -723,7 +731,7 @@ Shipped human setup surface in the app:
 
 Rewrote app-repo `C:\Sites\nodez-app\AGENTS.md` as the agent contract:
 
-- What Diamante is (app vs docs vault vs MCP)
+- What Nodez is (app vs docs vault vs MCP)
 - Windows-real paths for this machine
 - Hard rules table (vault-only MCP writes, commit-driven re-index, freshness, etc.)
 - Recommended agent workflow
@@ -735,13 +743,13 @@ P0–P3 agent/human setup track is complete for “done enough” core loop. **N
 
 ## 2026-08-21 P4 — Higher-order graph MCP tools
 
-Shipped in `scripts/diamante-mcp.mjs`:
+Shipped in `scripts/nodez-mcp.mjs`:
 
 - `explain_edge` — provenance-aware edge explanation between nodes (or by edge id)
 - `impact_of` — multi-hop fan-out impact set
 - `list_communities` — community sizes + samples
-- Resource `diamante://graph/communities`
-- Tests in `scripts/diamante-mcp-write.test.mjs`; app `AGENTS.md` tool table updated
+- Resource `nodez://graph/communities`
+- Tests in `scripts/nodez-mcp-write.test.mjs`; app `AGENTS.md` tool table updated
 
 **Next:** P5 deeper code extraction (Dakila), or P6/P7.
 

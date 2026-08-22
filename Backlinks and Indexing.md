@@ -1,5 +1,5 @@
 ---
-id: diamante-backlinks-indexing
+id: nodez-backlinks-indexing
 title: Backlinks and Indexing
 type: architecture
 status: active

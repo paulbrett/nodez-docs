@@ -1,5 +1,5 @@
 ---
-id: diamante-repo-indexing
+id: nodez-repo-indexing
 title: Repo Indexing
 type: architecture
 status: active
@@ -14,7 +14,7 @@ tags:
 
 # Repo Indexing
 
-Diamante's vault index (Markdown notes, wikilinks, tags) is only half of the [[Unified Knowledge System]]. The other half is indexing an actual project/repo folder the way Graphify does, so code, docs, and vault notes share one graph. This note makes that concrete: what gets built, in what order, and against which real repo.
+Nodez's vault index (Markdown notes, wikilinks, tags) is only half of the [[Unified Knowledge System]]. The other half is indexing an actual project/repo folder the way Graphify does, so code, docs, and vault notes share one graph. This note makes that concrete: what gets built, in what order, and against which real repo.
 
 ## Reference target: the Dakila repo
 
@@ -39,7 +39,7 @@ That mix is exactly the multi-language case [[Graphify Tech Research]] planned f
 
 The vault index answers "what links to what note." A repo index needs to answer "what imports/calls/depends-on what," across languages, and both must resolve into the *same* graph so a query can walk from a decision note straight to the firmware file it constrains.
 
-Concretely, Diamante needs a second, read-only **source root** (a plain project folder, not a vault of editable notes) alongside the existing vault root, feeding the same [[Unified Knowledge System]] node/edge schema.
+Concretely, Nodez needs a second, read-only **source root** (a plain project folder, not a vault of editable notes) alongside the existing vault root, feeding the same [[Unified Knowledge System]] node/edge schema.
 
 ## Phased plan
 
@@ -48,16 +48,16 @@ Concretely, Diamante needs a second, read-only **source root** (a plain project 
 - `index_source_root` walks an arbitrary folder in one native call and returns file metadata (path, extension, size, modified time) plus git state — no note semantics, no frontmatter parsing, no wikilinks, no source content reads.
 - The app remembers a source root alongside the vault path in Tauri app state, so both the vault and `/Sites/overland/OverlandLightingControllerV1` can be open at once.
 - Graph nodes: `file` and `folder` for everything under the source root, with `contains` edges. This lets the graph UI show "the Dakila repo exists" and lets an agent enumerate it without reading every file.
-- A background indexing notice appears while the folder is loading. For git repos, Diamante polls git about every 15 seconds and **re-indexes only when the commit identity changes** (`branch|HEAD`). Uncommitted and untracked files update the dirty summary in the status bar but do **not** restart the indexer.
-- The merged vault+repo graph is written to `.diamante/graph.json` inside the opened vault, using Graphify-compatible JSON plus Diamante metadata.
+- A background indexing notice appears while the folder is loading. For git repos, Nodez polls git about every 15 seconds and **re-indexes only when the commit identity changes** (`branch|HEAD`). Uncommitted and untracked files update the dirty summary in the status bar but do **not** restart the indexer.
+- The merged vault+repo graph is written to `.nodez/graph.json` inside the opened vault, using Graphify-compatible JSON plus Nodez metadata.
 
 ### Phase 6b - Cheap extraction (Markdown + manifests) (done)
 
 - The source-root walk includes bounded content only for extractable files: Markdown docs, `AGENTS.md`, and `package.json`.
 - Markdown headings become repo `artifact` nodes, with `documents` edges from their source file.
-- Markdown links and wikilinks become `references` edges to repo files and matching vault notes when Diamante can resolve them.
+- Markdown links and wikilinks become `references` edges to repo files and matching vault notes when Nodez can resolve them.
 - `package.json` manifests become `package` nodes with `depends_on` edges for `dependencies`, `devDependencies`, `peerDependencies`, and `optionalDependencies`.
-- Extracted metadata is preserved in the Graphify-compatible `.diamante/graph.json` artifact so agents can trace graph answers back to repo files and headings.
+- Extracted metadata is preserved in the Graphify-compatible `.nodez/graph.json` artifact so agents can trace graph answers back to repo files and headings.
 
 Implemented order:
 
@@ -75,7 +75,7 @@ Implemented order:
 - Function indexing is enabled by default, but it starts lazily in the background only after the graph view is opened (once after the file map reaches idle). Settings can turn it off for metadata-only repo maps. A later commit-driven `indexRepo` resets function state so symbols can run again after commits — not after every dirty save.
 - `node_modules` is excluded entirely. Repo indexing stays focused on first-party source and root/workspace manifests; dependency graph detail comes from first-party `package.json` files, not vendor folders.
 - By default, source walking follows `.gitignore` through the Rust `ignore` walker. Settings now expose an `Ignore .gitignore` toggle for cases where hidden/generated files should still be indexed.
-- Large graph artifacts are chunked: `.diamante/graph.json` is a small manifest, while Graphify-shaped node and edge chunks live under `.diamante/graph/`. MCP reconstructs the graph from those chunks for agent queries.
+- Large graph artifacts are chunked: `.nodez/graph.json` is a small manifest, while Graphify-shaped node and edge chunks live under `.nodez/graph/`. MCP reconstructs the graph from those chunks for agent queries.
 - Large graph rendering follows [[Graph Scale]]: keep the full index queryable, derive a capped draw graph for the canvas, hide noisy `contains` edges, and expand from the full graph on click.
 
 Future hardening can still replace the regex extractor with tree-sitter for richer syntax coverage, but the current pass already produces a complete first-party file graph plus practical symbols, imports, calls, and package dependency nodes from first-party manifests without forcing one huge JSON file.
@@ -94,12 +94,12 @@ Smoke on OverlandLightingControllerV1 (~283 extractable files): ~1k import edges
 ### Phase 6d - Unified graph + MCP (partially done)
 
 - Merge the source-root graph into the same in-memory graph the vault already builds (`buildKnowledgeGraph` in `src/graph.ts`), so local/global graph modes, filters, path finder, and the Explain panel all work across vault notes and repo files together.
-- Extend the MCP server's tool surface (already covering the vault) to also serve `search_nodes`/`get_neighbors`/`find_path`/`impact_of` over the repo side, so an agent working in the Dakila repo can query relationships before reading files, per the [[Unified Knowledge System]] agent model. Current shipped MCP addition: `search_symbols` over the saved `.diamante/graph.json` artifact.
+- Extend the MCP server's tool surface (already covering the vault) to also serve `search_nodes`/`get_neighbors`/`find_path`/`impact_of` over the repo side, so an agent working in the Dakila repo can query relationships before reading files, per the [[Unified Knowledge System]] agent model. Current shipped MCP addition: `search_symbols` over the saved `.nodez/graph.json` artifact.
 - Rebuild-on-change: reuse the same filesystem watcher pattern already shipped for the vault (see [[Next Steps]]) for the source root too.
 
 ## Non-goals for v1
 
-- No write access to the source root. Diamante reads code; it does not edit it.
+- No write access to the source root. Nodez reads code; it does not edit it.
 - No cross-repo indexing yet — one source root (Dakila) proves the model before generalizing to "any number of source roots."
 - No full type-checker/LSP-grade call resolution — tree-sitter's approximate `calls` edges are marked `inferred` and are good enough for "what likely touches this," not a source of implementation truth.
 

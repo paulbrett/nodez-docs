@@ -1,5 +1,5 @@
 ---
-id: diamante-repo-indexing-phase-6a
+id: nodez-repo-indexing-phase-6a
 title: Repo Indexing Phase 6a
 type: architecture
 status: active
@@ -17,13 +17,13 @@ Implemented design for Phase 6a of [[Repo Indexing]]: a read-only "source root" 
 
 ## Goal
 
-Pick an arbitrary repo folder, index its files in one recursive metadata-only Tauri call, show it in the graph as `file`/`folder` nodes with `contains` edges, alongside the notes graph, with a toggle to view notes only / repo only / both. Remember the chosen vault and source root across app restarts. Save the merged graph artifact inside the opened vault at `.diamante/graph.json` so agents can read one durable map of notes plus repo structure.
+Pick an arbitrary repo folder, index its files in one recursive metadata-only Tauri call, show it in the graph as `file`/`folder` nodes with `contains` edges, alongside the notes graph, with a toggle to view notes only / repo only / both. Remember the chosen vault and source root across app restarts. Save the merged graph artifact inside the opened vault at `.nodez/graph.json` so agents can read one durable map of notes plus repo structure.
 
 ## Non-goals (explicit scope boundary)
 
 - No content reading of repo files (no note-style editing of code).
 - No tree-sitter/code extraction — no `imports`/`calls`/`defines` edges yet (Phase 6c).
-- No full filesystem watcher for the source root yet. Phase 6a watches via git status polling: if HEAD or porcelain status changes, Diamante re-runs the metadata-only index. A future native source-root watcher can still land in Phase 6d.
+- No full filesystem watcher for the source root yet. Phase 6a watches via git status polling: if HEAD or porcelain status changes, Nodez re-runs the metadata-only index. A future native source-root watcher can still land in Phase 6d.
 - Exactly one source root at a time, matching the existing single-vault-path pattern. No cross-repo indexing.
 - No content-derived code edges yet. The saved graph artifact is structural: vault note graph plus repo file/folder containment.
 
@@ -35,11 +35,11 @@ Pick an arbitrary repo folder, index its files in one recursive metadata-only Ta
 - `fn index_source_root(root: String) -> Result<SourceIndexResult, String>` — recursively walks `root`, skipping a hardcoded ignore-list by directory name, and returns **files only** (no folder entries — folders are derived client-side, see below), plus a git snapshot. No file content is read.
   - `RawSourceFile { path: String, extension: Option<String>, size_bytes: u64, modified_ms: u64 }` (camelCase over the wire, matching `RawNote`'s convention). `path` is root-relative with forward slashes, same convention as `RawNote.path`.
   - `GitRepoState { is_repo, root, branch, head, dirty, changed_count, untracked_count, signature, summary }` is built with `git -C <root>` and returned with the index. The `signature` combines HEAD and porcelain status so the frontend can detect meaningful git changes without watching every file.
-  - Ignore-list (checked by directory name at every level, extending the existing `is_ignored()` helper): `node_modules`, `.git`, `.diamante`, `build`, `dist`, `target`, `ios`, `android`, `.expo`, `__pycache__`, `.venv`, `venv`, `coverage`, `.next`, `.vite`.
+  - Ignore-list (checked by directory name at every level, extending the existing `is_ignored()` helper): `node_modules`, `.git`, `.nodez`, `build`, `dist`, `target`, `ios`, `android`, `.expo`, `__pycache__`, `.venv`, `venv`, `coverage`, `.next`, `.vite`.
   - No path-traversal guard needed (unlike the vault's `safe_join`) — this is read-only with no write/rename/delete commands over the source root, so there is nothing for a traversal to escalate to.
 - `fn git_source_status(root: String) -> GitRepoState` — lightweight status call for polling after an index.
 - `fn load_app_state(app: AppHandle) -> Result<AppState, String>` / `fn save_app_state(app: AppHandle, state: AppState) -> Result<(), String>` — `AppState { vault_path: Option<String>, source_root: Option<String> }`, persisted as JSON at `<app_data_dir>/state.json` (via `tauri::Manager::path().app_data_dir()`), creating the directory on first save if missing. A missing file on load returns a default empty `AppState`, not an error — that's the expected first-run case.
-- `fn save_graph_index(vault: String, content: String) -> Result<String, String>` — writes the generated merged graph to `<vault>/.diamante/graph.json`.
+- `fn save_graph_index(vault: String, content: String) -> Result<String, String>` — writes the generated merged graph to `<vault>/.nodez/graph.json`.
 
 No new Cargo dependencies — `serde`/`serde_json` are already present, and `std::fs` is sufficient for the walk (the vault's own `collect()` already hand-rolls the same recursion style).
 
@@ -81,11 +81,11 @@ No new Cargo dependencies — `serde`/`serde_json` are already present, and `std
 - On mount (`isTauri` only): `loadAppState()` — if `vaultPath` present, auto-`listVaultNotes` + `setVaultPath` (skip the picker); if `sourceRoot` present, auto-`indexSourceRoot` + `setSourceRoot`.
 - On `vaultPath`/`sourceRoot` change (`isTauri` only): `saveAppState({ vaultPath, sourceRoot })`.
 - On `sourceRoot` with a git repo: poll `git_source_status` every 7 seconds. If the signature differs from the previous index, re-run `index_source_root` and refresh the repo graph.
-- On `knowledgeGraph` changes with an opened vault: debounce 800 ms, then write `.diamante/graph.json` with Graphify-compatible JSON plus metadata (`generatedAt`, `vaultPath`, `sourceRoot`, `sourceGit`, `stats`).
+- On `knowledgeGraph` changes with an opened vault: debounce 800 ms, then write `.nodez/graph.json` with Graphify-compatible JSON plus metadata (`generatedAt`, `vaultPath`, `sourceRoot`, `sourceGit`, `stats`).
 
 ## Data flow
 
-Click "Index repo" → native folder picker (async command, off the main thread) → JS receives the root path → `indexSourceRoot(root)` invokes the Rust walk → Rust returns a flat file list plus git state (metadata only, noise directories excluded) → JS derives folder nodes and `contains` edges via `buildSourceGraph` → merged into the same `knowledgeGraph` the notes already populate → all existing graph UI (filters, local/global mode, path finder, Explain panel) works over the combined graph unchanged → the new Notes/Repo/Both toggle narrows the visible graph by node origin before rendering → the merged graph is saved at `.diamante/graph.json` in the opened vault.
+Click "Index repo" → native folder picker (async command, off the main thread) → JS receives the root path → `indexSourceRoot(root)` invokes the Rust walk → Rust returns a flat file list plus git state (metadata only, noise directories excluded) → JS derives folder nodes and `contains` edges via `buildSourceGraph` → merged into the same `knowledgeGraph` the notes already populate → all existing graph UI (filters, local/global mode, path finder, Explain panel) works over the combined graph unchanged → the new Notes/Repo/Both toggle narrows the visible graph by node origin before rendering → the merged graph is saved at `.nodez/graph.json` in the opened vault.
 
 ## Error handling
 

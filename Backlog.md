@@ -1,5 +1,5 @@
 ---
-id: diamante-backlog
+id: nodez-backlog
 title: Backlog
 type: backlog
 status: active
@@ -40,7 +40,7 @@ Priority track for agents + onboarding: [[Agent and Human Setup]]. Sequencing: [
 - Commit local changes — done
 - Push to GitHub — done (v1)
 - Conflict resolution screen — stop + list done; guided editor later
-- Rebuild `.diamante/graph.json` after successful pull — notes reload; durable auto-rebuild later
+- Rebuild `.nodez/graph.json` after successful pull — notes reload; durable auto-rebuild later
 
 ## Index / Graph
 
@@ -57,7 +57,7 @@ Priority track for agents + onboarding: [[Agent and Human Setup]]. Sequencing: [
 - Source references from graph edges back to notes/files/lines — partial
 - Lazy-load heavy graph engines — done for WebGL 3D
 - Add graph performance measurements using the 1,000-node dummy vault fixture
-- Layout cache (`.diamante/layout.json`) and path/impact worker — **done** — [[Graph Scale]]
+- Layout cache (`.nodez/layout.json`) and path/impact worker — **done** — [[Graph Scale]]
 - Optional community hulls; minimap / zoom-to-fit — zoom-to-fit landed; hulls/minimap optional
 
 ## Agent / MCP (see [[Agent and Human Setup]])
@@ -66,7 +66,7 @@ Priority track for agents + onboarding: [[Agent and Human Setup]]. Sequencing: [
 - Vault write tools (create/write/rename/soft-delete) — done
 - Dual Hermes vault servers — done
 - `list_notes` / `search_notes` / `read_note` — **P0**
-- Note MCP resources (`diamante://note/...`) — **P0**
+- Note MCP resources (`nodez://note/...`) — **P0**
 - Graph freshness after writes / `rebuild_graph` + stale signal — **P1**
 - First-run wizard + one-click MCP JSON export — **P2**
 - Restructure app-repo `AGENTS.md` agent contract — **P3**
@@ -79,7 +79,7 @@ Priority track for agents + onboarding: [[Agent and Human Setup]]. Sequencing: [
 - Single version source of truth across npm + Tauri + About UI — done baseline (0.3.0)
 - Semver tags and release checklist — tags + CHANGELOG; CI release workflow
 - Windows MSI/NSIS — done
-- Public landing page (`paulbrett/diamante-landing` Pages) — **live**
+- Public landing page (`paulbrett/nodez` Pages) — **live**
 - OTA: signed `updates/latest.json` + Settings check — **live feed; tag CI verify remaining**
 - First signed Pages feed (`platforms.windows-x86_64`) — pending secret + tag
 - Authenticode / SmartScreen — pending
@@ -99,7 +99,7 @@ Priority track for agents + onboarding: [[Agent and Human Setup]]. Sequencing: [
 - Read-only source-root command — done
 - Register a source root alongside the vault path — done
 - `file`/`folder` graph nodes + containment — done
-- Save merged graph artifact at `.diamante/graph.json` — done
+- Save merged graph artifact at `.nodez/graph.json` — done
 - Visible Open Vault/Open Repo controls — done
 - Markdown docs + `package.json` into documents/references/depends_on — done
 - Preserve extracted repo metadata in artifact — done

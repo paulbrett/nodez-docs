@@ -1,5 +1,5 @@
 ---
-id: diamante-home
+id: nodez-home
 title: Nodez
 type: docs-index
 status: active
@@ -44,7 +44,7 @@ Desktop (Tauri) app with:
 - Real folder vaults on disk
 - Wikilinks, backlinks, tags, note tree
 - Merged vault + repo graph (2D/3D engines)
-- Commit-driven repo re-index and `.diamante/graph.json` artifact
+- Commit-driven repo re-index and `.nodez/graph.json` artifact
 - Command palette and MCP server for AI agents (graph query + vault reads/writes)
 - Vault GitHub sync v1 and opt-in vault `AGENTS.md` agent contract
 - Public landing + signed OTA (`nodez` Pages, Settings check for updates)

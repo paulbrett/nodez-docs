@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "format": "diamante.graph.manifest",
-  "generatedAt": "2026-08-22T06:06:28.417Z",
-  "vaultPath": "C:\\Users\\webwi\\Documents\\Diamante",
-  "sourceRoot": "C:\\Sites\\diamante",
+  "format": "nodez.graph.manifest",
+  "generatedAt": "2026-08-22T06:16:58.429Z",
+  "vaultPath": "C:\\Users\\webwi\\Documents\\Nodez",
+  "sourceRoot": "C:\\Sites\\nodez-app",
   "sourceGit": {
     "isRepo": true,
-    "root": "C:/Sites/diamante",
+    "root": "C:/Sites/nodez-app",
     "branch": "main",
     "head": "f5e09b4e95fdb72089349b3a3cd4627ab2482262",
     "dirty": false,

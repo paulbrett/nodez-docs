@@ -1,5 +1,5 @@
 ---
-id: diamante-unified-knowledge-system
+id: nodez-unified-knowledge-system
 title: Unified Knowledge System
 type: workflow
 status: active
@@ -14,19 +14,19 @@ tags:
 
 # Unified Knowledge System
 
-Diamante should become a unified system that combines the human-first vault workflow of Obsidian with the relationship-first graph workflow of Graphify.
+Nodez should become a unified system that combines the human-first vault workflow of Obsidian with the relationship-first graph workflow of Graphify.
 
 The Dakila workflow is the reference model.
 
 ## Product Thesis
 
-Diamante is not only a Markdown editor and not only a graph visualizer.
+Nodez is not only a Markdown editor and not only a graph visualizer.
 
 It is a local-first workspace where notes, code, decisions, issues, artifacts, and dependency relationships share one navigable knowledge layer.
 
 ## Source-Of-Truth Split
 
-Diamante should support three complementary truth layers:
+Nodez should support three complementary truth layers:
 
 - **GitHub/source folders** are implementation truth. Code, tests, package manifests, firmware, app screens, and repo docs describe what currently exists.
 - **Obsidian-style vault notes** are human-readable intent. Architecture, decisions, roadmap, experiments, meeting notes, handoffs, and operator context live as Markdown.
@@ -41,11 +41,11 @@ When sources disagree:
 1. For current implementation behavior, source code and checked artifacts win.
 2. For rationale, design intent, and roadmap direction, the latest accepted vault decision wins.
 3. For relationships and dependency impact, the graph layer explains connections but must cite whether each edge is extracted or inferred.
-4. When the disagreement affects architecture, safety, security, sync, or data ownership, Diamante should surface the conflict instead of silently resolving it.
+4. When the disagreement affects architecture, safety, security, sync, or data ownership, Nodez should surface the conflict instead of silently resolving it.
 
 ## Obsidian-Inspired Capabilities
 
-Diamante should preserve the parts of Obsidian that make a vault feel durable and personal:
+Nodez should preserve the parts of Obsidian that make a vault feel durable and personal:
 
 - local folders of Markdown files
 - YAML frontmatter properties
@@ -59,7 +59,7 @@ Diamante should preserve the parts of Obsidian that make a vault feel durable an
 
 ## Graphify-Inspired Capabilities
 
-Diamante should add the parts of Graphify that make a project graph useful for engineering work:
+Nodez should add the parts of Graphify that make a project graph useful for engineering work:
 
 - AST-based code extraction where possible
 - nodes for files, folders, symbols, packages, docs, decisions, features, and components
@@ -72,7 +72,7 @@ Diamante should add the parts of Graphify that make a project graph useful for e
 
 ## Dakila-Style Workflow
 
-For a project like Dakila, Diamante should support this loop:
+For a project like Dakila, Nodez should support this loop:
 
 1. Open the docs vault and source repo as one workspace.
 2. Pull latest changes from GitHub.
@@ -141,7 +141,7 @@ Next it should grow into:
 
 ## Agent Model
 
-Agents should use Diamante in this order:
+Agents should use Nodez in this order:
 
 1. Read `AGENTS.md`.
 2. Query the graph when the task depends on relationships, dependencies, architecture, features, symbols, or impact.

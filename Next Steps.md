@@ -1,5 +1,5 @@
 ---
-id: diamante-next-steps
+id: nodez-next-steps
 title: Next Steps
 type: roadmap
 status: active
@@ -27,14 +27,14 @@ Ordered by dependency and leverage.
 ### Phase 6a / 6b (repo source root + cheap extraction)
 
 - Read-only source root; metadata index; git `branch|HEAD` re-index (not dirty thrash)
-- Notes/Repo/Both origin; merged artifact at `.diamante/graph.json` (+ chunks)
+- Notes/Repo/Both origin; merged artifact at `.nodez/graph.json` (+ chunks)
 - Markdown headings/artifacts, package `depends_on`, symbol extraction path, `.gitignore` respect
 
 ### Command palette + MCP writes (landed)
 
 - In-app `Cmd+K` command palette
 - MCP: graph query tools + `create_note` / `write_note` / `rename_note` / `delete_note` (soft trash)
-- Dual Hermes servers: Dakila vault + Diamante docs vault
+- Dual Hermes servers: Dakila vault + Nodez docs vault
 
 ### Agent usefulness + human setup (P0–P4) — done 2026-08-21
 
@@ -45,7 +45,7 @@ Full checklist: [[Agent and Human Setup]].
 3. **P2** — Setup wizard + one-click MCP export
 4. **P3** — App-repo `AGENTS.md` agent contract
 5. **P4** — `explain_edge`, `impact_of`, `list_communities`
-6. **Vault agent contract** — opt-in `AGENTS.md` / `.diamante/AGENTS.md` with collision-safe markers — [[Agent Skills and Surfaces]]
+6. **Vault agent contract** — opt-in `AGENTS.md` / `.nodez/AGENTS.md` with collision-safe markers — [[Agent Skills and Surfaces]]
 
 ### Release 0.2.0 — done 2026-08-21
 
@@ -102,7 +102,7 @@ Landed 2026-08-22 (this pass):
 
 Still open / next:
 
-- ~~Layout cache in `.diamante/layout.json`~~ — **landed 2026-08-22** (2D cool-down + 3D engine-stop; Tauri + localStorage fallback)
+- ~~Layout cache in `.nodez/layout.json`~~ — **landed 2026-08-22** (2D cool-down + 3D engine-stop; Tauri + localStorage fallback)
 - ~~Adjacency/path work in a worker~~ — **landed 2026-08-22** (`graphQueryWorker` holds full index; view/filter/path/draw off UI thread when ≥800 nodes)
 - Optional community hulls, minimap
 - Compact/mobile viewport review after workspace chrome changes
@@ -135,7 +135,7 @@ Still remaining:
 - **Landing** — public repo [`paulbrett/nodez`](https://github.com/paulbrett/nodez) → Pages <https://paulbrett.github.io/nodez/> — [[Landing Page]]
 - **OTA** — signed `updates/latest.json` with `platforms.windows-x86_64` + NSIS/MSI + `.sig` under `updates/bundles/` — [[Distribution Versioning and Updates]]
 - App endpoint: `https://paulbrett.github.io/nodez/updates/latest.json`
-- Secrets on private app repo: `TAURI_SIGNING_PRIVATE_KEY`, `LANDING_DEPLOY_TOKEN` (local key: `src-tauri/diamante.key`, gitignored)
+- Secrets on private app repo: `TAURI_SIGNING_PRIVATE_KEY`, `LANDING_DEPLOY_TOKEN` (local key: `src-tauri/nodez.key`, gitignored)
 - Local signed build works via **`TAURI_SIGNING_PRIVATE_KEY` contents** (not `*_PATH` for `tauri build`); `npm run update:feed` + force-add bundles for Pages
 - CI `release.yml` force-adds gitignored bundles when pushing to landing
 
@@ -152,7 +152,7 @@ Still remaining:
 ## Explicit deprioritize
 
 - In-app second full agent chat (prefer Hermes/CLI + Nodez MCP)
-- Chat gateways inside Diamante
+- Chat gateways inside Nodez
 - MCP writes to indexed source roots
 
 Related: [[Agent and Human Setup]], [[Agent Skills and Surfaces]], [[Code Editor Implementation]], [[Distribution Versioning and Updates]], [[Landing Page]], [[Product Roadmap]], [[Architecture]], [[GitHub Sync]], [[Tauri Desktop Shell]], [[Unified Knowledge System]], [[Graphify Tech Research]], [[Repo Indexing]], [[Command Palette and Agent Surface]], [[Frontend]]

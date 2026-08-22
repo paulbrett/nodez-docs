@@ -1,5 +1,5 @@
 ---
-id: diamante-vault-model
+id: nodez-vault-model
 title: Vault Model
 type: vault
 status: active
@@ -20,18 +20,18 @@ This mirrors Obsidian's core idea: the app is an interface over regular files, n
 
 - Notes are `.md` files.
 - Attachments can live in `attachments/`.
-- App metadata can live in `.diamante/`.
+- App metadata can live in `.nodez/`.
 - Obsidian compatibility settings can live in `.obsidian/`.
 
 ## Note identity
 
 In the simplest version, note identity is the file path.
 
-Later, Diamante may support stable note IDs in frontmatter:
+Later, Nodez may support stable note IDs in frontmatter:
 
 ```yaml
 ---
-id: 2026-08-19-diamante-home
+id: 2026-08-19-nodez-home
 ---
 ```
 

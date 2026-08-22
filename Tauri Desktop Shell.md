@@ -1,5 +1,5 @@
 ---
-id: diamante-tauri-desktop-shell
+id: nodez-tauri-desktop-shell
 title: Tauri Desktop Shell
 type: architecture
 status: active
@@ -12,7 +12,7 @@ tags:
 
 # Tauri Desktop Shell
 
-Tauri is the preferred desktop direction for Diamante.
+Tauri is the preferred desktop direction for Nodez.
 
 It gives the React frontend native capabilities without shipping a full Chromium runtime in the same way Electron does.
 

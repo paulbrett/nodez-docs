@@ -1,5 +1,5 @@
 ---
-id: diamante-graph-scale
+id: nodez-graph-scale
 title: Graph Scale
 type: architecture
 status: active
@@ -13,13 +13,13 @@ tags:
 
 # Graph Scale
 
-Diamante must keep the full project graph queryable while drawing only a small graph view.
+Nodez must keep the full project graph queryable while drawing only a small graph view.
 
 Core rule: the full graph stays indexed and agent-queryable. When the attached repo index is larger than 1,000 files, the canvas receives a draw graph capped around 1,500 nodes. For 1,000 files or fewer, keep the previous full graph behavior. The status bar should communicate both layers, for example `view 412 / index 81240`.
 
 ## Current shipped baseline
 
-- The saved graph remains complete and chunked through `.diamante/graph.json` plus `.diamante/graph/`.
+- The saved graph remains complete and chunked through `.nodez/graph.json` plus `.nodez/graph/`.
 - The graph modal derives a capped draw graph before rendering only when the attached repo index is larger than 1,000 files.
 - Small repos keep the previous full canvas behavior, including visible `contains` edges.
 - For large repos, `contains` edges are hidden from the canvas draw graph, because folder containment dominates large repo views and adds little to overview navigation.
@@ -52,7 +52,7 @@ Layout once, freeze, cache:
 - Large repos are mostly trees with sparse cross-links.
 - Do not run live force physics over the full graph.
 - Prefer deterministic hierarchy or radial placement, short force only on a tiny ego graph after expansion, then freeze.
-- Cache future positions in `.diamante/layout.json`.
+- Cache future positions in `.nodez/layout.json`.
 
 Worker boundary:
 
@@ -84,7 +84,7 @@ If Stars still stutters after instancing, evaluate `cosmos.gl` or `sigma.js` plu
 1. Draw graph is separate from the full graph when the repo index is larger than 1,000 files. Done.
 2. Expand-on-click from the full index. Done.
 3. Hide `contains` edges in the canvas. Done.
-4. Freeze and cache layout in `.diamante/layout.json`. **Done 2026-08-22** (seed on open; save after 2D cool-down / 3D engine stop).
+4. Freeze and cache layout in `.nodez/layout.json`. **Done 2026-08-22** (seed on open; save after 2D cool-down / 3D engine stop).
 5. Move full adjacency/query work into a graph worker. **Done 2026-08-22** (`src/graphQueryWorker.ts` + `graphWorkerClient`; threshold 800 nodes, main-thread fallback).
 6. Make Stars use instanced points instead of one mesh per node.
 

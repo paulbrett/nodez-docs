@@ -1,5 +1,5 @@
 ---
-id: diamante-product-roadmap
+id: nodez-product-roadmap
 title: Product Roadmap
 type: roadmap
 status: active
@@ -18,7 +18,7 @@ tags:
 - Phase 3 (Knowledge features): partial — outline + matching backlink/outgoing pills landed; flush full-height inspector; attachments / search ranking pending — [[Next Steps]]. Plain-text auto-format + code editor MVP done — [[Code Editor Implementation]].
 - Phase 4 (Unified graph system): largely done — schema, provenance, local/global, filters, path finder, query/explain UI, MCP + freshness + dual Hermes; notes reload after pull (graph artifact debounce) — [[Agent and Human Setup]].
 - Phase 2 (GitHub sync): **v1 landed** — vault status/pull/commit/push/sync + conflict list + sync panel; control lives in notes footer — [[GitHub Sync]].
-- Phase 5 (Polish): partial — themes, Windows MSI/NSIS; **public landing + signed OTA feed live** (`diamante-landing` Pages); Authenticode still pending; **icons shipped**; no-Node MCP, broader shortcuts pending.
+- Phase 5 (Polish): partial — themes, Windows MSI/NSIS; **public landing + signed OTA feed live** (`nodez-landing` Pages); Authenticode still pending; **icons shipped**; no-Node MCP, broader shortcuts pending.
 - Phase 6 (External repo/project indexing): 6a/6b + P5 deeper extraction (cross-file calls) landed — [[Repo Indexing]].
 - **Active track:** finish P7 (tag Release CI verify, OTA smoke, icons/Authenticode, no-Node MCP) **or** Phase 3 (attachments, search) — [[Next Steps]].
 
@@ -87,13 +87,13 @@ tags:
 - package installers — MSI/NSIS
 - app versioning (single source of truth, About UI, semver tags) — done baseline — [[Distribution Versioning and Updates]]
 - OTA updates via Tauri updater + signed feed — **skeleton 2026-08-22** (plugins, Settings check, Pages endpoint); first signed platform payload pending — [[Distribution Versioning and Updates]]
-- public landing page (download + positioning) — **live** on `diamante-landing` Pages — [[Landing Page]]
+- public landing page (download + positioning) — **live** on `nodez-landing` Pages — [[Landing Page]]
 - no-Node / bundled MCP for non-dev setup — still P7 remaining
 
 ## Phase 6 - External repo/project indexing
 
 - open a second, read-only "source root" alongside the notes vault — done
-- persist the merged graph artifact in the opened vault at `.diamante/graph.json` — done
+- persist the merged graph artifact in the opened vault at `.nodez/graph.json` — done
 - extract file/folder nodes, package-manifest `depends_on` edges, and Markdown docs — done
 - merge source-root graph with vault graph — done
 - tree-sitter (or equivalent) extraction for stronger `imports`/`calls`/`defines` edges

@@ -1,5 +1,5 @@
 ---
-id: diamante-distribution-versioning-updates
+id: nodez-distribution-versioning-updates
 title: Distribution Versioning and Updates
 type: roadmap
 status: active
@@ -32,7 +32,7 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 | Updater plugins | `tauri-plugin-updater` + `tauri-plugin-process` wired |
 | Endpoint | `https://getnodez.app/updates/latest.json` |
 | Public key | in `src-tauri/tauri.conf.json` `plugins.updater.pubkey` |
-| Private key | **CI secret** `TAURI_SIGNING_PRIVATE_KEY`; local `src-tauri/diamante.key` (gitignored). Also `LANDING_DEPLOY_TOKEN` for CI push to landing |
+| Private key | **CI secret** `TAURI_SIGNING_PRIVATE_KEY`; local `src-tauri/nodez.key` (gitignored). Also `LANDING_DEPLOY_TOKEN` for CI push to landing |
 | App icons | 1024 source `app-icon.png` → `npm run icons` → `src-tauri/icons/*` |
 | Code signing (Authenticode) | not set up (later) |
 | GitHub Releases | **v0.3.0** published (signed MSI/NSIS + sigs); landing Pages feed updated |
@@ -48,7 +48,7 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 
 - Auto-update without consent
 - Silent background replace on every launch
-- Updating vault / `.diamante` via OTA
+- Updating vault / `.nodez` via OTA
 
 ## Work packages
 
@@ -104,11 +104,11 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 | Frontend | `src/appUpdate.ts`, Settings About in `App.tsx` |
 | Config | `src-tauri/tauri.conf.json` `bundle.createUpdaterArtifacts`, `plugins.updater` |
 | CI | landing `pages.yml`; app `release.yml` (needs `TAURI_SIGNING_PRIVATE_KEY` + `LANDING_DEPLOY_TOKEN`) |
-| Local key | `src-tauri/diamante.key` — set `TAURI_SIGNING_PRIVATE_KEY` to **file contents** for `tauri build` |
+| Local key | `src-tauri/nodez.key` — set `TAURI_SIGNING_PRIVATE_KEY` to **file contents** for `tauri build` |
 
 ## Secrets and local signing (2026-08-22)
 
-| Secret (app repo `paulbrett/diamante`) | Purpose |
+| Secret (app repo `paulbrett/nodez-app`) | Purpose |
 | --- | --- |
 | `TAURI_SIGNING_PRIVATE_KEY` | Minisign private key **file contents** — signs updater artifacts in CI |
 | `TAURI_SIGNING_PRIVATE_KEY_PASSWORD` | Only if the key has a password (current key: empty) |
@@ -118,7 +118,7 @@ Related: [[Next Steps]], [[Backlog]], [[Tauri Desktop Shell]], [[Landing Page]],
 
 ```powershell
 cd C:\Sites\nodez-app
-$env:TAURI_SIGNING_PRIVATE_KEY = Get-Content -Raw .\src-tauri\diamante.key
+$env:TAURI_SIGNING_PRIVATE_KEY = Get-Content -Raw .\src-tauri\nodez.key
 $env:TAURI_SIGNING_PRIVATE_KEY_PASSWORD = ""
 npm run tauri -- build
 npm run update:feed
@@ -129,7 +129,7 @@ Note: `TAURI_SIGNING_PRIVATE_KEY_PATH` works for `tauri signer sign` but **`taur
 ### Git Bash
 
 ```bash
-export TAURI_SIGNING_PRIVATE_KEY="$(cat src-tauri/diamante.key)"
+export TAURI_SIGNING_PRIVATE_KEY="$(cat src-tauri/nodez.key)"
 export TAURI_SIGNING_PRIVATE_KEY_PASSWORD=""
 npm run tauri -- build
 ```

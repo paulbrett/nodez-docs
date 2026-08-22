@@ -1,5 +1,5 @@
 ---
-id: diamante-decision-log
+id: nodez-decision-log
 title: Decision Log
 type: decision-log
 status: active
@@ -13,9 +13,9 @@ tags:
 
 ## 2026-08-22 — Brand Nodez + getnodez.app
 
-- User-facing product name is **Nodez** (not Diamante).
+- User-facing product name is **Nodez** (not Nodez).
 - Public domain **getnodez.app** is the canonical site + OTA base.
-- Vault meta directory is **`.nodez/`** (legacy **`.diamante/`** still readable). MCP env `DIAMANTE_*` retained for agent configs; agent-contract markers accept both nodez and legacy diamante forms.
+- Vault meta directory is **`.nodez/`** (legacy **`.diamante/`** still readable). MCP env `NODEZ_*` retained for agent configs; agent-contract markers accept both nodez and legacy diamante forms.
 - App identifier `app.getnodez.nodez`. GitHub repository renames deferred.
 
 ## 2026-08-22 — Signing env for tauri build
@@ -28,13 +28,13 @@ tags:
 
 **Decision:** Move the public download site + OTA feed out of the private app repo into **`paulbrett/nodez`** (public), so GitHub Pages works on the free plan.
 
-**Why:** Private `diamante` cannot use Pages without Pro. User asked for a separate landing repo.
+**Why:** Private `nodez` cannot use Pages without Pro. User asked for a separate landing repo.
 
-**Implications:** App updater endpoint → `https://paulbrett.github.io/nodez/updates/latest.json`. Release CI needs `LANDING_DEPLOY_TOKEN` to push feed/bundles. Local `DIAMANTE_LANDING_DIR` defaults to sibling `../nodez`.
+**Implications:** App updater endpoint → `https://paulbrett.github.io/nodez/updates/latest.json`. Release CI needs `LANDING_DEPLOY_TOKEN` to push feed/bundles. Local `NODEZ_LANDING_DIR` defaults to sibling `../nodez`.
 
 ## 2026-08-22 — Landing lives in main repo as plain HTML/CSS
 
-**Decision:** Public download site is `landing/` inside `C:\Sites\nodez-app`, plain HTML + CSS (tiny JS only to soft-fill version from the updater manifest). OTA manifest and update bundles co-locate under `landing/updates/`. Host on GitHub Pages at `paulbrett.github.io/diamante`.
+**Decision:** Public download site is `landing/` inside `C:\Sites\nodez-app`, plain HTML + CSS (tiny JS only to soft-fill version from the updater manifest). OTA manifest and update bundles co-locate under `landing/updates/`. Host on GitHub Pages at `paulbrett.github.io/nodez`.
 
 **Why:** User choice (single-page, in-repo, manifest + bundles together). Avoids a second repo and keeps release CI one place.
 
@@ -42,18 +42,18 @@ tags:
 
 ## 2026-08-22 — Vault AGENTS.md collision policy
 
-**Decision:** Opt-in create/refresh of vault agent contract; never full-overwrite existing root `AGENTS.md`. Managed HTML comment markers; foreign root → `.diamante/AGENTS.md`; optional merge-append.
+**Decision:** Opt-in create/refresh of vault agent contract; never full-overwrite existing root `AGENTS.md`. Managed HTML comment markers; foreign root → `.nodez/AGENTS.md`; optional merge-append.
 **Why:** Root `AGENTS.md` is a common host-agent convention; clobbering user/team contracts is unacceptable.
 **See:** [[Agent Skills and Surfaces]]
 
 ## 2026-08-22 — Agent skills vs MCP surfaces
 
-**Decision:** Diamante does not ship an in-app skill loader. Agents use **MCP + app `AGENTS.md`**. Host skills (Hermes) and vault notes are separate layers. Documented in [[Agent Skills and Surfaces]].
+**Decision:** Nodez does not ship an in-app skill loader. Agents use **MCP + app `AGENTS.md`**. Host skills (Hermes) and vault notes are separate layers. Documented in [[Agent Skills and Surfaces]].
 **Why:** Matches product layering (external agent + MCP); avoids a second skill tree competing with the tool contract.
 
 ## 2026-08-19 - Use plain Markdown files
 
-Diamante should keep notes as normal `.md` files.
+Nodez should keep notes as normal `.md` files.
 
 Reason: portability is the central promise.
 
@@ -77,7 +77,7 @@ Reason: it fits the local-first file access and native git direction.
 
 ## 2026-08-19 - Combine Obsidian and Graphify Models
 
-Diamante should combine Obsidian's local Markdown vault workflow with Graphify's project relationship graph workflow.
+Nodez should combine Obsidian's local Markdown vault workflow with Graphify's project relationship graph workflow.
 
 Reason: Dakila needs a unified system where human-readable decisions, implementation truth, and machine-queryable relationships stay aligned.
 
@@ -86,7 +86,7 @@ Reason: Dakila needs a unified system where human-readable decisions, implementa
 The full graph modal should use `vis-network@9.1.6`, matching Graphify's
 open-source HTML exporter, instead of a separate custom force-graph renderer.
 
-Reason: Diamante should inherit Graphify's proven graph interaction semantics:
+Reason: Nodez should inherit Graphify's proven graph interaction semantics:
 ForceAtlas2-style physics, degree-sized dot nodes, community coloring, arrows,
 search/focus behavior, click inspection, and confidence-styled edges.
 
@@ -96,14 +96,14 @@ The graph modal should render with a dependency-free canvas force engine
 (`src/GraphifyNetwork.tsx`) instead of `vis-network`, kept as a true drop-in for
 the same props.
 
-Reason: it fits Diamante's local-first, minimal-dependency stance (no external
+Reason: it fits Nodez's local-first, minimal-dependency stance (no external
 graph library, works offline), and a Barnes-Hut quadtree keeps the 1,000-node
 demo smooth. This supersedes the earlier vis-network decision; `vis-network` is
 now unused and can be removed from `package.json`.
 
 ## 2026-08-20 - Use the Dakila Overland Controller repo as the first external repo-indexing target
 
-When Diamante starts indexing an external project/repo folder (not just its own notes vault), the first concrete target is `/Users/paulbrettorozco/Sites/overland/OverlandLightingControllerV1`, in favor of the sibling `dakila-landing` static site in the same `/Sites/overland` folder.
+When Nodez starts indexing an external project/repo folder (not just its own notes vault), the first concrete target is `/Users/paulbrettorozco/Sites/overland/OverlandLightingControllerV1`, in favor of the sibling `dakila-landing` static site in the same `/Sites/overland` folder.
 
 Reason: it is the substantive engineering repo — ESP32 firmware (C++), a Node.js backend, and a React Native/TypeScript mobile app, plus its own `AGENTS.md` and `docs/` folder — a real multi-language, multi-component codebase, and the same repo the Dakila-style workflow in [[Unified Knowledge System]] was written for. See [[Repo Indexing]] for the phased plan.
 
@@ -125,13 +125,13 @@ keeps the editor unaware of whether notes come from localStorage or disk.
 
 ## 2026-08-20 - Store the unified graph artifact inside the opened vault
 
-Diamante should write the merged vault+repo graph to `.diamante/graph.json`
+Nodez should write the merged vault+repo graph to `.nodez/graph.json`
 inside the opened vault by default.
 
 Reason: the graph is portable with the vault, easy for AI agents to discover,
 and still clearly a generated index rather than source truth. The vault notes
 remain the human-readable intent layer; the repo remains implementation truth;
-`.diamante/graph.json` is the machine-readable relationship map that ties them
+`.nodez/graph.json` is the machine-readable relationship map that ties them
 together.
 
 ## 2026-08-20 - Use git status polling as the first source-root watcher
@@ -146,7 +146,7 @@ watcher can still be added later for non-git folders or finer-grained updates.
 
 ## 2026-08-20 - Prefer a calm workspace shell over a dashboard shell
 
-Diamante's main workspace should follow the Obsidian pattern: notes and editor
+Nodez's main workspace should follow the Obsidian pattern: notes and editor
 stay central, secondary workspace actions live as compact icon buttons, and
 ambient system state lives in a quiet status bar.
 
@@ -172,8 +172,8 @@ bundled porcelain into the re-index signature.
 ## 2026-08-21 - Persist editor mode and graph toggles per vault
 
 Edit/Preview plus graph mode, engine, origin, depth, node/edge type, and provenance
-filters persist in vault meta (`.diamante`) and browser `localStorage`
-(`diamante.uiPrefs`). `indexRepo` must not reset graph origin/mode to defaults.
+filters persist in vault meta (`.nodez`) and browser `localStorage`
+(`nodez.uiPrefs`). `indexRepo` must not reset graph origin/mode to defaults.
 
 Reason: users switch edit/preview and graph filters constantly; losing them on
 reload or re-index breaks the calm workspace promise.
@@ -195,7 +195,7 @@ The graph modal exposes a user-selectable **graph engine** toggle:
 
 Both engines share the same props contract (selection, path highlight, filters
 unchanged). Preference persists as `graphEngine` in vault meta and
-`diamante.uiPrefs`. The 3D package is **lazy-loaded** so Canvas 2D users do not
+`nodez.uiPrefs`. The 3D package is **lazy-loaded** so Canvas 2D users do not
 pay the WebGL bundle until they switch.
 
 Reason: 3D force layouts help explore dense relationship graphs, but the
@@ -229,7 +229,7 @@ Nodez MCP is the layering decision.
 
 ## 2026-08-21 - Ship versioning, OTA, and a landing page as distribution work
 
-Public distribution is not only "run tauri build". Diamante should have:
+Public distribution is not only "run tauri build". Nodez should have:
 
 1. Single app version source of truth and visible About version
 2. Signed OTA updates via Tauri updater (user consent; air-gap opt-out)

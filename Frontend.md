@@ -1,5 +1,5 @@
 ---
-id: diamante-frontend-skill
+id: nodez-frontend-skill
 title: Frontend
 type: agent
 status: active
@@ -201,7 +201,7 @@ Motion rules:
 - Does motion improve hierarchy or atmosphere?
 - Would the design still feel premium if all decorative shadows were removed?
 
-## Diamante app chrome (2026-08-22)
+## Nodez app chrome (2026-08-22)
 
 Shell layout conventions for the notes app (`src/App.tsx`, `src/styles.css`):
 

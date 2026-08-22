@@ -1,5 +1,5 @@
 ---
-id: diamante-agents-grok
+id: nodez-agents-grok
 title: AGENTS GROK
 type: agent
 status: active

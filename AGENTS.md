@@ -1,22 +1,23 @@
 ---
-id: diamante-agents
-title: Codex Instructions
+id: nodez-agents
+title: Nodez vault agent instructions
 type: agent
 status: active
 created: 2026-08-19
-updated: 2026-08-19
+updated: 2026-08-22
 tags:
   - agents
   - instructions
 ---
 
-# Codex Instructions
+# Nodez vault — agent instructions
 
-- Treat this folder as the official Diamante documentation folder and Obsidian vault.
-- The app/code folder is `/Users/paulbrettorozco/Sites/Diamante`.
-- Diamante's product direction is defined in `Unified Knowledge System.md`: Obsidian-style vault plus Graphify-style relationship graph.
-- Before making product, architecture, roadmap, or sync-related changes, check the relevant Markdown notes in this vault.
-- Prefer existing vault terminology and decisions from `Project Overview.md`, `Architecture.md`, `Decision Log.md`, `GitHub Sync.md`, `Vault Model.md`, and `Backlog.md`.
-- Use the Dakila workflow as the reference model: GitHub/source is implementation truth, vault notes are intent and decisions, graph relationships explain cross-component dependencies.
-- Keep documentation and planning notes here. Keep runnable app source code in `~/Sites/Diamante`.
-- Do not overwrite or reorganize Obsidian notes unless the user explicitly asks.
+- Treat **this folder** (`C:\Users\webwi\Documents\Nodez`) as the official **Nodez** documentation / Obsidian vault.
+- App/code lives at `C:\Sites\nodez-app` (git `paulbrett/nodez-app`). Landing + OTA: `C:\Sites\nodez` → <https://getnodez.app/>
+- Product direction: [[Unified Knowledge System]] — Obsidian-style vault + Graphify-style relationship graph.
+- Before product, architecture, roadmap, or sync changes, read the relevant notes here (start: [[Home]], [[Agent and Human Setup]], [[Next Steps]]).
+- Prefer vault terminology from [[Project Overview]], [[Architecture]], [[Decision Log]], [[GitHub Sync]], [[Vault Model]], [[Backlog]].
+- Dakila is the reference workflow model: GitHub = implementation truth; vault = intent/decisions; graph = cross-component links.
+- Keep planning docs here. Keep runnable source in the app repo. Do not reorganize notes unless the user asks.
+- Vault meta: `.nodez/` (legacy `.diamante/` may still exist on older vaults).
+- MCP: `node C:/Sites/nodez-app/scripts/nodez-mcp.mjs` with `NODEZ_VAULT_DIR` (or legacy `DIAMANTE_VAULT_DIR`) pointing at the target vault.

@@ -1,6 +1,6 @@
 ---
-id: diamante-docs-readme
-title: Diamante Project Docs
+id: nodez-docs-readme
+title: Nodez Project Docs
 type: docs-index
 status: active
 created: 2026-08-19
@@ -11,29 +11,29 @@ tags:
   - obsidian
 ---
 
-# Diamante Project Docs
+# Nodez Project Docs
 
-This folder is the official documentation and Obsidian vault for the Diamante project.
+This folder is the official documentation and Obsidian vault for the Nodez project.
 
 Open this folder in Obsidian (this machine):
 
 ```text
-C:\Users\webwi\Documents\Diamante
+C:\Users\webwi\Documents\Nodez
 ```
 
 Historical / other-machine path:
 
 ```text
-/Users/paulbrettorozco/Documents/Projects/Diamante
+C:\\Users\\webwi\\Documents\\Nodez
 ```
 
 The runnable app/code lives separately:
 
 ```text
-C:\Sites\diamante
+C:\Sites\nodez-app
 ```
 
-(or `~/Sites/Diamante` / `/Users/paulbrettorozco/Sites/Diamante` on other machines)
+(or `C:\\Sites\\nodez-app` / `C:\\Sites\\nodez-app` on other machines)
 
 ## Vault Contents
 
@@ -70,7 +70,7 @@ Every Markdown note in this vault should start with YAML frontmatter:
 
 ```yaml
 ---
-id: diamante-example
+id: nodez-example
 title: Example
 type: overview
 status: active
@@ -84,6 +84,6 @@ tags:
 Run docs checks from the app folder:
 
 ```sh
-cd C:/Sites/diamante
+cd C:/Sites/nodez-app
 npm run check
 ```

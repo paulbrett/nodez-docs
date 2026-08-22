@@ -1,5 +1,5 @@
 ---
-id: diamante-research
+id: nodez-research
 title: Research
 type: research
 status: active

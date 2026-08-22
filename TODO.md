@@ -1,5 +1,5 @@
 ---
-id: diamante-todo
+id: nodez-todo
 title: TODO
 type: backlog
 status: active
@@ -52,10 +52,10 @@ tags:
 - implement Graphify-style background repo indexer with symbols — done: the Tauri source walk maps first-party files metadata-only first, the frontend starts extraction afterward and streams batches, `src/extractSymbols.ts` adds defines/imports/same-file calls, `node_modules` stays excluded, the status chip re-indexes, and MCP exposes `search_symbols`
 - file tree should show Markdown filenames, not note titles — done
 - window title should show the opened vault name — done
-- repo picker should require an opened vault and store the attached repo under vault metadata — done: repo attachment now lives in `.diamante/workspace.json` inside the vault
+- repo picker should require an opened vault and store the attached repo under vault metadata — done: repo attachment now lives in `.nodez/workspace.json` inside the vault
 - make function indexing optional because automatic symbol extraction can hang/crash large repos — done: repo open now maps metadata only, function indexing is enabled by default but starts only when the graph opens, the toggle lives in Settings, native walking uses a blocking worker thread, and graph construction runs in a Web Worker
 - allow pausing function indexing and cancel it on app close — done: turning off function indexing in Settings stops background symbol work, metadata re-index stays available, and app unmount/close still terminates the worker
-- chunk large graph artifacts — done: `.diamante/graph.json` is now a lightweight manifest and graph payloads are written under `.diamante/graph/` by node/edge groups
+- chunk large graph artifacts — done: `.nodez/graph.json` is now a lightweight manifest and graph payloads are written under `.nodez/graph/` by node/edge groups
 - optimize large graph rendering without capping the index — first pass done: see [[Graph Scale]]; repos over 1,000 indexed files render a capped draw graph, hide `contains` edges, expand 1 hop on node click, and the status bar reports `view N / index M`; smaller repos keep the previous full graph behavior
 - add option to ignore `.gitignore` while keeping it respected by default — done: repo indexing now follows `.gitignore` by default via the Rust walker, and Settings exposes an `Ignore .gitignore` toggle that persists with the attached repo metadata and re-indexes immediately
 - fix graph filter dropdown placement and dismissal — done: the filter popover now anchors inside the graph modal under the filter icon and closes on outside pointer clicks or Escape

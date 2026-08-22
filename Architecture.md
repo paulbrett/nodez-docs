@@ -1,5 +1,5 @@
 ---
-id: diamante-architecture
+id: nodez-architecture
 title: Architecture
 type: architecture
 status: active
@@ -11,7 +11,7 @@ tags:
 
 # Architecture
 
-Diamante should be built in layers so storage and sync can evolve without rewriting the editor.
+Nodez should be built in layers so storage and sync can evolve without rewriting the editor.
 
 ## Layers
 
@@ -35,7 +35,7 @@ Vite + React + TypeScript
   graph engines (user-selectable):
     canvas2d GraphifyNetwork.tsx (default, Barnes-Hut)
     force3d ForceGraph3DNetwork.tsx (react-force-graph-3d, lazy-loaded)
-  stdio MCP server (scripts/diamante-mcp.mjs)
+  stdio MCP server (scripts/nodez-mcp.mjs)
   sync workflow panel
 ```
 
@@ -60,7 +60,7 @@ Tauri desktop shell
 
 ## Unified Graph Architecture
 
-Diamante should maintain two related indexes:
+Nodez should maintain two related indexes:
 
 - **Vault index** for Markdown notes, frontmatter, wikilinks, tags, headings, backlinks, and unlinked mentions.
 - **Project graph** for notes, files, code symbols, packages, components, decisions, features, artifacts, and their relationships.
@@ -78,7 +78,7 @@ Edges should preserve provenance:
 - The editor should not know whether notes came from localStorage, disk, or GitHub.
 - The sync layer should only operate on the vault folder.
 - The indexer should rebuild from Markdown files and not require a database.
-- App metadata should live in `.diamante/`, not inside note content.
+- App metadata should live in `.nodez/`, not inside note content.
 - The graph layer must not invent implementation truth; it should point back to source files, notes, headings, or lines.
 
 Related: [[Tauri Desktop Shell]], [[Vault Model]], [[GitHub Sync]], [[Unified Knowledge System]]
