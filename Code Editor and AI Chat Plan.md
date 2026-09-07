@@ -31,7 +31,7 @@ additional agent providers remain follow-on work.
 
 On 2026-09-07 the user requested: “update memory get nodez vault and docs --plan for code editor with AI chat”.
 
-Implementation authorized on 2026-09-07 after the user accepted the Codex-first runtime integration recommendation (“lets do it”). Build an optional Codex editor chat using App Server, with commands, file changes, diffs, and explicit runtime approvals. This supersedes the earlier planning-only scope and the no-terminal MVP constraint below for this integration. External agent workflows remain supported. Claude and Grok adapters are follow-on work.
+Implementation authorized on 2026-09-07 after the user accepted the Codex-first runtime integration recommendation (“lets do it”). Build an optional Codex editor chat using App Server, with commands, file changes, diffs, and explicit runtime approvals. This supersedes the earlier planning-only scope and the no-terminal MVP constraint below for this integration. External agent workflows remain supported. The Claude adapter shipped on 2026-09-08 ([[Claude Code Provider]]); the Grok adapter is designed but not implemented ([[Grok Provider]]).
 
 ## Durable project context
 

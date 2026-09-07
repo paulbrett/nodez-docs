@@ -132,3 +132,10 @@ web build, focused chat/editor/layout tests, the broader JavaScript suite, and
 Rust library tests. Release packaging, Windows desktop smoke, installer checks,
 and final live acceptance remain release-stage work and are intentionally
 deferred.
+
+## Multi-provider — 2026-09-08
+
+The chat surface is no longer Codex-only. Claude Code ships as a switchable
+provider behind the same panel ([[Claude Code Provider]]), and Grok is designed
+over ACP but not implemented ([[Grok Provider]]). Codex remains the only
+provider whose approval cards were reachable until Grok lands.

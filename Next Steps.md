@@ -24,6 +24,34 @@ Next release gates: final live macOS acceptance, Windows smoke test, package and
 installer builds, docs graph rebuild, checklist review, and publication. Release
 packaging is deliberately deferred from the 2026-09-08 source push.
 
+## Multiple AI providers — **Claude implemented, Grok designed, 2026-09-08**
+
+The AI Chat surface is provider-agnostic. Codex and Claude Code are switchable
+peers sharing one panel, transcript, diff view and context model; the provider is
+remembered per workspace, and switching either starts fresh or carries the
+previous text turns as labelled context (a Settings choice). See
+[[Claude Code Provider]].
+
+Claude ships with two permission modes only: `--print` exposes no approval
+channel, so "ask for approval" stays Codex-only. Its automated tests pass;
+**desktop acceptance has not been run** and is the outstanding gate.
+
+Grok is designed over ACP but not implemented — see [[Grok Provider]]. It would
+be the most capable provider: all three permission modes, kernel-enforced
+read-only, a real interrupt, and working approval cards. It also requires storing
+an xAI API key in the OS keychain, which supersedes the no-key-storage constraint
+in [[Code Editor and AI Chat Plan]].
+
+**When this work resumes, in order:**
+
+1. Desktop acceptance for Claude — connect, streaming, Stop, diffs, command
+   activity, provider switch in both Settings modes.
+2. Write the Grok implementation plan from the committed spec.
+3. Decide how `feat/codex-editor-chat` lands; it now carries the Codex workspace
+   and the Claude provider, 15+ commits ahead of `main`.
+4. Rotate the xAI key used during the spike; it was pasted into a chat
+   transcript.
+
 Prioritized plan after the graph system, Tauri vault, repo indexing, command palette, and MCP write tools. Canonical agent/human onboarding plan: [[Agent and Human Setup]]. Where skills vs MCP vs vault knowledge go: [[Agent Skills and Surfaces]].
 
 Ordered by dependency and leverage.
@@ -164,7 +192,7 @@ Still remaining:
 
 ## Explicit deprioritize
 
-- In-app second **full** agent chat (prefer Hermes/CLI + Nodez MCP); thin Ask panel + handoff OK
+- ~~In-app second **full** agent chat (prefer Hermes/CLI + Nodez MCP); thin Ask panel + handoff OK~~ — **reversed 2026-09-07/08**: Codex and Claude both run as full in-app agents. The thin Ask panel and external handoff remain available alongside them.
 - Chat gateways inside Nodez
 - MCP writes to indexed source roots
 
