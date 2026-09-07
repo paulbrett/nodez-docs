@@ -4,13 +4,25 @@ title: Next Steps
 type: roadmap
 status: active
 created: 2026-08-20
-updated: 2026-08-23
+updated: 2026-09-08
 tags:
   - roadmap
   - planning
 ---
 
 # Next Steps
+
+## Code editor with AI chat — **release candidate implemented 2026-09-08**
+
+See [[Code Editor and AI Chat Plan]] and [[Codex Chat Implementation]]. The
+Codex-first implementation now includes the native bridge, persistent resizable
+chat beside Notes and Code, expanded AI Chat tab, repository file workspace,
+reviewed single-file diffs, graph/note/file context, image attachments, custom
+permission and model menus, and editor/chat settings.
+
+Next release gates: final live macOS acceptance, Windows smoke test, package and
+installer builds, docs graph rebuild, checklist review, and publication. Release
+packaging is deliberately deferred from the 2026-09-08 source push.
 
 Prioritized plan after the graph system, Tauri vault, repo indexing, command palette, and MCP write tools. Canonical agent/human onboarding plan: [[Agent and Human Setup]]. Where skills vs MCP vs vault knowledge go: [[Agent Skills and Surfaces]].
 

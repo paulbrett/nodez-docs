@@ -4,7 +4,7 @@ title: Frontend
 type: agent
 status: active
 created: 2026-08-20
-updated: 2026-08-22
+updated: 2026-08-24
 tags:
   - frontend
   - ui
@@ -207,11 +207,59 @@ Shell layout conventions for the notes app (`src/App.tsx`, `src/styles.css`):
 
 | Region | Behavior |
 | --- | --- |
-| Left sidebar | Vault/repo pickers, note tree; footer **note count + GitHub sync** matches status-bar metrics (32px, 11px/500) |
+| Left sidebar | Vault/repo pickers (each a split button + caret opening a **recents** menu), note tree; footer **note count + GitHub sync** matches status-bar metrics (32px, 11px/500) |
 | Workspace | CSS grid: topbar + editor column + status bar; **inspector** spans all rows on the right |
 | Inspector | Flush to viewport **top / right / bottom**; panels as flat sections with dividers (not floating cards in a gutter) |
-| Status bar | Graph view/index, repo git, index status, graph artifact — no sync button (moved to notes footer) |
+| Status bar | Graph view/index, repo git, index status, graph artifact — no sync button (moved to notes footer). Carries the **"N behind · sync"** notice when the vault remote is ahead, and swaps its index icon for a **spinner** while indexing |
 
 Graph canvas chrome is separate; leave node/edge draw alone unless explicitly requested.
 
-Related: [[Next Steps]], [[GitHub Sync]], [[Tauri Desktop Shell]].
+### Colour outside the palette (2026-08-24)
+
+The chrome palette is intentionally monochrome per theme — `--teal`, `--gold`, `--blue`
+and `--accent` all alias `--primary` variants. When a component genuinely needs a
+second hue (direction coding, semantic status), do **not** hardcode a hex: two of
+the seven themes (`light`, `paper`) are light and a bright fixed hue washes out.
+
+```css
+--dir: color-mix(in srgb, #0d9488 62%, var(--ink));
+```
+
+Mixing with `--ink` darkens the hue on light themes and lightens it on dark ones,
+with no per-theme overrides. See [[Decision Log]] 2026-08-24.
+
+### Shared row classes (2026-08-24)
+
+`.connectionRow` is used by both the graph inspector's Connections list and its
+Hubs list. Layout changes must be scoped to the variant that needs them
+(`.dirOut` / `.dirIn`), or the other list silently reflows. The same file also has
+`.connectionRow span { display: block }`, which outranks a bare single-class
+selector — new inner elements need `.connectionRow`-scoped rules to win.
+
+The trap cuts the other way too: Connections wraps its title in `.connectionTop`
+and Hubs does not, so a rule written as `.connectionRow .connectionTop strong`
+styles one list and leaves the other on the browser's `<strong>` default. Hubs
+rows towered over Connections rows for exactly this reason. Set shared typography
+on `.connectionRow strong` and let the variant override it, not the reverse.
+
+### Inspector density (2026-08-24)
+
+Conventions for the graph details column (~399px), after compacting it:
+
+| Rule | Why |
+| --- | --- |
+| **One 15px heading per panel** — the selected subject. Section names (`Path`, `Connections`, `Hubs`, `Communities`) are 11px uppercase micro-headers | Four section names at title weight competed with the one thing the panel is about, so the column read as five equal blocks |
+| **Label and value share a line.** The `<dl>` owns the grid (`auto minmax(0,1fr)`); wrapper `<div>`s are `display: contents` | Per-row grids each measure independently, so labels only align under a hardcoded column width — and `PROVENANCE` then overran it. One shared column sizes to the longest label |
+| **Fold single-token facts into a sibling** — `note · 3 links`, `extracted · confidence 1`, count dimmed | Three stacked pairs cost nine lines of a narrow column; none of these values needs a line |
+| **Field labels must not collide with section names** | `Path` existed as both; the field is `File` now, which is also more accurate |
+| **No idle hint that restates a control** | "Choose two nodes to trace a relationship path" said what both selects already said via their empty option |
+
+Reference heights at 399px: Explain block 66px, Path block 104px idle / 152px
+traced, connection row 51px.
+
+Verify a redesign by *rendering* each state, not by eyeballing the common one.
+The edge-selected variant carries the longest labels and is where the collision
+surfaced; a static harness (real `styles.css` + hand-written markup) reaches
+states that are awkward to drive through the live app.
+
+Related: [[Next Steps]], [[GitHub Sync]], [[Tauri Desktop Shell]], [[Decision Log]].

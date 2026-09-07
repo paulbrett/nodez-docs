@@ -1,12 +1,12 @@
 {
-  "sourceRoot": "C:\\Sites\\nodez-app",
+  "sourceRoot": "/Users/paulbrettorozco/Sites/nodez-app",
   "ignoreGitignore": false,
   "indexFunctions": true,
   "editorMode": "preview",
   "graphMode": "global",
   "graphEngine": "force3d",
   "graphOrigin": "all",
-  "graphDepth": 1,
+  "graphDepth": 3,
   "graphNodeType": "all",
   "graphEdgeType": "all",
   "graphProvenance": "all"

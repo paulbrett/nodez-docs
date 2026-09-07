@@ -4,12 +4,146 @@ title: Decision Log
 type: decision-log
 status: active
 created: 2026-08-19
-updated: 2026-08-22
+updated: 2026-09-07
 tags:
   - decisions
 ---
 
 # Decision Log
+
+## 2026-09-07 — Plan code editor with AI chat
+
+User requested a plan for an integrated code editor with AI chat. [[Code Editor and AI Chat Plan]] records the verified baseline, proposed phases, acceptance criteria, and durable project context. This is planning only: optional conversational editor assistance is proposed; a full autonomous agent and MCP source writes are not included. Repository editing requires a separate explicit native editor capability; indexed source attachment remains read-only. No application code changed.
+
+## 2026-08-25 — Publishing is opt-in per page, enforced by a build that refuses
+
+**Decision:** The public wiki publishes a manifest, not a folder. Adding a note to this vault does not publish it. The generator scans every rendered page for local identity — home paths, Windows user paths, signing-key references, tokens, third-party project names — and **fails the build** rather than emitting a warning.
+
+**Why:** this vault is written for us, and the failure mode is one-directional. A page missing from the wiki is an inconvenience; a session log or a client's repository layout on a public marketing domain cannot be recalled. A guard that fails the build is the only kind that survives someone in a hurry.
+
+**Corollary — judge a doc by its declared type, not its title.** `Agent and Human Setup` sounds like a setup guide and is a P0–P7 phase plan carrying CI secret names. Titles describe intent; frontmatter `type` describes what was actually written. Only `architecture`, `overview`, `sync`, `vault` and `workflow` may publish.
+
+**Corollary — nonsense output means the content is machine-specific.** When scrubbing `Agent Skills and Surfaces` produced `%USERPROFILE%\Documents\the reference project`, that was not a scrub bug to fix. Content that cannot survive having local paths removed *is* local content. Drop the page; do not improve the regex.
+
+## 2026-08-25 — Product documentation is written, not harvested
+
+**Decision:** Public wiki pages live in `wiki-content/` in the app repo, authored for a reader. The vault-harvesting path stays in the generator but is currently unused.
+
+**Why:** every doc here reads as an engineering spec once you look closely — a shortlist of search libraries, a table of Rust command names, `Non-goals`/`Data flow`/`Error handling` headings, and one sentence that trailed off into an empty code block. That is correct for a planning vault and wrong for someone who has just found the project. Harvesting also inherits contradictions: `GitHub Sync.md` had two sections disagreeing about where the sync control lives.
+
+**Cost, accepted:** the wiki is now a second thing to maintain, and `whats-new.md` does not track `CHANGELOG.md`. Generating it from there would reintroduce exactly the register the wiki exists to avoid, so it is updated by hand at release time.
+
+## 2026-08-25 — Verify a landing deploy against the live URL, never the Actions tab
+
+**Decision:** Confirm landing changes by requesting `https://getnodez.app/...` and checking the response, not by reading workflow status.
+
+**Why:** `pages.yml` has failed on every push since 2026-08-22 — `configure-pages` returns `Not Found` because Pages is not enabled on the repo — while **Cloudflare** serves the site and deploys fine. A red run after every push trains everyone to ignore red runs. Either delete the workflow or enable Pages; until then the live URL is the only honest signal.
+
+## 2026-08-24 — A UI state that suppresses information must be explicitly requested and explicitly escapable
+
+**Decision:** Any mode that hides or dims data — path highlighting today, filters and focus modes tomorrow — may only be entered by a deliberate user action, and must offer a visible way back. Never prefill the input that arms such a mode.
+
+**Why:** the 3D graph's "no colour" bug was exactly this rule being broken twice. The Path panel auto-filled a target, which armed path mode, which dimmed every off-path node — so the app silently entered an information-suppressing state on open. And once armed there was no control that cleared it; the only exit was picking a different node from a `<select>` that had no empty option. A prefilled default is not consent, and a mode with no exit reads as a bug even when the rendering is perfect.
+
+**Corollaries:**
+
+- A `<select>` whose empty state is meaningful needs an explicit empty `<option>`. With `value=""` and no match, the browser displays the *first* option as though it were chosen — the state looks set when it is not, which is what tempted the auto-fill in the first place.
+- Clicking empty canvas is the escape gesture for canvas modes; it already cleared selection, so it now clears the path too.
+
+## 2026-08-24 — A rule that governs whether the whole view stays legible gets its own named, tested seam
+
+**Decision:** `isPathRequested` lives in `src/graphPathRequest.ts` rather than inline in `computeGraphView`.
+
+**Why:** it was a three-clause boolean in the middle of a pipeline, and it decided whether the entire graph kept its colours. `scripts/force-graph-3d-color.test.mjs` covered the paint function thoroughly and passed throughout — the bug lived in the untested condition upstream. A leaf module is also the only shape `node --test` can import here: `graphView.ts` uses extensionless relative imports that Node's type-stripping will not resolve. Guarded by `scripts/graph-path-activation.test.mjs`.
+
+**Generalisation:** when a test passes while the feature it covers is visibly broken, the defect is upstream of the seam under test. Look for the unnamed condition, not a deeper bug in the tested function.
+
+## 2026-08-24 — One large heading per panel; section names are chrome
+
+**Decision:** In the graph inspector the selected node or edge is the only 15px heading. Path, Connections, Hubs and Communities render as 11px uppercase micro-headers.
+
+**Why:** four section names at title weight competed with the one thing the panel is about, so the column read as five equal blocks. Demoting them both clarifies and compacts. Applies to any inspector-style panel: the subject is the heading, the tools are labels.
+
+## 2026-08-24 — Truncate paths toward whichever end carries the identity
+
+**Decision:** Two shorteners, chosen by what the reader needs to tell rows apart. `shortenPathForDisplay` (both ends) for the recents menu, where the head distinguishes two similarly-named vaults. `shortenPathTail` (left-truncating, opening on a segment boundary) for the graph inspector, where every row shares the head and the filename identifies the row.
+
+**Why:** one shortener cannot serve both. In the inspector, `shortenPathForDisplay` spent twelve of thirty-four characters on `/Users/paulb…`, which is identical on every row, while CSS's default right-clip hid the filename entirely. Neither renders the useful part. The full path always stays in the `title` attribute. Note the earlier finding still stands: never do this with CSS `direction: rtl`, which drags the leading separator to the visual end.
+
+## 2026-08-24 — Derive accent hues from `--ink`, never hardcode them
+
+**Decision:** UI that needs a hue the palette does not provide (direction coding, semantic status) computes it as `color-mix(in srgb, <fixed hue> N%, var(--ink))` rather than a fixed hex.
+
+**Why:** the chrome palette is deliberately monochrome — `--teal`, `--gold`, `--blue` and `--accent` all alias `--primary` variants — and of the seven themes, `light` and `paper` are light. A fixed bright hue washes out on white. Mixing with `--ink` darkens it on light themes and lightens it on dark ones with no per-theme rules. Verified: teal resolves to `srgb(0.40 0.72 0.70)` on dark and `srgb(0.07 0.39 0.37)` on light.
+
+**Exception:** the graph *canvas* keeps its own fixed palette, independent of chrome theme. That stays as-is.
+
+## 2026-08-24 — Connection rows describe the neighbour, not the edge
+
+**Decision:** The graph inspector's Connections list keys on the other endpoint — neighbour label first, relation demoted to a pill, duplicates collapsed into a count, click navigates to that neighbour.
+
+**Why:** keying on the edge made every row identical. For a note's own outgoing links the relation is constant and `sourcePath` is the note already selected, so N edges rendered as N copies of the same row while omitting the one useful fact. The panel also sits above Hubs/Communities now: it describes the current selection, so it should not be below two workspace-wide summaries.
+
+## 2026-08-24 — Vault git: notice, never unattended sync
+
+**Decision:** Nodez surfaces "N behind" and offers a manual sync. It does **not** auto-commit, auto-pull or auto-push on a timer.
+
+**Why:** an auto-push publishes on a schedule and can create merges the user never asked for. A background *fetch* is different — it only updates refs under `.git`, never the working tree — and is required for the notice to be truthful at all, so that one runs once per opened vault.
+
+## 2026-08-24 — Node.js is a prerequisite; Nodez ships no runtime
+
+**Decision:** Nodez does not bundle a Node runtime. Users install Node.js 20+ themselves. The app detects it and guides installation when missing.
+
+**Why:**
+
+- It never worked anyway. The shallow glob `resources/mcp/runtime/*` shipped only the runtime's top-level docs, never `bin/node`, so no installer ever carried Node.
+- Fixing the glob to `runtime/**/*` breaks the build: the prepared `bin/` contains `corepack`/`npm`/`npx` as symlinks into an already-deleted temp directory.
+- A bundled Node is single-arch, so it cannot serve a universal2 macOS app — Rosetta cannot translate arm64 to x86_64, meaning an Apple-Silicon-built runtime simply cannot run on Intel.
+- It cost ~112MB for a dependency most target users (people wiring up AI agents) already have.
+
+**Consequence:** the launcher must find Node robustly, because a client launched from Finder or the Start menu inherits a reduced PATH. Resolution order is `NODEZ_NODE_COMMAND` → PATH → common install locations, then actionable install guidance.
+
+## 2026-08-24 — `src-tauri/resources/mcp/` is generated output
+
+**Decision:** Treat that directory as build output. The source of truth for the launchers is the inline templates in `scripts/prepare-mcp-bundle.mjs`.
+
+**Why:** `beforeBuildCommand` runs the generator on every build, which overwrites the launchers. Editing the files directly looks like it works and is silently reverted at the next build. The files are also tracked in git because `tauri dev` copies them as-is without running the generator — which is why their committed file mode matters for dev, and only for dev.
+
+## 2026-08-24 — Never seed a 3D layout from the 2D layout cache
+
+**Decision:** The 3D graph adopts the shared node layout cache only when that cache actually carries depth, judged over the whole cache rather than per node.
+
+**Why:** The cache is written by both engines and the 2D engine stores no `z`. Seeding a missing `z` as 0 put every node on one plane, and a planar configuration is a fixed point of the force simulation — z-forces cancel by symmetry, so it never becomes 3D. Nodes lacking `z` are now left undefined so d3-force-3d seeds them on its own sphere.
+
+**Judge the cache, not the node:** one node legitimately sitting at z=0 must not throw away an otherwise good 3D layout.
+
+## 2026-08-24 — Do not reheat the simulation when registering a force
+
+**Decision:** Register custom d3 forces on the 3D graph without calling `d3ReheatSimulation()`.
+
+**Why:** Reheating desyncs three-forcegraph's own tick bookkeeping against `cooldownTicks`. After it, simulation positions stop being applied to the meshes and **every node renders at the origin** — a blank canvas with no error. Registering the force is sufficient; it lands before the first layout settles.
+
+## 2026-08-24 — Radial shaping is 3D only
+
+**Decision:** The spherical envelope force applies to the 3D canvas. The 2D canvas keeps its existing Barnes-Hut + spring + linear-gravity layout untouched.
+
+**Why:** A matching circular force was implemented for 2D and reverted — the 2D layout was already considered good. Keeping it out avoids retuning a layout nobody complained about.
+
+## 2026-08-23 — 3D graph auto-rotate orbits the camera, not the controls
+
+**Decision:** Implement graph auto-rotation by rotating the camera around its own look-at target each frame, rather than switching to `OrbitControls` and using its `autoRotate`.
+
+**Why:** `controlType` is an **init-only** prop in react-force-graph / three-render-objects, so `OrbitControls.autoRotate` cannot be a runtime toggle without remounting the whole graph. Orbiting the live camera also preserves whatever zoom, elevation and pan the user already has, which re-issuing `cameraPosition()` from a fixed radius does not.
+
+**Consequence:** Scripted camera moves (`zoomToFit`, node focus) must claim the camera so the orbit loop yields — they mark a busy window, and the orbit also pauses while the pointer is down.
+
+## 2026-08-23 — Bloom implies a darkened graph backdrop
+
+**Decision:** While the bloom toggle is on, the 3D graph background drops from `#0a0e16` to near-black `#02040a`.
+
+**Why:** `UnrealBloomPass` lifts the entire frame — its lowest mips spread bright pixels canvas-wide — so a normal backdrop reads as a grey wash rather than a glow. Raising the luminance threshold does not fix it, because the link colour is *brighter* in linear luma than the community node colours, so no threshold separates them. Upstream's bloom example pairs `strength: 4` with `backgroundColor="#000003"` for the same reason.
+
+**Tuning knobs:** `BLOOM_STRENGTH` / `BLOOM_RADIUS` / `BLOOM_THRESHOLD` in `src/ForceGraph3DNetwork.tsx`. `BLOOM_RADIUS` controls the frame-wide wash most directly.
 
 ## 2026-08-22 — Brand Nodez + getnodez.app
 
