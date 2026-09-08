@@ -1,19 +1,19 @@
 {
   "version": 2,
   "format": "nodez.graph.manifest",
-  "generatedAt": "2026-09-08T08:03:13.712Z",
+  "generatedAt": "2026-09-08T08:08:39.106Z",
   "vaultPath": "/Users/paulbrettorozco/Documents/Projects/Nodez",
   "sourceRoot": "/Users/paulbrettorozco/Sites/nodez-app",
   "sourceGit": {
     "isRepo": true,
     "root": "/Users/paulbrettorozco/Sites/nodez-app",
-    "branch": "feat/codex-editor-chat",
-    "head": "438d8414def7fd47bba6b4e004083eac5a40b1a8",
-    "dirty": true,
-    "changedCount": 20,
-    "untrackedCount": 4,
-    "signature": "feat/codex-editor-chat|438d8414def7fd47bba6b4e004083eac5a40b1a8",
-    "summary": "feat/codex-editor-chat 438d841, 20 changed"
+    "branch": "main",
+    "head": "550aa03c19ebc1aee3531fef79e7d9a7319c4307",
+    "dirty": false,
+    "changedCount": 0,
+    "untrackedCount": 0,
+    "signature": "main|550aa03c19ebc1aee3531fef79e7d9a7319c4307",
+    "summary": "main 550aa03, clean"
   },
   "stats": {
     "nodes": 327,
