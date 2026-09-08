@@ -80,6 +80,11 @@ Acceptance: follow-ups include bounded prior turns; context preview matches the 
 
 Introduce separate document identities for vault notes and source files. Add source tree, tabs, language detection, dirty state, explicit save, close-with-unsaved handling, and external-change detection.
 
+Open source tabs and the active tab persist per repository and restore only while
+their paths remain in the current index. Only paths are stored; dirty buffer
+contents are never serialized. Notes keep a bounded, vault-scoped recent list in
+the explorer and discard missing or renamed paths during restoration.
+
 Native reads/writes must canonicalize root and file paths, reject symlink/path escapes, bound file sizes, and handle unsupported/binary files. Saves compare the current disk revision with the revision loaded, then write atomically; a mismatch opens a conflict choice and never silently overwrites external edits.
 
 Acceptance: typing and saving affect only the selected editor file; note frontmatter/fences still round-trip; read-only attached repos remain read-only until editor access is enabled.

@@ -1,7 +1,7 @@
 {
   "version": 2,
   "format": "nodez.graph.manifest",
-  "generatedAt": "2026-09-08T06:50:20.565Z",
+  "generatedAt": "2026-09-08T08:03:13.712Z",
   "vaultPath": "/Users/paulbrettorozco/Documents/Projects/Nodez",
   "sourceRoot": "/Users/paulbrettorozco/Sites/nodez-app",
   "sourceGit": {
@@ -9,16 +9,16 @@
     "root": "/Users/paulbrettorozco/Sites/nodez-app",
     "branch": "feat/codex-editor-chat",
     "head": "438d8414def7fd47bba6b4e004083eac5a40b1a8",
-    "dirty": false,
-    "changedCount": 0,
-    "untrackedCount": 0,
+    "dirty": true,
+    "changedCount": 20,
+    "untrackedCount": 4,
     "signature": "feat/codex-editor-chat|438d8414def7fd47bba6b4e004083eac5a40b1a8",
-    "summary": "feat/codex-editor-chat 438d841, clean"
+    "summary": "feat/codex-editor-chat 438d841, 20 changed"
   },
   "stats": {
-    "nodes": 323,
-    "edges": 525,
-    "extracted": 525,
+    "nodes": 327,
+    "edges": 529,
+    "extracted": 529,
     "inferred": 0,
     "manual": 0,
     "communities": 34
@@ -43,7 +43,7 @@
         "path": "graph/nodes-structure-1.json",
         "kind": "nodes",
         "group": "structure",
-        "count": 284
+        "count": 288
       },
       {
         "path": "graph/edges-links_to-1.json",
@@ -55,7 +55,7 @@
         "path": "graph/edges-contains-1.json",
         "kind": "edges",
         "group": "contains",
-        "count": 283
+        "count": 287
       }
     ]
   }

@@ -126,6 +126,10 @@ CodeMirror highlighting, separate code theme/font/size settings, dirty state,
 explicit save/reload actions, external-change handling, bounded contained file
 access, atomic conflict-aware saves, and reviewed single-file AI edit proposals.
 Repository editing is enabled by default and can be disabled in Settings.
+Open tabs and the active code file now restore per repository, including an
+intentional no-tabs state. The notes explorer includes a collapsible Recent
+section scoped to the active vault. Both histories filter removed paths, and
+repository history stores no file contents or unsaved buffers.
 
 Validation completed on macOS during development: TypeScript lint, production
 web build, focused chat/editor/layout tests, the broader JavaScript suite, and

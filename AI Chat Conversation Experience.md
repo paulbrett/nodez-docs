@@ -157,8 +157,8 @@ show `Free` from the approved model catalog.
 ## Session approvals
 
 When an approval request includes a safe provider-proposed command prefix, the
-card can allow similar commands for the current session. The session hook stores
-the normalized prefix in memory and auto-approves later matching requests through
+card can allow similar commands for the current session. The panel stores the
+normalized prefix in memory and auto-approves later matching requests through
 the same native response channel. The UI records each automatic approval as
 command activity.
 
@@ -190,9 +190,21 @@ transcript search, per-message copy, and reported context-window usage. The code
 editor also keeps focus across parent context updates and applies its configured
 font family and size directly to CodeMirror.
 
-Slice 4 remains: narrowly scoped in-memory command-prefix approvals and final
-live multi-provider regression checks. Native provider responses still accept
-one-time approval decisions only, and no approval rule is persisted.
+Slice 4 command approvals are implemented: a Codex approval with a verified,
+structured provider-proposed command prefix can enable **Allow similar this
+session** in Ask mode. Later exact token-prefix matches use the existing one-time
+native response channel and appear as session-approval activity. Rules clear on
+connect, disconnect, provider/workspace replacement, window close, and restart;
+none are persisted. String shell commands, mismatched prefixes, file changes, and
+questions remain one-time approvals.
+
+Live readiness on 2026-09-08: Codex and Claude completed minimal read-only,
+no-tools prompts. OpenCode completed an isolated ACP session and a free-model
+prompt with streaming updates and `end_turn`; Nodez now prefers the native Apple
+Silicon user install before an Intel Homebrew fallback. Grok's standalone CLI has
+no global login on this machine, while the Nodez adapter intentionally uses its
+keychain API key. The in-app Grok prompt also completed successfully. The four
+delivery slices are complete.
 
 ## Delivery slices
 
