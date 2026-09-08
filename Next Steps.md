@@ -18,15 +18,20 @@ See [[Code Editor and AI Chat Plan]] and [[Codex Chat Implementation]]. The
 Codex-first implementation now includes the native bridge, persistent resizable
 chat beside Notes and Code, expanded AI Chat tab, repository file workspace,
 reviewed single-file diffs, graph/note/file context, image attachments, custom
-permission and model menus, and editor/chat settings.
+permission and model menus, and editor/chat settings. The latest conversation
+work adds provider-scoped recent-session restoration, edit/retry, visible context
+chips, an `@` file/note picker, readable graph context, transcript search,
+per-message copy, reported context-window usage, and an extracted composer/session
+architecture. CodeMirror focus and configured font sizing remain stable across
+selection-context updates.
 
 Next release gates: final live macOS acceptance, Windows smoke test, package and
 installer builds, docs graph rebuild, checklist review, and publication. Release
 packaging is deliberately deferred from the 2026-09-08 source push.
 
-## Multiple AI providers — **Claude implemented, Grok designed, 2026-09-08**
+## Multiple AI providers — **Claude, Grok, and OpenCode implemented, 2026-09-08**
 
-The AI Chat surface is provider-agnostic. Codex and Claude Code are switchable
+The AI Chat surface is provider-agnostic. Codex, Claude Code, Grok, and OpenCode are switchable
 peers sharing one panel, transcript, diff view and context model; the provider is
 remembered per workspace, and switching either starts fresh or carries the
 previous text turns as labelled context (a Settings choice). See
@@ -36,19 +41,21 @@ Claude ships with two permission modes only: `--print` exposes no approval
 channel, so "ask for approval" stays Codex-only. Its automated tests pass;
 **desktop acceptance has not been run** and is the outstanding gate.
 
-Grok is designed over ACP but not implemented — see [[Grok Provider]]. It would
-be the most capable provider: all three permission modes, kernel-enforced
-read-only, a real interrupt, and working approval cards. It also requires storing
-an xAI API key in the OS keychain, which supersedes the no-key-storage constraint
-in [[Code Editor and AI Chat Plan]].
+Grok is implemented over ACP with all three permission modes, a real interrupt,
+and approval cards; its xAI API key stays in the OS keychain. OpenCode is also
+implemented over ACP, reuses the user's OpenCode authentication, discovers its
+configured models dynamically, supports images, and isolates global config and
+plugins while Nodez injects the active workspace MCP. See [[Grok Provider]] and
+[[OpenCode Provider]].
 
 **When this work resumes, in order:**
 
 1. Desktop acceptance for Claude — connect, streaming, Stop, diffs, command
    activity, provider switch in both Settings modes.
-2. Write the Grok implementation plan from the committed spec.
+2. Run live Grok and OpenCode acceptance for streaming, Stop, approvals, model
+   selection, provider switching, and image input where supported.
 3. Decide how `feat/codex-editor-chat` lands; it now carries the Codex workspace
-   and the Claude provider, 15+ commits ahead of `main`.
+   and four providers, 15+ commits ahead of `main`.
 4. Rotate the xAI key used during the spike; it was pasted into a chat
    transcript.
 

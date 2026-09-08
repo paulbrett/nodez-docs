@@ -2,7 +2,7 @@
 id: nodez-grok-provider
 title: Grok Provider
 type: architecture
-status: draft
+status: active
 created: 2026-09-08
 updated: 2026-09-08
 tags:
@@ -13,12 +13,13 @@ tags:
 
 # Grok Provider
 
-Designed on 2026-09-08, not yet implemented. Grok joins Codex and [[Claude Code Provider]]
-as a third agent behind the same chat surface, over the Agent Client Protocol.
+Implemented on the feature branch on 2026-09-08. Grok joins Codex and
+[[Claude Code Provider]] as a third agent behind the same chat surface, over the
+Agent Client Protocol.
 
 Spec: `docs/superpowers/specs/2026-09-08-grok-provider-design.md`.
 Protocol captures: `docs/superpowers/plans/2026-09-08-grok-protocol-findings.md`.
-No implementation plan written yet; that is the next step when this resumes.
+Implementation record: `docs/superpowers/plans/2026-09-08-grok-provider.md`.
 
 ## Why ACP rather than the simpler path
 
@@ -48,7 +49,7 @@ The user chose each of these.
 Verified against Grok Build 1.0.13. The CLI auto-updates, so these should be
 re-checked rather than trusted indefinitely.
 
-**Isolation needs a Nodez-controlled `HOME`.** Grok discovers MCP servers from
+**Isolation uses a Nodez-controlled `HOME`.** Grok discovers MCP servers from
 other tools' configuration — Claude's, Cursor's, and plugin sources — and from a
 `.mcp.json` in the working directory. In the Nodez repo that exposes servers
 pointing at *other vaults*, which is exactly what vault isolation forbids. With
