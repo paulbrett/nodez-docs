@@ -4,7 +4,7 @@ title: Code Editor and AI Chat Plan
 type: roadmap
 status: active
 created: 2026-09-07
-updated: 2026-09-08
+updated: 2026-09-09
 tags:
   - editor
   - ai
@@ -43,10 +43,10 @@ Implementation authorized on 2026-09-07 after the user accepted the Codex-first 
 
 ## Verified baseline
 
-- src/components/code-editor/ already supplies CodeMirror editing, language extensions, formatting, and lint support.
+- `src/features/editor/components/` supplies CodeMirror editing, language extensions, formatting, and lint support.
 - src/App.tsx openCodeSurface/commitCodeDraft edits the active note body or a single fenced code block. It is not a repository file editor.
-- src/AskAssistantPanel.tsx offers single-request note/selection assistance, model settings, cancellation, copy, and insert into note. It does not maintain a conversational transcript or invoke MCP tools.
-- Existing integration points: src/askAssistant.ts, src/assistantSettings.ts, src/commands.ts, src/styles.css, and native commands in src-tauri/src/lib.rs.
+- `src/features/chat/AskAssistantPanel.tsx` offers single-request note/selection assistance, model settings, cancellation, copy, and insert into note. It does not maintain a conversational transcript or invoke MCP tools.
+- Existing integration points: `src/features/chat/askAssistant.ts`, `src/features/chat/assistantSettings.ts`, `src/shared/commands.ts`, `src/styles.css`, and native commands in `src-tauri/src/lib.rs`.
 - The docs graph reported stale=false before this update; its sourceHead is an indexed snapshot, not proof of current source freshness.
 
 ## Proposed experience
@@ -105,6 +105,14 @@ Acceptance: citations open the right file/note; inferred relationships are disti
 
 Specify opt-in conversation persistence under workspace-local metadata, deletion, and exclusion from publishing/sync defaults. Audit existing API-key storage and move desktop secrets to an appropriate credential store before treating cloud setup as production-ready.
 
+The local conversation slice now keeps up to 20 named sessions per workspace and
+provider, with new, resume, rename, delete, legacy migration, turn grouping,
+message copy/edit/retry, cancellation, and per-turn duration/token metadata.
+Search, pin/archive controls, branching, Markdown handoff export, per-message
+context labels, stale context warnings, and low-context summary prompting are
+implemented. Structured summarize-and-continue and workspace-scoped pinned file
+and note context are also implemented.
+
 Check keyboard navigation, focus restoration, panel resizing, light/dark themes, large-file fallback, provider failures, and offline editing. Measure lazy-loaded editor/chat bundles and typing responsiveness.
 
 ## Suggested implementation boundaries
@@ -120,6 +128,11 @@ Check keyboard navigation, focus restoration, panel resizing, light/dark themes,
 | App integration | Workspace layout, graph navigation, command palette |
 
 Keep new logic out of the already large App.tsx where practical. Final file names are implementation choices.
+
+The source tree now follows these boundaries: `src/features/chat`,
+`src/features/editor`, `src/features/graph`, `src/features/notes`,
+`src/features/setup`, `src/features/workspace`, and `src/shared`. `App.tsx`,
+`main.tsx`, global styles, assets, and generated Vite typings remain at `src/`.
 
 ## Validation gates
 

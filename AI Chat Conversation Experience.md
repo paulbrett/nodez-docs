@@ -4,7 +4,7 @@ title: AI Chat Conversation Experience
 type: architecture
 status: active
 created: 2026-09-08
-updated: 2026-09-08
+updated: 2026-09-09
 tags:
   - ai-chat
   - agents
@@ -14,19 +14,18 @@ tags:
 
 # AI Chat Conversation Experience
 
-Nodez should make its shared Codex, Claude, Grok, and OpenCode chat feel like a
-durable developer tool. The next iteration adds resumable recent conversations,
-message recovery, visible context, transcript navigation, usage information, and
-lower-friction approvals while splitting the current monolithic panel along clear
-runtime and UI boundaries.
+Nodez makes its shared Codex, Claude, Grok, and OpenCode chat a durable developer
+tool with resumable conversations, message recovery, visible context, transcript
+navigation, usage information, and lower-friction approvals. The implementation
+is being split incrementally along clear runtime and UI boundaries.
 
 Related: [[AI Workspace Delivery]], [[Code Editor and AI Chat Plan]],
 [[Codex Chat Implementation]], [[Claude Code Provider]], [[Grok Provider]].
 
 ## Accepted decisions
 
-- Keep one most-recent conversation per workspace and provider. Do not add a
-  conversation library, naming, or branching in this phase.
+- Keep up to 20 recent conversations per workspace and provider. Conversations
+  receive a prompt-derived title and can be created, resumed, renamed, or deleted.
 - Editing is available only for the latest user message. If that message already
   has a response, edit removes the response and resends the turn.
 - Retry reruns the latest assistant turn, including failed turns, without making
@@ -46,7 +45,7 @@ The complete experience includes:
 1. Provider capability records and one reusable popover controller.
 2. A focused agent-session hook for connection, RPC, streaming, cancellation,
    stale-event rejection, and persistence coordination.
-3. Resumption of the most recent provider-bound conversation.
+3. A bounded list of resumable provider-bound conversations.
 4. Latest-message edit, resend, retry, and per-message copy.
 5. Composer context chips and an `@` file picker.
 6. A readable graph-context preview with relation, provenance, confidence, and
@@ -56,9 +55,8 @@ The complete experience includes:
    and price data are available; unknown cost is omitted rather than estimated.
 9. Session-scoped approval of similar commands.
 
-Multiple saved conversations, conversation branching, persistent approval rules,
-cross-provider transcript continuation, and provider-cost estimates are outside
-this scope.
+Persistent approval rules, automatic cross-provider continuation, and estimated
+provider costs remain outside this scope. Conversation branching is implemented.
 
 ## Architecture
 
@@ -92,9 +90,11 @@ write containment, MCP exposure, or the existing permission-mode meanings.
 
 ## Conversation identity and persistence
 
-The storage scope is `window + workspace + provider`. A persisted record contains
-a schema version, workspace identity, provider, normalized messages, timestamps,
-the last selected model, usage snapshot, and an optional opaque native session ID.
+The storage scope is `window + workspace + provider`. Nodez keeps at most 20
+sessions in that scope, ordered by most recent activity. A persisted record
+contains a schema version, session ID and title, workspace identity, provider,
+normalized messages, timestamps, the last selected model, usage snapshot, and an
+optional opaque native session ID.
 Image data, approval rules, pending requests, secrets, and raw provider events are
 never stored.
 
@@ -106,23 +106,24 @@ saved transcript visible, reports that live context could not be restored, and
 allows a fresh turn.
 
 Persistence writes only after stable reducer transitions and uses the existing
-serialized write queue. A conversation is never restored across a different
-workspace or provider. Disconnect preserves the completed conversation but clears
-all live correlation IDs and temporary approvals.
+serialized write queue. The prior single-conversation record migrates into the
+session list without duplicating it. A conversation is never restored across a
+different workspace or provider. Disconnect preserves the completed conversation
+but clears all live correlation IDs and temporary approvals.
 
 ## Message actions
 
-Every completed user or assistant message exposes Copy on hover and keyboard
-focus. The latest user message also exposes Edit. Editing loads its text into the
+Every completed user or assistant message exposes a kebab menu with Copy. The
+latest user message also exposes Edit. Editing loads its text into the
 composer; confirming removes the associated assistant response and subsequent
 activity for that turn, then sends a new turn. Images from an old message are not
 silently restored because image payloads are intentionally not persisted.
 
-The latest assistant message exposes Retry. Retry uses the immediately preceding
-user payload and its recorded context manifest. If referenced context is stale or
-missing, Nodez shows the changed entries before sending and requires the user to
-send from the composer. Retry is disabled during streaming or while approval and
-question requests are pending.
+The latest assistant message exposes Retry in the same menu. Retry uses the
+immediately preceding user payload and its recorded context manifest. If
+referenced context is stale or missing, Nodez shows the changed entries before
+sending and requires the user to send from the composer. Retry is disabled during
+streaming or while approval and question requests are pending.
 
 ## Context experience
 
@@ -205,6 +206,61 @@ Silicon user install before an Intel Homebrew fallback. Grok's standalone CLI ha
 no global login on this machine, while the Nodez adapter intentionally uses its
 keychain API key. The in-app Grok prompt also completed successfully. The four
 delivery slices are complete.
+
+## Conversation polish checkpoint — 2026-09-09
+
+The shared panel now keeps a bounded, named recent-session list per workspace and
+provider. Users can start a new conversation and resume, rename, or delete an
+existing one. Legacy latest-conversation storage migrates into the list, while
+the compatibility record continues to mirror the current conversation.
+
+The history menu searches conversation titles and saved message text. Sessions
+can be pinned above recents, archived and restored, or branched into a fresh
+provider thread without changing the original. A Markdown handoff export includes
+the title, provider, model, user and assistant messages, and visible context
+labels while excluding raw events and tool internals. Row actions share one
+compact kebab menu whose nested dismissal scope does not close the parent menu.
+
+Messages render as ordered turns with a separator between turns. Completed tool
+activity starts collapsed; running and failed activity remains visible. Message
+actions live in a compact kebab menu, with Copy on completed messages, Edit on the
+latest user message, and Retry on the latest assistant response. The final
+assistant item shows turn duration and a token delta when the provider reports
+usage. Stop cancels the active turn through each provider bridge.
+
+Each user message retains the labels for the note, file, selection, mention, and
+graph context sent with that turn. Stale graph context remains visibly marked in
+the transcript. When 20 percent or less of a reported context window remains, the
+composer shows a warning and can request a structured handoff summary.
+
+Provider item identifiers are scoped to the active thread and turn when they
+collide with restored history. This prevents a reconnect or provider ID reset
+from updating an older transcript entry and making a new answer appear near the
+top of the chat.
+
+Codex context usage prefers App Server `tokenUsage.last.totalTokens`, which
+represents the current context, over cumulative `tokenUsage.total.totalTokens`.
+Saved usage snapshots never populate the live context indicator after restore;
+the indicator remains hidden until the connected provider reports a positive
+context-window limit. This prevents placeholder and cumulative values from
+appearing as `0 tokens left` or `0% context remaining`.
+
+The low-context action now requests a structured handoff summary and, after a
+successful response, creates a fresh `(continued)` conversation on a new provider
+thread. The compact continuation retains the handoff request and summary while
+the complete original session remains available in history. Failed or empty
+summaries leave the current conversation unchanged.
+
+Explicitly mentioned files and notes can be pinned from composer chips. Pinned
+context is shared across providers within the current workspace, restored after
+reconnect or app restart, deduplicated, and bounded to 12 entries. Removing a
+pinned chip also removes it from the saved project context. Implicit current-file,
+current-note, selection, and graph chips are not silently pinned.
+
+Chat code now lives under `src/features/chat`, including its `components` and
+`hooks`. `ChatMessageItem.tsx` owns message, Markdown, context-label, timing, and
+tool-activity rendering; `CodexChatPanel.tsx` remains the composition and session
+orchestration surface.
 
 ## Delivery slices
 

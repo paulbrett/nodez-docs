@@ -4,7 +4,7 @@ title: Codex Chat Implementation
 type: architecture
 status: active
 created: 2026-09-07
-updated: 2026-09-08
+updated: 2026-09-09
 tags:
   - codex
   - implementation
@@ -45,7 +45,9 @@ Files: src-tauri/src/codex.rs; command registration in src-tauri/src/lib.rs.
 
 ## Task 2 — Chat state and panel
 
-Files: src/codexChat.ts, src/CodexChatPanel.tsx, src/codexChat.css.
+Files: `src/features/chat/codexChat.ts`,
+`src/features/chat/CodexChatPanel.tsx`, and
+`src/features/chat/codexChat.css`.
 
 - [ ] Normalize streaming items, output, turn completion/errors, diff updates, and approval requests.
 - [ ] Bound visible output and ignore mismatched thread/session events.
@@ -55,7 +57,7 @@ Files: src/codexChat.ts, src/CodexChatPanel.tsx, src/codexChat.css.
 
 ## Task 3 — Integration and verification
 
-Files: src/App.tsx, src/commands.ts, AGENTS.md.
+Files: `src/App.tsx`, `src/shared/commands.ts`, and `AGENTS.md`.
 
 - [ ] Add optional Codex entry point beside existing Ask and in command palette.
 - [ ] Remount panel on vault/source switch; include current unsaved note context explicitly.
@@ -136,6 +138,26 @@ web build, focused chat/editor/layout tests, the broader JavaScript suite, and
 Rust library tests. Release packaging, Windows desktop smoke, installer checks,
 and final live acceptance remain release-stage work and are intentionally
 deferred.
+
+Conversation persistence now supports up to 20 named recent sessions for each
+workspace/provider pair, including new, resume, inline rename, and delete actions.
+Turns are grouped in transcript order, successful tool activity collapses, and
+message kebab menus provide copy, latest-user edit, and latest-assistant retry.
+Completed responses display duration and provider-reported token delta. Active
+turns can be stopped across Codex, Claude, Grok, and OpenCode. Current-turn item
+IDs are collision-scoped so provider ID reuse cannot overwrite a restored item or
+place a new answer in an earlier turn.
+
+Conversation management also supports title/transcript search, pinning,
+archive/restore, fresh-thread branching, and clean Markdown handoff export. Sent
+context labels persist on each user turn, including stale graph state. A compact
+warning appears at 20 percent remaining context and can request a structured
+summary.
+
+Codex App Server reports both cumulative `tokenUsage.total` and current-context
+`tokenUsage.last`. The UI uses `last.totalTokens` when present and falls back to
+`total.totalTokens` for adapters that do not supply `last`. Restored usage is kept
+out of live UI until a fresh provider event supplies a positive window limit.
 
 ## Multi-provider — 2026-09-08
 

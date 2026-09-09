@@ -109,13 +109,13 @@ When the user pastes or opens **plain / unformatted text** (not already structur
 5. Optional later: smarter format heuristics, session “always format”, selection-only format
 6. **Preview polish (2026-08-22)** — GFM tables + syntax-highlighted code blocks (`src/markdownPreview.ts`, highlight.js)
 
-App files: `src/frontmatter.ts`, `src/MarkdownEditor.tsx`, `src/App.tsx`, `src/styles.css`, `src/markdownPreview.ts`.
+App files: `src/frontmatter.ts`, `src/features/notes/MarkdownEditor.tsx`, `src/App.tsx`, `src/styles.css`, `src/markdownPreview.ts`.
 
 ## Next: Lightweight code editor — **landed 2026-08-21 (MVP)**
 
 Execute the plan in [[Code Editor Implementation]] (VS Code-like surface for code fences / optional code files):
 
-- CodeMirror 6 stack — done (`src/components/code-editor/`)
+- CodeMirror 6 stack — done (`src/features/editor/components/`)
 - Format action (Prettier standalone) + lightweight lint diagnostics — done
 - Theme-aware; lazy-loaded via `React.lazy` — done
 - **Do not use Monaco for MVP** — done

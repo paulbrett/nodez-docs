@@ -16,7 +16,7 @@ tags:
 
 Related: [[Next Steps]], [[Frontend]], [[Product Roadmap]].
 
-Current Markdown note editor in the app repo: `src/MarkdownEditor.tsx` (CodeMirror 6 + Markdown language + format toolbar via `App.tsx`). **MVP code mode landed** in `src/components/code-editor/` (lazy-loaded from the topbar Code button): languages TS/JS/JSON/HTML/CSS/MD, Prettier format, structural lint gutter. This note remains the deeper plan (richer autocomplete, ESLint, multi-file).
+Current Markdown note editor in the app repo: `src/features/notes/MarkdownEditor.tsx` (CodeMirror 6 + Markdown language + format toolbar via `App.tsx`). **MVP code mode landed** in `src/features/editor/components/` (lazy-loaded from the topbar Code button): languages TS/JS/JSON/HTML/CSS/MD, Prettier format, structural lint gutter. This note remains the deeper plan (richer autocomplete, ESLint, multi-file).
 
 ## Draft implementation guide
 
@@ -91,7 +91,7 @@ types.ts
 - Shared TypeScript types.
 4. Define Editor Types
 Create:
-// src/components/code-editor/types.ts
+// src/features/editor/components/types.ts
 
 export type SupportedCodeLanguage =
   | 'javascript'
@@ -114,7 +114,7 @@ export interface CodeEditorProps {
 }
 5. Add Language Extensions
 Create:
-// src/components/code-editor/languageExtensions.ts
+// src/features/editor/components/languageExtensions.ts
 
 import { javascript } from '@codemirror/lang-javascript';
 import { json } from '@codemirror/lang-json';
@@ -141,7 +141,7 @@ export function getLanguageExtension(language: SupportedCodeLanguage): Extension
 }
 6. Add Basic Editor Extensions
 Create:
-// src/components/code-editor/codeEditorExtensions.ts
+// src/features/editor/components/codeEditorExtensions.ts
 
 import { lineNumbers, highlightActiveLineGutter } from '@codemirror/view';
 import { highlightActiveLine, keymap } from '@codemirror/view';
@@ -176,7 +176,7 @@ export function getBaseEditorExtensions(readOnly = false): Extension[] {
 7. Add Lightweight Linting
 Start simple. Do not add full ESLint in the MVP unless required.
 Create:
-// src/components/code-editor/lintCode.ts
+// src/features/editor/components/lintCode.ts
 
 import { linter, type Diagnostic } from '@codemirror/lint';
 import type { SupportedCodeLanguage } from './types';
@@ -224,7 +224,7 @@ export function createLightweightLinter(language: SupportedCodeLanguage) {
 Important note for the agent: this MVP linter is intentionally basic. CodeMirror supports proper linter integration via diagnostics, and lintGutter can show errors in the gutter. CodeMirror
 8. Add Prettier Formatting
 Create:
-// src/components/code-editor/formatCode.ts
+// src/features/editor/components/formatCode.ts
 
 import * as prettier from 'prettier/standalone';
 import * as babelPlugin from 'prettier/plugins/babel';
@@ -280,7 +280,7 @@ export async function formatCode(
 Prettier’s browser usage requires the standalone build and explicit plugin loading. For JavaScript, TypeScript, Flow, and JSON printing, the ESTree plugin is required. Prettier
 9. Build the Editor Component
 Create:
-// src/components/code-editor/CodeEditor.tsx
+// src/features/editor/components/CodeEditor.tsx
 
 'use client';
 

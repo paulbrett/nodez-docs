@@ -218,7 +218,7 @@ Rust vault git + sync panel (notes footer control):
 | MCP server | `scripts/nodez-mcp.mjs` |
 | MCP write tests | `scripts/nodez-mcp-write.test.mjs` |
 | Project MCP hint | `.mcp.json` |
-| Command palette | `src/CommandPalette.tsx`, `src/commands.ts` |
+| Command palette | `src/shared/CommandPalette.tsx`, `src/shared/commands.ts` |
 | Graph artifact | vault `.nodez/graph.json` + `.nodez/graph/` |
 | Workspace bind | vault `.nodez/workspace.json` |
 

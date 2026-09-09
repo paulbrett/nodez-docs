@@ -2,7 +2,7 @@
   "sourceRoot": "/Users/paulbrettorozco/Sites/nodez-app",
   "ignoreGitignore": false,
   "indexFunctions": true,
-  "editorMode": "preview",
+  "editorMode": "edit",
   "graphMode": "global",
   "graphEngine": "force3d",
   "graphOrigin": "all",

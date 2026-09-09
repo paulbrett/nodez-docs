@@ -53,7 +53,7 @@ fixtures, existing Codex-shaped event reducer.
 **Files:**
 
 - Create: `src/chatProviderCapabilities.ts`
-- Modify: `src/CodexChatPanel.tsx`
+- Modify: `src/features/chat/CodexChatPanel.tsx`
 - Test: `scripts/chat-provider.test.mjs`
 
 **Interfaces:**
@@ -105,7 +105,7 @@ Run: `node --experimental-strip-types --test scripts/chat-provider.test.mjs && n
 **Files:**
 
 - Create: `src/hooks/useDismissablePopover.ts`
-- Modify: `src/CodexChatPanel.tsx`
+- Modify: `src/features/chat/CodexChatPanel.tsx`
 - Test: `scripts/dismissable-popover.test.mjs`
 
 **Interfaces:**
@@ -142,8 +142,8 @@ Run: `node --experimental-strip-types --test scripts/dismissable-popover.test.mj
 **Files:**
 
 - Create: `src/chatConversationStore.ts`
-- Modify: `src/CodexChatPanel.tsx`
-- Modify: `src/codexChat.ts`
+- Modify: `src/features/chat/CodexChatPanel.tsx`
+- Modify: `src/features/chat/codexChat.ts`
 - Test: `scripts/chat-conversation.test.mjs`
 
 **Interfaces:**
@@ -190,8 +190,8 @@ Run: `node --experimental-strip-types --test scripts/chat-conversation.test.mjs 
 
 **Files:**
 
-- Modify: `src/codexChat.ts`
-- Modify: `src/CodexChatPanel.tsx`
+- Modify: `src/features/chat/codexChat.ts`
+- Modify: `src/features/chat/CodexChatPanel.tsx`
 - Test: `scripts/codex-chat.test.mjs`
 
 **Interfaces:**
@@ -232,8 +232,8 @@ Run: `node --experimental-strip-types --test scripts/codex-chat.test.mjs && npm 
 **Files:**
 
 - Create: `src/hooks/useAgentSession.ts`
-- Modify: `src/CodexChatPanel.tsx`
-- Modify: `src/codexChat.ts`
+- Modify: `src/features/chat/CodexChatPanel.tsx`
+- Modify: `src/features/chat/codexChat.ts`
 - Test: `scripts/agent-session.test.mjs`
 
 **Interfaces:**
@@ -272,7 +272,7 @@ Run: `node --experimental-strip-types --test scripts/agent-session.test.mjs scri
 - Create: `src/components/chat/ChatComposer.tsx`
 - Create: `src/components/chat/ChatContextChips.tsx`
 - Create: `src/chatContextSelection.ts`
-- Modify: `src/CodexChatPanel.tsx`
+- Modify: `src/features/chat/CodexChatPanel.tsx`
 - Test: `scripts/chat-context-selection.test.mjs`
 
 **Interfaces:**
@@ -315,7 +315,7 @@ Run: `node --experimental-strip-types --test scripts/agent-session.test.mjs scri
 **Files:**
 
 - Create: `src/components/chat/ChatContextPreview.tsx`
-- Modify: `src/CodexChatPanel.tsx`
+- Modify: `src/features/chat/CodexChatPanel.tsx`
 - Test: `scripts/codex-context.test.mjs`
 
 **Interfaces:**
@@ -337,7 +337,7 @@ Run: `node --experimental-strip-types --test scripts/agent-session.test.mjs scri
 - Create: `src/components/chat/ChatMessageList.tsx`
 - Create: `src/components/chat/ChatMessageItem.tsx`
 - Create: `src/chatTranscriptSearch.ts`
-- Modify: `src/CodexChatPanel.tsx`
+- Modify: `src/features/chat/CodexChatPanel.tsx`
 - Test: `scripts/chat-transcript-search.test.mjs`
 
 **Interfaces:**
@@ -357,7 +357,7 @@ Run: `node --experimental-strip-types --test scripts/agent-session.test.mjs scri
 
 - Create: `src/chatUsage.ts`
 - Create: `src/components/chat/ChatUsage.tsx`
-- Modify: `src/codexChat.ts`
+- Modify: `src/features/chat/codexChat.ts`
 - Modify: provider translators under `src-tauri/src/`
 - Test: `scripts/chat-usage.test.mjs`
 
@@ -381,7 +381,7 @@ Run: `node --experimental-strip-types --test scripts/agent-session.test.mjs scri
 - Create: `src/chatSessionApprovals.ts`
 - Create: `src/components/chat/ChatApprovalCard.tsx`
 - Modify: `src/hooks/useAgentSession.ts`
-- Modify: `src/CodexChatPanel.tsx`
+- Modify: `src/features/chat/CodexChatPanel.tsx`
 - Test: `scripts/chat-session-approvals.test.mjs`
 
 **Interfaces:**

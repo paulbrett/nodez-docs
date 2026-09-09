@@ -214,7 +214,7 @@ Historical macOS / `Documents/Nodez` paths may appear in older notes — prefer 
 | MCP server | `scripts/nodez-mcp.mjs` |
 | MCP tests | `scripts/nodez-mcp-write.test.mjs`, related |
 | MCP export UI | `src/mcpExport.ts`, `src/SetupWizard.tsx` |
-| Command palette | `src/CommandPalette.tsx`, `src/commands.ts` |
+| Command palette | `src/shared/CommandPalette.tsx`, `src/shared/commands.ts` |
 | Agent contract | app-repo `AGENTS.md` |
 
 ## Acceptance (map is “done”)
