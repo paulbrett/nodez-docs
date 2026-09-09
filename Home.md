@@ -20,6 +20,7 @@ The project goal is to combine the best part of Obsidian - plain files in a vaul
 ## Start here
 
 - [[AI Agent Next Steps Handoff]] — task ownership, acceptance, and execution order
+- [[Agent Orchestration and Context Discipline]] — orchestrator/worker roles, Builder → Refuter verification, context-budget rules, parallelism, and durable handoffs
 - [[September 9 Improvements]] — implementation and validation evidence
 
 - [[Project Overview]]
