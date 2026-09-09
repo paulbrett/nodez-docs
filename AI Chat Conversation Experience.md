@@ -14,13 +14,14 @@ tags:
 
 # AI Chat Conversation Experience
 
-Nodez makes its shared Codex, Claude, Grok, and OpenCode chat a durable developer
+Nodez makes its shared Codex, Claude, Grok, OpenCode, and Gemini chat a durable developer
 tool with resumable conversations, message recovery, visible context, transcript
 navigation, usage information, and lower-friction approvals. The implementation
 is being split incrementally along clear runtime and UI boundaries.
 
 Related: [[AI Workspace Delivery]], [[Code Editor and AI Chat Plan]],
-[[Codex Chat Implementation]], [[Claude Code Provider]], [[Grok Provider]].
+[[Codex Chat Implementation]], [[Claude Code Provider]], [[Grok Provider]],
+[[Gemini CLI Provider]].
 
 ## Accepted decisions
 
@@ -261,6 +262,12 @@ Chat code now lives under `src/features/chat`, including its `components` and
 `hooks`. `ChatMessageItem.tsx` owns message, Markdown, context-label, timing, and
 tool-activity rendering; `CodexChatPanel.tsx` remains the composition and session
 orchestration surface.
+
+Gemini is now the fifth shared provider. Its headless ACP session uses a Google
+AI Studio API key stored in the system keychain and supplied only to the Gemini
+subprocess. This avoids the retired Gemini Code Assist individual client path.
+See [[Gemini CLI Provider]]. The next chat work is the reviewed multi-file
+change-set slice in [[AI Chat Follow-on Phases]].
 
 ## Delivery slices
 

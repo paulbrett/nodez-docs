@@ -1,7 +1,7 @@
 {
   "version": 2,
   "format": "nodez.graph.manifest",
-  "generatedAt": "2026-09-09T05:30:41.375Z",
+  "generatedAt": "2026-09-09T05:59:41.011Z",
   "vaultPath": "/Users/paulbrettorozco/Documents/Projects/Nodez",
   "sourceRoot": "/Users/paulbrettorozco/Sites/nodez-app",
   "sourceGit": {
@@ -9,16 +9,16 @@
     "root": "/Users/paulbrettorozco/Sites/nodez-app",
     "branch": "main",
     "head": "0c86d20c741c8d28f739545af88f3a27a2dba240",
-    "dirty": false,
-    "changedCount": 0,
-    "untrackedCount": 0,
+    "dirty": true,
+    "changedCount": 14,
+    "untrackedCount": 1,
     "signature": "main|0c86d20c741c8d28f739545af88f3a27a2dba240",
-    "summary": "main 0c86d20, clean"
+    "summary": "main 0c86d20, 14 changed"
   },
   "stats": {
-    "nodes": 338,
-    "edges": 541,
-    "extracted": 541,
+    "nodes": 340,
+    "edges": 548,
+    "extracted": 548,
     "inferred": 0,
     "manual": 0,
     "communities": 34
@@ -37,25 +37,25 @@
         "path": "graph/nodes-symbols-1.json",
         "kind": "nodes",
         "group": "symbols",
-        "count": 16
+        "count": 17
       },
       {
         "path": "graph/nodes-structure-1.json",
         "kind": "nodes",
         "group": "structure",
-        "count": 298
+        "count": 299
       },
       {
         "path": "graph/edges-links_to-1.json",
         "kind": "edges",
         "group": "links_to",
-        "count": 244
+        "count": 250
       },
       {
         "path": "graph/edges-contains-1.json",
         "kind": "edges",
         "group": "contains",
-        "count": 297
+        "count": 298
       }
     ]
   }
