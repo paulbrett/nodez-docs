@@ -90,11 +90,16 @@ Native reads/writes must canonicalize root and file paths, reject symlink/path e
 
 Acceptance: typing and saving affect only the selected editor file; note frontmatter/fences still round-trip; read-only attached repos remain read-only until editor access is enabled.
 
-### Phase 3 — Review and apply AI edits — **implemented for single files**
+### Phase 3 — Review and apply AI edits — **implemented for change sets**
 
 Generate a proposal tied to document ID, base content hash, and selected range. Render before/after diff with Apply and Discard. Apply is one undoable buffer transaction, followed by ordinary explicit save.
 
 Acceptance: a stale proposal cannot modify a changed document or a different tab; Discard leaves text unchanged; undo restores pre-apply text. Begin with one file per proposal.
+
+The follow-on reviewed change-set slice now normalizes multi-file provider edits,
+shows additions/deletions per file, supports per-file Apply/Discard and Apply all,
+and keeps explicit Save as the disk-write boundary. Workspace, turn, authorized
+root, and base-revision guards reject stale or misplaced changes.
 
 ### Phase 4 — Graph and vault context — **implemented first pass**
 
@@ -113,6 +118,10 @@ Search, pin/archive controls, branching, Markdown handoff export, per-message
 context labels, stale context warnings, and low-context summary prompting are
 implemented. Structured summarize-and-continue and workspace-scoped pinned file
 and note context are also implemented.
+
+Provider readiness now has a native diagnostic path for CLI presence/version,
+credential state, and protocol availability without exposing secrets. The
+remaining gate is the live macOS/Windows provider matrix and release packaging.
 
 Check keyboard navigation, focus restoration, panel resizing, light/dark themes, large-file fallback, provider failures, and offline editing. Measure lazy-loaded editor/chat bundles and typing responsiveness.
 

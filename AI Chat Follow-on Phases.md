@@ -23,9 +23,9 @@ Related: [[AI Chat Conversation Experience]], [[AI Workspace Delivery]].
 4. **Provider operations** — readiness diagnostics, accurate provider-reported
    usage, and full provider/platform acceptance.
 
-Next delivery order: 3 → 4.
+Next delivery order: finish provider/platform acceptance, then release validation.
 
-## Next implementation slice — reviewed change sets
+## Reviewed change sets — implemented 2026-09-09
 
 Keep the first slice deliberately small:
 
@@ -42,10 +42,11 @@ Acceptance: a two-file proposal can be reviewed independently, a stale or
 out-of-root change cannot modify a buffer, Apply all is one explicit action, and
 provider/workspace switches cannot deliver a late change set into the new chat.
 
-## Following slice — provider readiness
+## Provider readiness — implementation landed 2026-09-09
 
 Add a provider health view covering CLI presence/version, credential status,
 ACP/App Server handshake, advertised modes/models, and a minimal prompt. Keep
 secrets hidden and report usage only when the provider supplies a valid context
-limit. Complete live macOS checks for Codex, Claude, Grok, OpenCode, and Gemini,
-then run the same acceptance matrix on Windows before release packaging.
+limit. The native readiness command and UI are implemented. Complete live macOS
+checks for Codex, Claude, Grok, OpenCode, and Gemini, then run the same acceptance
+matrix on Windows before release packaging.

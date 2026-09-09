@@ -4,7 +4,7 @@ title: Frontend
 type: agent
 status: active
 created: 2026-08-20
-updated: 2026-08-24
+updated: 2026-09-09
 tags:
   - frontend
   - ui
@@ -263,3 +263,22 @@ surfaced; a static harness (real `styles.css` + hand-written markup) reaches
 states that are awkward to drive through the live app.
 
 Related: [[Next Steps]], [[GitHub Sync]], [[Tauri Desktop Shell]], [[Decision Log]].
+
+## Workspace gateway and onboarding (2026-09-09)
+
+When neither a notes vault nor repository is open, replace the normal app shell
+with the workspace gateway. Hide the explorer and AI chat because neither has a
+valid workspace context. The gateway uses the Nodez mark as its hero anchor,
+offers Open vault and Create vault, and keeps recent vaults and repositories
+within reach without presenting an empty editor.
+
+First-run onboarding is a full-window sequence over the same Material background.
+Its appearance step and Settings → Appearance render the shared
+`ThemePreviewCard` catalog so previews cannot drift. Setup covers permissions,
+editor defaults, provider choice, and workspace creation/opening; the technical
+Agent/MCP wizard remains a separate surface. Settings → About provides a plain
+text **Run welcome setup** action.
+
+Notes use an explicit Markdown/Preview switch. Markdown is the editable default,
+its formatting tools stay visible, and the Outline panel starts collapsed. The
+repository editor retains its separate code-file editing controls.

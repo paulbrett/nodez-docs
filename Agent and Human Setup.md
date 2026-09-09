@@ -4,7 +4,7 @@ title: Agent and Human Setup
 type: roadmap
 status: active
 created: 2026-08-21
-updated: 2026-08-22
+updated: 2026-09-09
 tags:
   - agents
   - mcp
@@ -36,6 +36,20 @@ Plan for making Nodez **useful for AI agents** and **simple to set up for humans
 - Attach read-only source root; commit-driven re-index; `.nodez/graph.json` (+ chunks)
 - Command palette (`Cmd+K`); MSI/NSIS installers exist for Windows
 
+### First-run and empty-workspace gateway — shipped 2026-09-09
+
+- A fresh install opens a full-window onboarding flow for setup choice,
+  appearance, agent permissions, editor defaults, AI provider, and workspace.
+  Enter advances the current step when focus is not in a text input.
+- The onboarding appearance cards reuse the same theme catalog as Settings, and
+  Settings → About can run the welcome setup again.
+- With no vault or repository open, Nodez shows a focused gateway instead of an
+  empty explorer, workspace, and chat sidebar. It offers Open vault, Create
+  vault, and bounded recent-vault/repository lists.
+- Creating a vault initializes `Welcome.md`, the managed vault `AGENTS.md`, and
+  `.mcp.json`, then opens Welcome in Markdown edit mode. Existing vaults are not
+  modified automatically.
+
 ### Agents
 
 - Stdio MCP (`scripts/nodez-mcp.mjs`): graph query tools + vault note create/write/rename/delete (soft trash)
@@ -56,7 +70,9 @@ Agents do **not** load a Nodez in-app skill pack. Runtime capability is **MCP to
 
 ### Vault agent contract (end-user projects) — shipped 2026-08-22
 
-Opt-in **AGENTS.md** for the opened vault so external agents get project MCP rules:
+Opt-in **AGENTS.md** for an existing opened vault so external agents get project MCP rules.
+Vaults created by Nodez receive the managed contract and `.mcp.json` during
+initialization:
 
 - Setup wizard step **Agents** (between Index and MCP)
 - Settings → Agent setup: **Agent contract** / **Merge into AGENTS.md**

@@ -4,7 +4,7 @@ title: Agent Skills and Surfaces
 type: architecture
 status: active
 created: 2026-08-22
-updated: 2026-08-22
+updated: 2026-09-09
 tags:
   - agents
   - mcp
@@ -173,15 +173,16 @@ Nodez can **prepare a vault-scoped agent contract** so other users' agents (Herm
 
 | Behavior | Detail |
 | --- | --- |
-| **When** | Setup wizard **Agents** step, Settings → Agent setup, palette **Add or refresh agent contract** |
-| **Not** | Silent auto-write on every vault open |
+| **When** | A vault created by Nodez is initialized immediately; an existing vault uses Settings → Agent setup or palette **Add or refresh agent contract** |
+| **Not** | Silent auto-write when opening an existing vault |
 | **Create** | If no root `AGENTS.md` → create vault-root `AGENTS.md` with managed markers |
 | **Refresh** | If markers present → replace only between `<!-- nodez-agent-contract:start/end -->` |
 | **Collision** | If root `AGENTS.md` exists without markers → write `.nodez/AGENTS.md` (never clobber) |
 | **Merge (opt-in)** | Append managed block into existing root `AGENTS.md` |
 | **Content** | Short vault MCP workflow + hard rules; user prose outside markers is preserved |
 
-App implementation: `src/agentContract.ts`, `SetupWizard` Agents step, Settings buttons, command palette.
+App implementation: `src/agentContract.ts`, the new-vault initializer, the
+separate `AgentSetupWizard`, Settings buttons, and command palette.
 
 Resolution order for agents: managed root `AGENTS.md` → else `.nodez/AGENTS.md` → else missing (Setup CTA).
 
