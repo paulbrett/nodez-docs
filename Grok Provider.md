@@ -4,7 +4,7 @@ title: Grok Provider
 type: architecture
 status: active
 created: 2026-09-08
-updated: 2026-09-08
+updated: 2026-09-09
 tags:
   - grok
   - agents
@@ -38,8 +38,8 @@ The user chose each of these.
 - **ACP transport** (`grok agent stdio`), accepting a second translator.
 - **Parity with Claude plus approvals.** Grok is the first provider that can
   offer all three permission modes.
-- **An xAI API key stored by Nodez**, in the OS credential store via the
-  `keyring` crate. This **supersedes the "no new provider API key storage"
+- **An xAI API key stored by Nodez**, encoded in Nodez's local app-data file.
+  This **supersedes the "no new provider API key storage"
   constraint** recorded in [[Code Editor and AI Chat Plan]]: under the isolation
   mechanism below, Grok cannot see a `grok login` credential, so an API key is
   the only verified way to authenticate an isolated session.
@@ -102,6 +102,13 @@ a `.mcp.json`, asserting zero tools — is the whole mitigation.
 
 Nodez holding a credential is new. The key must not reach the webview, logs,
 crash reports, or a conversation transcript.
+
+As of 2026-09-09, Nodez no longer uses the operating-system keychain. The native
+credential module encodes provider keys into `agent-keys.json` under Tauri's
+app-data directory, writes through a temporary file, and applies owner-only file
+permissions on Unix. Encoding prevents plain-text storage but is not equivalent
+to keychain-backed encryption. Existing keychain entries are not imported; users
+must save their keys again in Settings → Keys.
 
 ## Out of scope
 

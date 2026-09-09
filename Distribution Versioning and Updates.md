@@ -4,7 +4,7 @@ title: Distribution Versioning and Updates
 type: roadmap
 status: active
 created: 2026-08-21
-updated: 2026-08-24
+updated: 2026-09-09
 tags:
   - distribution
   - versioning
@@ -14,6 +14,15 @@ tags:
 ---
 
 # Distribution Versioning and Updates
+
+## Current source checkpoint — 2026-09-09
+
+Version `0.6.0-rc.1` currently checks the landing manifest and opens the download
+page. `src/shared/appUpdate.ts` implements this flow; current Tauri configuration
+does not enable a native updater. The feed publisher emits an `installers` map.
+The signed-OTA descriptions below are historical and do not certify the current
+build. Release-candidate comparison, Windows acceptance, installation/upgrade
+checks, and publication remain open in [[AI Agent Next Steps Handoff]].
 
 Plan for **app versioning**, **release artifacts**, and **OTA** so humans stay current without rebuilding from source. Complements [[Agent and Human Setup]] P7 and Phase 5 polish in [[Product Roadmap]].
 

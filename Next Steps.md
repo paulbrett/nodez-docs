@@ -4,13 +4,30 @@ title: Next Steps
 type: roadmap
 status: active
 created: 2026-08-20
-updated: 2026-09-08
+updated: 2026-09-09
 tags:
   - roadmap
   - planning
 ---
 
 # Next Steps
+
+## Current delivery order — 2026-09-09
+
+The earlier sections record historical milestones. Current status and acceptance
+results are tracked in [[September 9 Improvements]]. Detailed task ownership,
+acceptance procedures, and execution order: [[AI Agent Next Steps Handoff]].
+
+1. Finish provider/platform acceptance and editing regression checks. Conversation
+   management, context controls, reviewed multi-file changes, and readiness UI are
+   already implemented; acceptance is a separate gate.
+2. Validate the macOS package, Windows installer, and updater before publication.
+3. Ranked note search with snippets, highlighting, and keyboard navigation is now
+   implemented; see the current delivery note for validation.
+4. Next feature slice: vault-relative image/file attachments with collision-safe
+   names, followed by graph freshness and source-navigation improvements.
+
+Node.js 20+ remains an MCP prerequisite; no bundled runtime is currently shipped.
 
 ## Code editor with AI chat — **release candidate implemented 2026-09-08**
 
@@ -42,7 +59,7 @@ channel, so "ask for approval" stays Codex-only. Its automated tests pass;
 **desktop acceptance has not been run** and is the outstanding gate.
 
 Grok is implemented over ACP with all three permission modes, a real interrupt,
-and approval cards; its xAI API key stays in the OS keychain. OpenCode is also
+and approval cards; its xAI API key is encoded in Nodez local app data. OpenCode is also
 implemented over ACP, reuses the user's OpenCode authentication, discovers its
 configured models dynamically, supports images, and isolates global config and
 plugins while Nodez injects the active workspace MCP. See [[Grok Provider]] and

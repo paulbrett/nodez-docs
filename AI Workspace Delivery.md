@@ -4,7 +4,7 @@ title: AI Workspace Delivery
 type: architecture
 status: active
 created: 2026-09-07
-updated: 2026-09-07
+updated: 2026-09-09
 tags:
   - codex
   - editor
@@ -12,6 +12,11 @@ tags:
 ---
 
 # AI Workspace Delivery
+
+This note records the original release candidate and subsequent refinements.
+Current September 9 validation and remaining gates: [[September 9 Improvements]].
+Conversation management, multi-file review, and five provider adapters now exist;
+the older single-file and provider limitations below describe the original slice.
 
 Release candidate: **0.6.0-rc.1**. Implementation follows the user's approved
 sequence in [[Code Editor and AI Chat Plan]] and [[Codex Chat Implementation]].
@@ -89,12 +94,12 @@ sandbox against another process running as the same user.
 
 Full access grants runtime writes and commands beyond the workspace without
 approval prompts. Commit/push/publish/delete restrictions remain assistant
-instructions in that mode, not OS-enforced restrictions. MCP tool exposure still
-contains only the active workspace's read tools.
+instructions in that mode, not OS-enforced restrictions. MCP remains limited to the active vault: note reads/writes, soft deletion, and
+graph queries/rebuild. It never writes the indexed source root.
 
-Local saved transcripts are display-only, not thread resumption. Multi-file AI
-patch application, arbitrary new source-file creation, language-server integration
-and cross-platform release certification remain follow-on work.
+Optional local transcript files remain display-only. Conversation restoration and
+reviewed multi-file buffer edits landed subsequently; see [[AI Chat Follow-on Phases]].
+Cross-platform release certification remains an outstanding gate.
 
 ## Chat layout refinement — 2026-09-07
 

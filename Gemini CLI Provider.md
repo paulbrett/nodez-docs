@@ -20,12 +20,17 @@ standard ACP updates into the shared chat reducer, and terminates the subprocess
 on disconnect, provider replacement, or window destruction.
 
 Gemini uses a Google AI Studio API key stored through **Settings → Keys**. Nodez
-saves the secret in the operating-system keychain and injects it as
+encodes the secret in its local app-data file and injects it as
 `GEMINI_API_KEY` only into the window-scoped Gemini subprocess. The value is
 never returned to the frontend or persisted in conversation history. This
 headless API-key path replaces the retired Gemini Code Assist individual client
 flow that can return “This client is no longer supported.” Install the CLI with
 `npm install -g @google/gemini-cli`, save the key, then connect from AI Chat.
+
+The local file is written through a temporary file and receives owner-only
+permissions on Unix. Windows replacement currently removes the previous file
+before rename; failure recovery is an open task in [[AI Agent Next Steps Handoff]]. Its encoding avoids plain-text storage but does not provide OS-keychain
+security. Keys previously stored in a keychain must be entered again.
 
 Models come from `session/new.models.availableModels`; `auto` remains the local
 fallback. Selection uses `session/set_model`. Nodez permission modes map to

@@ -4,12 +4,15 @@ title: Backlog
 type: backlog
 status: active
 created: 2026-08-19
-updated: 2026-08-22
+updated: 2026-09-09
 tags:
   - backlog
 ---
 
 # Backlog
+
+Current accepted order and validation: [[September 9 Improvements]] and
+[[Next Steps]]. Historical P0–P4 entries below are delivered, not new work.
 
 Priority track for agents + onboarding: [[Agent and Human Setup]]. Sequencing: [[Next Steps]].
 
@@ -47,7 +50,7 @@ Priority track for agents + onboarding: [[Agent and Human Setup]]. Sequencing: [
 - Better tag parsing
 - Unresolved links
 - Backlink snippets
-- Fast search ranking
+- Fast search ranking — implemented 2026-09-09 with snippets, highlighting, and keyboard navigation
 - Graph filters and zoom controls — largely done
 - Graph search and connection highlighting — done
 - Expand node and edge schema beyond notes/tags — done

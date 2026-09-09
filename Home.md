@@ -4,7 +4,7 @@ title: Nodez
 type: docs-index
 status: active
 created: 2026-08-19
-updated: 2026-08-22
+updated: 2026-09-09
 tags:
   - project
   - local-first
@@ -18,6 +18,9 @@ Nodez is a local-first Markdown workspace inspired by Obsidian and Graphify.
 The project goal is to combine the best part of Obsidian - plain files in a vault - with Graphify-style project relationship graphs, while replacing proprietary sync with a GitHub-backed workflow.
 
 ## Start here
+
+- [[AI Agent Next Steps Handoff]] — task ownership, acceptance, and execution order
+- [[September 9 Improvements]] — implementation and validation evidence
 
 - [[Project Overview]]
 - [[Architecture]]
@@ -47,14 +50,17 @@ Desktop (Tauri) app with:
 - Commit-driven repo re-index and `.nodez/graph.json` artifact
 - Command palette and MCP server for AI agents (graph query + vault reads/writes)
 - Vault GitHub sync v1 and opt-in vault `AGENTS.md` agent contract
-- Public landing + signed OTA (`nodez` Pages, Settings check for updates)
+- Ranked note search with snippets, highlighting, and keyboard navigation
+- Repository editor and five AI provider adapters with scoped conversations
+- Public landing and download-based update checks (native OTA is not currently configured)
 
 ## Next milestone
 
-Agent/human setup **P0–P6 largely done**. **P7 OTA path live**: public [[Landing Page]] + signed [[Distribution Versioning and Updates]] feed on Pages. See [[Agent and Human Setup]] and [[Next Steps]].
+Finish provider/platform acceptance for the `0.6.0-rc.1` workspace. Basic prompts
+passed for Codex, Claude, Grok, and OpenCode; Gemini requires a user-supplied key.
+Windows installation and remaining permission scenarios are separate gates.
 
-**Next (pick one track):**
-
-1. **Ship polish** — **v0.3.0 released**; OTA smoke test; Authenticode later  
-2. **Agent install** — no-Node / bundled MCP  
-3. **Knowledge** — Phase 3 attachments + search ranking  
+[[AI Agent Next Steps Handoff]] defines the order: preserve the reviewed baseline,
+finish provider and editor checks, fix release-version comparison, certify the
+packages, then implement attachments and graph freshness/navigation improvements.
+Node.js 20+ remains required for MCP. No new release has been published.

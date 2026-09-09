@@ -205,7 +205,7 @@ no-tools prompts. OpenCode completed an isolated ACP session and a free-model
 prompt with streaming updates and `end_turn`; Nodez now prefers the native Apple
 Silicon user install before an Intel Homebrew fallback. Grok's standalone CLI has
 no global login on this machine, while the Nodez adapter intentionally uses its
-keychain API key. The in-app Grok prompt also completed successfully. The four
+locally encoded API key. The in-app Grok prompt also completed successfully. The four
 delivery slices are complete.
 
 ## Conversation polish checkpoint — 2026-09-09
@@ -264,7 +264,7 @@ tool-activity rendering; `CodexChatPanel.tsx` remains the composition and sessio
 orchestration surface.
 
 Gemini is now the fifth shared provider. Its headless ACP session uses a Google
-AI Studio API key stored in the system keychain and supplied only to the Gemini
+AI Studio API key encoded in Nodez local app data and supplied only to the Gemini
 subprocess. This avoids the retired Gemini Code Assist individual client path.
 See [[Gemini CLI Provider]]. The next chat work is the reviewed multi-file
 change-set slice in [[AI Chat Follow-on Phases]].
