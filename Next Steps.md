@@ -4,7 +4,7 @@ title: Next Steps
 type: roadmap
 status: active
 created: 2026-08-20
-updated: 2026-09-09
+updated: 2026-09-10
 tags:
   - roadmap
   - planning
@@ -15,7 +15,8 @@ tags:
 ## Current delivery order — 2026-09-09
 
 The earlier sections record historical milestones. Current status and acceptance
-results are tracked in [[September 9 Improvements]]. Detailed task ownership,
+results through September 9 are tracked in [[September 9 Improvements]]. The
+September 10 source/install checkpoint is [[September 10 Improvements]]. Detailed task ownership,
 acceptance procedures, and execution order: [[AI Agent Next Steps Handoff]].
 
 1. Finish provider/platform acceptance and editing regression checks. Conversation
@@ -28,6 +29,79 @@ acceptance procedures, and execution order: [[AI Agent Next Steps Handoff]].
    names, followed by graph freshness and source-navigation improvements.
 
 Node.js 20+ remains an MCP prerequisite; no bundled runtime is currently shipped.
+
+## Markdown preview and vault repair — implemented 2026-09-10
+
+Markdown preview now renders Nodez wikilinks and callouts and opens internal links
+without misreading examples inside inline or fenced code. A vault-wide Markdown
+health workflow is available from **Settings → Vault** and the command palette.
+It scans with visible progress, separates safe fixes from review/manual findings,
+shows per-note diffs, applies revision-checked atomic writes, and offers one-step
+undo while the results dialog remains open. See [[Markdown Health and Repair]].
+
+## Orchestration plan bridge and runtime repair — implemented 2026-09-10
+
+Orchestration can now import one run from a vault execution-plan note into a
+reviewable draft without launching it. Imported dependencies, scopes, checks,
+permissions, invariants, and base-revision warnings survive the bridge. Starting
+a reviewed run schedules only dependency-ready tasks within the cap. Worker
+sessions remain mounted while active; Stop, failure, removal, evidence parsing,
+and independent refutation now settle truthfully. See
+[[Agent Orchestration and Context Discipline]].
+
+## Priority improvements outside orchestration and Git — 2026-09-10
+
+Do not expand the agent/provider surface until the current workspace is trustworthy
+in ordinary daily use. The priority order below excludes orchestration and source
+control, which have their own execution plans.
+
+1. **Release reliability**
+   - Complete live acceptance for every supported provider: Stop, reconnect,
+     permissions, approvals, images, and provider switching.
+   - Bound provider-readiness probes and distinguish missing, timed out, failed,
+     and unauthenticated states.
+   - Correct SemVer precedence so a release candidate is older than the matching
+     stable release.
+   - Validate macOS installation, Windows installers, and an N−1 → N upgrade
+     before publication.
+2. **Portable vault attachments**
+   - Paste or drop images and ordinary files into the active note.
+   - Store bytes inside the vault with collision-safe names and portable relative
+     Markdown references.
+   - Preview supported raster images without unrestricted filesystem serving.
+3. **Graph trust and source navigation**
+   - Show `building`, `current`, `stale`, and `error` truthfully.
+   - Prevent obsolete asynchronous builds from replacing newer graph artifacts.
+   - Preserve repository provenance during vault-only rebuilds.
+   - Open citations at the recorded note heading, file, or line and expose the
+     evidence behind relationships.
+4. **Editor and search hardening**
+   - Cover external edits, close-during-validation, double Apply, vault switches,
+     stale proposals, save conflicts, and unsaved-close behavior at UI boundaries.
+   - Add a small automated desktop smoke suite for search navigation, explicit
+     saves, and conflict recovery.
+5. **Credentials and privacy**
+   - Move API keys from reversible local encoding to OS keychain storage when the
+     release-critical reliability work is complete.
+   - Add clear local chat-history retention, export, and deletion controls.
+   - Keep secrets, prompts, private paths, and provider output out of diagnostics.
+6. **Accessibility, responsive behavior, and performance**
+   - Finish keyboard navigation, focus restoration, screen-reader labels, and
+     compact-window behavior across dialogs, chat, search, editor, and graph.
+   - Improve empty, loading, offline, failure, and retry states.
+   - Measure large-vault startup, search, editor, and graph performance.
+7. **Maintainability and recovery**
+   - Gradually extract responsibilities from `App.tsx` after release gates rather
+     than restructuring it during acceptance work.
+   - Add crash recovery for unsaved note/code buffers and interrupted sessions.
+   - Expand integration coverage around native/frontend boundaries.
+
+Recommended delivery sequence:
+
+**release hardening → attachments → graph trust and citations → security and
+accessibility → architecture cleanup**
+
+Detailed acceptance and ownership remain in [[AI Agent Next Steps Handoff]].
 
 ## Code editor with AI chat — **release candidate implemented 2026-09-08**
 

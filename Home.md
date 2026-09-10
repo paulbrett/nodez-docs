@@ -20,8 +20,11 @@ The project goal is to combine the best part of Obsidian - plain files in a vaul
 ## Start here
 
 - [[AI Agent Next Steps Handoff]] — task ownership, acceptance, and execution order
+- [[AI Chat Conversation Experience]] — chat sessions, context, approvals, usage, and persistence
+- [[AI Workspace UI and UX Plan]] — cross-surface layout, states, accessibility, and orchestration status
 - [[Agent Orchestration and Context Discipline]] — orchestrator/worker roles, Builder → Refuter verification, context-budget rules, parallelism, and durable handoffs
-- [[September 9 Improvements]] — implementation and validation evidence
+- [[September 9 Improvements]]
+- [[September 10 Improvements]] — orchestration plan import, Markdown repair, validation, and local install — implementation and validation evidence
 
 - [[Project Overview]]
 - [[Architecture]]

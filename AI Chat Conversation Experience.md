@@ -19,7 +19,7 @@ tool with resumable conversations, message recovery, visible context, transcript
 navigation, usage information, and lower-friction approvals. The implementation
 is being split incrementally along clear runtime and UI boundaries.
 
-Related: [[AI Workspace Delivery]], [[Code Editor and AI Chat Plan]],
+Related: [[AI Workspace UI and UX Plan]], [[AI Workspace Delivery]], [[Code Editor and AI Chat Plan]],
 [[Codex Chat Implementation]], [[Claude Code Provider]], [[Grok Provider]],
 [[Gemini CLI Provider]].
 

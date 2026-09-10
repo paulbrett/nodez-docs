@@ -1,24 +1,24 @@
 {
   "version": 2,
   "format": "nodez.graph.manifest",
-  "generatedAt": "2026-09-09T14:30:38.936Z",
+  "generatedAt": "2026-09-10T06:50:15.268Z",
   "vaultPath": "/Users/paulbrettorozco/Documents/Projects/Nodez",
   "sourceRoot": "/Users/paulbrettorozco/Sites/nodez-app",
   "sourceGit": {
     "isRepo": true,
     "root": "/Users/paulbrettorozco/Sites/nodez-app",
     "branch": "main",
-    "head": "c9a9b26850134c35443fcb6eb104d81c759a64f6",
-    "dirty": true,
-    "changedCount": 1,
+    "head": "c2816a07c7ad6e0106ad62e2b2917871142b9e65",
+    "dirty": false,
+    "changedCount": 0,
     "untrackedCount": 0,
-    "signature": "main|c9a9b26850134c35443fcb6eb104d81c759a64f6",
-    "summary": "main c9a9b26, 1 changed"
+    "signature": "main|c2816a07c7ad6e0106ad62e2b2917871142b9e65",
+    "summary": "main c2816a0"
   },
   "stats": {
-    "nodes": 349,
-    "edges": 577,
-    "extracted": 577,
+    "nodes": 368,
+    "edges": 623,
+    "extracted": 623,
     "inferred": 0,
     "manual": 0,
     "communities": 34
@@ -28,33 +28,33 @@
     "multigraph": false,
     "chunks": [
       {
+        "path": "graph/nodes-structure-1.json",
+        "kind": "nodes",
+        "group": "structure",
+        "count": 319
+      },
+      {
         "path": "graph/nodes-vault-1.json",
         "kind": "nodes",
         "group": "vault",
-        "count": 25
+        "count": 29
       },
       {
         "path": "graph/nodes-symbols-1.json",
         "kind": "nodes",
         "group": "symbols",
-        "count": 18
-      },
-      {
-        "path": "graph/nodes-structure-1.json",
-        "kind": "nodes",
-        "group": "structure",
-        "count": 306
-      },
-      {
-        "path": "graph/edges-links_to-1.json",
-        "kind": "edges",
-        "group": "links_to",
-        "count": 272
+        "count": 20
       },
       {
         "path": "graph/edges-contains-1.json",
         "kind": "edges",
         "group": "contains",
+        "count": 318
+      },
+      {
+        "path": "graph/edges-links_to-1.json",
+        "kind": "edges",
+        "group": "links_to",
         "count": 305
       }
     ]
