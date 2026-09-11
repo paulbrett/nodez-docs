@@ -1,7 +1,7 @@
 {
   "version": 2,
   "format": "nodez.graph.manifest",
-  "generatedAt": "2026-09-11T07:00:14.563Z",
+  "generatedAt": "2026-09-11T07:10:16.040Z",
   "vaultPath": "/Users/paulbrettorozco/Documents/Projects/Nodez",
   "sourceRoot": "/Users/paulbrettorozco/Sites/nodez-app",
   "sourceGit": {
@@ -9,11 +9,11 @@
     "root": "/Users/paulbrettorozco/Sites/nodez-app",
     "branch": "main",
     "head": "759fa1121956eda7fc010f08883fb6adb210080d",
-    "dirty": false,
-    "changedCount": 0,
+    "dirty": true,
+    "changedCount": 1,
     "untrackedCount": 0,
     "signature": "main|759fa1121956eda7fc010f08883fb6adb210080d",
-    "summary": "main 759fa11, clean"
+    "summary": "main 759fa11, 1 changed"
   },
   "stats": {
     "nodes": 374,
