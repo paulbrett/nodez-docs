@@ -317,6 +317,11 @@ worker within the concurrency limit. The coordinator chooses read-only mode
 for inspection work and preserves write access only for scoped implementation
 tasks, so users do not need to configure each permission before running.
 
+Pending refuter reviews remain scheduled after restoring a saved run. If the
+user opens Finish while a verdict is pending, Nodez returns to Activity so the
+review runner remains mounted and can start; Finish also exposes a **Start
+review** fallback instead of leaving the task at an unexplained gate.
+
 Accepted runs can also export a reusable workflow template. This is explicit
 and opt-in; it contains task roles, scopes, and checks, while excluding chat
 transcripts and execution history.

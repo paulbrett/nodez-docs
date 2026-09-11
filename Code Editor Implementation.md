@@ -4,7 +4,7 @@ title: Code Editor Implementation
 type: architecture
 status: active
 created: 2026-08-21
-updated: 2026-08-21
+updated: 2026-09-11
 tags:
   - editor
   - codemirror
@@ -16,7 +16,56 @@ tags:
 
 Related: [[Next Steps]], [[Frontend]], [[Product Roadmap]].
 
-Current Markdown note editor in the app repo: `src/features/notes/MarkdownEditor.tsx` (CodeMirror 6 + Markdown language + format toolbar via `App.tsx`). **MVP code mode landed** in `src/features/editor/components/` (lazy-loaded from the topbar Code button): languages TS/JS/JSON/HTML/CSS/MD, Prettier format, structural lint gutter. This note remains the deeper plan (richer autocomplete, ESLint, multi-file).
+Current Markdown note editor in the app repo: `src/features/notes/MarkdownEditor.tsx` (CodeMirror 6 + Markdown language + format toolbar via `App.tsx`). **MVP code mode landed** in `src/features/editor/components/` (lazy-loaded from the topbar Code button): languages TS/JS/JSON/HTML/CSS/MD, Prettier format, structural lint gutter. This note remains the deeper plan (richer autocomplete, ESLint, multi-file). Work shipped past the MVP is recorded below.
+
+## Shipped past the MVP
+
+### Right-click context menu and Ask AI (2026-09-11)
+
+The editor had no context menu at all, so right-clicking fell through to the
+native WebKit menu. It now carries its own, acting on the current selection:
+Cut, Copy, Paste, Select All, Find, Go to Line, Toggle Comment, and Ask AI.
+
+- `src/features/editor/components/contextMenuItems.ts` — the item model and
+  placement, kept pure so it is testable without a DOM. `buildEditorContextMenu`
+  decides labels, platform shortcut hints and enabled state;
+  `clampMenuPosition` flips the menu back across the cursor at a viewport edge.
+- `src/features/editor/components/EditorContextMenu.tsx` — renders the items,
+  following the `.treeContextMenu` pattern already used by the note tree.
+- `src/features/editor/components/editorCommands.ts` — gained `select-all`,
+  `cut`, `copy` and `paste`. The command map is a `Record<EditorCommandId, …>`,
+  so TypeScript, not a test, enforces that every menu id resolves to a command.
+
+Right-clicking outside the selection moves the caret there first; inside, the
+selection is kept. Dismissing returns focus to the editor.
+
+**Ask AI reuses the chat panel's existing context plumbing** rather than adding a
+second path. `CodexChatPanel` already received `editorContext` (path, content,
+`from`/`to`) and already had `includeCode` and `selectionOnly` toggles, so the
+menu item threads a callback up to `App.tsx`, which opens the chat sidebar and
+bumps an `includeCodeRequest` nonce — the same shape as the `includeNoteRequest`
+behind the note's Ask button. The panel pins the context, sets `selectionOnly`
+only when the range is non-empty, and focuses the composer **without sending**.
+See [[Codex Chat Implementation]].
+
+### Two things worth remembering
+
+**A menu must not arm its own dismissal during the gesture that opened it.** The
+first build looked completely inert — no custom menu, and no native menu either.
+The `preventDefault()` had suppressed the native one, and the opening
+`contextmenu` event then carried on bubbling to the `window` listener that closes
+the menu, destroying it during the frame it spends hidden while measuring itself
+for placement. Nothing was ever painted, so the symptom read as "right-click does
+nothing" rather than as a flicker. `armMenuDismiss` now defers attaching those
+listeners by one animation frame, and holds `onDismiss` in a ref so a
+re-rendering parent cannot disarm and re-arm them.
+
+**Paste depends on a clipboard read the webview may withhold.** Cut and Copy use
+`navigator.clipboard.writeText`, which the app already relies on elsewhere.
+Paste needs `readText`, which WKWebView can refuse. The menu gates the item on a
+capability check up front, and if the read is refused at call time the editor
+latches the failure so every later open shows Paste disabled with a "Use ⌘V"
+hint instead of a dead item.
 
 ## Draft implementation guide
 

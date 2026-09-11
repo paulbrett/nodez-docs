@@ -4,13 +4,40 @@ title: Session Log
 type: session-log
 status: active
 created: 2026-08-19
-updated: 2026-08-25
+updated: 2026-09-11
 tags:
   - session-log
   - repo-indexing
 ---
 
 # Session Log
+
+## 2026-09-11 — Code editor right-click menu and Ask AI
+
+- **The editor never had a context menu.** Right-clicking fell through to the
+  native WebKit menu. It now has its own, acting on the selection: Cut, Copy,
+  Paste, Select All, Find, Go to Line, Toggle Comment, Ask AI. See
+  [[Code Editor Implementation]].
+- **Ask AI was wiring, not new machinery.** `CodexChatPanel` already took
+  `editorContext` with a `from`/`to` range and already had `includeCode` and
+  `selectionOnly` toggles, so the menu item only needed a nonce prop
+  (`includeCodeRequest`) mirroring the `includeNoteRequest` behind the note's
+  Ask button. It pins the selection and focuses the composer without sending.
+- **The first build looked completely dead, and the silence was the clue.** No
+  custom menu *and* no native menu meant `preventDefault()` had run — so the
+  handler was firing and the menu was mounting. The opening `contextmenu` event
+  then kept bubbling to the `window` listener that closes the menu, killing it
+  during the single frame it spends hidden while measuring itself for placement.
+  Nothing ever painted, which is why it read as "right-click does nothing"
+  instead of as a flicker. Deferring the dismiss listeners by one animation
+  frame fixed it.
+- **The item model and the dismiss arming were extracted as pure functions** so
+  they could be tested in Node without a DOM harness, which the repo does not
+  have. Nine new tests in `scripts/code-editor.test.mjs`; 306 pass.
+- **Paste is the one soft spot.** `writeText` is already used across the app,
+  but Paste needs `readText`, which WKWebView can refuse. The menu gates on a
+  capability check and latches a refusal so the item shows disabled with a
+  "Use ⌘V" hint rather than sitting there doing nothing.
 
 ## 2026-08-25 — Public wiki at getnodez.app/wiki
 

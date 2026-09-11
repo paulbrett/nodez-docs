@@ -1,24 +1,24 @@
 {
   "version": 2,
   "format": "nodez.graph.manifest",
-  "generatedAt": "2026-09-10T06:50:15.268Z",
+  "generatedAt": "2026-09-11T07:00:14.563Z",
   "vaultPath": "/Users/paulbrettorozco/Documents/Projects/Nodez",
   "sourceRoot": "/Users/paulbrettorozco/Sites/nodez-app",
   "sourceGit": {
     "isRepo": true,
     "root": "/Users/paulbrettorozco/Sites/nodez-app",
     "branch": "main",
-    "head": "c2816a07c7ad6e0106ad62e2b2917871142b9e65",
+    "head": "759fa1121956eda7fc010f08883fb6adb210080d",
     "dirty": false,
     "changedCount": 0,
     "untrackedCount": 0,
-    "signature": "main|c2816a07c7ad6e0106ad62e2b2917871142b9e65",
-    "summary": "main c2816a0"
+    "signature": "main|759fa1121956eda7fc010f08883fb6adb210080d",
+    "summary": "main 759fa11, clean"
   },
   "stats": {
-    "nodes": 368,
-    "edges": 623,
-    "extracted": 623,
+    "nodes": 374,
+    "edges": 637,
+    "extracted": 637,
     "inferred": 0,
     "manual": 0,
     "communities": 34
@@ -28,16 +28,10 @@
     "multigraph": false,
     "chunks": [
       {
-        "path": "graph/nodes-structure-1.json",
-        "kind": "nodes",
-        "group": "structure",
-        "count": 319
-      },
-      {
         "path": "graph/nodes-vault-1.json",
         "kind": "nodes",
         "group": "vault",
-        "count": 29
+        "count": 30
       },
       {
         "path": "graph/nodes-symbols-1.json",
@@ -46,16 +40,22 @@
         "count": 20
       },
       {
-        "path": "graph/edges-contains-1.json",
-        "kind": "edges",
-        "group": "contains",
-        "count": 318
+        "path": "graph/nodes-structure-1.json",
+        "kind": "nodes",
+        "group": "structure",
+        "count": 324
       },
       {
         "path": "graph/edges-links_to-1.json",
         "kind": "edges",
         "group": "links_to",
-        "count": 305
+        "count": 314
+      },
+      {
+        "path": "graph/edges-contains-1.json",
+        "kind": "edges",
+        "group": "contains",
+        "count": 323
       }
     ]
   }
