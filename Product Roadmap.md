@@ -13,6 +13,8 @@ tags:
 
 ## Status (2026-08-22)
 
+[[Code Editor Implementation]]
+
 - Phase 0 (Prototype): done.
 - Phase 1 (Real vaults): done — Tauri v2 shell; open-folder; read/write/create; explorer; rename/delete with wikilink rewrite; external-edit watcher.
 - Phase 3 (Knowledge features): partial — outline + matching backlink/outgoing pills landed; flush full-height inspector; attachments / search ranking pending — [[Next Steps]]. Plain-text auto-format + code editor MVP done — [[Code Editor Implementation]].

@@ -4,7 +4,7 @@ title: September 9 Improvements
 type: architecture
 status: active
 created: 2026-09-09
-updated: 2026-09-09
+updated: 2026-09-14
 tags:
   - acceptance
   - search
@@ -73,6 +73,7 @@ checks, production frontend build, and diff whitespace checks passed.
 | Grok | 1.0.13 | Connected; exact smoke response; streaming stopped | Read-only and approval interactions |
 | OpenCode | 1.18.23 | Connected; model discovered; reconnect and exact smoke response | Full permission matrix |
 | Gemini | 0.59.0 | CLI detected; missing key reported | User must supply a Gemini API key in Settings → Keys |
+| ModelArk | 1.0.27 | Coding Plan profile/key verified; 11 text models discovered; exact structured-stream smoke response | Stop/reconnect and stored-continuation desktop checks |
 
 ## Remaining release gates
 
@@ -86,4 +87,4 @@ checks, production frontend build, and diff whitespace checks passed.
   cycle. Node.js 20+ remains required for MCP.
 
 Related: [[Next Steps]], [[Backlog]], [[AI Workspace Delivery]],
-[[AI Chat Follow-on Phases]], [[Gemini CLI Provider]].
+[[AI Chat Follow-on Phases]], [[Gemini CLI Provider]], [[ModelArk Provider]].

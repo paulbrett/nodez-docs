@@ -4,7 +4,7 @@ title: AI Chat Conversation Experience
 type: architecture
 status: active
 created: 2026-09-08
-updated: 2026-09-09
+updated: 2026-09-14
 tags:
   - ai-chat
   - agents
@@ -268,6 +268,12 @@ AI Studio API key encoded in Nodez local app data and supplied only to the Gemin
 subprocess. This avoids the retired Gemini Code Assist individual client path.
 See [[Gemini CLI Provider]]. The next chat work is the reviewed multi-file
 change-set slice in [[AI Chat Follow-on Phases]].
+
+ModelArk is the sixth shared provider. Its native adapter runs BytePlus
+`arkcli +chat` with structured streaming, uses the explicit Coding Plan profile,
+and continues turns with stored response IDs. It is read-only because this CLI
+surface does not provide Nodez with local file or command approvals. See
+[[ModelArk Provider]].
 
 ## Delivery slices
 

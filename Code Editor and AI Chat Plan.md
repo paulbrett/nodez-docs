@@ -4,7 +4,7 @@ title: Code Editor and AI Chat Plan
 type: roadmap
 status: active
 created: 2026-09-07
-updated: 2026-09-09
+updated: 2026-09-14
 tags:
   - editor
   - ai
@@ -25,14 +25,14 @@ workspace isolation. The detailed shipped behavior and validation record live in
 Remaining work is release validation: final live desktop acceptance, Windows
 smoke testing, installer/package builds, docs graph refresh, and release
 publishing. Multi-file edit transactions and richer language services remain
-follow-on work. Claude Code, Grok, OpenCode, and Gemini CLI now share the provider
-surface.
+follow-on work. Claude Code, Grok, OpenCode, Gemini CLI, and BytePlus ModelArk now
+share the provider surface.
 
 ## Request and status
 
 On 2026-09-07 the user requested: “update memory get nodez vault and docs --plan for code editor with AI chat”.
 
-Implementation authorized on 2026-09-07 after the user accepted the Codex-first runtime integration recommendation (“lets do it”). Build an optional Codex editor chat using App Server, with commands, file changes, diffs, and explicit runtime approvals. This supersedes the earlier planning-only scope and the no-terminal MVP constraint below for this integration. External agent workflows remain supported. The Claude adapter, Grok ACP adapter, and OpenCode ACP adapter shipped on the feature branch on 2026-09-08. Gemini CLI ACP was added on 2026-09-09. See [[Claude Code Provider]], [[Grok Provider]], [[OpenCode Provider]], and [[Gemini CLI Provider]].
+Implementation authorized on 2026-09-07 after the user accepted the Codex-first runtime integration recommendation (“lets do it”). Build an optional Codex editor chat using App Server, with commands, file changes, diffs, and explicit runtime approvals. This supersedes the earlier planning-only scope and the no-terminal MVP constraint below for this integration. External agent workflows remain supported. The Claude adapter, Grok ACP adapter, and OpenCode ACP adapter shipped on the feature branch on 2026-09-08. Gemini CLI ACP was added on 2026-09-09. The read-only ModelArk structured-stream adapter was added on 2026-09-14. See [[Claude Code Provider]], [[Grok Provider]], [[OpenCode Provider]], [[Gemini CLI Provider]], and [[ModelArk Provider]].
 
 ## Durable project context
 

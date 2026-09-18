@@ -4,7 +4,7 @@ title: AI Chat Controls and Live Usage Plan
 type: roadmap
 status: draft
 created: 2026-09-11
-updated: 2026-09-11
+updated: 2026-09-15
 tags:
   - ai-chat
   - tokens
@@ -24,17 +24,23 @@ Requested September 11, 2026. This is a proposed implementation plan; creating
 this note does not implement features or authorize a release. Existing release
 acceptance gates remain in [[AI Agent Next Steps Handoff]].
 
-**Progress (2026-09-11):** C0, C3, and C4 are implemented in the app repo, per
+**Progress (2026-09-15):** C0–C4 are implemented in the app repo, per
 the design at `docs/superpowers/specs/2026-09-11-reasoning-effort-and-plan-code-design.md`
-and the audit in [[Provider Capability Audit — Effort and Plan Mode]]. Codex
+and the audit in [[Provider Capability Audit — Effort and Plan Mode]]. C1/C2
+now provide a normalized authoritative usage model, a composer usage strip,
+details popover, restored historical snapshots, stale-event rejection, late
+final reconciliation, and separate turn, conversation, and context labels.
+Codex reports streaming cumulative and context snapshots; Claude and Grok
+report final turn usage, while silent adapters show usage as unavailable.
+Automated reducer, persistence, TypeScript, build, and Rust checks pass.
+Desktop visual smoke and live-provider acceptance remain pending. Codex
 reasoning effort is live (model-discovered options, per-turn override, no
-reconnect). Plan/Code mode ships for all five providers, reusing each
+reconnect). Plan/Code mode ships for all five audited providers, reusing each
 adapter's existing native read-only mechanism; Codex, Claude, and Gemini are
 verified available, Grok and OpenCode stay marked unverified pending a live
-write-denial test. MCP vault-write tools are now filtered server-side under
-read-only mode, closing the tool-exposure gap the audit found. C1/C2 (live
-usage model/UI) and C5/C6 (recovery polish, integration evidence) remain
-unstarted, as does effort support for Claude/Grok/OpenCode/Gemini.
+write-denial test. MCP vault-write tools are filtered server-side under
+read-only mode. C5/C6 (recovery polish and full integration evidence) remain,
+as does effort support for Claude/Grok/OpenCode/Gemini.
 
 This note refines usage and turn controls from [[AI Chat Conversation Experience]]
 and [[AI Chat Conversation Experience Implementation Plan]]. Reuse their existing

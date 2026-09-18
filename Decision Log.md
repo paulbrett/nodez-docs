@@ -4,12 +4,20 @@ title: Decision Log
 type: decision-log
 status: active
 created: 2026-08-19
-updated: 2026-09-07
+updated: 2026-09-18
 tags:
   - decisions
 ---
 
 # Decision Log
+
+## 2026-09-18 — Remove a permission mode rather than fake it
+
+**Decision:** ModelArk no longer offers "Ask for approval." It has Read-only and Full access only, the same two modes Claude offers for the same underlying reason.
+
+**Why:** Ark CLI has no per-tool approval protocol. "Ask" enabled the same tools as Full access and ran them immediately with no prompt — the label promised a confirmation step that could never happen. The alternative, building a client-side approval prompt Nodez itself enforces before ever calling the tool, was rejected: it would mean Nodez, not the model, decides what "ask" means for this one provider, silently diverging from what "ask" means for every other provider (a real mid-turn pause the CLI itself controls). A mode that cannot do what its label says is worse than not offering it.
+
+**Corollary — an unrecognized permission mode should fail closed.** The Rust connect path previously granted tool access for any mode string that was not exactly `"read-only"`. It now grants tools only for exactly `"full-access"`; anything else, including a value that should not be reachable anymore, stays read-only.
 
 ## 2026-09-07 — Plan code editor with AI chat
 
@@ -372,3 +380,39 @@ Public distribution is not only "run tauri build". Nodez should have:
 Documented in [[Distribution Versioning and Updates]] and [[Landing Page]]. Sequencing stays under Phase 5 / P7 and must not block agent P0–P3; landing and release feed should land together when first public downloads are offered.
 
 Reason: without versioning and updates, every human reinstall is friction; without a landing page, installers and OTA feeds have no front door.
+
+## 2026-09-18 - A stuck chat turn gets a 90s-silence banner, not an auto-kill
+
+Neither the Claude/Codex subprocess reader thread nor the chat panel had any
+way to notice "no more events are coming" mid-turn — the busy spinner just
+waited forever if a provider process stalled without exiting. The fix is a
+frontend-only watchdog in `CodexChatPanel.tsx`: track the timestamp of the
+last received event, and if 90 seconds pass with zero events during an active
+turn, show a dismissible `.codexStallWarning` banner offering **Interrupt**
+(existing `turn/interrupt`, which already falls back to killing the process
+after 5s) or **Disconnect**.
+
+90s, not something shorter, and a banner, not an automatic interrupt: a
+running tool call (a build, a big grep) or extended thinking can legitimately
+produce zero intermediate events for a long stretch, so a short timeout or an
+automatic kill would punish normal slow turns. The banner only flags the
+pattern of a wedged process — total silence — and leaves the call to the
+user.
+
+## 2026-09-18 - Chat code highlighting moved from highlight.js to CodeMirror/Lezer
+
+`codexMarkdown.ts`'s `highlightCode` (fenced code blocks, command output,
+file-change diffs in the chat) now parses with CodeMirror's Lezer grammars
+and renders via `@lezer/highlight`'s `highlightCode` + `classHighlighter`,
+instead of `highlight.js`.
+
+Reason: the app already bundles CodeMirror 6 and most of the needed grammars
+for the file editor (`@codemirror/lang-javascript/json/html/css/markdown`,
+plus `@codemirror/language-data`'s legacy-mode wrappers for everything else —
+bash, Python, Rust, Go, SQL, YAML, TOML, diff, Dockerfile, C-family, etc.).
+Reusing them avoids a second highlighting engine and gets diff highlighting
+that is semantically correct — `+`/`-` lines map to real `tok-inserted`/
+`tok-deleted` tags — rather than highlight.js's generic diff mode. The notes
+preview (`markdownPreview.ts`) keeps `highlight.js`; this decision is scoped
+to the chat panel only, so `.preview .codeBlock .hljs-*` styling was left
+alone and new `.tok-*` rules were added instead of replacing it.

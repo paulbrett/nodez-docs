@@ -4,13 +4,23 @@ title: Session Log
 type: session-log
 status: active
 created: 2026-08-19
-updated: 2026-09-11
+updated: 2026-09-18
 tags:
   - session-log
   - repo-indexing
 ---
 
 # Session Log
+
+## 2026-09-18 — Provider parity pass, orchestration routing, chat panel UI
+
+- **ModelArk could never be auto-routed by the orchestrator.** `MODEL_TIERS` only carried its `auto` entry; the other ten routable models (Dola Seed, GLM, DeepSeek, Kimi, GPT OSS) were absent from the table entirely, so `hasRankedModels('modelark')` was false. The "route to the lowest capable model" logic itself was already built (`6cf4b4a`, an earlier session) — a stale memory note claiming it was still missing turned out to describe this narrower gap. Added inferred tiers for all ten models plus `scripts/chat-model-tiers.test.mjs`, which now asserts every catalog model outside a small deliberately-unranked set carries a tier, to catch the same gap the next time a provider or model is added.
+- **ModelArk's "Ask for approval" mode was fake.** Ark CLI has no per-tool approval protocol; the mode enabled tools and ran them immediately, identical to Full access, while showing the same label every other provider uses for a real confirmation step. Removed it — ModelArk now offers Read-only and Full access only, like Claude's equivalent limitation — and the Rust connect path fails closed to read-only for any unrecognized mode instead of granting access by default. See [[ModelArk Provider]].
+- **Grok, Gemini, and OpenCode each carried a near-identical function** resolving an ACP `session/request_permission`'s options back to an `optionId`. Consolidated into `acp_permission_result` in `agent_events.rs`, with its own test coverage instead of three copies.
+- **Codex's approval and question cards had no screen-reader announcement** when they appeared mid-turn, unlike turn completion, which already had one. They now share the same persistent status line, via a new `approvalHeading()` shared between the card's visual title and the announcement.
+- **A UI pass on the chat panel, prompted by wanting a second design opinion** (the `redesign-skill` and `emil-design-eng` skills): "Open a source file" lived in the "Connection and history" overflow menu next to auth status and conversation history — three unrelated concerns in one popover. It's a workspace-navigation shortcut, so it moved into the composer's **+** menu, which already handles bringing content into scope. Both popovers also had zero entrance animation and a default center `transform-origin`; added a brief origin-aware scale+fade via `@starting-style`, quieted under reduced motion. The same gap exists on the permission/model/message-menu popovers in the same file — flagged as the next candidate for the same treatment, not yet done.
+- **Command, file-change, and tool activity rows in the transcript all showed the same disclosure arrow** regardless of outcome — a failed command looked identical to a successful one until expanded. Replaced it with a status icon (spinner/check/alert/cancelled) shared across all three row types, driven by the same status vocabulary every provider already translates into. Also discovered none of the code-rendering surfaces in the chat panel — command text, output, diffs, markdown fenced code blocks, inline code — had a `font-family` set anywhere, so code rendered in the body font; applied the existing `--font-mono` token everywhere it was missing.
+- All changes verified with `tsc --noEmit`, the full Node suite (371 tests), `cargo clippy` and `cargo test` (115 tests), and confirmed live via the running `tauri dev` window's hot reload. Note for next machine setup: `node --test` needs Node ≥23 on PATH — this Mac's `/usr/local/bin/node` resolves to v22.6, which cannot load the `.ts` test specifiers; `~/.nvm/versions/node/v24.18.0/bin` works.
 
 ## 2026-09-11 — Code editor right-click menu and Ask AI
 
@@ -871,3 +881,38 @@ Captured in docs vault [[Next Steps]] (and [[Backlog]] / [[TODO]]):
 
 1. **Plain-text auto-format** — on paste/open of unformatted text, ask whether to format; show an Auto-format button when content looks unformatted; build on `src/MarkdownEditor.tsx`
 2. **Lightweight code editor** — track [[Code Editor Implementation]] (CodeMirror 6 + Prettier + lint; Monaco deferred); target `src/components/code-editor/`
+
+## 2026-09-18 Chat: message queue, stuck-turn watchdog, CodeMirror highlighting, AI account profiles
+
+Shipped together and pushed as one batch:
+
+- **AI Account Profiles** — named Codex/Claude CLI logins with per-account
+  credential homes, identity binding, and account leases. Full detail in
+  [[AI Account Profiles]]; implementation spans `agent_accounts.rs`,
+  `claude.rs`/`codex.rs`, `AccountManager.tsx`, `agentAccounts.ts`,
+  `CodexChatPanel.tsx`, `useAgentSession.ts`.
+- **Message queue while busy** — a composer submission sent while a turn is
+  running now queues (`CodexChatPanel.tsx`'s `queuedMessages`) instead of
+  being dropped, and drains one at a time once the turn frees up. A queued
+  message can be edited, removed, or promoted to interrupt the current turn.
+- **Stuck-turn watchdog** — a turn that produces no event at all for 90s
+  (not merely a slow one — long builds and extended thinking are normal)
+  surfaces a `.codexStallWarning` banner with **Interrupt** / **Disconnect**
+  actions, instead of spinning forever. See [[Decision Log]] for the
+  threshold reasoning.
+- **CodeMirror/Lezer chat syntax highlighting** — `codexMarkdown.ts`'s
+  `highlightCode` now parses fenced code, command output, and file-change
+  diffs with CodeMirror's Lezer grammars (`@lezer/highlight` +
+  `classHighlighter`) instead of `highlight.js`, reusing grammars already
+  bundled for the file editor. Diff `+`/`-` lines get semantically correct
+  `tok-inserted`/`tok-deleted` classes. The notes preview
+  (`markdownPreview.ts`) is untouched and still uses `highlight.js`. See
+  [[Decision Log]].
+
+Validation: `node --test scripts/*.test.mjs` (374 passed) and `cargo test`
+(122 passed, 1 pre-existing ignored) both green before push; `npm run build`
+and `npm run tauri -- build` both succeeded (arm64 `Nodez.app` installed to
+`/Applications`, byte-identical to `src-tauri/target/release/bundle/macos/Nodez.app`).
+
+**Next:** profile rename/removal, orchestration-worker account selection (this
+slice is chat-only), auto-format editor plan, or the deferred code-editor work.
