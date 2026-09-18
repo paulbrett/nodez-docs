@@ -1,27 +1,27 @@
 {
   "version": 2,
   "format": "nodez.graph.manifest",
-  "generatedAt": "2026-09-11T07:10:16.040Z",
+  "generatedAt": "2026-09-18T08:12:28.874Z",
   "vaultPath": "/Users/paulbrettorozco/Documents/Projects/Nodez",
   "sourceRoot": "/Users/paulbrettorozco/Sites/nodez-app",
   "sourceGit": {
     "isRepo": true,
     "root": "/Users/paulbrettorozco/Sites/nodez-app",
     "branch": "main",
-    "head": "759fa1121956eda7fc010f08883fb6adb210080d",
-    "dirty": true,
-    "changedCount": 1,
+    "head": "559439aaddfac721faa62c084af1cdfddb764c99",
+    "dirty": false,
+    "changedCount": 0,
     "untrackedCount": 0,
-    "signature": "main|759fa1121956eda7fc010f08883fb6adb210080d",
-    "summary": "main 759fa11, 1 changed"
+    "signature": "main|559439aaddfac721faa62c084af1cdfddb764c99",
+    "summary": "main 559439a, clean"
   },
   "stats": {
-    "nodes": 374,
-    "edges": 637,
-    "extracted": 637,
+    "nodes": 481,
+    "edges": 865,
+    "extracted": 865,
     "inferred": 0,
     "manual": 0,
-    "communities": 34
+    "communities": 35
   },
   "graph": {
     "directed": false,
@@ -31,31 +31,37 @@
         "path": "graph/nodes-vault-1.json",
         "kind": "nodes",
         "group": "vault",
-        "count": 30
+        "count": 109
       },
       {
         "path": "graph/nodes-symbols-1.json",
         "kind": "nodes",
         "group": "symbols",
-        "count": 20
+        "count": 23
       },
       {
         "path": "graph/nodes-structure-1.json",
         "kind": "nodes",
         "group": "structure",
-        "count": 324
+        "count": 349
       },
       {
         "path": "graph/edges-links_to-1.json",
         "kind": "edges",
         "group": "links_to",
-        "count": 314
+        "count": 343
+      },
+      {
+        "path": "graph/edges-tagged_with-1.json",
+        "kind": "edges",
+        "group": "tagged_with",
+        "count": 174
       },
       {
         "path": "graph/edges-contains-1.json",
         "kind": "edges",
         "group": "contains",
-        "count": 323
+        "count": 348
       }
     ]
   }
