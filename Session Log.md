@@ -963,3 +963,42 @@ Not click-tested in the running app.
 **Next:** real type checking is the open one — measured but unscoped (see
 [[Decision Log]]); then file-watching instead of 3s polling, save-all, and a
 non-destructive conflict merge.
+
+## 2026-09-21 Editor: a real watcher, save all, and a mergeable conflict
+
+The batch the previous entry left as next, and the one that mattered most
+because project-wide replace had just started rewriting files underneath open
+buffers.
+
+- **The three-second poll is gone.** `repository_watch` puts a `notify` watcher
+  on the workspace root — same crate and same 250ms coalescing as the vault
+  watcher — and emits `repository-changed` naming only the relative paths that
+  moved, so the frontend re-reads those documents instead of every open one.
+  `.git` and `.nodez` are filtered at the source. Window focus still triggers a
+  full re-check, because a watcher can miss events on a network share.
+- **Save all** (⌥⌘S, a toolbar button, or the palette) writes every dirty tab,
+  reporting `Saved 2 of 3` and naming the failure rather than abandoning the
+  rest.
+- **Compare with disk** replaces "discard your draft and reload" as the only
+  answer to a conflict: the on-disk text loads as a merge base with per-chunk
+  accept and revert. See [[Decision Log]].
+
+Two bugs found by using it rather than by reading it:
+
+- `⌥⌘S` never fired. The handler matched `event.key.toLowerCase() === "s"`, and
+  **macOS turns Option+S into `ß`** — so the chord silently did nothing. It
+  matches `event.code === "KeyS"` now. Worth remembering for any future
+  Option-based chord in this codebase.
+- The external-change check had an `if (checking) return` guard that *dropped*
+  any event arriving mid-pass — precisely the failure this batch existed to
+  prevent. Events are queued and replayed now.
+
+Validation: 387 JS and 135 Rust tests. Two of the four manual checks were
+automated rather than left to the eye — a real `notify` watcher over a real
+directory (asserting the edited file is reported and `.git` churn is not), and
+replace-then-stale-save refusing with CONFLICT. Save all and the merge UI still
+need a person: `tauri-driver` is Windows and Linux only, so this app's GUI
+cannot be driven on macOS. Both were verified by hand.
+
+**Next:** real type checking (measured, unscoped), profile rename/removal, or
+persisting generated images to the vault.

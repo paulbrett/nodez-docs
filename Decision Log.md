@@ -478,3 +478,36 @@ several MB, so persisting one would exhaust both that budget and the local
 storage quota, breaking conversation restore for every conversation. Keeping
 generated images durable would need them written to the vault as real files
 with a path on the item instead — a separate piece of work.
+
+## 2026-09-21 - The editor watches the repository and names what changed
+
+`repository_watch` replaces the three-second poll that re-read every open
+document. It emits `repository-changed` carrying the *relative paths* that
+moved, not a bare "something changed", so the frontend re-reads only those
+files. Window focus still runs a full re-check.
+
+Reason: the poll was both too slow and too expensive — up to three seconds to
+notice a change, while re-reading every open buffer twenty times a minute
+forever. Naming the paths is what makes the event cheap enough to act on
+immediately. The focus check stays because a watcher can miss events (network
+shares, platform quirks), and a rare full pass is a cheap backstop; the point
+was never that polling is wrong, only that polling *constantly* is.
+
+Repository metadata is filtered in Rust rather than in the frontend, because a
+git checkout produces thousands of `.git` events that would otherwise cross the
+IPC boundary only to be discarded.
+
+## 2026-09-21 - A conflict is something to merge, not a choice between two files
+
+A file that changed on disk under an edited buffer used to offer one action:
+discard the draft and reload. **Compare with disk** now loads the on-disk text
+as a merge base over the draft, with per-chunk accept and revert, reusing the
+`unifiedMergeView` already bundled for AI proposals (its `mergeControls` were
+hardcoded off; they are an option now). Discard-and-reload survives as an
+explicit second button.
+
+Reason: the two versions are usually not in conflict line by line — someone
+else's change and yours often touch different parts of the file — so forcing a
+whole-file choice throws away work for no reason. This matters more since
+project-wide replace landed, because that feature deliberately rewrites files
+that may be open and edited.
