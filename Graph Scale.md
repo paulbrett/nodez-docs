@@ -4,7 +4,7 @@ title: Graph Scale
 type: architecture
 status: active
 created: 2026-08-20
-updated: 2026-08-22
+updated: 2026-09-18
 tags:
   - graph
   - graphify
@@ -66,7 +66,7 @@ Renderer split:
 | View | Small graph | Large graph |
 | --- | --- | --- |
 | Graphify | Canvas/vis-style labeled graph | Overview plus expand-on-click only |
-| Stars | Instanced points | GPU point cloud, labels only on focus |
+| Stars | Instanced points (visual layer) | GPU point cloud, labels only on focus |
 | Cells | Community hulls | Far level-of-detail cells |
 
 If Stars still stutters after instancing, evaluate `cosmos.gl` or `sigma.js` plus `graphology`. Do not add multiple new engines at once.
@@ -86,7 +86,7 @@ If Stars still stutters after instancing, evaluate `cosmos.gl` or `sigma.js` plu
 3. Hide `contains` edges in the canvas. Done.
 4. Freeze and cache layout in `.nodez/layout.json`. **Done 2026-08-22** (seed on open; save after 2D cool-down / 3D engine stop).
 5. Move full adjacency/query work into a graph worker. **Done 2026-08-22** (`src/graphQueryWorker.ts` + `graphWorkerClient`; threshold 800 nodes, main-thread fallback).
-6. Make Stars use instanced points instead of one mesh per node.
+6. Make Stars use instanced points instead of one mesh per node. **Partially done 2026-09-18** — see [[Session Log]] for the full breakdown: all *visible* node spheres in `ForceGraph3DNetwork.tsx` now draw through one shared `InstancedMesh` (per-instance transform + color via `setColorAt`), replacing one `Mesh`/material per node. Selection/highlight color updates no longer allocate materials per node. Still open: one invisible per-node hit-mesh remains in the scene for click/hover/drag raycasting (three-forcegraph's built-in interaction model requires a raycastable object per node), so total draw-call count is not yet reduced — only material churn and per-node visual allocation are. A full fix needs custom raycasting against the InstancedMesh (map `instanceId` → node id) plus a hand-rolled drag implementation, which is materially riskier and out of scope for this pass.
 
 Short paste prompt for future agents: keep the 80k index queryable, but never feed it directly to the renderer. Build a capped draw graph, hide `contains`, expand 1 hop on click, cache layout, and move large adjacency work off the UI thread.
 

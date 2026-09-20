@@ -916,3 +916,50 @@ and `npm run tauri -- build` both succeeded (arm64 `Nodez.app` installed to
 
 **Next:** profile rename/removal, orchestration-worker account selection (this
 slice is chat-only), auto-format editor plan, or the deferred code-editor work.
+
+## 2026-09-21 Generated images in chat, and four code-editor gaps closed
+
+**Chat — images a provider or its tools generate.** A tool returning an image
+(an MCP image server, a screenshot tool) had its content silently dropped:
+Claude's `tool_result` image blocks never survived `result_text`, and the ACP
+translator's `text()` returned `""` for an image content block. Both now become
+`data:` URLs, and any item type can carry them, so a tool call, a command, or
+an assistant message renders images inline. Validated by the same type/size
+check as an outgoing attachment. Live-session only — see [[Decision Log]].
+
+**Editor.** A survey of `src/features/editor/` found several things already
+built but never connected, so those came first:
+
+- **Completions were broken by accident.** The repository file-path source was
+  passed as CodeMirror's `override`, which replaces every language-provided
+  source — so editing code offered filename completion and nothing else. Now
+  registered through language data so sources stack; the path index is also
+  built once per editor rather than per keystroke.
+- **Prettier was bundled but unreachable** for repository files
+  (`formatCode.ts` was only called from the notes code-fence path). There is
+  now a Format action and an opt-in Format on save.
+- **`definitionFor()` was dead code** that only matched filenames. Go to
+  Definition now searches the repository and ranks the line that actually
+  *declares* the symbol; a symbol that only ever appears as a mention resolves
+  to nothing rather than jumping to a random call site.
+- **The Replace box in the search sidebar was dead UI** — `replaceQuery` was
+  set and never read. Project-wide find and replace now works, with regex and
+  match-case options and a new revision-checked `repository_replace`.
+- **Diagnostics counted braces.** They now parse with the Prettier parsers the
+  formatter already bundles: real messages, real positions, and no more false
+  positives for a `{` inside a string. Zero added bundle size — see
+  [[Decision Log]] for the measurement that settled the TypeScript question.
+- Editor commands were right-click only; they are palette entries now, listed
+  only while a file is open.
+
+Checked and deliberately *not* done: widening `SupportedCodeLanguage` for
+Rust/Python/YAML. `toggleComment` reads `commentTokens` from language data and
+the grammars already supply it, so comment-toggle and indentation work in those
+files today; that union only gates Prettier and the linter.
+
+Validation: 387 JS tests and 132 Rust tests green, `npm run build` clean.
+Not click-tested in the running app.
+
+**Next:** real type checking is the open one — measured but unscoped (see
+[[Decision Log]]); then file-watching instead of 3s polling, save-all, and a
+non-destructive conflict merge.

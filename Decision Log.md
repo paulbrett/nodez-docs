@@ -416,3 +416,65 @@ that is semantically correct — `+`/`-` lines map to real `tok-inserted`/
 preview (`markdownPreview.ts`) keeps `highlight.js`; this decision is scoped
 to the chat panel only, so `.preview .codeBlock .hljs-*` styling was left
 alone and new `.tok-*` rules were added instead of replacing it.
+
+## 2026-09-21 - Syntax diagnostics come from the bundled Prettier parsers, not TypeScript
+
+[[Code Editor Implementation]] left real linting open, gated on "add this only
+after measuring bundle size". The measurement: `typescript.js` is **8.7MB**,
+plus ~1.9MB for `lib.dom.d.ts`, against an installed app of **9.4MB** — so
+shipping the compiler roughly doubles the app.
+
+`lintCode.ts` instead parses with the Prettier parsers the formatter already
+bundles (TypeScript, Babel, PostCSS, HTML). `dist` measured 6.6MB before and
+6.6MB after: the parsers were already in the main chunk, unused by the linter.
+This replaces brace and paren counting, which both missed real errors and
+invented them for any brace inside a string or comment. Parsing is debounced
+and skipped above 200KB.
+
+Reason: the counting was not a cheap approximation of diagnostics, it was
+wrong in both directions, and the accurate replacement turned out to cost
+nothing. Scope is syntax only.
+
+**Type checking remains undecided, and is not merely a size question.**
+`LanguageServiceHost` is a synchronous API (`readFile`, `fileExists`) while
+repository files only arrive over async Tauri IPC, so it needs either the whole
+module graph pre-loaded in memory or a worker with `SharedArrayBuffer` and
+`Atomics`. That is a scoping conversation, and it is the case
+[[Code Editor Implementation]] says to reconsider Monaco for.
+
+## 2026-09-21 - Widening SupportedCodeLanguage would buy nothing
+
+Checked before building it: `toggleComment` reads `commentTokens` from language
+data, and the grammars loaded through `@codemirror/language-data` already supply
+it (`legacy-modes/mode/rust.js:52`, `python.js:374`). Comment-toggle and
+indentation already work in Rust, Python and YAML files today.
+
+Reason: recorded so the idea is not picked up again. That union only gates
+Prettier (which has parsers for five languages regardless) and the linter; the
+language picker already lists every language-data grammar separately.
+
+## 2026-09-21 - A bulk replace acts on the confirmed file list, never a re-derived one
+
+`repository_replace` takes the explicit paths the user just saw in the search
+results. It does not re-run the search server-side.
+
+Reason: a set re-derived at apply time can differ from the one confirmed — the
+tree may have changed, or the match cap may fall differently — and silently
+widening the scope of a bulk rewrite is the worst possible failure here. Each
+file still goes through the same revision-checked atomic write a normal save
+uses, one file's failure is reported rather than stranding the rest, and the
+confirm names the counts, says Delete when the replacement is empty, and admits
+when results hit the 500-match cap.
+
+## 2026-09-21 - Generated images render live but are not persisted
+
+Images from a provider or its tools are held on the chat item and rendered
+inline, but conversation restore drops them, exactly as it already does for
+user attachments.
+
+Reason: `chatConversationStore.ts` bounds a persisted conversation to ~200KB of
+text and accounts for size by string length. A single base64 image can be
+several MB, so persisting one would exhaust both that budget and the local
+storage quota, breaking conversation restore for every conversation. Keeping
+generated images durable would need them written to the vault as real files
+with a path on the item instead — a separate piece of work.

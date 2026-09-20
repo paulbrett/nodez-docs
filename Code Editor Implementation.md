@@ -526,6 +526,15 @@ Possible packages:
 npm install eslint-linter-browserify
 CodeMirror’s JavaScript language package can connect ESLint’s Linter class to CodeMirror linting, and browserified ESLint can help in browser environments. npm
 Add this only after measuring bundle size.
+
+> **Resolved 2026-09-21 — measured, and answered a different way.** Diagnostics
+> now parse with the Prettier parsers the formatter already bundles: real
+> messages and positions for TS/JS/CSS/HTML at zero added size (`dist` measured
+> 6.6MB before and after), replacing the brace counting. ESLint was not added.
+> Shipping TypeScript for *type* checking would cost 8.7MB against a 9.4MB app
+> and needs a synchronous `LanguageServiceHost` over async Tauri IPC, so it
+> stays open. See [[Decision Log]].
+
 14. Acceptance Criteria
 The AI agent should verify:
 Editor
