@@ -4,7 +4,7 @@ title: Code Editor and AI Chat Plan
 type: roadmap
 status: active
 created: 2026-09-07
-updated: 2026-09-14
+updated: 2026-10-02
 tags:
   - editor
   - ai
@@ -122,6 +122,11 @@ and note context are also implemented.
 Provider readiness now has a native diagnostic path for CLI presence/version,
 credential state, and protocol availability without exposing secrets. The
 remaining gate is the live macOS/Windows provider matrix and release packaging.
+
+Provider readiness now also checks stable CLI releases and offers guarded,
+explicit updates for all six providers. Custom installations stay manual, live
+sessions block updates, and every command is confirmed before it runs. See
+[[AI Provider Updates]].
 
 Check keyboard navigation, focus restoration, panel resizing, light/dark themes, large-file fallback, provider failures, and offline editing. Measure lazy-loaded editor/chat bundles and typing responsiveness.
 
