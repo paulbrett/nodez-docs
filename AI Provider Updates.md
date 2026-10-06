@@ -78,3 +78,22 @@ inputs. Exact ID entry is also available when a provider catalog is behind.
   status in [[Workspace Improvements Plan]]; that unrelated note was unchanged.
 
 Windows desktop validation remains outstanding.
+
+### npm installation prefix correction
+
+The missing Codex `gpt-6.1-sol` was traced to the selected CLI still running
+version 0.153.4. Its live model list omitted the newer model, while another Codex
+installation's cache already contained it. npm's default global prefix differed
+from the selected CLI's prefix, so a generic global update could install a new
+copy without updating the executable Nodez actually launches.
+
+npm update commands now derive `--prefix` from the selected executable's resolved
+package path (or its Windows shim directory). The confirmation displays that
+same argument. Updating the selected macOS installation produced Codex 0.160.1.
+Regression coverage includes a symlink under a prefix containing spaces and
+Windows shim placement; native validation passed with 158 tests and one ignored
+billed integration test.
+
+After reconnecting the installed app, the Codex selector visibly listed
+`gpt-6.1-sol`, `gpt-6-sol`, and `gpt-6-luna`. No model aliases or extra UI filters
+were needed; these IDs came directly from the updated CLI's `model/list`.
