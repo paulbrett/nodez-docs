@@ -4,7 +4,7 @@ title: AI Provider Updates
 type: workflow
 status: active
 created: 2026-10-02
-updated: 2026-10-02
+updated: 2026-10-06
 tags:
   - ai
   - providers
@@ -41,3 +41,40 @@ Official references: [Codex CLI](https://developers.openai.com/codex/cli/),
 [OpenCode](https://opencode.ai/docs/cli/),
 [Gemini CLI](https://github.com/google-gemini/gemini-cli), and
 [ModelArk CLI](https://docs.byteplus.com/en/docs/ModelArk/arkcli).
+
+## October 6 fixes
+
+Provider readiness and update commands run away from the desktop UI thread.
+Installation checks resolve the executable path and follow symlinks to distinguish
+npm packages from Homebrew installations. npm updates use the resolved Node
+runtime, including Windows shims, so the desktop shell does not require a full
+terminal PATH. Settings displays command failures and checking/updating progress.
+A partial version increase leaves the provider marked as having an update available.
+
+Reconnect after a provider update to discover its current model choices. All
+providers remain listed in the switcher: previously discovered lists are cached,
+and the original catalog is available before a provider's first successful
+connection. A successful handshake replaces that provider's choices with its
+full live list, without price or name/version restrictions. Model labels use IDs.
+Codex includes hidden models and follows pagination; OpenCode supports paid and
+grouped model choices; Claude keeps resolved IDs and context suffixes.
+
+Model selection is scoped to the provider, workspace, and account. Other
+providers no longer inherit the old global `nodez.codex.model` preference.
+Restored selections absent from that provider's known choices are discarded;
+new explicit model IDs saved under the provider's own preference remain valid
+inputs. Exact ID entry is also available when a provider catalog is behind.
+
+### October 6 verification
+
+- All 404 script tests passed; native tests passed with 156 successful and one
+  ignored billed ModelArk integration test.
+- TypeScript lint, Markdown lint, and the macOS Tauri release build passed.
+- Rebuilt and installed Nodez in `/Applications/Nodez.app` and verified its signature.
+- Desktop smoke test: switching to OpenCode connected successfully without the
+  stale Codex `gpt-5.6-sol` selection. Its menu listed paid and free models,
+  including `opencode/gpt-6.1-sol`, alongside every provider's model choices.
+- The full docs check still encounters the existing unsupported `proposed`
+  status in [[Workspace Improvements Plan]]; that unrelated note was unchanged.
+
+Windows desktop validation remains outstanding.
